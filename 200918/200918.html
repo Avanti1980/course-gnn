@@ -3165,7 +3165,7 @@ body {
 <p>&#x5BF9;&#x4E8E;&#x6837;&#x672C;<span class="mathjax-exps">$(\xv_i, y_i)$</span></p>
 <p></p><div class="mathjax-exps">$$\begin{align*}         &amp; \pv^{(i)} = \frac{[ \exp (\wv_1^\top \xv_i + b_1), \ldots, \exp (\wv_{C-1}^\top \xv_i + b_{C-1}), 1 ]}{\sum_{c&apos; \in [C-1]} \exp (\wv_{c&apos;}^\top \xv_i + b_{c&apos;}) + 1} \\         &amp; \qv^{(i)} = [1_{y_i=1}, 1_{y_i=2}, \ldots, 1_{y_i=C}] \\         &amp; H (\qv^{(i)}, \pv^{(i)}) = - \sum_{c \in [C]} q^{(i)}_c \log p^{(i)}_c     \end{align*}$$</div><p></p>
 <p>&#x591A;&#x5206;&#x7C7B;&#x5BF9;&#x6570;&#x51E0;&#x7387;&#x56DE;&#x5F52;&#x7684;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x4E3A;</p>
-<p></p><div class="mathjax-exps">$$\begin{align*}         \min_{\wv_c, b_c} &amp; ~ - \frac{\lambda}{m} \sum_{i \in [m]} \sum_{c \in [C]} p^{(i)}_c \log q^{(i)}_c + \frac{1}{2} \sum_{c \in [C-1]} \| \wv_c \|_2^2     \end{align*}$$</div><p></p>
+<p></p><div class="mathjax-exps">$$\begin{align*}         \min_{\wv_c, b_c} &amp; ~ \frac{\lambda}{m} \sum_{i \in [m]} \sum_{c \in [C]} q^{(i)}_c \log \frac{1}{p^{(i)}_c} + \frac{1}{2} \sum_{c \in [C-1]} \| \wv_c \|_2^2     \end{align*}$$</div><p></p>
 <div class="footer">
     <hr class="hr_bottom">
     <div class="multi_column">
