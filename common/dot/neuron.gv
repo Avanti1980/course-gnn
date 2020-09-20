@@ -1,0 +1,33 @@
+digraph g {
+    graph [nodesep=0.1, ranksep=0.5]
+    rankdir=LR
+    node [shape=circle color="#586e75" fontname="EBGaramond12-Regular,fz-lz" fontcolor="#b58900" fontsize=16]
+    edge [arrowhead=vee color="#586e75" fontname="EBGaramond12-Regular,fz-lz" fontcolor="#268bd2" fontsize=16 arrowsize=0.5]
+    bgcolor="#fdf6e3"
+
+    x1 [texlbl="$x_1$"]
+    x2 [texlbl="$x_2$"]
+
+    node [shape=plaintext]
+
+    x3 [texlbl="$\vdots$"]
+
+    node [shape=circle]
+    xn [texlbl="$x_n$"]
+    1 [texlbl="$1$"]
+
+    {rank = same; x1; x2; x3; xn; 1}
+
+    s [texlbl="$\sum$"]
+
+    x1 -> s [texlbl="$w_1$"]
+    x2 -> s [texlbl="$w_2$"]
+    x3 -> s [style=invisible]
+    xn -> s [texlbl="$w_n$"]
+    1 -> s [texlbl="$b$"]
+
+    o [texlbl="O"]
+
+    s -> o [label="active function"]
+
+}

@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage[x11names, svgnames, rgb]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usepackage{amsmath}
+%
+%
+
+%
+
+%
+
+\begin{document}
+\pagestyle{empty}
+%
+%
+%
+
+\enlargethispage{100cm}
+% Start of code
+\begin{tikzpicture}[>=latex',line join=bevel,]
+%%
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{0.99,0.96,0.89};
+  \pgfsetfillcolor{fillcol}
+  \filldraw (0.0bp,0.0bp) -- (0.0bp,225.18bp) -- (287.54bp,225.18bp) -- (287.54bp,0.0bp) -- cycle;
+\end{scope}
+  \definecolor{strokecolor}{rgb}{0.35,0.43,0.46};
+  \node (x1) at (27.0bp,205.38bp) [draw=strokecolor,circle] {$x_1$};
+  \definecolor{strokecolor}{rgb}{0.35,0.43,0.46};
+  \node (x2) at (27.0bp,157.38bp) [draw=strokecolor,circle] {$x_2$};
+  \definecolor{strokecolor}{rgb}{0.35,0.43,0.46};
+  \node (x3) at (27.0bp,111.38bp) [draw=strokecolor,draw=none] {$\vdots$};
+  \definecolor{strokecolor}{rgb}{0.35,0.43,0.46};
+  \node (xn) at (27.0bp,65.385bp) [draw=strokecolor,circle] {$x_n$};
+  \definecolor{strokecolor}{rgb}{0.35,0.43,0.46};
+  \node (1) at (27.0bp,18.385bp) [draw=strokecolor,circle] {$1$};
+  \definecolor{strokecolor}{rgb}{0.35,0.43,0.46};
+  \node (s) at (109.38bp,111.38bp) [draw=strokecolor,circle] {$\sum$};
+  \definecolor{strokecolor}{rgb}{0.35,0.43,0.46};
+  \node (o) at (269.15bp,111.38bp) [draw=strokecolor,circle] {O};
+  \definecolor{strokecolor}{rgb}{0.35,0.43,0.46};
+  \draw [strokecolor,-stealth'] (x1) ..controls (46.319bp,189.26bp) and (50.426bp,185.28bp)  .. (54.0bp,181.38bp) .. controls (69.001bp,165.05bp) and (84.345bp,144.93bp)  .. (s);
+  \definecolor{strokecolor}{rgb}{0.35,0.43,0.46};
+  \draw [strokecolor,-stealth'] (x2) ..controls (58.446bp,139.96bp) and (75.352bp,130.29bp)  .. (s);
+  \definecolor{strokecolor}{rgb}{0.35,0.43,0.46};
+  \draw [strokecolor,-stealth'] (xn) ..controls (58.446bp,82.807bp) and (75.352bp,92.482bp)  .. (s);
+  \definecolor{strokecolor}{rgb}{0.35,0.43,0.46};
+  \draw [strokecolor,-stealth'] (1) ..controls (46.026bp,32.668bp) and (50.33bp,36.531bp)  .. (54.0bp,40.385bp) .. controls (69.528bp,56.687bp) and (84.913bp,77.3bp)  .. (s);
+  \definecolor{strokecolor}{rgb}{0.35,0.43,0.46};
+  \draw [strokecolor,-stealth'] (s) ..controls (156.54bp,111.38bp) and (213.52bp,111.38bp)  .. (o);
+  \definecolor{strokecol}{rgb}{0.15,0.55,0.82};
+  \pgfsetstrokecolor{strokecol}
+  \draw (189.27bp,120.38bp) node {active function};
+%
+\end{tikzpicture}
+% End of code
+
+%
+\end{document}
+%
+
+
+

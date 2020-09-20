@@ -3101,7 +3101,7 @@ body {
     </div>
     <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
 </div>
-<p>&#x5F15;&#x5165;&#x5355;&#x8C03;&#x9012;&#x589E;&#x7684;Sigmoid&#x51FD;&#x6570;<span class="mathjax-exps">$\sigma: \Rbb \mapsto [0,1]$</span><br>
+<p>&#x5F15;&#x5165;&#x5355;&#x8C03;&#x9012;&#x589E;&#x7684;Logistic&#x51FD;&#x6570;<span class="mathjax-exps">$\sigma: \Rbb \mapsto [0,1]$</span><br>
 </p><div class="mathjax-exps">$$\begin{align*}         \sigma(z) = \frac{1}{1 + \exp (-z)} = \begin{cases}              1 &amp; &#x82E5;~z \rightarrow \infty \\              0 &amp; &#x82E5;~z \rightarrow -\infty         \end{cases}     \end{align*}$$</div><p></p>
 <p>&#x5219;<span class="mathjax-exps">$P(y = 1 | \xv) \triangleq \sigma(\wv^\top \xv + b)$</span>&#x4E3A;&#x9884;&#x6D4B;&#x4E3A;&#x6B63;&#x7C7B;&#x7684;&#x6982;&#x7387;</p>
 <p>&#x6B64;&#x65F6;&#x9700;&#x5EA6;&#x91CF;&#x9884;&#x6D4B;&#x7ED3;&#x679C;<span class="mathjax-exps">$\pv = [\sigma(\wv^\top \xv + b); 1 - \sigma(\wv^\top \xv + b)]$</span>&#x4E0E;<span class="mathjax-exps">$\qv = [\frac{1+y}{2}; \frac{1-y}{2}]$</span>&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x522B;&#xFF0C;&#x523B;&#x753B;&#x5206;&#x5E03;&#x95F4;&#x5DEE;&#x522B;&#x6700;&#x5E38;&#x7528;&#x7684;&#x5C31;&#x662F;<span class="yellow">&#x4EA4;&#x53C9;&#x71B5;</span>(<span class="mathjax-exps">$\pv = \qv$</span>&#x65F6;&#x53D6;&#x6700;&#x5C0F;)&#xFF1A;<br>
@@ -3207,7 +3207,7 @@ body {
         <tr>
             <td style="border-right:1px solid">&#x4E8C;&#x5206;&#x7C7B;</td>
             <td>&#x4E00;&#x5C42;</td>
-            <td>Sigmoid</td>
+            <td>Logistic</td>
             <td>$1$</td>
         </tr>
         <tr style="border-bottom:1px solid;border-top:none">
