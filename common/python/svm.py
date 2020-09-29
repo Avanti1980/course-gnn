@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
 import numpy as np
 from matplotlib import pyplot as plt
 from sklearn.datasets import make_blobs
