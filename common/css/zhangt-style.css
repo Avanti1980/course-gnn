@@ -186,7 +186,7 @@
 .reveal .title_hr {
     display: flex;
     flex-direction: column-reverse;
-    width: 76%;
+    width: 42%;
 }
 
 .reveal .footer {
@@ -228,6 +228,7 @@
     font-family: EBGaramond12-Regular, fz-lz;
     margin-top: 0.5%;
     margin-bottom: 0.5%;
+    color: var(--base01);
 }
 
 .reveal ul li ul li {

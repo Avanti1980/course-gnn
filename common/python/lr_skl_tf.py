@@ -32,7 +32,7 @@ lr_tf.add(
         kernel_regularizer=L2(0.01),
     )
 )
-lr_tf.compile(optimizer=Adam(0.005), loss="binary_crossentropy")
+lr_tf.compile(optimizer=Adam(0.5), loss="binary_crossentropy")
 lr_tf.fit(data, label, epochs=40, batch_size=32)
 
 ax = plt.gca()
