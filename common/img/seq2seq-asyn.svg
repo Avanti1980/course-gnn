@@ -12,11 +12,11 @@
    height="117.018pt"
    viewBox="0 0 431.663 117.018"
    version="1.1"
-   id="svg372"
-   sodipodi:docname="seq2seq-asyn.svg"
+   id="svg352"
+   sodipodi:docname="c.svg"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
   <metadata
-     id="metadata376">
+     id="metadata356">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -38,7 +38,7 @@
      inkscape:pageshadow="2"
      inkscape:window-width="3840"
      inkscape:window-height="2106"
-     id="namedview374"
+     id="namedview354"
      showgrid="false"
      inkscape:zoom="4.0986835"
      inkscape:cx="195.91657"
@@ -46,7 +46,7 @@
      inkscape:window-x="0"
      inkscape:window-y="54"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg372" />
+     inkscape:current-layer="svg352" />
   <defs
      id="defs73">
     <g
@@ -224,7 +224,7 @@
     </clipPath>
   </defs>
   <g
-     id="g687">
+     id="g645">
     <path
        style="fill:#eee6d4;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="M 227.17187,116.61719 H 261.1875 V 99.609375 h -34.01563 z m 0,0"
@@ -527,61 +527,45 @@
        id="path219" />
     <use
        xlink:href="#glyph1-3"
-       x="233.056"
-       y="24.128"
+       x="239.00301"
+       y="24.320999"
        id="use221"
        width="100%"
        height="100%"
        style="fill:#d1357f;fill-opacity:1" />
     <use
-       xlink:href="#glyph3-1"
-       x="238.937"
-       y="25.622"
-       id="use225"
-       width="100%"
-       height="100%"
-       style="fill:#d1357f;fill-opacity:1" />
-    <use
-       xlink:href="#glyph2-3"
-       x="244.715"
-       y="25.622"
-       id="use229"
-       width="100%"
-       height="100%"
-       style="fill:#d1357f;fill-opacity:1" />
-    <use
        xlink:href="#glyph2-1"
-       x="250.83102"
-       y="25.622"
-       id="use231"
+       x="244.884"
+       y="25.816"
+       id="use225"
        width="100%"
        height="100%"
        style="fill:#d1357f;fill-opacity:1" />
     <path
        style="fill:none;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
        d="m 244.17969,56.691406 v -22.125"
-       id="path235" />
+       id="path229" />
     <path
        style="fill:#576e73;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 244.17969,31.976562 -2.07032,4.144532 2.07032,-1.554688 2.07422,1.554688"
-       id="path237" />
+       id="path231" />
     <path
        style="fill:none;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
        d="m 204.89453,65.59375 h 19.28906"
-       id="path239" />
+       id="path233" />
     <path
        style="fill:#576e73;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 226.77344,65.59375 -4.14453,-2.070312 1.55468,2.070312 -1.55468,2.074219"
-       id="path241" />
+       id="path235" />
     <path
        style="fill:none;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
        d="m 283.86719,74.097656 h 34.01562 V 57.089844 h -34.01562 z m 0,0"
-       id="path243" />
+       id="path237" />
     <use
        xlink:href="#glyph1-1"
        x="289.53699"
        y="66.647003"
-       id="use245"
+       id="use239"
        width="100%"
        height="100%"
        style="fill:#d1357f;fill-opacity:1" />
@@ -589,7 +573,7 @@
        xlink:href="#glyph3-1"
        x="295.84201"
        y="68.141998"
-       id="use249"
+       id="use243"
        width="100%"
        height="100%"
        style="fill:#d1357f;fill-opacity:1" />
@@ -597,7 +581,7 @@
        xlink:href="#glyph2-3"
        x="301.62"
        y="68.141998"
-       id="use253"
+       id="use247"
        width="100%"
        height="100%"
        style="fill:#d1357f;fill-opacity:1" />
@@ -605,143 +589,127 @@
        xlink:href="#glyph2-2"
        x="307.73602"
        y="68.141998"
-       id="use255"
+       id="use249"
        width="100%"
        height="100%"
        style="fill:#d1357f;fill-opacity:1" />
     <path
        style="fill:#eee6d4;fill-opacity:1;fill-rule:nonzero;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
        d="m 283.86719,31.578125 h 34.01562 V 14.570313 h -34.01562 z m 0,0"
-       id="path259" />
+       id="path253" />
     <use
        xlink:href="#glyph1-3"
-       x="289.74899"
-       y="24.128"
-       id="use261"
-       width="100%"
-       height="100%"
-       style="fill:#d1357f;fill-opacity:1" />
-    <use
-       xlink:href="#glyph3-1"
-       x="295.629"
-       y="25.622"
-       id="use265"
-       width="100%"
-       height="100%"
-       style="fill:#d1357f;fill-opacity:1" />
-    <use
-       xlink:href="#glyph2-3"
-       x="301.40701"
-       y="25.622"
-       id="use269"
+       x="295.69601"
+       y="24.320999"
+       id="use255"
        width="100%"
        height="100%"
        style="fill:#d1357f;fill-opacity:1" />
     <use
        xlink:href="#glyph2-2"
-       x="307.52301"
-       y="25.622"
-       id="use271"
+       x="301.57599"
+       y="25.816"
+       id="use259"
        width="100%"
        height="100%"
        style="fill:#d1357f;fill-opacity:1" />
     <path
        style="fill:none;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
        d="m 300.875,56.691406 v -22.125"
-       id="path275" />
+       id="path263" />
     <path
        style="fill:#576e73;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 300.875,31.976562 -2.07422,4.144532 2.07422,-1.554688 2.07031,1.554688"
-       id="path277" />
+       id="path265" />
     <path
        style="fill:none;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
        d="m 261.58594,65.59375 h 19.29297"
-       id="path279" />
+       id="path267" />
     <path
        style="fill:#576e73;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 283.46875,65.59375 -4.14453,-2.070312 1.55469,2.070312 -1.55469,2.074219"
-       id="path281" />
+       id="path269" />
     <path
        style="fill:none;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:2.98883, 2.98883;stroke-opacity:1"
        d="M 244.17969,14.171875 V 0.39844 h 28.34765 V 88.273438 H 300.875 v -11.1875"
-       id="path283" />
+       id="path271" />
     <path
        style="fill:#576e73;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 300.875,74.496094 -2.07422,4.144531 2.07422,-1.554687 2.07031,1.554687"
-       id="path285" />
+       id="path273" />
     <use
        xlink:href="#glyph0-4"
        x="353.41299"
        y="66.122002"
+       id="use275"
+       width="100%"
+       height="100%"
+       style="fill:#576e73;fill-opacity:1" />
+    <use
+       xlink:href="#glyph0-4"
+       x="356.1806"
+       y="66.122002"
+       id="use277"
+       width="100%"
+       height="100%"
+       style="fill:#576e73;fill-opacity:1" />
+    <use
+       xlink:href="#glyph0-4"
+       x="358.94821"
+       y="66.122002"
+       id="use279"
+       width="100%"
+       height="100%"
+       style="fill:#576e73;fill-opacity:1" />
+    <use
+       xlink:href="#glyph0-4"
+       x="353.41299"
+       y="23.601999"
+       id="use283"
+       width="100%"
+       height="100%"
+       style="fill:#576e73;fill-opacity:1" />
+    <use
+       xlink:href="#glyph0-4"
+       x="356.1806"
+       y="23.601999"
+       id="use285"
+       width="100%"
+       height="100%"
+       style="fill:#576e73;fill-opacity:1" />
+    <use
+       xlink:href="#glyph0-4"
+       x="358.94821"
+       y="23.601999"
        id="use287"
-       width="100%"
-       height="100%"
-       style="fill:#576e73;fill-opacity:1" />
-    <use
-       xlink:href="#glyph0-4"
-       x="356.1806"
-       y="66.122002"
-       id="use289"
-       width="100%"
-       height="100%"
-       style="fill:#576e73;fill-opacity:1" />
-    <use
-       xlink:href="#glyph0-4"
-       x="358.94821"
-       y="66.122002"
-       id="use291"
-       width="100%"
-       height="100%"
-       style="fill:#576e73;fill-opacity:1" />
-    <use
-       xlink:href="#glyph0-4"
-       x="353.41299"
-       y="23.601999"
-       id="use295"
-       width="100%"
-       height="100%"
-       style="fill:#576e73;fill-opacity:1" />
-    <use
-       xlink:href="#glyph0-4"
-       x="356.1806"
-       y="23.601999"
-       id="use297"
-       width="100%"
-       height="100%"
-       style="fill:#576e73;fill-opacity:1" />
-    <use
-       xlink:href="#glyph0-4"
-       x="358.94821"
-       y="23.601999"
-       id="use299"
        width="100%"
        height="100%"
        style="fill:#576e73;fill-opacity:1" />
     <path
        style="fill:none;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
        d="m 318.28125,65.59375 h 19.28906"
-       id="path303" />
+       id="path291" />
     <path
        style="fill:#576e73;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 340.16016,65.59375 -4.14454,-2.070312 1.55469,2.070312 -1.55469,2.074219"
-       id="path305" />
+       id="path293" />
     <path
        style="fill:none;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:2.98883, 2.98883;stroke-opacity:1"
        d="M 300.875,14.171875 V 0.39844 h 28.34766 v 87.874998 h 28.34375 v -11.1875"
-       id="path307" />
+       id="path295" />
     <path
        style="fill:#576e73;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 357.56641,74.496094 -2.07032,4.144531 2.07032,-1.554687 2.07421,1.554687"
-       id="path309" />
+       id="path297" />
     <path
        style="clip-rule:nonzero;fill:none;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
        d="m 397.25391,74.097656 h 34.01562 V 57.089844 h -34.01562 z m 0,0"
-       id="path311" />
+       id="path299" />
     <use
        xlink:href="#glyph1-1"
        x="402.271"
        y="66.647003"
-       id="use315"
+       id="use303"
        width="100%"
        height="100%"
        style="fill:#d1357f;fill-opacity:1" />
@@ -749,7 +717,7 @@
        xlink:href="#glyph3-1"
        x="408.57599"
        y="68.141998"
-       id="use319"
+       id="use307"
        width="100%"
        height="100%"
        style="fill:#d1357f;fill-opacity:1" />
@@ -757,7 +725,7 @@
        xlink:href="#glyph2-3"
        x="414.354"
        y="68.141998"
-       id="use323"
+       id="use311"
        width="100%"
        height="100%"
        style="fill:#d1357f;fill-opacity:1" />
@@ -765,81 +733,65 @@
        xlink:href="#glyph3-2"
        x="420.47"
        y="68.141998"
-       id="use327"
+       id="use315"
        width="100%"
        height="100%"
        style="fill:#d1357f;fill-opacity:1" />
     <path
        style="clip-rule:nonzero;fill:#eee6d4;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 397.25391,31.578125 h 34.01562 V 14.570312 h -34.01562 z m 0,0"
-       id="path331" />
+       id="path319" />
     <path
        style="clip-rule:nonzero;fill:none;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
        d="m 397.25391,31.578125 h 34.01562 V 14.570313 h -34.01562 z m 0,0"
-       id="path335" />
+       id="path323" />
     <use
        xlink:href="#glyph1-3"
-       x="402.483"
-       y="24.128"
-       id="use339"
-       width="100%"
-       height="100%"
-       style="fill:#d1357f;fill-opacity:1" />
-    <use
-       xlink:href="#glyph3-1"
-       x="408.36401"
-       y="25.622"
-       id="use343"
-       width="100%"
-       height="100%"
-       style="fill:#d1357f;fill-opacity:1" />
-    <use
-       xlink:href="#glyph2-3"
-       x="414.142"
-       y="25.622"
-       id="use347"
+       x="408.42999"
+       y="24.320999"
+       id="use327"
        width="100%"
        height="100%"
        style="fill:#d1357f;fill-opacity:1" />
     <use
        xlink:href="#glyph3-2"
-       x="420.258"
-       y="25.622"
-       id="use351"
+       x="414.311"
+       y="25.816"
+       id="use331"
        width="100%"
        height="100%"
        style="fill:#d1357f;fill-opacity:1" />
     <path
        style="fill:none;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
        d="m 414.26172,56.691406 v -22.125"
-       id="path355" />
+       id="path335" />
     <path
        style="fill:#576e73;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 414.26172,31.976562 -2.07031,4.144532 2.07031,-1.554688 2.07422,1.554688"
-       id="path357" />
+       id="path337" />
     <path
        style="fill:none;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
        d="m 374.97656,65.59375 h 19.28906"
-       id="path359" />
+       id="path339" />
     <path
        style="fill:#576e73;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 396.85547,65.59375 -4.14453,-2.070312 1.55468,2.070312 -1.55468,2.074219"
-       id="path361" />
+       id="path341" />
     <path
        style="fill:none;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:2.98883, 2.98883;stroke-opacity:1"
        d="M 357.56641,14.171875 V 0.39844 h 28.34765 v 87.874998 h 28.34766 v -11.1875"
-       id="path363" />
+       id="path343" />
     <path
        style="fill:#576e73;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 414.26172,74.496094 -2.07031,4.144531 2.07031,-1.554687 2.07422,1.554687"
-       id="path365" />
+       id="path345" />
     <path
        style="fill:none;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
        d="m 244.17969,99.210938 v -22.125"
-       id="path367" />
+       id="path347" />
     <path
        style="fill:#576e73;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 244.17969,74.496094 -2.07032,4.144531 2.07032,-1.554687 2.07422,1.554687"
-       id="path369" />
+       id="path349" />
   </g>
 </svg>
