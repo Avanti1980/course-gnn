@@ -1,0 +1,2193 @@
+<!DOCTYPE html><html><head>
+      <title>07</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <style>
+      /*!
+ * reveal.js
+ * http://revealjs.com
+ * MIT licensed
+ *
+ * Copyright (C) 2018 Hakim El Hattab, http://hakim.se
+ */
+/*********************************************
+ * RESET STYLES
+ *********************************************/
+html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal iframe,
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal p, .reveal blockquote, .reveal pre,
+.reveal a, .reveal abbr, .reveal acronym, .reveal address, .reveal big, .reveal cite, .reveal code,
+.reveal del, .reveal dfn, .reveal em, .reveal img, .reveal ins, .reveal kbd, .reveal q, .reveal s, .reveal samp,
+.reveal small, .reveal strike, .reveal strong, .reveal sub, .reveal sup, .reveal tt, .reveal var,
+.reveal b, .reveal u, .reveal center,
+.reveal dl, .reveal dt, .reveal dd, .reveal ol, .reveal ul, .reveal li,
+.reveal fieldset, .reveal form, .reveal label, .reveal legend,
+.reveal table, .reveal caption, .reveal tbody, .reveal tfoot, .reveal thead, .reveal tr, .reveal th, .reveal td,
+.reveal article, .reveal aside, .reveal canvas, .reveal details, .reveal embed,
+.reveal figure, .reveal figcaption, .reveal footer, .reveal header, .reveal hgroup,
+.reveal menu, .reveal nav, .reveal output, .reveal ruby, .reveal section, .reveal summary,
+.reveal time, .reveal mark, .reveal audio, .reveal video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  /* font: inherit; */
+  vertical-align: baseline; }
+
+.reveal article, .reveal aside, .reveal details, .reveal figcaption, .reveal figure,
+.reveal footer, .reveal header, .reveal hgroup, .reveal menu, .reveal nav, .reveal section {
+  display: block; }
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+body {
+  position: relative;
+  line-height: 1;
+  background-color: #fff;
+  color: #000; }
+
+/*********************************************
+ * VIEW FRAGMENTS
+ *********************************************/
+.reveal .slides section .fragment {
+  opacity: 0;
+  visibility: hidden;
+  transition: all .2s ease; }
+  .reveal .slides section .fragment.visible {
+    opacity: 1;
+    visibility: inherit; }
+
+.reveal .slides section .fragment.grow {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.grow.visible {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3); }
+
+.reveal .slides section .fragment.shrink {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.shrink.visible {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7); }
+
+.reveal .slides section .fragment.zoom-in {
+  -webkit-transform: scale(0.1);
+          transform: scale(0.1); }
+  .reveal .slides section .fragment.zoom-in.visible {
+    -webkit-transform: none;
+            transform: none; }
+
+.reveal .slides section .fragment.fade-out {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.fade-out.visible {
+    opacity: 0;
+    visibility: hidden; }
+
+.reveal .slides section .fragment.semi-fade-out {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.semi-fade-out.visible {
+    opacity: 0.5;
+    visibility: inherit; }
+
+.reveal .slides section .fragment.strike {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike.visible {
+    text-decoration: line-through; }
+
+.reveal .slides section .fragment.fade-up {
+  -webkit-transform: translate(0, 20%);
+          transform: translate(0, 20%); }
+  .reveal .slides section .fragment.fade-up.visible {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+.reveal .slides section .fragment.fade-down {
+  -webkit-transform: translate(0, -20%);
+          transform: translate(0, -20%); }
+  .reveal .slides section .fragment.fade-down.visible {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+.reveal .slides section .fragment.fade-right {
+  -webkit-transform: translate(-20%, 0);
+          transform: translate(-20%, 0); }
+  .reveal .slides section .fragment.fade-right.visible {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+.reveal .slides section .fragment.fade-left {
+  -webkit-transform: translate(20%, 0);
+          transform: translate(20%, 0); }
+  .reveal .slides section .fragment.fade-left.visible {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+.reveal .slides section .fragment.fade-in-then-out,
+.reveal .slides section .fragment.current-visible {
+  opacity: 0;
+  visibility: hidden; }
+  .reveal .slides section .fragment.fade-in-then-out.current-fragment,
+  .reveal .slides section .fragment.current-visible.current-fragment {
+    opacity: 1;
+    visibility: inherit; }
+
+.reveal .slides section .fragment.fade-in-then-semi-out {
+  opacity: 0;
+  visibility: hidden; }
+  .reveal .slides section .fragment.fade-in-then-semi-out.visible {
+    opacity: 0.5;
+    visibility: inherit; }
+  .reveal .slides section .fragment.fade-in-then-semi-out.current-fragment {
+    opacity: 1;
+    visibility: inherit; }
+
+.reveal .slides section .fragment.highlight-red,
+.reveal .slides section .fragment.highlight-current-red,
+.reveal .slides section .fragment.highlight-green,
+.reveal .slides section .fragment.highlight-current-green,
+.reveal .slides section .fragment.highlight-blue,
+.reveal .slides section .fragment.highlight-current-blue {
+  opacity: 1;
+  visibility: inherit; }
+
+.reveal .slides section .fragment.highlight-red.visible {
+  color: #ff2c2d; }
+
+.reveal .slides section .fragment.highlight-green.visible {
+  color: #17ff2e; }
+
+.reveal .slides section .fragment.highlight-blue.visible {
+  color: #1b91ff; }
+
+.reveal .slides section .fragment.highlight-current-red.current-fragment {
+  color: #ff2c2d; }
+
+.reveal .slides section .fragment.highlight-current-green.current-fragment {
+  color: #17ff2e; }
+
+.reveal .slides section .fragment.highlight-current-blue.current-fragment {
+  color: #1b91ff; }
+
+/*********************************************
+ * DEFAULT ELEMENT STYLES
+ *********************************************/
+/* Fixes issue in Chrome where italic fonts did not appear when printing to PDF */
+.reveal:after {
+  content: '';
+  font-style: italic; }
+
+.reveal iframe {
+  z-index: 1; }
+
+/** Prevents layering issues in certain browser/transition combinations */
+.reveal a {
+  position: relative; }
+
+.reveal .stretch {
+  max-width: none;
+  max-height: none; }
+
+.reveal pre.stretch code {
+  height: 100%;
+  max-height: 100%;
+  box-sizing: border-box; }
+
+/*********************************************
+ * CONTROLS
+ *********************************************/
+@-webkit-keyframes bounce-right {
+  0%, 10%, 25%, 40%, 50% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  20% {
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px); }
+  30% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px); } }
+@keyframes bounce-right {
+  0%, 10%, 25%, 40%, 50% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  20% {
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px); }
+  30% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px); } }
+
+@-webkit-keyframes bounce-down {
+  0%, 10%, 25%, 40%, 50% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  20% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); }
+  30% {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px); } }
+
+@keyframes bounce-down {
+  0%, 10%, 25%, 40%, 50% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  20% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); }
+  30% {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px); } }
+
+.reveal .controls {
+  display: none;
+  position: absolute;
+  top: auto;
+  bottom: 12px;
+  right: 12px;
+  left: auto;
+  z-index: 1;
+  color: #000;
+  pointer-events: none;
+  font-size: 10px; }
+  .reveal .controls button {
+    position: absolute;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    color: currentColor;
+    -webkit-transform: scale(0.9999);
+            transform: scale(0.9999);
+    transition: color 0.2s ease, opacity 0.2s ease, -webkit-transform 0.2s ease;
+    transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+    z-index: 2;
+    pointer-events: auto;
+    font-size: inherit;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent; }
+  .reveal .controls .controls-arrow:before,
+  .reveal .controls .controls-arrow:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.6em;
+    height: 0.5em;
+    border-radius: 0.25em;
+    background-color: currentColor;
+    transition: all 0.15s ease, background-color 0.8s ease;
+    -webkit-transform-origin: 0.2em 50%;
+            transform-origin: 0.2em 50%;
+    will-change: transform; }
+  .reveal .controls .controls-arrow {
+    position: relative;
+    width: 3.6em;
+    height: 3.6em; }
+    .reveal .controls .controls-arrow:before {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(45deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(45deg); }
+    .reveal .controls .controls-arrow:after {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(-45deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(-45deg); }
+    .reveal .controls .controls-arrow:hover:before {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(40deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(40deg); }
+    .reveal .controls .controls-arrow:hover:after {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(-40deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(-40deg); }
+    .reveal .controls .controls-arrow:active:before {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(36deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(36deg); }
+    .reveal .controls .controls-arrow:active:after {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(-36deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(-36deg); }
+  .reveal .controls .navigate-left {
+    right: 6.4em;
+    bottom: 3.2em;
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px); }
+  .reveal .controls .navigate-right {
+    right: 0;
+    bottom: 3.2em;
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px); }
+    .reveal .controls .navigate-right .controls-arrow {
+      -webkit-transform: rotate(180deg);
+              transform: rotate(180deg); }
+    .reveal .controls .navigate-right.highlight {
+      -webkit-animation: bounce-right 2s 50 both ease-out;
+              animation: bounce-right 2s 50 both ease-out; }
+  .reveal .controls .navigate-up {
+    right: 3.2em;
+    bottom: 6.4em;
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px); }
+    .reveal .controls .navigate-up .controls-arrow {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg); }
+  .reveal .controls .navigate-down {
+    right: 3.2em;
+    bottom: 0;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); }
+    .reveal .controls .navigate-down .controls-arrow {
+      -webkit-transform: rotate(-90deg);
+              transform: rotate(-90deg); }
+    .reveal .controls .navigate-down.highlight {
+      -webkit-animation: bounce-down 2s 50 both ease-out;
+              animation: bounce-down 2s 50 both ease-out; }
+  .reveal .controls[data-controls-back-arrows="faded"] .navigate-left.enabled,
+  .reveal .controls[data-controls-back-arrows="faded"] .navigate-up.enabled {
+    opacity: 0.3; }
+    .reveal .controls[data-controls-back-arrows="faded"] .navigate-left.enabled:hover,
+    .reveal .controls[data-controls-back-arrows="faded"] .navigate-up.enabled:hover {
+      opacity: 1; }
+  .reveal .controls[data-controls-back-arrows="hidden"] .navigate-left.enabled,
+  .reveal .controls[data-controls-back-arrows="hidden"] .navigate-up.enabled {
+    opacity: 0;
+    visibility: hidden; }
+  .reveal .controls .enabled {
+    visibility: visible;
+    opacity: 0.9;
+    cursor: pointer;
+    -webkit-transform: none;
+            transform: none; }
+  .reveal .controls .enabled.fragmented {
+    opacity: 0.5; }
+  .reveal .controls .enabled:hover,
+  .reveal .controls .enabled.fragmented:hover {
+    opacity: 1; }
+
+.reveal:not(.has-vertical-slides) .controls .navigate-left {
+  bottom: 1.4em;
+  right: 5.5em; }
+
+.reveal:not(.has-vertical-slides) .controls .navigate-right {
+  bottom: 1.4em;
+  right: 0.5em; }
+
+.reveal:not(.has-horizontal-slides) .controls .navigate-up {
+  right: 1.4em;
+  bottom: 5em; }
+
+.reveal:not(.has-horizontal-slides) .controls .navigate-down {
+  right: 1.4em;
+  bottom: 0.5em; }
+
+.reveal.has-dark-background .controls {
+  color: #fff; }
+
+.reveal.has-light-background .controls {
+  color: #000; }
+
+.reveal.no-hover .controls .controls-arrow:hover:before,
+.reveal.no-hover .controls .controls-arrow:active:before {
+  -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(45deg);
+          transform: translateX(0.5em) translateY(1.55em) rotate(45deg); }
+
+.reveal.no-hover .controls .controls-arrow:hover:after,
+.reveal.no-hover .controls .controls-arrow:active:after {
+  -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(-45deg);
+          transform: translateX(0.5em) translateY(1.55em) rotate(-45deg); }
+
+@media screen and (min-width: 500px) {
+  .reveal .controls[data-controls-layout="edges"] {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-left,
+  .reveal .controls[data-controls-layout="edges"] .navigate-right,
+  .reveal .controls[data-controls-layout="edges"] .navigate-up,
+  .reveal .controls[data-controls-layout="edges"] .navigate-down {
+    bottom: auto;
+    right: auto; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-left {
+    top: 50%;
+    left: 8px;
+    margin-top: -1.8em; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-right {
+    top: 50%;
+    right: 8px;
+    margin-top: -1.8em; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-up {
+    top: 8px;
+    left: 50%;
+    margin-left: -1.8em; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-down {
+    bottom: 8px;
+    left: 50%;
+    margin-left: -1.8em; } }
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  position: absolute;
+  display: none;
+  height: 3px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff; }
+
+.reveal .progress:after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 10px;
+  width: 100%;
+  top: -10px; }
+
+.reveal .progress span {
+  display: block;
+  height: 100%;
+  width: 0px;
+  background-color: currentColor;
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+/*********************************************
+ * SLIDE NUMBER
+ *********************************************/
+.reveal .slide-number {
+  position: absolute;
+  display: block;
+  right: 8px;
+  bottom: 8px;
+  z-index: 31;
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 5px; }
+
+.reveal .slide-number a {
+  color: currentColor; }
+
+.reveal .slide-number-delimiter {
+  margin: 0 3px; }
+
+/*********************************************
+ * SLIDES
+ *********************************************/
+.reveal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -ms-touch-action: none;
+      touch-action: none; }
+
+@media only screen and (orientation: landscape) {
+  .reveal.ua-iphone {
+    position: fixed; } }
+
+.reveal .slides {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 1;
+  text-align: center;
+  -webkit-perspective: 600px;
+          perspective: 600px;
+  -webkit-perspective-origin: 50% 40%;
+          perspective-origin: 50% 40%; }
+
+.reveal .slides > section {
+  -ms-perspective: 600px; }
+
+.reveal .slides > section,
+.reveal .slides > section > section {
+  display: none;
+  position: absolute;
+  width: 100%;
+  padding: 20px 0px;
+  pointer-events: auto;
+  z-index: 10;
+  -webkit-transform-style: flat;
+          transform-style: flat;
+  transition: -webkit-transform-origin 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), -webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), visibility 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: transform-origin 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), visibility 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+/* Global transition speed settings */
+.reveal[data-transition-speed="fast"] .slides section {
+  transition-duration: 400ms; }
+
+.reveal[data-transition-speed="slow"] .slides section {
+  transition-duration: 1200ms; }
+
+/* Slide-specific transition speed overrides */
+.reveal .slides section[data-transition-speed="fast"] {
+  transition-duration: 400ms; }
+
+.reveal .slides section[data-transition-speed="slow"] {
+  transition-duration: 1200ms; }
+
+.reveal .slides > section.stack {
+  padding-top: 0;
+  padding-bottom: 0;
+  pointer-events: none; }
+
+.reveal .slides > section.present,
+.reveal .slides > section > section.present {
+  display: block;
+  z-index: 11;
+  opacity: 1; }
+
+.reveal .slides > section:empty,
+.reveal .slides > section > section:empty,
+.reveal .slides > section[data-background-interactive],
+.reveal .slides > section > section[data-background-interactive] {
+  pointer-events: none; }
+
+.reveal.center,
+.reveal.center .slides,
+.reveal.center .slides section {
+  min-height: 0 !important; }
+
+/* Don't allow interaction with invisible slides */
+.reveal .slides > section.future,
+.reveal .slides > section > section.future,
+.reveal .slides > section.past,
+.reveal .slides > section > section.past {
+  pointer-events: none; }
+
+.reveal.overview .slides > section,
+.reveal.overview .slides > section > section {
+  pointer-events: auto; }
+
+.reveal .slides > section.past,
+.reveal .slides > section.future,
+.reveal .slides > section > section.past,
+.reveal .slides > section > section.future {
+  opacity: 0; }
+
+/*********************************************
+ * Mixins for readability of transitions
+ *********************************************/
+/*********************************************
+ * SLIDE TRANSITION
+ * Aliased 'linear' for backwards compatibility
+ *********************************************/
+.reveal.slide section {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+
+.reveal .slides > section[data-transition=slide].past,
+.reveal .slides > section[data-transition~=slide-out].past,
+.reveal.slide .slides > section:not([data-transition]).past {
+  -webkit-transform: translate(-150%, 0);
+          transform: translate(-150%, 0); }
+
+.reveal .slides > section[data-transition=slide].future,
+.reveal .slides > section[data-transition~=slide-in].future,
+.reveal.slide .slides > section:not([data-transition]).future {
+  -webkit-transform: translate(150%, 0);
+          transform: translate(150%, 0); }
+
+.reveal .slides > section > section[data-transition=slide].past,
+.reveal .slides > section > section[data-transition~=slide-out].past,
+.reveal.slide .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate(0, -150%);
+          transform: translate(0, -150%); }
+
+.reveal .slides > section > section[data-transition=slide].future,
+.reveal .slides > section > section[data-transition~=slide-in].future,
+.reveal.slide .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate(0, 150%);
+          transform: translate(0, 150%); }
+
+.reveal.linear section {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+
+.reveal .slides > section[data-transition=linear].past,
+.reveal .slides > section[data-transition~=linear-out].past,
+.reveal.linear .slides > section:not([data-transition]).past {
+  -webkit-transform: translate(-150%, 0);
+          transform: translate(-150%, 0); }
+
+.reveal .slides > section[data-transition=linear].future,
+.reveal .slides > section[data-transition~=linear-in].future,
+.reveal.linear .slides > section:not([data-transition]).future {
+  -webkit-transform: translate(150%, 0);
+          transform: translate(150%, 0); }
+
+.reveal .slides > section > section[data-transition=linear].past,
+.reveal .slides > section > section[data-transition~=linear-out].past,
+.reveal.linear .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate(0, -150%);
+          transform: translate(0, -150%); }
+
+.reveal .slides > section > section[data-transition=linear].future,
+.reveal .slides > section > section[data-transition~=linear-in].future,
+.reveal.linear .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate(0, 150%);
+          transform: translate(0, 150%); }
+
+/*********************************************
+ * CONVEX TRANSITION
+ * Aliased 'default' for backwards compatibility
+ *********************************************/
+.reveal .slides section[data-transition=default].stack,
+.reveal.default .slides section.stack {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal .slides > section[data-transition=default].past,
+.reveal .slides > section[data-transition~=default-out].past,
+.reveal.default .slides > section:not([data-transition]).past {
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0); }
+
+.reveal .slides > section[data-transition=default].future,
+.reveal .slides > section[data-transition~=default-in].future,
+.reveal.default .slides > section:not([data-transition]).future {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0); }
+
+.reveal .slides > section > section[data-transition=default].past,
+.reveal .slides > section > section[data-transition~=default-out].past,
+.reveal.default .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate3d(0, -300px, 0) rotateX(70deg) translate3d(0, -300px, 0);
+          transform: translate3d(0, -300px, 0) rotateX(70deg) translate3d(0, -300px, 0); }
+
+.reveal .slides > section > section[data-transition=default].future,
+.reveal .slides > section > section[data-transition~=default-in].future,
+.reveal.default .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate3d(0, 300px, 0) rotateX(-70deg) translate3d(0, 300px, 0);
+          transform: translate3d(0, 300px, 0) rotateX(-70deg) translate3d(0, 300px, 0); }
+
+.reveal .slides section[data-transition=convex].stack,
+.reveal.convex .slides section.stack {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal .slides > section[data-transition=convex].past,
+.reveal .slides > section[data-transition~=convex-out].past,
+.reveal.convex .slides > section:not([data-transition]).past {
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0); }
+
+.reveal .slides > section[data-transition=convex].future,
+.reveal .slides > section[data-transition~=convex-in].future,
+.reveal.convex .slides > section:not([data-transition]).future {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0); }
+
+.reveal .slides > section > section[data-transition=convex].past,
+.reveal .slides > section > section[data-transition~=convex-out].past,
+.reveal.convex .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate3d(0, -300px, 0) rotateX(70deg) translate3d(0, -300px, 0);
+          transform: translate3d(0, -300px, 0) rotateX(70deg) translate3d(0, -300px, 0); }
+
+.reveal .slides > section > section[data-transition=convex].future,
+.reveal .slides > section > section[data-transition~=convex-in].future,
+.reveal.convex .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate3d(0, 300px, 0) rotateX(-70deg) translate3d(0, 300px, 0);
+          transform: translate3d(0, 300px, 0) rotateX(-70deg) translate3d(0, 300px, 0); }
+
+/*********************************************
+ * CONCAVE TRANSITION
+ *********************************************/
+.reveal .slides section[data-transition=concave].stack,
+.reveal.concave .slides section.stack {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal .slides > section[data-transition=concave].past,
+.reveal .slides > section[data-transition~=concave-out].past,
+.reveal.concave .slides > section:not([data-transition]).past {
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(90deg) translate3d(-100%, 0, 0); }
+
+.reveal .slides > section[data-transition=concave].future,
+.reveal .slides > section[data-transition~=concave-in].future,
+.reveal.concave .slides > section:not([data-transition]).future {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(-90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(-90deg) translate3d(100%, 0, 0); }
+
+.reveal .slides > section > section[data-transition=concave].past,
+.reveal .slides > section > section[data-transition~=concave-out].past,
+.reveal.concave .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate3d(0, -80%, 0) rotateX(-70deg) translate3d(0, -80%, 0);
+          transform: translate3d(0, -80%, 0) rotateX(-70deg) translate3d(0, -80%, 0); }
+
+.reveal .slides > section > section[data-transition=concave].future,
+.reveal .slides > section > section[data-transition~=concave-in].future,
+.reveal.concave .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate3d(0, 80%, 0) rotateX(70deg) translate3d(0, 80%, 0);
+          transform: translate3d(0, 80%, 0) rotateX(70deg) translate3d(0, 80%, 0); }
+
+/*********************************************
+ * ZOOM TRANSITION
+ *********************************************/
+.reveal .slides section[data-transition=zoom],
+.reveal.zoom .slides section:not([data-transition]) {
+  transition-timing-function: ease; }
+
+.reveal .slides > section[data-transition=zoom].past,
+.reveal .slides > section[data-transition~=zoom-out].past,
+.reveal.zoom .slides > section:not([data-transition]).past {
+  visibility: hidden;
+  -webkit-transform: scale(16);
+          transform: scale(16); }
+
+.reveal .slides > section[data-transition=zoom].future,
+.reveal .slides > section[data-transition~=zoom-in].future,
+.reveal.zoom .slides > section:not([data-transition]).future {
+  visibility: hidden;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2); }
+
+.reveal .slides > section > section[data-transition=zoom].past,
+.reveal .slides > section > section[data-transition~=zoom-out].past,
+.reveal.zoom .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate(0, -150%);
+          transform: translate(0, -150%); }
+
+.reveal .slides > section > section[data-transition=zoom].future,
+.reveal .slides > section > section[data-transition~=zoom-in].future,
+.reveal.zoom .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate(0, 150%);
+          transform: translate(0, 150%); }
+
+/*********************************************
+ * CUBE TRANSITION
+ *
+ * WARNING:
+ * this is deprecated and will be removed in a
+ * future version.
+ *********************************************/
+.reveal.cube .slides {
+  -webkit-perspective: 1300px;
+          perspective: 1300px; }
+
+.reveal.cube .slides section {
+  padding: 30px;
+  min-height: 700px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  box-sizing: border-box;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal.center.cube .slides section {
+  min-height: 0; }
+
+.reveal.cube .slides section:not(.stack):before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  -webkit-transform: translateZ(-20px);
+          transform: translateZ(-20px); }
+
+.reveal.cube .slides section:not(.stack):after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 90%;
+  height: 30px;
+  left: 5%;
+  bottom: 0;
+  background: none;
+  z-index: 1;
+  border-radius: 4px;
+  box-shadow: 0px 95px 25px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateZ(-90px) rotateX(65deg);
+          transform: translateZ(-90px) rotateX(65deg); }
+
+.reveal.cube .slides > section.stack {
+  padding: 0;
+  background: none; }
+
+.reveal.cube .slides > section.past {
+  -webkit-transform-origin: 100% 0%;
+          transform-origin: 100% 0%;
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+          transform: translate3d(-100%, 0, 0) rotateY(-90deg); }
+
+.reveal.cube .slides > section.future {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg);
+          transform: translate3d(100%, 0, 0) rotateY(90deg); }
+
+.reveal.cube .slides > section > section.past {
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+  -webkit-transform: translate3d(0, -100%, 0) rotateX(90deg);
+          transform: translate3d(0, -100%, 0) rotateX(90deg); }
+
+.reveal.cube .slides > section > section.future {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate3d(0, 100%, 0) rotateX(-90deg);
+          transform: translate3d(0, 100%, 0) rotateX(-90deg); }
+
+/*********************************************
+ * PAGE TRANSITION
+ *
+ * WARNING:
+ * this is deprecated and will be removed in a
+ * future version.
+ *********************************************/
+.reveal.page .slides {
+  -webkit-perspective-origin: 0% 50%;
+          perspective-origin: 0% 50%;
+  -webkit-perspective: 3000px;
+          perspective: 3000px; }
+
+.reveal.page .slides section {
+  padding: 30px;
+  min-height: 700px;
+  box-sizing: border-box;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal.page .slides section.past {
+  z-index: 12; }
+
+.reveal.page .slides section:not(.stack):before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-transform: translateZ(-20px);
+          transform: translateZ(-20px); }
+
+.reveal.page .slides section:not(.stack):after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 90%;
+  height: 30px;
+  left: 5%;
+  bottom: 0;
+  background: none;
+  z-index: 1;
+  border-radius: 4px;
+  box-shadow: 0px 95px 25px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateZ(-90px) rotateX(65deg); }
+
+.reveal.page .slides > section.stack {
+  padding: 0;
+  background: none; }
+
+.reveal.page .slides > section.past {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate3d(-40%, 0, 0) rotateY(-80deg);
+          transform: translate3d(-40%, 0, 0) rotateY(-80deg); }
+
+.reveal.page .slides > section.future {
+  -webkit-transform-origin: 100% 0%;
+          transform-origin: 100% 0%;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0); }
+
+.reveal.page .slides > section > section.past {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate3d(0, -40%, 0) rotateX(80deg);
+          transform: translate3d(0, -40%, 0) rotateX(80deg); }
+
+.reveal.page .slides > section > section.future {
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0); }
+
+/*********************************************
+ * FADE TRANSITION
+ *********************************************/
+.reveal .slides section[data-transition=fade],
+.reveal.fade .slides section:not([data-transition]),
+.reveal.fade .slides > section > section:not([data-transition]) {
+  -webkit-transform: none;
+          transform: none;
+  transition: opacity 0.5s; }
+
+.reveal.fade.overview .slides section,
+.reveal.fade.overview .slides > section > section {
+  transition: none; }
+
+/*********************************************
+ * NO TRANSITION
+ *********************************************/
+.reveal .slides section[data-transition=none],
+.reveal.none .slides section:not([data-transition]) {
+  -webkit-transform: none;
+          transform: none;
+  transition: none; }
+
+/*********************************************
+ * PAUSED MODE
+ *********************************************/
+.reveal .pause-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 100;
+  transition: all 1s ease; }
+
+.reveal .pause-overlay .resume-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: #ccc;
+  border-radius: 2px;
+  padding: 6px 14px;
+  border: 2px solid #ccc;
+  font-size: 16px;
+  background: transparent;
+  cursor: pointer; }
+  .reveal .pause-overlay .resume-button:hover {
+    color: #fff;
+    border-color: #fff; }
+
+.reveal.paused .pause-overlay {
+  visibility: visible;
+  opacity: 1; }
+
+/*********************************************
+ * FALLBACK
+ *********************************************/
+.no-transforms {
+  overflow-y: auto; }
+
+.no-transforms .reveal .slides {
+  position: relative;
+  width: 80%;
+  height: auto !important;
+  top: 0;
+  left: 50%;
+  margin: 0;
+  text-align: center; }
+
+.no-transforms .reveal .controls,
+.no-transforms .reveal .progress {
+  display: none !important; }
+
+.no-transforms .reveal .slides section {
+  display: block !important;
+  opacity: 1 !important;
+  position: relative !important;
+  height: auto;
+  min-height: 0;
+  top: 0;
+  left: -50%;
+  margin: 70px 0;
+  -webkit-transform: none;
+          transform: none; }
+
+.no-transforms .reveal .slides section section {
+  left: 0; }
+
+.reveal .no-transition,
+.reveal .no-transition * {
+  transition: none !important; }
+
+/*********************************************
+ * PER-SLIDE BACKGROUNDS
+ *********************************************/
+.reveal .backgrounds {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-perspective: 600px;
+          perspective: 600px; }
+
+.reveal .slide-background {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  background-color: transparent;
+  transition: all 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+.reveal .slide-background-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.reveal .slide-background.stack {
+  display: block; }
+
+.reveal .slide-background.present {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2; }
+
+.print-pdf .reveal .slide-background {
+  opacity: 1 !important;
+  visibility: visible !important; }
+
+/* Video backgrounds */
+.reveal .slide-background video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover; }
+
+.reveal .slide-background[data-background-size="contain"] video {
+  -o-object-fit: contain;
+     object-fit: contain; }
+
+/* Immediate transition style */
+.reveal[data-background-transition=none] > .backgrounds .slide-background,
+.reveal > .backgrounds .slide-background[data-background-transition=none] {
+  transition: none; }
+
+/* Slide */
+.reveal[data-background-transition=slide] > .backgrounds .slide-background,
+.reveal > .backgrounds .slide-background[data-background-transition=slide] {
+  opacity: 1;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+
+.reveal[data-background-transition=slide] > .backgrounds .slide-background.past,
+.reveal > .backgrounds .slide-background.past[data-background-transition=slide] {
+  -webkit-transform: translate(-100%, 0);
+          transform: translate(-100%, 0); }
+
+.reveal[data-background-transition=slide] > .backgrounds .slide-background.future,
+.reveal > .backgrounds .slide-background.future[data-background-transition=slide] {
+  -webkit-transform: translate(100%, 0);
+          transform: translate(100%, 0); }
+
+.reveal[data-background-transition=slide] > .backgrounds .slide-background > .slide-background.past,
+.reveal > .backgrounds .slide-background > .slide-background.past[data-background-transition=slide] {
+  -webkit-transform: translate(0, -100%);
+          transform: translate(0, -100%); }
+
+.reveal[data-background-transition=slide] > .backgrounds .slide-background > .slide-background.future,
+.reveal > .backgrounds .slide-background > .slide-background.future[data-background-transition=slide] {
+  -webkit-transform: translate(0, 100%);
+          transform: translate(0, 100%); }
+
+/* Convex */
+.reveal[data-background-transition=convex] > .backgrounds .slide-background.past,
+.reveal > .backgrounds .slide-background.past[data-background-transition=convex] {
+  opacity: 0;
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0); }
+
+.reveal[data-background-transition=convex] > .backgrounds .slide-background.future,
+.reveal > .backgrounds .slide-background.future[data-background-transition=convex] {
+  opacity: 0;
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0); }
+
+.reveal[data-background-transition=convex] > .backgrounds .slide-background > .slide-background.past,
+.reveal > .backgrounds .slide-background > .slide-background.past[data-background-transition=convex] {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0) rotateX(90deg) translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0) rotateX(90deg) translate3d(0, -100%, 0); }
+
+.reveal[data-background-transition=convex] > .backgrounds .slide-background > .slide-background.future,
+.reveal > .backgrounds .slide-background > .slide-background.future[data-background-transition=convex] {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0) rotateX(-90deg) translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0) rotateX(-90deg) translate3d(0, 100%, 0); }
+
+/* Concave */
+.reveal[data-background-transition=concave] > .backgrounds .slide-background.past,
+.reveal > .backgrounds .slide-background.past[data-background-transition=concave] {
+  opacity: 0;
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(90deg) translate3d(-100%, 0, 0); }
+
+.reveal[data-background-transition=concave] > .backgrounds .slide-background.future,
+.reveal > .backgrounds .slide-background.future[data-background-transition=concave] {
+  opacity: 0;
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(-90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(-90deg) translate3d(100%, 0, 0); }
+
+.reveal[data-background-transition=concave] > .backgrounds .slide-background > .slide-background.past,
+.reveal > .backgrounds .slide-background > .slide-background.past[data-background-transition=concave] {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0) rotateX(-90deg) translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0) rotateX(-90deg) translate3d(0, -100%, 0); }
+
+.reveal[data-background-transition=concave] > .backgrounds .slide-background > .slide-background.future,
+.reveal > .backgrounds .slide-background > .slide-background.future[data-background-transition=concave] {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0) rotateX(90deg) translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0) rotateX(90deg) translate3d(0, 100%, 0); }
+
+/* Zoom */
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background,
+.reveal > .backgrounds .slide-background[data-background-transition=zoom] {
+  transition-timing-function: ease; }
+
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background.past,
+.reveal > .backgrounds .slide-background.past[data-background-transition=zoom] {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(16);
+          transform: scale(16); }
+
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background.future,
+.reveal > .backgrounds .slide-background.future[data-background-transition=zoom] {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2); }
+
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background > .slide-background.past,
+.reveal > .backgrounds .slide-background > .slide-background.past[data-background-transition=zoom] {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(16);
+          transform: scale(16); }
+
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background > .slide-background.future,
+.reveal > .backgrounds .slide-background > .slide-background.future[data-background-transition=zoom] {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2); }
+
+/* Global transition speed settings */
+.reveal[data-transition-speed="fast"] > .backgrounds .slide-background {
+  transition-duration: 400ms; }
+
+.reveal[data-transition-speed="slow"] > .backgrounds .slide-background {
+  transition-duration: 1200ms; }
+
+/*********************************************
+ * OVERVIEW
+ *********************************************/
+.reveal.overview {
+  -webkit-perspective-origin: 50% 50%;
+          perspective-origin: 50% 50%;
+  -webkit-perspective: 700px;
+          perspective: 700px; }
+  .reveal.overview .slides {
+    -moz-transform-style: preserve-3d; }
+  .reveal.overview .slides section {
+    height: 100%;
+    top: 0 !important;
+    opacity: 1 !important;
+    overflow: hidden;
+    visibility: visible !important;
+    cursor: pointer;
+    box-sizing: border-box; }
+  .reveal.overview .slides section:hover,
+  .reveal.overview .slides section.present {
+    outline: 10px solid rgba(150, 150, 150, 0.4);
+    outline-offset: 10px; }
+  .reveal.overview .slides section .fragment {
+    opacity: 1;
+    transition: none; }
+  .reveal.overview .slides section:after,
+  .reveal.overview .slides section:before {
+    display: none !important; }
+  .reveal.overview .slides > section.stack {
+    padding: 0;
+    top: 0 !important;
+    background: none;
+    outline: none;
+    overflow: visible; }
+  .reveal.overview .backgrounds {
+    -webkit-perspective: inherit;
+            perspective: inherit;
+    -moz-transform-style: preserve-3d; }
+  .reveal.overview .backgrounds .slide-background {
+    opacity: 1;
+    visibility: visible;
+    outline: 10px solid rgba(150, 150, 150, 0.1);
+    outline-offset: 10px; }
+  .reveal.overview .backgrounds .slide-background.stack {
+    overflow: visible; }
+
+.reveal.overview .slides section,
+.reveal.overview-deactivating .slides section {
+  transition: none; }
+
+.reveal.overview .backgrounds .slide-background,
+.reveal.overview-deactivating .backgrounds .slide-background {
+  transition: none; }
+
+/*********************************************
+ * RTL SUPPORT
+ *********************************************/
+.reveal.rtl .slides,
+.reveal.rtl .slides h1,
+.reveal.rtl .slides h2,
+.reveal.rtl .slides h3,
+.reveal.rtl .slides h4,
+.reveal.rtl .slides h5,
+.reveal.rtl .slides h6 {
+  direction: rtl;
+  font-family: sans-serif; }
+
+.reveal.rtl pre,
+.reveal.rtl code {
+  direction: ltr; }
+
+.reveal.rtl ol,
+.reveal.rtl ul {
+  text-align: right; }
+
+.reveal.rtl .progress span {
+  float: right; }
+
+/*********************************************
+ * PARALLAX BACKGROUND
+ *********************************************/
+.reveal.has-parallax-background .backgrounds {
+  transition: all 0.8s ease; }
+
+/* Global transition speed settings */
+.reveal.has-parallax-background[data-transition-speed="fast"] .backgrounds {
+  transition-duration: 400ms; }
+
+.reveal.has-parallax-background[data-transition-speed="slow"] .backgrounds {
+  transition-duration: 1200ms; }
+
+/*********************************************
+ * LINK PREVIEW OVERLAY
+ *********************************************/
+.reveal .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease; }
+
+.reveal .overlay.visible {
+  opacity: 1;
+  visibility: visible; }
+
+.reveal .overlay .spinner {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  margin: -16px 0 0 -16px;
+  z-index: 10;
+  background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAJmZmf%2F%2F%2F6%2Bvr8nJybW1tcDAwOjo6Nvb26ioqKOjo7Ozs%2FLy8vz8%2FAAAAAAAAAAAACH%2FC05FVFNDQVBFMi4wAwEAAAAh%2FhpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh%2BQQJCgAAACwAAAAAIAAgAAAE5xDISWlhperN52JLhSSdRgwVo1ICQZRUsiwHpTJT4iowNS8vyW2icCF6k8HMMBkCEDskxTBDAZwuAkkqIfxIQyhBQBFvAQSDITM5VDW6XNE4KagNh6Bgwe60smQUB3d4Rz1ZBApnFASDd0hihh12BkE9kjAJVlycXIg7CQIFA6SlnJ87paqbSKiKoqusnbMdmDC2tXQlkUhziYtyWTxIfy6BE8WJt5YJvpJivxNaGmLHT0VnOgSYf0dZXS7APdpB309RnHOG5gDqXGLDaC457D1zZ%2FV%2FnmOM82XiHRLYKhKP1oZmADdEAAAh%2BQQJCgAAACwAAAAAIAAgAAAE6hDISWlZpOrNp1lGNRSdRpDUolIGw5RUYhhHukqFu8DsrEyqnWThGvAmhVlteBvojpTDDBUEIFwMFBRAmBkSgOrBFZogCASwBDEY%2FCZSg7GSE0gSCjQBMVG023xWBhklAnoEdhQEfyNqMIcKjhRsjEdnezB%2BA4k8gTwJhFuiW4dokXiloUepBAp5qaKpp6%2BHo7aWW54wl7obvEe0kRuoplCGepwSx2jJvqHEmGt6whJpGpfJCHmOoNHKaHx61WiSR92E4lbFoq%2BB6QDtuetcaBPnW6%2BO7wDHpIiK9SaVK5GgV543tzjgGcghAgAh%2BQQJCgAAACwAAAAAIAAgAAAE7hDISSkxpOrN5zFHNWRdhSiVoVLHspRUMoyUakyEe8PTPCATW9A14E0UvuAKMNAZKYUZCiBMuBakSQKG8G2FzUWox2AUtAQFcBKlVQoLgQReZhQlCIJesQXI5B0CBnUMOxMCenoCfTCEWBsJColTMANldx15BGs8B5wlCZ9Po6OJkwmRpnqkqnuSrayqfKmqpLajoiW5HJq7FL1Gr2mMMcKUMIiJgIemy7xZtJsTmsM4xHiKv5KMCXqfyUCJEonXPN2rAOIAmsfB3uPoAK%2B%2BG%2Bw48edZPK%2BM6hLJpQg484enXIdQFSS1u6UhksENEQAAIfkECQoAAAAsAAAAACAAIAAABOcQyEmpGKLqzWcZRVUQnZYg1aBSh2GUVEIQ2aQOE%2BG%2BcD4ntpWkZQj1JIiZIogDFFyHI0UxQwFugMSOFIPJftfVAEoZLBbcLEFhlQiqGp1Vd140AUklUN3eCA51C1EWMzMCezCBBmkxVIVHBWd3HHl9JQOIJSdSnJ0TDKChCwUJjoWMPaGqDKannasMo6WnM562R5YluZRwur0wpgqZE7NKUm%2BFNRPIhjBJxKZteWuIBMN4zRMIVIhffcgojwCF117i4nlLnY5ztRLsnOk%2BaV%2BoJY7V7m76PdkS4trKcdg0Zc0tTcKkRAAAIfkECQoAAAAsAAAAACAAIAAABO4QyEkpKqjqzScpRaVkXZWQEximw1BSCUEIlDohrft6cpKCk5xid5MNJTaAIkekKGQkWyKHkvhKsR7ARmitkAYDYRIbUQRQjWBwJRzChi9CRlBcY1UN4g0%2FVNB0AlcvcAYHRyZPdEQFYV8ccwR5HWxEJ02YmRMLnJ1xCYp0Y5idpQuhopmmC2KgojKasUQDk5BNAwwMOh2RtRq5uQuPZKGIJQIGwAwGf6I0JXMpC8C7kXWDBINFMxS4DKMAWVWAGYsAdNqW5uaRxkSKJOZKaU3tPOBZ4DuK2LATgJhkPJMgTwKCdFjyPHEnKxFCDhEAACH5BAkKAAAALAAAAAAgACAAAATzEMhJaVKp6s2nIkolIJ2WkBShpkVRWqqQrhLSEu9MZJKK9y1ZrqYK9WiClmvoUaF8gIQSNeF1Er4MNFn4SRSDARWroAIETg1iVwuHjYB1kYc1mwruwXKC9gmsJXliGxc%2BXiUCby9ydh1sOSdMkpMTBpaXBzsfhoc5l58Gm5yToAaZhaOUqjkDgCWNHAULCwOLaTmzswadEqggQwgHuQsHIoZCHQMMQgQGubVEcxOPFAcMDAYUA85eWARmfSRQCdcMe0zeP1AAygwLlJtPNAAL19DARdPzBOWSm1brJBi45soRAWQAAkrQIykShQ9wVhHCwCQCACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiRMDjI0Fd30%2FiI2UA5GSS5UDj2l6NoqgOgN4gksEBgYFf0FDqKgHnyZ9OX8HrgYHdHpcHQULXAS2qKpENRg7eAMLC7kTBaixUYFkKAzWAAnLC7FLVxLWDBLKCwaKTULgEwbLA4hJtOkSBNqITT3xEgfLpBtzE%2FjiuL04RGEBgwWhShRgQExHBAAh%2BQQJCgAAACwAAAAAIAAgAAAE7xDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfZiCqGk5dTESJeaOAlClzsJsqwiJwiqnFrb2nS9kmIcgEsjQydLiIlHehhpejaIjzh9eomSjZR%2BipslWIRLAgMDOR2DOqKogTB9pCUJBagDBXR6XB0EBkIIsaRsGGMMAxoDBgYHTKJiUYEGDAzHC9EACcUGkIgFzgwZ0QsSBcXHiQvOwgDdEwfFs0sDzt4S6BK4xYjkDOzn0unFeBzOBijIm1Dgmg5YFQwsCMjp1oJ8LyIAACH5BAkKAAAALAAAAAAgACAAAATwEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GGl6NoiPOH16iZKNlH6KmyWFOggHhEEvAwwMA0N9GBsEC6amhnVcEwavDAazGwIDaH1ipaYLBUTCGgQDA8NdHz0FpqgTBwsLqAbWAAnIA4FWKdMLGdYGEgraigbT0OITBcg5QwPT4xLrROZL6AuQAPUS7bxLpoWidY0JtxLHKhwwMJBTHgPKdEQAACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GAULDJCRiXo1CpGXDJOUjY%2BYip9DhToJA4RBLwMLCwVDfRgbBAaqqoZ1XBMHswsHtxtFaH1iqaoGNgAIxRpbFAgfPQSqpbgGBqUD1wBXeCYp1AYZ19JJOYgH1KwA4UBvQwXUBxPqVD9L3sbp2BNk2xvvFPJd%2BMFCN6HAAIKgNggY0KtEBAAh%2BQQJCgAAACwAAAAAIAAgAAAE6BDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfYIDMaAFdTESJeaEDAIMxYFqrOUaNW4E4ObYcCXaiBVEgULe0NJaxxtYksjh2NLkZISgDgJhHthkpU4mW6blRiYmZOlh4JWkDqILwUGBnE6TYEbCgevr0N1gH4At7gHiRpFaLNrrq8HNgAJA70AWxQIH1%2BvsYMDAzZQPC9VCNkDWUhGkuE5PxJNwiUK4UfLzOlD4WvzAHaoG9nxPi5d%2BjYUqfAhhykOFwJWiAAAIfkECQoAAAAsAAAAACAAIAAABPAQyElpUqnqzaciSoVkXVUMFaFSwlpOCcMYlErAavhOMnNLNo8KsZsMZItJEIDIFSkLGQoQTNhIsFehRww2CQLKF0tYGKYSg%2BygsZIuNqJksKgbfgIGepNo2cIUB3V1B3IvNiBYNQaDSTtfhhx0CwVPI0UJe0%2Bbm4g5VgcGoqOcnjmjqDSdnhgEoamcsZuXO1aWQy8KAwOAuTYYGwi7w5h%2BKr0SJ8MFihpNbx%2B4Erq7BYBuzsdiH1jCAzoSfl0rVirNbRXlBBlLX%2BBP0XJLAPGzTkAuAOqb0WT5AH7OcdCm5B8TgRwSRKIHQtaLCwg1RAAAOwAAAAAAAAAAAA%3D%3D);
+  visibility: visible;
+  opacity: 0.6;
+  transition: all 0.3s ease; }
+
+.reveal .overlay header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  z-index: 2;
+  border-bottom: 1px solid #222; }
+
+.reveal .overlay header a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  padding: 0 10px;
+  float: right;
+  opacity: 0.6;
+  box-sizing: border-box; }
+
+.reveal .overlay header a:hover {
+  opacity: 1; }
+
+.reveal .overlay header a .icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-position: 50% 50%;
+  background-size: 100%;
+  background-repeat: no-repeat; }
+
+.reveal .overlay header a.close .icon {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABkklEQVRYR8WX4VHDMAxG6wnoJrABZQPYBCaBTWAD2g1gE5gg6OOsXuxIlr40d81dfrSJ9V4c2VLK7spHuTJ/5wpM07QXuXc5X0opX2tEJcadjHuV80li/FgxTIEK/5QBCICBD6xEhSMGHgQPgBgLiYVAB1dpSqKDawxTohFw4JSEA3clzgIBPCURwE2JucBR7rhPJJv5OpJwDX+SfDjgx1wACQeJG1aChP9K/IMmdZ8DtESV1WyP3Bt4MwM6sj4NMxMYiqUWHQu4KYA/SYkIjOsm3BXYWMKFDwU2khjCQ4ELJUJ4SmClRArOCmSXGuKma0fYD5CbzHxFpCSGAhfAVSSUGDUk2BWZaff2g6GE15BsBQ9nwmpIGDiyHQddwNTMKkbZaf9fajXQca1EX44puJZUsnY0ObGmITE3GVLCbEhQUjGVt146j6oasWN+49Vph2w1pZ5EansNZqKBm1txbU57iRRcZ86RWMDdWtBJUHBHwoQPi1GV+JCbntmvok7iTX4/Up9mgyTc/FJYDTcndgH/AA5A/CHsyEkVAAAAAElFTkSuQmCC); }
+
+.reveal .overlay header a.external .icon {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAcElEQVRYR+2WSQoAIQwEzf8f7XiOMkUQxUPlGkM3hVmiQfQR9GYnH1SsAQlI4DiBqkCMoNb9y2e90IAEJPAcgdznU9+engMaeJ7Azh5Y1U67gAho4DqBqmB1buAf0MB1AlVBek83ZPkmJMGc1wAR+AAqod/B97TRpQAAAABJRU5ErkJggg==); }
+
+.reveal .overlay .viewport {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 40px;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+.reveal .overlay.overlay-preview .viewport iframe {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  border: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease; }
+
+.reveal .overlay.overlay-preview.loaded .viewport iframe {
+  opacity: 1;
+  visibility: visible; }
+
+.reveal .overlay.overlay-preview.loaded .viewport-inner {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  letter-spacing: normal; }
+
+.reveal .overlay.overlay-preview .x-frame-error {
+  opacity: 0;
+  transition: opacity 0.3s ease 0.3s; }
+
+.reveal .overlay.overlay-preview.loaded .x-frame-error {
+  opacity: 1; }
+
+.reveal .overlay.overlay-preview.loaded .spinner {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2); }
+
+.reveal .overlay.overlay-help .viewport {
+  overflow: auto;
+  color: #fff; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner {
+  width: 600px;
+  margin: auto;
+  padding: 20px 20px 80px 20px;
+  text-align: center;
+  letter-spacing: normal; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner .title {
+  font-size: 20px; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner table {
+  border: 1px solid #fff;
+  border-collapse: collapse;
+  font-size: 16px; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner table th,
+.reveal .overlay.overlay-help .viewport .viewport-inner table td {
+  width: 200px;
+  padding: 14px;
+  border: 1px solid #fff;
+  vertical-align: middle; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner table th {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+/*********************************************
+ * PLAYBACK COMPONENT
+ *********************************************/
+.reveal .playback {
+  position: absolute;
+  left: 15px;
+  bottom: 20px;
+  z-index: 30;
+  cursor: pointer;
+  transition: all 400ms ease;
+  -webkit-tap-highlight-color: transparent; }
+
+.reveal.overview .playback {
+  opacity: 0;
+  visibility: hidden; }
+
+/*********************************************
+ * ROLLING LINKS
+ *********************************************/
+.reveal .roll {
+  display: inline-block;
+  line-height: 1.2;
+  overflow: hidden;
+  vertical-align: top;
+  -webkit-perspective: 400px;
+          perspective: 400px;
+  -webkit-perspective-origin: 50% 50%;
+          perspective-origin: 50% 50%; }
+
+.reveal .roll:hover {
+  background: none;
+  text-shadow: none; }
+
+.reveal .roll span {
+  display: block;
+  position: relative;
+  padding: 0 2px;
+  pointer-events: none;
+  transition: all 400ms ease;
+  -webkit-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+
+.reveal .roll:hover span {
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-transform: translate3d(0px, 0px, -45px) rotateX(90deg);
+          transform: translate3d(0px, 0px, -45px) rotateX(90deg); }
+
+.reveal .roll span:after {
+  content: attr(data-title);
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0 2px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+  -webkit-transform: translate3d(0px, 110%, 0px) rotateX(-90deg);
+          transform: translate3d(0px, 110%, 0px) rotateX(-90deg); }
+
+/*********************************************
+ * SPEAKER NOTES
+ *********************************************/
+.reveal aside.notes {
+  display: none; }
+
+.reveal .speaker-notes {
+  display: none;
+  position: absolute;
+  width: 25vw;
+  height: 100%;
+  top: 0;
+  left: 100%;
+  padding: 14px 18px 14px 18px;
+  z-index: 1;
+  font-size: 18px;
+  line-height: 1.4;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #222;
+  background-color: #f5f5f5;
+  overflow: auto;
+  box-sizing: border-box;
+  text-align: left;
+  font-family: Helvetica, sans-serif;
+  -webkit-overflow-scrolling: touch; }
+  .reveal .speaker-notes .notes-placeholder {
+    color: #ccc;
+    font-style: italic; }
+  .reveal .speaker-notes:focus {
+    outline: none; }
+  .reveal .speaker-notes:before {
+    content: 'Speaker notes';
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.5; }
+
+.reveal.show-notes {
+  max-width: 75vw;
+  overflow: visible; }
+
+.reveal.show-notes .speaker-notes {
+  display: block; }
+
+@media screen and (min-width: 1600px) {
+  .reveal .speaker-notes {
+    font-size: 20px; } }
+
+@media screen and (max-width: 1024px) {
+  .reveal.show-notes {
+    border-left: 0;
+    max-width: none;
+    max-height: 70%;
+    overflow: visible; }
+  .reveal.show-notes .speaker-notes {
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 42.8571428571%; } }
+
+@media screen and (max-width: 600px) {
+  .reveal.show-notes {
+    max-height: 60%; }
+  .reveal.show-notes .speaker-notes {
+    top: 100%;
+    height: 66.6666666667%; }
+  .reveal .speaker-notes {
+    font-size: 14px; } }
+
+/*********************************************
+ * ZOOM PLUGIN
+ *********************************************/
+.zoomed .reveal *,
+.zoomed .reveal *:before,
+.zoomed .reveal *:after {
+  -webkit-backface-visibility: visible !important;
+          backface-visibility: visible !important; }
+
+.zoomed .reveal .progress,
+.zoomed .reveal .controls {
+  opacity: 0; }
+
+.zoomed .reveal .roll span {
+  background: none; }
+
+.zoomed .reveal .roll span:after {
+  visibility: hidden; }
+
+      
+      </style>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/css/theme/solarized.css">
+      
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({"extensions":["tex2jax.js"],"jax":["input/TeX","output/HTML-CSS"],"messageStyle":"none","tex2jax":{"processEnvironments":false,"processEscapes":true,"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]],"skipTags":["script","noscript","style","textarea","pre","code"]},"displayAlign":"left","TeX":{"equationNumbers":{"autoNumber":"all","useLabelIds":true},"extensions":["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],"Macros":{"zerov":"{\\boldsymbol 0}","onev":"{\\boldsymbol 1}","av":"{\\boldsymbol a}","bv":"{\\boldsymbol b}","cv":"{\\boldsymbol c}","dv":"{\\boldsymbol d}","ev":"{\\boldsymbol e}","fv":"{\\boldsymbol f}","gv":"{\\boldsymbol g}","hv":"{\\boldsymbol h}","iv":"{\\boldsymbol i}","jv":"{\\boldsymbol j}","kv":"{\\boldsymbol k}","lv":"{\\boldsymbol l}","mv":"{\\boldsymbol m}","nv":"{\\boldsymbol n}","ov":"{\\boldsymbol o}","pv":"{\\boldsymbol p}","qv":"{\\boldsymbol q}","rv":"{\\boldsymbol r}","sv":"{\\boldsymbol s}","tv":"{\\boldsymbol t}","uv":"{\\boldsymbol u}","vv":"{\\boldsymbol v}","wv":"{\\boldsymbol w}","xv":"{\\boldsymbol x}","yv":"{\\boldsymbol y}","zv":"{\\boldsymbol z}","Av":"{\\mathbf A}","Bv":"{\\mathbf B}","Cv":"{\\mathbf C}","Dv":"{\\mathbf D}","Ev":"{\\mathbf E}","Fv":"{\\mathbf F}","Gv":"{\\mathbf G}","Hv":"{\\mathbf H}","Iv":"{\\mathbf I}","Jv":"{\\mathbf J}","Kv":"{\\mathbf K}","Lv":"{\\mathbf L}","Mv":"{\\mathbf M}","Nv":"{\\mathbf N}","Ov":"{\\mathbf O}","Pv":"{\\mathbf P}","Qv":"{\\mathbf Q}","Rv":"{\\mathbf R}","Sv":"{\\mathbf S}","Tv":"{\\mathbf T}","Uv":"{\\mathbf U}","Vv":"{\\mathbf V}","Wv":"{\\mathbf W}","Xv":"{\\mathbf X}","Yv":"{\\mathbf Y}","Zv":"{\\mathbf Z}","alphav":"{\\boldsymbol {\\alpha}}","betav":"{\\boldsymbol {\\beta}}","lambdav":"{\\boldsymbol {\\lambda}}","muv":"{\\boldsymbol {\\mu}}","phiv":"{\\boldsymbol {\\phi}}","zetav":"{\\boldsymbol {\\zeta}}","deltav":"{\\boldsymbol {\\delta}}","Sigmav":"{\\boldsymbol {\\Sigma}}","Phiv":"{\\boldsymbol {\\Phi}}","Lambdav":"{\\boldsymbol {\\Lambda}}","Omegav":"{\\boldsymbol {\\Omega}}","Cbb":"{\\mathbb C}","Ebb":"{\\mathbb E}","Hbb":"{\\mathbb H}","Nbb":"{\\mathbb N}","Pbb":"{\\mathbb P}","Qbb":"{\\mathbb Q}","Rbb":"{\\mathbb R}","Acal":"{\\mathcal A}","Bcal":"{\\mathcal B}","Ccal":"{\\mathcal C}","Dcal":"{\\mathcal D}","Ecal":"{\\mathcal E}","Fcal":"{\\mathcal F}","Gcal":"{\\mathcal G}","Hcal":"{\\mathcal H}","Lcal":"{\\mathcal L}","Mcal":"{\\mathcal M}","Ncal":"{\\mathcal N}","Pcal":"{\\mathcal P}","Rcal":"{\\mathcal R}","Scal":"{\\mathcal S}","Vcal":"{\\mathcal V}","Wcal":"{\\mathcal W}","Xcal":"{\\mathcal X}","Ycal":"{\\mathcal Y}","diff":"{\\mathrm {d}}","diag":"{\\mathrm {diag}}","span":"{\\mathrm {span}}","sign":"{\\mathrm {sign}}","sgn":"{\\mathrm {sgn}}","st":"{\\mathrm {s.t.}}","VC":"{\\mathrm {VC}}","Pr":"{\\mathrm {Pr}}","tanh":"{\\mathrm {Tanh}}","relu":"{\\mathrm {ReLU}}","lrelu":"{\\mathrm {LeakyReLU}}","prelu":"{\\mathrm {PReLU}}","elu":"{\\mathrm {ELU}}","softplus":"{\\mathrm {Softplus}}","swish":"{\\mathrm {Swish}}","maxout":"{\\mathrm {Maxout}}","grad":"{\\mathrm {grad}}","div":"{\\mathrm {div}}","var":"{\\mathrm {var}}","softmax":"{\\mathrm {softmax}}","att":"{\\mathrm {att}}","cut":"{\\mathrm {cut}}","rcut":"{\\mathrm {RatioCut}}","ncut":"{\\mathrm {NCut}}","tr":"{\\mathrm {tr}}","vol":"{\\mathrm {vol}}","rot":"{\\mathbf {rot180}}","up":"{\\mathbf {up}}","argmin":"{\\mathop{\\mathrm{argmin}}}","argmax":"{\\mathop{\\mathrm{argmax}}}"}},"HTML-CSS":{"linebreaks":{"automatic":false},"scale":100,"styles":{".MathJax_Display":{"width":"auto","margin":"0 auto 0 -320px !important","border-radius":"0px !important","font-size":"0.55em !important"},".MathJax":{"border":"0px solid #ccc !important","font-size":"1em !important"}},"availableFonts":["TeX"]}});
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+        
+      
+      
+      
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/lib/js/head.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/js/reveal.js"></script>
+      
+      
+      
+      
+      
+      
+      <style>
+      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#657b83;background-color:#fbedc6 !important;border:#f8de97;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#93a1a1;font-style:italic}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#93a1a1}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.property,pre[class*="language-"] .token.property{color:#859900}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#d33682}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#268bd2}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#859900}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#657b83}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#2aa198}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#cb4b16}code[class*="language-"] .token.builtin,pre[class*="language-"] .token.builtin{color:#859900}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#268bd2}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#93a1a1}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#859900}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#268bd2}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#268bd2}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#268bd2}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#dc322f}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export" data-presentation-mode>
+      <div class="mume markdown-preview  " data-presentation-mode>
+      
+    <div style="display:none;"><link rel="stylesheet" href="../common/css/zhangt-style.css">
+<link rel="stylesheet" href="../common/css/font-awesome-4.7.0/css/font-awesome.css">
+</div>
+    <div class="reveal">
+      <div class="slides">
+        <section data-notes lineno="10" class="slide " data-line="10" data-h="0" data-v="0">
+<div id="logo">
+    <img src="../common/img/xiaohui.png" style="margin-right:20px" height="120px">
+</div>
+<div>
+    <h1 class="front_page_title top_10">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h1>
+    <hr width="50%"> 
+    <h4 class="front_page_subtitle top_2">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h4>
+    <h4 class="author top_10">&#x5F20;&#x817E;</h4>
+    <h4 class="mail">tengzhang@hust.edu.cn</h4>
+</div>
+</section><section><section data-notes lineno="23" class="slide " data-line="23" data-h="1" data-v="0">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">Laplace&#x77E9;&#x9635;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x5B9A;&#x4E49;&#xFF1A;<span class="mathjax-exps">$\Lv = \Dv - \Av$</span></p>
+<ul>
+<li><span class="mathjax-exps">$\Lv$</span>&#x534A;&#x6B63;&#x5B9A;&#xFF1A;&#x5BF9;<span class="mathjax-exps">$\forall \xv \in \Rbb^{|\Vcal|}$</span></li>
+</ul>
+<p></p><div class="mathjax-exps">$$\begin{align*}         \xv^\top \Lv \xv &amp; = \sum_{u \in \Vcal} \sum_{v \in \Vcal} [\xv]_u [\Dv]_{uv} [\xv]_v - \sum_{u \in \Vcal} \sum_{v \in \Vcal} [\xv]_u [\Av]_{uv} [\xv]_v \\                      &amp; = \sum_{u \in \Vcal} [\xv]_u^2 d_u - \sum_{u \in \Vcal} \sum_{v \in \Vcal} [\xv]_u [\Av]_{uv} [\xv]_v                          \\                      &amp; = \frac{1}{2} \left( \sum_{u \in \Vcal} \sum_{v \in \Vcal} [\xv]_u^2 [\Av]_{uv} + \sum_{v \in \Vcal} \sum_{u \in \Vcal} [\xv]_v^2 [\Av]_{vu} - 2 \sum_{u \in \Vcal} \sum_{v \in \Vcal} [\xv]_u [\Av]_{uv} [\xv]_v \right) \\                      &amp; = \frac{1}{2} \sum_{u \in \Vcal} \sum_{v \in \Vcal} [\Av]_{uv} ([\xv]_u - [\xv]_v)^2 \geq 0     \end{align*}$$</div><p></p>
+<ul>
+<li><span class="mathjax-exps">$\Lv \ev = \Dv \ev - \Av \ev = \zerov = 0 \ev$</span>&#xFF0C;&#x6545;<span class="mathjax-exps">$0 = \lambda_{|\Vcal|} \leq \cdots \leq \lambda_1$</span></li>
+</ul>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="56" class="slide " data-line="56" data-h="1" data-v="1">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">Laplace&#x77E9;&#x9635;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p></p><div class="mathjax-exps">$$\begin{align*}         \xv^\top \Lv \xv = \frac{1}{2} \sum_{u \in \Vcal} \sum_{v \in \Vcal} [\Av]_{uv} ([\xv]_u - [\xv]_v)^2 = \frac{1}{2} \sum_{(u,v) \in \Ecal} ([\xv]_u - [\xv]_v)^2     \end{align*}$$</div><p></p>
+<p>Laplace&#x77E9;&#x9635;&#x6700;&#x5C0F;&#x7279;&#x5F81;&#x503C;<span class="mathjax-exps">$0$</span>&#x7684;&#x51E0;&#x4F55;&#x91CD;&#x6570;&#x7B49;&#x4E8E;&#x56FE;&#x7684;&#x8FDE;&#x901A;&#x5206;&#x652F;&#x6570;</p>
+<p>&#x8BC1;&#x660E;&#xFF1A;&#x8BBE;<span class="mathjax-exps">$\xv$</span>&#x662F;<span class="mathjax-exps">$0$</span>&#x5BF9;&#x5E94;&#x7684;&#x4EFB;&#x4E00;&#x7279;&#x5F81;&#x5411;&#x91CF;&#xFF0C;&#x4E8E;&#x662F;&#x6709;<span class="mathjax-exps">$\xv^\top \Lv \xv = \xv^\top 0 \xv = 0$</span>&#xFF0C;&#x4ECE;&#x800C;<span class="mathjax-exps">$(u,v) \in \Ecal \Rightarrow [\xv]_u = [\xv]_v$</span>&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;<span class="mathjax-exps">$\xv$</span>&#x5728;&#x4EFB;&#x4E00;&#x8FDE;&#x901A;&#x5206;&#x652F;&#x4E0A;&#x7684;&#x503C;&#x76F8;&#x7B49;</p>
+<ul>
+<li>&#x5168;&#x8FDE;&#x901A;&#x56FE;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x8FDE;&#x901A;&#x5206;&#x652F;&#xFF0C;&#x6B64;&#x65F6;<span class="mathjax-exps">$\xv = c \ev$</span>&#xFF0C;&#x5373;<span class="mathjax-exps">$0$</span>&#x7684;&#x51E0;&#x4F55;&#x91CD;&#x6570;&#x4E3A;<span class="mathjax-exps">$1$</span></li>
+<li>&#x8BBE;&#x56FE;&#x6709;<span class="mathjax-exps">$K$</span>&#x4E2A;&#x8FDE;&#x901A;&#x5206;&#x652F;<span class="mathjax-exps">$\Vcal = \Vcal_1 \times \cdots \times \Vcal_K$</span>&#xFF0C;&#x5C06;&#x70B9;&#x6309;&#x8FDE;&#x901A;&#x5206;&#x652F;&#x6392;&#x5E8F;&#xFF0C;&#x5219;&#x90BB;&#x63A5;&#x77E9;&#x9635;&#x4E3A;&#x5206;&#x5757;&#x5BF9;&#x89D2;&#x9635;<span class="mathjax-exps">$\Av = \diag\{ \Av_1, \ldots, \Av_K \}$</span>&#xFF0C;&#x53C8;<span class="mathjax-exps">$\Dv$</span>&#x662F;&#x5BF9;&#x89D2;&#x9635;&#xFF0C;&#x6545;Laplace&#x77E9;&#x9635;&#x4E5F;&#x4E3A;&#x5206;&#x5757;&#x5BF9;&#x89D2;&#x9635;<span class="mathjax-exps">$\Lv = \diag\{ \Lv_1, \ldots, \Lv_K \}$</span>&#xFF0C;&#x5176;&#x4E2D;<span class="mathjax-exps">$\Lv_i$</span>&#x662F;&#x7B2C;<span class="mathjax-exps">$i$</span>&#x4E2A;&#x8FDE;&#x901A;&#x5206;&#x652F;&#x7684;Laplace&#x77E9;&#x9635;&#xFF0C;&#x5176;&#x6700;&#x5C0F;&#x7279;&#x5F81;&#x503C;<span class="mathjax-exps">$0$</span>&#x5BF9;&#x5E94;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;<span class="mathjax-exps">$\ev \in \Rbb^{|\Vcal_i|}$</span>&#xFF0C;&#x5C06;&#x5176;&#x8865;&#x96F6;&#x5230;<span class="mathjax-exps">$|\Vcal|$</span>&#x7EF4;&#x5F97;&#x5230;<span class="mathjax-exps">$\ev_{\Vcal_i}$</span>&#xFF0C;&#x663E;&#x7136;<span class="mathjax-exps">$\ev_{\Vcal_1}, \ldots, \ev_{\Vcal_K}$</span>&#x662F;<span class="mathjax-exps">$\Lv$</span>&#x7684;&#x5BF9;&#x5E94;&#x4E8E;<span class="mathjax-exps">$0$</span>&#x7684;<span class="mathjax-exps">$K$</span>&#x4E2A;&#x7EBF;&#x6027;&#x65E0;&#x5173;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;</li>
+</ul>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section></section><section><section data-notes lineno="88" class="slide " data-line="88" data-h="2" data-v="0">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x5F52;&#x4E00;&#x5316;Laplace&#x77E9;&#x9635;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x5BF9;&#x79F0;Laplace&#x77E9;&#x9635;&#xFF1A;<span class="mathjax-exps">$\Lv_{\text{sym}} = \Dv^{-1/2} \Lv \Dv^{-1/2} = \Iv - \Dv^{-1/2} \Av \Dv^{-1/2}$</span></p>
+<p>&#x968F;&#x673A;&#x6E38;&#x8D70;Laplace&#x77E9;&#x9635;&#xFF1A;<span class="mathjax-exps">$\Lv_{\text{rm}} = \Dv^{-1} \Lv = \Iv - \Dv^{-1} \Av$</span>&#xFF0C;&#x7B2C;&#x4E8C;&#x9879;&#x5C31;&#x662F;&#x968F;&#x673A;&#x6E38;&#x8D70;&#x7684;&#x8F6C;&#x79FB;&#x77E9;&#x9635;&#xFF0C;&#x7531;&#x6B64;&#x5F97;&#x540D;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \xv^\top \Lv_{\text{sym}} \xv &amp; = \sum_{u \in \Vcal} [\xv]_u^2 - \sum_{u \in \Vcal} \sum_{v \in \Vcal} [\xv]_u [\Av]_{uv} [\xv]_v / \sqrt{d_u d_v} \\                      &amp; = \sum_{u \in \Vcal} \sum_{v \in \Vcal} [\xv]_u^2 [\Av]_{uv} / d_u - \sum_{u \in \Vcal} \sum_{v \in \Vcal} [\xv]_u [\Av]_{uv} [\xv]_v / \sqrt{d_u d_v}                          \\                      &amp; = \frac{1}{2} \sum_{u \in \Vcal} \sum_{v \in \Vcal} [\Av]_{vu} \left( [\xv]_u^2 / d_u + [\xv]_v^2 / d_v - 2 [\xv]_u [\xv]_v / \sqrt{d_u d_v} \right) \\                      &amp; = \frac{1}{2} \sum_{u \in \Vcal} \sum_{v \in \Vcal} [\Av]_{uv} \left( \frac{[\xv]_u}{\sqrt{d_u}} - \frac{[\xv]_v}{\sqrt{d_v}} \right)^2     \end{align*}$$</div><p></p>
+<p>&#x5373;<span class="mathjax-exps">$\Lv_{\text{sym}}$</span>&#x534A;&#x6B63;&#x5B9A;&#xFF0C;&#x6709;<span class="mathjax-exps">$|\Vcal|$</span>&#x4E2A;&#x975E;&#x8D1F;&#x7279;&#x5F81;&#x503C;&#xFF1A;<span class="mathjax-exps">$0 \leq \lambda_{|\Vcal|} \leq \cdots \leq \lambda_1$</span></p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="120" class="slide " data-line="120" data-h="2" data-v="1">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x5F52;&#x4E00;&#x5316;Laplace&#x77E9;&#x9635;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x5BF9;&#x79F0;Laplace&#x77E9;&#x9635;&#xFF1A;<span class="mathjax-exps">$\Lv_{\text{sym}} = \Dv^{-1/2} \Lv \Dv^{-1/2} = \Iv - \Dv^{-1/2} \Av \Dv^{-1/2}$</span></p>
+<p>&#x968F;&#x673A;&#x6E38;&#x8D70;Laplace&#x77E9;&#x9635;&#xFF1A;<span class="mathjax-exps">$\Lv_{\text{rm}} = \Dv^{-1} \Lv = \Iv - \Dv^{-1} \Av$</span></p>
+<p><span class="mathjax-exps">$(\lambda, \vv)$</span>&#x662F;<span class="mathjax-exps">$\Lv_{\text{rm}}$</span>&#x7684;&#x7279;&#x5F81;&#x503C;/&#x5411;&#x91CF;&#x5F53;&#x4E14;&#x4EC5;&#x5F53;<span class="mathjax-exps">$\Lv \vv = \lambda \Dv \vv$</span></p>
+<p></p><div class="mathjax-exps">$$\begin{align*}         \lambda \Dv \vv = \Dv \lambda \vv = \Dv \Lv_{\text{rm}} \vv = \Dv \Dv^{-1} \Lv \vv = \Lv \vv     \end{align*}$$</div><p></p>
+<p><span class="mathjax-exps">$(\lambda, \vv)$</span>&#x662F;<span class="mathjax-exps">$\Lv_{\text{rm}}$</span>&#x7684;&#x7279;&#x5F81;&#x503C;/&#x5411;&#x91CF;&#x5F53;&#x4E14;&#x4EC5;&#x5F53;<span class="mathjax-exps">$(\lambda, \Dv^{1/2} \vv)$</span>&#x662F;<span class="mathjax-exps">$\Lv_{\text{sym}}$</span>&#x7684;&#x7279;&#x5F81;&#x503C;/&#x5411;&#x91CF;</p>
+<p></p><div class="mathjax-exps">$$\begin{align*}         \lambda \vv &amp; = \Lv_{\text{rm}} \vv = \Dv^{-1} \Lv \vv = \Dv^{-1/2} \Dv^{-1/2} \Lv \Dv^{-1/2} \Dv^{1/2} \vv = \Dv^{-1/2} \Lv_{\text{sym}} \Dv^{1/2} \vv \\         &amp; \Leftrightarrow \lambda \Dv^{1/2} \vv = \Lv_{\text{sym}} \Dv^{1/2} \vv     \end{align*}$$</div><p></p>
+<p>&#x6545;<span class="mathjax-exps">$\Lv_{\text{rm}}$</span>&#x4E5F;&#x534A;&#x6B63;&#x5B9A;&#xFF0C;&#x6709;<span class="mathjax-exps">$|\Vcal|$</span>&#x4E2A;&#x975E;&#x8D1F;&#x7279;&#x5F81;&#x503C;&#xFF1A;<span class="mathjax-exps">$0 \leq \lambda_{|\Vcal|} \leq \cdots \leq \lambda_1$</span></p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="161" class="slide " data-line="161" data-h="2" data-v="2">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x5F52;&#x4E00;&#x5316;Laplace&#x77E9;&#x9635;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x5BF9;&#x79F0;Laplace&#x77E9;&#x9635;&#xFF1A;<span class="mathjax-exps">$\Lv_{\text{sym}} = \Dv^{-1/2} \Lv \Dv^{-1/2} = \Iv - \Dv^{-1/2} \Av \Dv^{-1/2}$</span></p>
+<p>&#x968F;&#x673A;&#x6E38;&#x8D70;Laplace&#x77E9;&#x9635;&#xFF1A;<span class="mathjax-exps">$\Lv_{\text{rm}} = \Dv^{-1} \Lv = \Iv - \Dv^{-1} \Av$</span></p>
+<p><span class="mathjax-exps">$(0, \ev)$</span>&#x662F;<span class="mathjax-exps">$\Lv_{\text{rm}}$</span>&#x7684;&#x7279;&#x5F81;&#x503C;/&#x5411;&#x91CF;&#xFF0C;<span class="mathjax-exps">$(0, \Dv^{1/2} \ev)$</span>&#x662F;<span class="mathjax-exps">$\Lv_{\text{sym}}$</span>&#x7684;&#x7279;&#x5F81;&#x503C;/&#x5411;&#x91CF;</p>
+<p></p><div class="mathjax-exps">$$\begin{align*}         \Lv_{\text{rm}} \ev &amp; = \Dv^{-1} \Lv \ev = \Dv^{-1} 0 \ev = \zerov = 0 \ev \\         \Lv_{\text{sym}} \Dv^{1/2} \ev &amp; = \Dv^{-1/2} \Lv \Dv^{-1/2} \Dv^{1/2} \ev = \Dv^{-1/2} \Lv \ev = \Dv^{-1/2} 0 \ev = \zerov = 0 \Dv^{1/2} \ev     \end{align*}$$</div><p></p>
+<p><span class="mathjax-exps">$\Lv_{\text{sym}}$</span>&#x548C;<span class="mathjax-exps">$\Lv_{\text{rm}}$</span>&#x6700;&#x5C0F;&#x7279;&#x5F81;&#x503C;<span class="mathjax-exps">$0$</span>&#x7684;&#x51E0;&#x4F55;&#x91CD;&#x6570;&#x7B49;&#x4E8E;&#x56FE;&#x7684;&#x8FDE;&#x901A;&#x5206;&#x652F;&#x6570;</p>
+<p>&#x8BC1;&#x660E;&#xFF1A;<span class="mathjax-exps">$\Lv_{\text{sym}}$</span>&#x548C;<span class="mathjax-exps">$\Lv_{\text{rm}}$</span>&#x4E0E;<span class="mathjax-exps">$\Lv$</span>&#x6709;&#x76F8;&#x540C;&#x7684;&#x5206;&#x5757;&#x5BF9;&#x89D2;&#x5F62;&#x5F0F;</p>
+<ul>
+<li><span class="mathjax-exps">$\Lv_{\text{rm}}$</span>&#x5BF9;&#x5E94;&#x4E8E;<span class="mathjax-exps">$0$</span>&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x7531;<span class="mathjax-exps">$\ev_{\Vcal_1}, \ldots, \ev_{\Vcal_K}$</span>&#x5F20;&#x6210;</li>
+<li><span class="mathjax-exps">$\Lv_{\text{sym}}$</span>&#x5BF9;&#x5E94;&#x4E8E;<span class="mathjax-exps">$0$</span>&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x7531;<span class="mathjax-exps">$\Dv^{1/2} \ev_{\Vcal_1}, \ldots, \Dv^{1/2} \ev_{\Vcal_K}$</span>&#x5F20;&#x6210;</li>
+</ul>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section></section><section data-notes lineno="198" class="slide " data-line="198" data-h="3" data-v="0">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x56FE;&#x5272;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x8BBE;<span class="mathjax-exps">$\Vcal = \Vcal_1 \times \cdots \times \Vcal_K$</span>&#xFF0C;&#x5B9A;&#x4E49;&#x56FE;&#x5272;&#x4E3A;&#x5212;&#x5206;&#x70B9;&#x96C6;&#x65F6;&#x9700;&#x7834;&#x574F;&#x7684;&#x8FB9;&#x6570;&#xFF1A;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \cut (\Vcal_1, \ldots, \Vcal_K) = \frac{1}{2} \sum_{k \in [K]} | (u,v) \in \Ecal: u \in \Vcal_k, v \in \overline{\Vcal}_k |     \end{align*}$$</div><p></p>
+<p>&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x5212;&#x5206;(&#x5BF9;&#x70B9;&#x505A;&#x805A;&#x7C7B;)&#x5E94;&#x8BE5;&#x5C3D;&#x53EF;&#x80FD;&#x5C11;&#x7684;&#x7834;&#x574F;&#x8FB9;</p>
+<p>&#x95EE;&#x9898;&#xFF1A;&#x53EF;&#x80FD;&#x53EA;&#x5212;&#x5206;&#x51FA;&#x4E00;&#x4E2A;&#x70B9;</p>
+<p>&#x6BD4;&#x4F8B;&#x5272;&#x548C;&#x5F52;&#x4E00;&#x5316;&#x5272;</p>
+<div style="margin:0% auto 1% 38%">
+$$
+    \begin{align*}
+        \rcut (\{ \Vcal_k \}_{k \in [K]}) &amp; = \sum_{k \in [K]} \frac{| (u,v) \in \Ecal: u \in \Vcal_k, v \in \overline{\Vcal}_k |}{2|\Vcal_k|} = \sum_{k \in [K]} \frac{\cut (\Vcal_k, \overline{\Vcal}_k)}{|\Vcal_k|} \\
+        \ncut (\{ \Vcal_k \}_{k \in [K]}) &amp; = \sum_{k \in [K]} \frac{| (u,v) \in \Ecal: u \in \Vcal_k, v \in \overline{\Vcal}_k |}{2 \vol(\Vcal_k)} =  \sum_{k \in [K]} \frac{\cut (\Vcal_k, \overline{\Vcal}_k)}{\sum_{u \in \Vcal_k} d_u}
+    \end{align*}
+$$
+</div>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section><section data-notes lineno="238" class="slide " data-line="238" data-h="4" data-v="0">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x4E8C;&#x5206; &#x6BD4;&#x4F8B;&#x5272;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x8BBE;<span class="mathjax-exps">$K=2$</span>&#xFF0C;&#x5373;&#x5C06;&#x70B9;&#x96C6;&#x4E00;&#x5206;&#x4E3A;&#x4E8C;&#xFF0C;&#x5219;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x4E3A;<span class="mathjax-exps">$\min_{\Acal \subseteq \Vcal} ~ \rcut (\Acal, \overline{\Acal})$</span></p>
+<p>&#x5B9A;&#x4E49;&#x6307;&#x793A;&#x5411;&#x91CF;<span class="mathjax-exps">$\fv \in \Rbb^{|\Vcal|}$</span><br>
+</p><div class="mathjax-exps">$$\begin{align*}         [\fv]_v = \begin{cases}             \sqrt{|\overline{\Acal}| / |\Acal|} &amp; &#x82E5;~v \in \Acal \\             - \sqrt{|\Acal| / |\overline{\Acal}|} &amp; &#x82E5;~v \not \in \Acal         \end{cases}     \end{align*}$$</div><p></p>
+<p>&#x5219;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \fv^\top \Lv \fv &amp; = \frac{1}{2} \sum_{u \in \Acal, v \not \in \Acal} ([\fv]_u - [\fv]_v)^2 + \frac{1}{2} \sum_{u \not \in \Acal, v \in \Acal} ([\fv]_u - [\fv]_v)^2 \\         &amp; = \frac{1}{2} \sum_{u \in \Acal, v \not \in \Acal} \left( \sqrt{\frac{|\overline{\Acal}|}{|\Acal|}} + \sqrt{\frac{|\Acal|}{|\overline{\Acal}|}} \right)^2 + \frac{1}{2} \sum_{u \not \in \Acal, v \in \Acal} \left( \sqrt{\frac{|\Acal|}{|\overline{\Acal}|}} + \sqrt{\frac{|\overline{\Acal}|}{|\Acal|}} \right)^2     \end{align*}$$</div><p></p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="277" class="slide " data-line="277" data-h="4" data-v="1">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x4E8C;&#x5206; &#x6BD4;&#x4F8B;&#x5272;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p></p><div class="mathjax-exps">$$\begin{align*}         \fv^\top \Lv \fv &amp; = \frac{1}{2} \sum_{u \in \Acal, v \not \in \Acal} ([\fv]_u - [\fv]_v)^2 + \frac{1}{2} \sum_{u \not \in \Acal, v \in \Acal} ([\fv]_u - [\fv]_v)^2 \\         &amp; = \frac{1}{2} \sum_{u \in \Acal, v \not \in \Acal} \left( \sqrt{\frac{|\overline{\Acal}|}{|\Acal|}} + \sqrt{\frac{|\Acal|}{|\overline{\Acal}|}} \right)^2 + \frac{1}{2} \sum_{u \not \in \Acal, v \in \Acal} \left( \sqrt{\frac{|\Acal|}{|\overline{\Acal}|}} + \sqrt{\frac{|\overline{\Acal}|}{|\Acal|}} \right)^2 \\         &amp; = \frac{1}{2} \sum_{u \in \Acal, v \not \in \Acal} \left( \frac{|\overline{\Acal}|}{|\Acal|} + \frac{|\Acal|}{|\overline{\Acal}|} + 2 \right) + \frac{1}{2} \sum_{u \not \in \Acal, v \in \Acal} \left( \frac{|\overline{\Acal}|}{|\Acal|} + \frac{|\Acal|}{|\overline{\Acal}|} + 2 \right) \\         &amp; = \cut (\Acal, \overline{\Acal}) \left( \frac{|\overline{\Acal}| + |\Acal|}{|\Acal|} + \frac{|\Acal| + |\overline{\Acal}|}{|\overline{\Acal}|} \right) \\         &amp; = |\Vcal| \rcut (\Acal, \overline{\Acal})     \end{align*}$$</div><p></p>
+<p>&#x8FD9;&#x8868;&#x660E;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;Laplace&#x77E9;&#x9635;&#x8868;&#x793A;</p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="307" class="slide " data-line="307" data-h="4" data-v="2">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x4E8C;&#x5206; &#x6BD4;&#x4F8B;&#x5272;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p><span class="mathjax-exps">$\fv$</span>&#x6EE1;&#x8DB3;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \fv^\top \ev &amp; = \sum_{u \in \Acal} \sqrt{\frac{|\overline{\Acal}|}{|\Acal|}} - \sum_{u \not \in \Acal} \sqrt{\frac{|\Acal|}{|\overline{\Acal}|}} = |\Acal| \sqrt{\frac{|\overline{\Acal}|}{|\Acal|}} - |\overline{\Acal}| \sqrt{\frac{|\Acal|}{|\overline{\Acal}|}} = 0 \\         \fv^\top \fv &amp; = \sum_{u \in \Vcal} [\fv]_u^2 = \sum_{u \in \Acal} [\fv]_u^2 + \sum_{u \not \in \Acal} [\fv]_u^2 = |\Acal| \frac{|\overline{\Acal}|}{|\Acal|} + |\overline{\Acal}| \frac{|\Acal|}{|\overline{\Acal}|} = |\Vcal|     \end{align*}$$</div><p></p>
+<p>&#x7EFC;&#x4E0A;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x4E3A;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\Acal \subseteq \Vcal} ~ \fv^\top \Lv \fv \quad \st ~ [\fv]_v = \begin{cases}             \sqrt{|\overline{\Acal}| / |\Acal|} &amp; &#x82E5;~v \in \Acal \\             - \sqrt{|\Acal| / |\overline{\Acal}|} &amp; &#x82E5;~v \not \in \Acal         \end{cases}~~~~~~, ~ \fv^\top \ev = 0, ~ \fv^\top \fv = |\Vcal|     \end{align*}$$</div><p></p>
+<p>&#x96BE;&#x70B9;&#xFF1A;&#x79BB;&#x6563;&#x4F18;&#x5316;&#xFF0C;NP-hard</p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="345" class="slide " data-line="345" data-h="4" data-v="3">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x4E8C;&#x5206; &#x6BD4;&#x4F8B;&#x5272; &#x6C42;&#x89E3;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x53BB;&#x6389;&#x7B2C;&#x4E00;&#x4E2A;&#x79BB;&#x6563;&#x7EA6;&#x675F;&#xFF0C;&#x95EE;&#x9898;&#x653E;&#x677E;&#x4E3A;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\fv} ~ \fv^\top \Lv \fv &amp; \quad \st ~ \fv^\top \ev = 0, ~ \fv^\top \fv = |\Vcal|     \end{align*}$$</div><p></p>
+<p>&#x8BBE;<span class="mathjax-exps">$\Lv$</span>&#x7684;&#x7279;&#x5F81;&#x503C;&#xFF1A;<span class="mathjax-exps">$0 = \lambda_{|\Vcal|} \leq \cdots \leq \lambda_1$</span>&#xFF0C;&#x5BF9;&#x5E94;&#x7279;&#x5F81;&#x5411;&#x91CF;&#xFF1A;<span class="mathjax-exps">$\ev / \|\ev\| = \vv_{|\Vcal|}, \ldots, \vv_1$</span></p>
+<p>&#x8BBE;<span class="mathjax-exps">$\fv = \alpha_1 \vv_1 + \cdots + \alpha_{|\Vcal|} \vv_{|\Vcal|}$</span>&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x7EA6;&#x675F;<span class="mathjax-exps">$\fv^\top \ev = \alpha_{|\Vcal|} \|\ev\| = 0 \Rightarrow \alpha_{|\Vcal|} = 0$</span>&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x7EA6;&#x675F;<span class="mathjax-exps">$\fv^\top \fv = \alpha_1^2 + \cdots + \alpha_{|\Vcal|}^2 = |\Vcal|$</span><br>
+</p><div class="mathjax-exps">$$\begin{align*}         \fv^\top \Lv \fv &amp; = (\alpha_1 \vv_1 + \cdots + \alpha_{|\Vcal|} \vv_{|\Vcal|})^\top (\alpha_1 \lambda_1 \vv_1 + \cdots + \alpha_{|\Vcal| } \lambda_{|\Vcal|} \vv_{|\Vcal|}) \\         &amp; = \alpha_1^2 \lambda_1 + \cdots + \alpha_{|\Vcal|}^2 \lambda_{|\Vcal|} = \alpha_1^2 \lambda_1 + \cdots + \alpha_{|\Vcal|-1}^2 \lambda_{|\Vcal|-1} \\         &amp; \geq \alpha_1^2 \lambda_{|\Vcal|-1} + \cdots + \alpha_{|\Vcal|-1}^2 \lambda_{|\Vcal|-1} = |\Vcal| \lambda_{|\Vcal|-1}     \end{align*}$$</div><p></p>
+<p>&#x53D6;&#x7B49;&#x53F7;&#x6761;&#x4EF6;&#x4E3A;<span class="mathjax-exps">$\fv$</span>&#x6B63;&#x6BD4;&#x4E8E;&#x5012;&#x6570;&#x7B2C;&#x4E8C;&#x5C0F;&#x7279;&#x5F81;&#x503C;&#x5BF9;&#x5E94;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;</p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="383" class="slide " data-line="383" data-h="4" data-v="4">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x4E8C;&#x5206; &#x6BD4;&#x4F8B;&#x5272; &#x6C42;&#x89E3;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x4F18;&#x5316;&#x95EE;&#x9898;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\fv \in\Rbb^{|\Vcal|}} ~ \fv^\top \Lv \fv &amp; \quad \st ~ \fv^\top \ev = 0, ~ \fv^\top \fv = |\Vcal|     \end{align*}$$</div><p></p>
+<p>&#x7684;&#x6700;&#x4F18;&#x89E3;&#x4E3A;<span class="mathjax-exps">$\fv^\star = \sqrt{|\Vcal|} \vv_{|\Vcal|-1}$</span>&#xFF0C;</p>
+<br>
+<p>&#x53CD;&#x63A8;&#x5212;&#x5206;</p>
+<ul>
+<li><span class="mathjax-exps">$v \in \Acal$</span>&#x5F53;&#x4E14;&#x4EC5;&#x5F53;<span class="mathjax-exps">$[\fv]_v \geq 0$</span></li>
+<li>&#x5C06;<span class="mathjax-exps">$\{ [\fv]_1, \ldots, [\fv]_{|\Vcal|} \}$</span>&#x770B;&#x6210;<span class="mathjax-exps">$\Rbb$</span>&#x4E0A;&#x7684;<span class="mathjax-exps">$|\Vcal|$</span>&#x4E2A;&#x70B9;&#xFF0C;&#x805A;&#x6210;&#x4E24;&#x7C07;<span class="mathjax-exps">$\Ccal$</span>&#x3001;<span class="mathjax-exps">$\overline{\Ccal}$</span>&#xFF0C;<span class="mathjax-exps">$v \in \Acal$</span>&#x5F53;&#x4E14;&#x4EC5;&#x5F53;<span class="mathjax-exps">$[\fv]_v \in \Ccal$</span></li>
+</ul>
+<br>
+<p>&#x540E;&#x8005;&#x5C31;&#x662F;<span class="mathjax-exps">$K = 2$</span>&#x7684;&#x672A;&#x5F52;&#x4E00;&#x5316;&#x8C31;&#x805A;&#x7C7B;</p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section></section><section><section data-notes lineno="420" class="slide " data-line="420" data-h="5" data-v="0">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x591A;&#x5206; &#x6BD4;&#x4F8B;&#x5272;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x8BBE;<span class="mathjax-exps">$K &gt; 2$</span>&#xFF0C;&#x5219;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x4E3A;<span class="mathjax-exps">$\min_{\Vcal_1, \ldots, \Vcal_K} ~ \rcut (\Vcal_1, \ldots, \Vcal_K)$</span></p>
+<p>&#x5B9A;&#x4E49;<span class="mathjax-exps">$K$</span>&#x4E2A;&#x6307;&#x793A;&#x5411;&#x91CF;<span class="mathjax-exps">$\hv_k \in \Rbb^{|\Vcal|}$</span><br>
+</p><div class="mathjax-exps">$$\begin{align*}         [\hv_k]_v = \begin{cases}             1 / \sqrt{|\Vcal_k|} &amp; &#x82E5;~v \in \Vcal_k \\             0 &amp; &#x82E5;~v \not \in \Vcal_k         \end{cases}     \end{align*}$$</div><p></p>
+<p></p><div class="mathjax-exps">$$\begin{align*}         \hv_k^\top \Lv \hv_k &amp; = \frac{1}{2} \sum_{(u,v) \in \Ecal} ([\hv_k]_u - [\hv_k]_v)^2 \\         &amp; = \frac{1}{2} \sum_{u \in \Vcal_k, v \not \in \Vcal_k} ([\hv_k]_u - [\hv_k]_v)^2 + \frac{1}{2} \sum_{u \not \in \Vcal_k, v \in \Vcal_k} ([\hv_k]_u - [\hv_k]_v)^2 \\         &amp; = \frac{1}{2} \sum_{u \in \Vcal_k, v \not \in \Vcal_k} \frac{1}{|\Vcal_k|} + \frac{1}{2} \sum_{u \not \in \Vcal_k, v \in \Vcal_k} \frac{1}{|\Vcal_k|} = \frac{\cut (\Vcal_k, \overline{\Vcal}_k)}{|\Vcal_k|}      \end{align*}$$</div><p></p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="459" class="slide " data-line="459" data-h="5" data-v="1">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x591A;&#x5206; &#x6BD4;&#x4F8B;&#x5272;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x4E8E;&#x662F;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \rcut (\Vcal_1, \ldots, \Vcal_K) &amp; = \sum_{k \in [K]} \frac{\cut(\Vcal_k, \overline{\Vcal_k})}{|\Vcal_k|} = \sum_{k \in [K]} \hv_k^\top \Lv \hv_k \\         &amp; = \sum_{k \in [K]} [\Hv^\top \Lv \Hv]_{kk} = \tr (\Hv^\top \Lv \Hv)     \end{align*}$$</div><p></p>
+<p>&#x5176;&#x4E2D;<span class="mathjax-exps">$\Hv = [\hv_1, \ldots, \hv_K]$</span>&#xFF0C;&#x6CE8;&#x610F;<span class="mathjax-exps">$\Hv$</span>&#x7684;&#x5217;&#x76F8;&#x4E92;&#x6B63;&#x4EA4;&#x4E14;<span class="mathjax-exps">$\Hv^\top \Hv = \Iv$</span></p>
+<p>&#x7EFC;&#x4E0A;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x4E3A;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\Vcal_1, \ldots, \Vcal_K} ~ \tr (\Hv^\top \Lv \Hv) \quad \st ~ [\hv_k]_v = \begin{cases}             1 / \sqrt{|\Vcal_k|} &amp; &#x82E5;~v \in \Vcal_k \\             0 &amp; &#x82E5;~v \not \in \Vcal_k         \end{cases}~~~~~~, ~ \Hv^\top \Hv = \Iv     \end{align*}$$</div><p></p>
+<p>&#x96BE;&#x70B9;&#xFF1A;&#x79BB;&#x6563;&#x4F18;&#x5316;&#xFF0C;NP-hard</p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="499" class="slide " data-line="499" data-h="5" data-v="2">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x591A;&#x5206; &#x6BD4;&#x4F8B;&#x5272; &#x6C42;&#x89E3;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x53BB;&#x6389;&#x7B2C;&#x4E00;&#x4E2A;&#x79BB;&#x6563;&#x7EA6;&#x675F;&#xFF0C;&#x95EE;&#x9898;&#x653E;&#x677E;&#x4E3A;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\Hv \in \Rbb^{|\Vcal| \times K}} ~ \tr (\Hv^\top \Lv \Hv) \quad \st ~ \Hv^\top \Hv = \Iv     \end{align*}$$</div><p></p>
+<p>&#x8BBE;<span class="mathjax-exps">$\Lv = \sum_{i \in [|\Vcal|]} \lambda_i \vv_i \vv_i^\top = \Vv \Lambdav \Vv^\top$</span>&#xFF0C;&#x8BB0;<span class="mathjax-exps">$\Hv = \Vv \Qv$</span></p>
+<ul>
+<li><span class="mathjax-exps">$\Hv^\top \Lv \Hv = \Qv^\top \Vv^\top \Vv \Lambdav \Vv^\top \Vv \Qv = \Qv^\top \Lambdav \Qv$</span></li>
+<li><span class="mathjax-exps">$\Hv^\top \Hv = \Qv^\top \Vv^\top \Vv \Qv = \Qv^\top \Qv$</span></li>
+</ul>
+<p>&#x5C06;<span class="mathjax-exps">$\Qv$</span>&#x6269;&#x5145;&#x4E3A;&#x6B63;&#x4EA4;&#x77E9;&#x9635;<span class="mathjax-exps">$\widetilde{\Qv} = [\Qv, \overline{\Qv}]$</span>&#xFF0C;&#x8003;&#x8651;&#x95EE;&#x9898;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\widetilde{\Qv} \in \Rbb^{|\Vcal| \times |\Vcal|}} &amp; ~ \tr (\widetilde{\Qv}^\top \Lambdav \widetilde{\Qv}) = \tr (\Qv^\top \Lambdav \Qv) + \tr (\overline{\Qv}^\top \Lambdav \overline{\Qv}) \\         \st &amp; ~ \widetilde{\Qv}^\top \widetilde{\Qv} = \begin{bmatrix} \Qv^\top \Qv \\ &amp; \overline{\Qv}^\top \overline{\Qv} \end{bmatrix} = \Iv     \end{align*}$$</div><p></p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="536" class="slide " data-line="536" data-h="5" data-v="3">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x591A;&#x5206; &#x6BD4;&#x4F8B;&#x5272; &#x6C42;&#x89E3;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p><span class="mathjax-exps">$\widetilde{\Qv} = [\Qv, \overline{\Qv}]$</span>&#xFF0C;&#x8003;&#x8651;&#x95EE;&#x9898;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\widetilde{\Qv} \in \Rbb^{|\Vcal| \times |\Vcal|}} ~ \tr (\widetilde{\Qv}^\top \Lambdav \widetilde{\Qv}) \quad \st ~ \widetilde{\Qv}^\top \widetilde{\Qv} = \Iv     \end{align*}$$</div><p></p>
+<ul>
+<li><span class="mathjax-exps">$\tr (\widetilde{\Qv}^\top \Lambdav \widetilde{\Qv}) = \sum_i \qv_i^\top \Lambdav \qv_i = \sum_{i,j} \lambda_j \widetilde{q}_{ij}^2$</span></li>
+<li><span class="mathjax-exps">$\Sv = \widetilde{\Qv} \circ \widetilde{\Qv} = (\widetilde{q}_{ij}^2)$</span>&#x662F;&#x4E00;&#x4E2A;&#x53CC;&#x968F;&#x673A;&#x77E9;&#x9635;&#xFF0C;&#x884C;&#x548C;&#x5217;&#x548C;&#x5747;&#x4E3A;<span class="mathjax-exps">$1$</span></li>
+</ul>
+<p></p><div class="mathjax-exps">$$\begin{align*}         \min_{\widetilde{\Qv}^\top \widetilde{\Qv} = \Iv} \tr (\widetilde{\Qv}^\top \Lambdav \widetilde{\Qv}) = \min_{\widetilde{\Qv}^\top \widetilde{\Qv} = \Iv} \sum_{i,j} \lambda_j \widetilde{q}_{ij}^2 \geq \min_{\Sv} \sum_{i,j} \lambda_j s_{ij}, \quad \Sv&#x662F;&#x53CC;&#x968F;&#x673A;&#x77E9;&#x9635;     \end{align*}$$</div><p></p>
+<p>&#x4E0A;&#x5F0F;&#x6700;&#x53F3;&#x7AEF;&#x662F;&#x7EBF;&#x6027;&#x89C4;&#x5212;&#xFF0C;&#x6240;&#x4EE5;&#x6700;&#x4F18;&#x89E3;&#x4E3A;&#x53EF;&#x884C;&#x57DF;(&#x53CC;&#x968F;&#x673A;&#x77E9;&#x9635;&#x96C6;&#x5408;)&#x7684;&#x6781;&#x70B9;&#xFF0C;&#x7531;Birkhoff&#x2013;von Neumann&#x5B9A;&#x7406;&#x77E5;&#x53CC;&#x968F;&#x673A;&#x77E9;&#x9635;&#x96C6;&#x5408;&#x7684;&#x6781;&#x70B9;&#x662F;&#x7F6E;&#x6362;&#x77E9;&#x9635;&#xFF0C;&#x800C;&#x7F6E;&#x6362;&#x77E9;&#x9635;&#x662F;&#x6B63;&#x4EA4;&#x77E9;&#x9635;&#xFF0C;&#x56E0;&#x6B64;&#x4E0A;&#x5F0F;&#x4E0D;&#x7B49;&#x53F7;&#x53EF;&#x4EE5;&#x53D6;&#x7B49;&#x53F7;&#xFF0C;&#x539F;&#x95EE;&#x9898;&#x53EA;&#x53D6;<span class="mathjax-exps">$\widetilde{\Qv}$</span>&#x7684;&#x524D;<span class="mathjax-exps">$K$</span>&#x5217;&#xFF0C;&#x6545;&#x539F;&#x95EE;&#x9898;&#x6700;&#x4F18;&#x89E3;&#x662F;&#x6700;&#x5C0F;&#x7684;<span class="mathjax-exps">$K$</span>&#x4E2A;&#x7279;&#x5F81;&#x503C;&#x5BF9;&#x5E94;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;</p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="572" class="slide " data-line="572" data-h="5" data-v="4">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x591A;&#x5206; &#x6BD4;&#x4F8B;&#x5272; &#x6C42;&#x89E3;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x95EE;&#x9898;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\Hv \in \Rbb^{|\Vcal| \times K}} ~ \tr (\Hv^\top \Lv \Hv) \quad \st ~ \Hv^\top \Hv = \Iv     \end{align*}$$</div><p></p>
+<p>&#x7684;&#x6700;&#x4F18;&#x89E3;&#x4E3A;<span class="mathjax-exps">$\Lv$</span>&#x6700;&#x5C0F;&#x7684;<span class="mathjax-exps">$K$</span>&#x4E2A;&#x7279;&#x5F81;&#x503C;&#x5BF9;&#x5E94;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;&#xFF0C;&#x4E0D;&#x59A8;&#x8BB0;&#x4E3A;<span class="mathjax-exps">$\vv_1, \ldots, \vv_K$</span></p>
+<p>&#x53CD;&#x63A8;&#x5212;&#x5206;&#xFF1A;&#x5C06;<span class="mathjax-exps">$\Vv= [\vv_1, \ldots, \vv_K] \in \Rbb^{|\Vcal| \times K}$</span>&#x770B;&#x4F5C;<span class="mathjax-exps">$|\Vcal|$</span>&#x4E2A;<span class="mathjax-exps">$K$</span>&#x7EF4;&#x70B9;&#xFF0C;&#x5C06;&#x5176;&#x805A;&#x6210;<span class="mathjax-exps">$K$</span>&#x7C07;<span class="mathjax-exps">$\Ccal_1, \ldots, \Ccal_K$</span>&#xFF0C;<span class="mathjax-exps">$v \in \Vcal_k$</span>&#x5F53;&#x4E14;&#x4EC5;&#x5F53;<span class="mathjax-exps">$[\Vv]_v \in \Ccal_k$</span></p>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x4E00;&#x822C;&#x5F62;&#x5F0F;&#x7684;&#x672A;&#x5F52;&#x4E00;&#x5316;&#x8C31;&#x805A;&#x7C7B;</p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section></section><section><section data-notes lineno="603" class="slide " data-line="603" data-h="6" data-v="0">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x4E8C;&#x5206; &#x5F52;&#x4E00;&#x5316;&#x5272;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x4F18;&#x5316;&#x95EE;&#x9898;&#x4E3A;<span class="mathjax-exps">$\min_{\Acal \subseteq \Vcal} ~ \ncut (\Acal, \overline{\Acal})$</span></p>
+<p>&#x5B9A;&#x4E49;&#x6307;&#x793A;&#x5411;&#x91CF;<span class="mathjax-exps">$\fv \in \Rbb^{|\Vcal|}$</span><br>
+</p><div class="mathjax-exps">$$\begin{align*}         [\fv]_v = \begin{cases}             \sqrt{ \vol(\overline{\Acal}) / \vol(\Acal) } &amp; &#x82E5;~v \in \Acal \\             - \sqrt{ \vol(\Acal) / \vol(\overline{\Acal}) } &amp; &#x82E5;~v \not \in \Acal         \end{cases}     \end{align*}$$</div><p></p>
+<p>&#x5219;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \fv^\top \Lv \fv &amp; = \frac{1}{2} \sum_{u \in \Acal, v \not \in \Acal} \left( \sqrt{\frac{\vol(\overline{\Acal})}{\vol(\Acal)}} + \sqrt{\frac{\vol(\Acal)}{\vol(\overline{\Acal})}} \right)^2  \\         &amp; \qquad + \frac{1}{2} \sum_{u \not \in \Acal, v \in \Acal} \left( \sqrt{\frac{\vol(\Acal)}{\vol(\overline{\Acal})}} + \sqrt{\frac{\vol(\overline{\Acal})}{\vol(\Acal)}} \right)^2     \end{align*}$$</div><p></p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="641" class="slide " data-line="641" data-h="6" data-v="1">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x4E8C;&#x5206; &#x5F52;&#x4E00;&#x5316;&#x5272;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p></p><div class="mathjax-exps">$$\begin{align*}         \fv^\top \Lv \fv &amp; = \frac{1}{2} \sum_{u \in \Acal, v \not \in \Acal} \left( \frac{\vol(\overline{\Acal})}{\vol(\Acal)} + \frac{\vol(\Acal)}{\vol(\overline{\Acal})} + 2 \right)  \\         &amp; \qquad + \frac{1}{2} \sum_{u \not \in \Acal, v \in \Acal} \left( \frac{\vol(\Acal)}{\vol(\overline{\Acal})} + \frac{\vol(\overline{\Acal})}{\vol(\Acal)} + 2 \right) \\         &amp; = \cut (\Acal, \overline{\Acal}) \left( \frac{\vol(\Acal) + \vol(\overline{\Acal})}{\vol(\overline{\Acal})} + \frac{\vol(\overline{\Acal}) + \vol(\Acal)}{\vol(\Acal)}\right) \\         &amp; = \vol(\Vcal) \cut (\Acal, \overline{\Acal}) \left( \frac{1}{\vol(\overline{\Acal})} + \frac{1}{\vol(\Acal)}\right) \\         &amp; = \vol(\Vcal) \ncut (\Acal, \overline{\Acal})      \end{align*}$$</div><p></p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="669" class="slide " data-line="669" data-h="6" data-v="2">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x4E8C;&#x5206; &#x5F52;&#x4E00;&#x5316;&#x5272;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p></p><div class="mathjax-exps">$$\begin{align*}         (D \fv)^\top \ev &amp; = \sum_{u \in \Acal} d_u \sqrt{\frac{\vol(\overline{\Acal})}{\vol(\Acal)}} - \sum_{u \not \in \Acal} d_u \sqrt{\frac{\vol(\Acal)}{\vol(\overline{\Acal})}} \\         &amp; = \vol(\Acal) \sqrt{\frac{\vol(\overline{\Acal})}{\vol(\Acal)}} - \vol(\overline{\Acal}) \sqrt{\frac{\vol(\Acal)}{\vol(\overline{\Acal})}} \\         &amp; = 0 \\         \fv^\top \Dv \fv &amp; = \sum_{u \in \Acal} d_u [\fv]_u^2 + \sum_{u \not \in \Acal} d_u [\fv]_u^2 = \sum_{u \in \Acal} d_u \frac{\vol(\overline{\Acal})}{\vol(\Acal)} + \sum_{u \not \in \Acal} d_u \frac{\vol(\Acal)}{\vol(\overline{\Acal})} \\         &amp; = \vol(\Acal) \frac{\vol(\overline{\Acal})}{\vol(\Acal)} + \vol(\overline{\Acal}) \frac{\vol(\Acal)}{\vol(\overline{\Acal})} \\         &amp; = \vol(\Vcal)     \end{align*}$$</div><p></p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="698" class="slide " data-line="698" data-h="6" data-v="3">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x4E8C;&#x5206; &#x5F52;&#x4E00;&#x5316;&#x5272;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x7EFC;&#x4E0A;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x4E3A;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\Acal \subseteq \Vcal} ~ \fv^\top \Lv \fv \quad \st &amp; ~ [\fv]_v = \begin{cases}             \sqrt{ \vol(\overline{\Acal}) / \vol(\Acal) } &amp; &#x82E5;~v \in \Acal \\             - \sqrt{ \vol(\Acal) / \vol(\overline{\Acal}) } &amp; &#x82E5;~v \not \in \Acal         \end{cases}~~~~~~ \\         &amp; ~ (D \fv)^\top \ev = 0, ~ \fv^\top \Dv \fv = \vol(\Vcal)     \end{align*}$$</div><p></p>
+<p>&#x96BE;&#x70B9;&#xFF1A;&#x79BB;&#x6563;&#x4F18;&#x5316;&#xFF0C;NP-hard</p>
+<p>&#x5C06;&#x95EE;&#x9898;&#x653E;&#x677E;&#x4E3A;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\fv \in \Rbb^{|\Vcal|}} ~ \fv^\top \Lv \fv \quad \st ~ (D \fv)^\top \ev = 0, ~ \fv^\top \Dv \fv = \vol(\Vcal)     \end{align*}$$</div><p></p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="736" class="slide " data-line="736" data-h="6" data-v="4">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x4E8C;&#x5206; &#x5F52;&#x4E00;&#x5316;&#x5272; &#x6C42;&#x89E3;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x5C06;&#x95EE;&#x9898;&#x653E;&#x677E;&#x4E3A;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\fv \in \Rbb^{|\Vcal|}} ~ \fv^\top \Lv \fv \quad \st ~ (D \fv)^\top \ev = 0, ~ \fv^\top \Dv \fv = \vol(\Vcal)     \end{align*}$$</div><p></p>
+<p>&#x8BB0;<span class="mathjax-exps">$\gv = \Dv^{1/2} \fv$</span>&#xFF0C;&#x95EE;&#x9898;&#x53EF;&#x8FDB;&#x4E00;&#x6B65;&#x5199;&#x4E3A;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\fv \in \Rbb^{|\Vcal|}} ~ \gv^\top \Dv^{-1/2} \Lv \Dv^{-1/2} \gv \quad \st ~ \gv^\top \Dv^{1/2} \ev = 0, ~ \gv^\top \gv = \vol(\Vcal)     \end{align*}$$</div><p></p>
+<p>&#x6CE8;&#x610F;<span class="mathjax-exps">$\Dv^{-1/2} \Lv \Dv^{-1/2} = \Lv_{\text{sym}}$</span>&#xFF0C;<span class="mathjax-exps">$\Dv^{1/2} \ev$</span>&#x662F;&#x5176;&#x6700;&#x5C0F;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;&#xFF0C;&#x56E0;&#x6B64;&#x6700;&#x4F18;&#x89E3;<span class="mathjax-exps">$\gv^\star$</span>&#x662F;&#x5176;&#x5012;&#x6570;&#x7B2C;&#x4E8C;&#x5C0F;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;</p>
+<p>&#x8FDB;&#x4E00;&#x6B65;<span class="mathjax-exps">$\fv^\star = \Dv^{-1/2} \gv^\star$</span>&#x662F;<span class="mathjax-exps">$\Lv_{\text{rm}}$</span>&#x5012;&#x6570;&#x7B2C;&#x4E8C;&#x5C0F;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;</p>
+<p>&#x5BF9;<span class="mathjax-exps">$\fv^\star$</span>&#x505A;&#x805A;&#x7C7B;&#x53CD;&#x63A8;&#x5212;&#x5206;&#x5C31;&#x662F;&#x4E00;&#x822C;&#x5F62;&#x5F0F;&#x7684;&#x5F52;&#x4E00;&#x5316;&#x8C31;&#x805A;&#x7C7B;</p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section></section><section><section data-notes lineno="774" class="slide " data-line="774" data-h="7" data-v="0">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x591A;&#x5206; &#x5F52;&#x4E00;&#x5316;&#x5272;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x8BBE;<span class="mathjax-exps">$K &gt; 2$</span>&#xFF0C;&#x5219;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x4E3A;<span class="mathjax-exps">$\min_{\Vcal_1, \ldots, \Vcal_K} ~ \ncut (\Vcal_1, \ldots, \Vcal_K)$</span></p>
+<p>&#x5B9A;&#x4E49;<span class="mathjax-exps">$K$</span>&#x4E2A;&#x6307;&#x793A;&#x5411;&#x91CF;<span class="mathjax-exps">$\hv_k \in \Rbb^{|\Vcal|}$</span><br>
+</p><div class="mathjax-exps">$$\begin{align*}         [\hv_k]_v = \begin{cases}             1 / \sqrt{\vol(\Vcal_k)} &amp; &#x82E5;~v \in \Vcal_k \\             0 &amp; &#x82E5;~v \not \in \Vcal_k         \end{cases}     \end{align*}$$</div><p></p>
+<p></p><div class="mathjax-exps">$$\begin{align*}         \hv_k^\top \Lv \hv_k &amp; = \frac{1}{2} \sum_{(u,v) \in \Ecal} ([\hv_k]_u - [\hv_k]_v)^2 \\         &amp; = \frac{1}{2} \sum_{u \in \Vcal_k, v \not \in \Vcal_k} ([\hv_k]_u - [\hv_k]_v)^2 + \frac{1}{2} \sum_{u \not \in \Vcal_k, v \in \Vcal_k} ([\hv_k]_u - [\hv_k]_v)^2 \\         &amp; = \frac{1}{2} \sum_{u \in \Vcal_k, v \not \in \Vcal_k} \frac{1}{\vol(\Vcal_k)} + \frac{1}{2} \sum_{u \not \in \Vcal_k, v \in \Vcal_k} \frac{1}{\vol(\Vcal_k)} = \frac{\cut (\Vcal_k, \overline{\Vcal}_k)}{\vol(\Vcal_k)}      \end{align*}$$</div><p></p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="813" class="slide " data-line="813" data-h="7" data-v="1">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x591A;&#x5206; &#x5F52;&#x4E00;&#x5316;&#x5272;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x4E8E;&#x662F;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \ncut (\Vcal_1, \ldots, \Vcal_K) &amp; = \sum_{k \in [K]} \frac{\cut(\Vcal_k, \overline{\Vcal_k})}{\vol(\Vcal_k)} = \sum_{k \in [K]} \hv_k^\top \Lv \hv_k \\         &amp; = \sum_{k \in [K]} [\Hv^\top \Lv \Hv]_{kk} = \tr (\Hv^\top \Lv \Hv)     \end{align*}$$</div><p></p>
+<p>&#x5176;&#x4E2D;<span class="mathjax-exps">$\Hv = [\hv_1, \ldots, \hv_K]$</span>&#xFF0C;&#x4E14;&#x6709;<span class="mathjax-exps">$\hv_k \Dv \hv_k = \sum_{v \in \Vcal} d_v / \vol(\Vcal_k) = 1$</span>&#xFF0C;&#x5199;&#x6210;&#x77E9;&#x9635;&#x7684;&#x5F62;&#x5F0F;<span class="mathjax-exps">$\Hv^\top \Dv \Hv = \Iv$</span></p>
+<p>&#x7EFC;&#x4E0A;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x4E3A;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\Vcal_1, \ldots, \Vcal_K} ~ \tr (\Hv^\top \Lv \Hv) \quad \st ~ [\hv_k]_v = \begin{cases}             1 / \sqrt{\vol(\Vcal_k)} &amp; &#x82E5;~v \in \Vcal_k \\             0 &amp; &#x82E5;~v \not \in \Vcal_k         \end{cases}~~~~~~, ~ \Hv^\top \Dv \Hv = \Iv     \end{align*}$$</div><p></p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section><section vertical="true" data-notes lineno="851" class="slide " data-line="851" data-h="7" data-v="2">
+<div class="multi_column">
+    <div class="title_hr"> 
+        <hr class="hr_top">
+        <h5 class="title">&#x591A;&#x5206; &#x5F52;&#x4E00;&#x5316;&#x5272; &#x6C42;&#x89E3;</h5>
+    </div>
+    <img class="xiaohui" src="../common/img/xiaohui.png" height="120px">
+</div>
+<p>&#x53BB;&#x6389;&#x7B2C;&#x4E00;&#x4E2A;&#x79BB;&#x6563;&#x7EA6;&#x675F;&#xFF0C;&#x95EE;&#x9898;&#x653E;&#x677E;&#x4E3A;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\Hv \in \Rbb^{|\Vcal| \times K}} ~ \tr (\Hv^\top \Lv \Hv) \quad \st ~ \Hv^\top \Dv \Hv = \Iv     \end{align*}$$</div><p></p>
+<p>&#x8BB0;<span class="mathjax-exps">$\Tv = \Dv^{1/2} \Hv$</span>&#xFF0C;&#x95EE;&#x9898;&#x53EF;&#x8FDB;&#x4E00;&#x6B65;&#x5199;&#x4E3A;<br>
+</p><div class="mathjax-exps">$$\begin{align*}         \min_{\Tv \in \Rbb^{|\Vcal| \times K}} ~ \Tv^\top \underbrace{\Dv^{-1/2} \Lv \Dv^{-1/2}}_{\Lv_{\text{sym}}} \Tv \quad \st ~ \Tv^\top \Tv = \Iv     \end{align*}$$</div><p></p>
+<p>&#x6700;&#x4F18;&#x89E3;<span class="mathjax-exps">$\Tv^\star$</span>&#x662F;<span class="mathjax-exps">$\Lv_{\text{sym}}$</span>&#x6700;&#x5C0F;<span class="mathjax-exps">$K$</span>&#x4E2A;&#x7279;&#x5F81;&#x503C;&#x5BF9;&#x5E94;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x539F;&#x95EE;&#x9898;&#x6700;&#x4F18;&#x89E3;<span class="mathjax-exps">$\Hv^\star = \Dv^{-1/2} \Tv^\star$</span>&#x662F;<span class="mathjax-exps">$\Lv_{\text{rm}}$</span>&#x6700;&#x5C0F;<span class="mathjax-exps">$K$</span>&#x4E2A;&#x7279;&#x5F81;&#x503C;&#x5BF9;&#x5E94;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;</p>
+<p>&#x540C;&#x6837;&#x5C06;<span class="mathjax-exps">$K$</span>&#x4E2A;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x805A;&#x6210;<span class="mathjax-exps">$K$</span>&#x7C07;&#x53EF;&#x4EE5;&#x53CD;&#x63A8;&#x51FA;&#x5212;&#x5206;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x4E00;&#x822C;&#x5F62;&#x5F0F;&#x7684;&#x5F52;&#x4E00;&#x5316;&#x8C31;&#x805A;&#x7C7B;</p>
+<div class="footer">
+    <hr class="hr_bottom">
+    <div class="multi_column">
+        <h6 class="bottom_left">&#x56FE;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5BFC;&#x8BBA;</h6>
+        <h6 class="bottom_center">&#x8C31;&#x56FE;&#x7406;&#x8BBA;</h6>
+        <h6 class="bottom_right">tengzhang@hust.edu.cn</h6>
+    </div>
+</div>
+</section></section>
+      </div>
+    </div>
+    
+      </div>
+      
+      
+    
+    
+      <script>
+        Reveal.initialize({"margin":0,"transition":"none","enableSpeakerNotes":true,"dependencies":[{"src":"revealjs_deps/notes.js","async":true}]})
+      </script>
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
