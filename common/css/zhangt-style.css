@@ -74,7 +74,7 @@
 .reveal #logo {
     display: flex;
     flex-direction: row-reverse; /* 从右向左排列 */
-    margin: 1rem 1rem 0 0;
+    margin: 1rem 1rem 4rem 0;
 }
 
 .reveal h1 {
