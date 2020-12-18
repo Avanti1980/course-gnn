@@ -1,5 +1,4 @@
 :root {
-    /* Solarized Cheatsheet */
     --base03: #002b36; /* (  0,  43,  54) */
     --base02: #073642; /* (  7,  54,  66) */
     --base01: #586e75; /* ( 88, 110, 117) */
@@ -16,21 +15,6 @@
     --blue: #268bd2; /* ( 38, 139, 210) */
     --cyan: #2aa198; /* ( 42, 161, 152) */
     --green: #859900; /* (133, 153,   0) */
-}
-
-@import url("https://fonts.font.im/css?family=EB+Garamond:400,400i,500,500i,600,600i,700,700i,800,800i");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&display=swap");
-
-/* 方正黑体 */
-@font-face {
-    font-family: "fz-ht";
-    src: url("../fonts/fz-ht.ttf");
-}
-
-/* 方正龙爪 */
-@font-face {
-    font-family: "fz-lz";
-    src: url("../fonts/fz-lz.ttf");
 }
 
 /* EBGaramond12-Regular */
@@ -51,14 +35,26 @@
     src: url("../fonts/EBGaramond12-AllSC.otf");
 }
 
-/* 改为flex布局 */
+@font-face {
+    font-family: "fz-ht";
+    src: url("../fonts/fz-ht.ttf");
+}
+
+@font-face {
+    font-family: "fz-lz";
+    src: url("../fonts/fz-lz.ttf");
+}
+
 .reveal .slides section,
 .reveal .slides section > section {
     height: 100%;
-    display: flex !important;
+    display: flex !important; /* 改为flex布局 */
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
+    background-color: var(--base3);
+    margin: 0;
+    padding: 0;
 }
 
 .reveal h1,
@@ -66,216 +62,246 @@
 .reveal h3,
 .reveal h4,
 .reveal h5,
-.reveal h6 {
-    font-family: EBGaramond12-Regular, fz-ht, "Noto Sans SC"; /* 添加Garamond和方正黑体为首选项 */
-    text-transform: none; /* 取消默认的全大写 */
+.reveal h6,
+.reveal p {
+    font-family: EB Garamond, "FZLongZhao\-R\-GB", "FZHei\-B01";
     font-weight: 100; /* 取消加粗 */
-    margin-bottom: 1%;
     color: var(--base01);
 }
+
+/*************** 以下为第一页的布局样式 ***************/
 
 .reveal #logo {
     display: flex;
     flex-direction: row-reverse; /* 从右向左排列 */
-    margin-right: 2%;
-    margin-top: 0;
+    margin: 1rem 1rem 0 0;
 }
 
-.reveal .xiaohui {
-    margin-right: 20px;
-    margin-left: auto;
+.reveal h1 {
+    font-family: EB Garamond SC, "FZHei\-B01";
+    font-size: 2.5rem;
+    color: var(--base3);
+    background-color: var(--blue);
+    border-radius: 1rem;
+    box-shadow: 0.4rem 0.4rem 1rem var(--cyan);
+    padding: 2rem 1rem 1rem 1rem;
+    margin: 4rem auto;
 }
 
-.reveal .front_page_title {
-    font-size: 1.2em;
-    font-weight: 100;
+.reveal h2 {
+    font-size: 1.8rem;
+    margin: 2.5rem auto;
 }
 
-.reveal .front_page_subtitle {
-    font-size: 0.8em;
-}
-
-.reveal .author {
-    font-size: 0.7em;
-    font-family: fz-lz;
-}
-
-.reveal .mail {
-    font-size: 0.5em;
-    font-family: EBGaramond12-Italic;
-}
-
-.reveal .date {
-    font-size: 0.5em;
-}
-
-/* 每页的标题 */
-.reveal .title {
-    font-size: 1em;
-    font-weight: 100;
-    text-align: left;
-    margin: 0 auto 2% 2%;
-}
-
-/* h3用于最后一页致谢 */
 .reveal h3 {
-    font-weight: 100;
+    font-size: 1.4rem;
+    font-style: italic;
+    margin: 2.5rem auto;
 }
 
-/* h6用于每页的底部 */
-.reveal h6 {
-    font-size: 0.5em;
-    margin: 0% 0% 3.5% 0%;
+.reveal h4 {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: 2.5rem auto;
 }
 
-.reveal .bottom_left {
-    text-align: left;
-    width: 33%;
-    font-family: EBGaramond12-Regular, fz-lz;
-}
+/*************** 以上为第一页的布局样式 ***************/
 
-.reveal .bottom_center {
-    text-align: center;
-    width: 34%;
-    font-family: EBGaramond12-Regular, fz-lz;
-}
+/*************** 以下为其它页的布局样式 ***************/
 
-.reveal .bottom_right {
-    text-align: right;
-    width: 33%;
-    font-family: EBGaramond12-Italic;
-}
-
-/* 取消图片的边框和阴影 */
-.reveal section img {
-    border: 0;
-    box-shadow: none;
-    margin: 0 auto;
-}
-
-.reveal hr {
-    height: 1px;
-    border: none;
-    margin: 1% auto;
-    background-color: var(--base00);
-}
-
-/* 每页上方标题下面的水平线 */
-.reveal .hr_top {
-    margin: 0 0 4% 0;
-}
-
-/* 每页底部的水平线 */
-.reveal .hr_bottom {
-    margin: 1% 0%;
-}
-
-/* 多栏布局 */
 .reveal .multi_column {
     display: flex;
     flex-direction: row;
-    margin: 0 2%;
 }
 
-.reveal .left_column {
-    display: flex;
-    flex-direction: column;
-    /* margin: 0 2%; */
+.reveal .xiaohui {
+    margin: 1rem 1rem -1.5rem auto;
 }
 
 .reveal .title_hr {
     display: flex;
     flex-direction: column-reverse;
-    width: 42%;
+    width: 45%;
+    margin-left: 2rem;
+}
+
+.reveal hr {
+    height: 0.05rem;
+    border: none;
+    background-color: var(--base00);
+}
+
+.reveal .hr_top {
+    margin: 0 0 2rem 0;
+}
+
+.reveal h5 {
+    font-family: EB Garamond SC, "FZHei\-B01";
+    font-size: 2.8rem;
+    text-align: left;
+    margin: 0 auto 0.5rem 0.5rem;
 }
 
 .reveal .footer {
-    margin: auto 2% 0 2%;
+    margin: auto 2rem 0 2rem;
 }
 
-.reveal .theorem {
-    padding: 1%;
-    border-radius: 20px;
+.reveal .hr_bottom {
+    margin: 0;
+}
+
+.reveal h6 {
+    font-family: EB Garamond SC, "FZLongZhao\-R\-GB";
+    font-size: 1.2rem;
+    margin: 0.5rem;
+}
+
+.reveal .bottom_left {
+    text-align: left;
+    width: 33%;
+}
+
+.reveal .bottom_center {
+    text-align: center;
+    width: 34%;
+}
+
+.reveal .bottom_right {
+    text-align: right;
+    font-family: EB Garamond;
+    font-size: 1rem;
+    font-style: italic;
+    width: 33%;
+    margin-top: 0.3rem;
+}
+
+/*************** 以上为其它页的布局样式 ***************/
+
+.reveal section img {
+    border: 0;
+    box-shadow: none;
 }
 
 .reveal p {
-    font-size: 0.7em;
-    margin: 1% 4% 1% 4%;
-    text-align: left;
-    color: var(--base01);
-    font-family: EBGaramond12-Regular, fz-lz;
+    font-size: 1.8rem;
+    margin: 0.5rem 2.5rem;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    font-family: EB Garamond, fz-lz;
 }
 
+.reveal dl,
 .reveal ul {
+    display: inline-block;
+    text-align: left;
+    margin: 0 0 0 4rem;
     list-style-type: none;
-    margin-left: 8%;
-    margin-right: 6%;
 }
 
 .reveal ol {
-    margin-left: 8%;
-    margin-right: 6%;
+    display: inline-block;
+    text-align: left;
+    margin: 0 0 0 4.8rem;
 }
 
-.reveal ul li ul {
-    list-style-type: none;
-    margin-left: 3%;
+.reveal ul > li,
+.reveal ol > li {
+    font-size: 1.6rem;
+    font-family: EB Garamond, fz-lz;
+    color: var(--yellow);
+    margin: 0.4rem 0;
+    margin-right: 2.5rem;
 }
 
-.reveal ul li,
-.reveal ol li {
-    font-size: 0.6em;
-    font-family: EBGaramond12-Regular, fz-lz;
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
-    color: var(--base01);
+.reveal ul > li {
+    color: var(--yellow);
 }
 
-.reveal ul li ul li {
-    font-size: 0.8em;
-    font-family: EBGaramond12-Regular, fz-lz;
+.reveal ol > li {
+    color: var(--orange);
 }
 
-.reveal ul li:before {
+.reveal ul > li:before {
     content: "\f260";
     font-family: FontAwesome;
     display: inline-block;
-    margin-left: -1.3em;
-    margin-right: 0.3em;
-    width: 1em;
-}
-
-.reveal ul li ul li:before {
-    content: "\f0c1";
-    font-family: FontAwesome;
-    display: inline-block;
-    margin-left: -1.3em;
-    margin-right: 0.3em;
-    width: 1em;
+    margin-left: -1rem;
+    margin-right: 1rem;
+    width: 1rem;
 }
 
 .reveal table {
     font-family: EBGaramond12-Regular, fz-lz;
     margin: 2% auto;
-    font-size: 0.5em;
     table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-.reveal th,
-.reveal td {
-    text-align: center !important;
+.reveal table th,
+.reveal table td {
+    text-align: center;
+    color: var(--base01);
+    font-size: 1.4rem;
+    padding: 0.5rem 0.5rem 0.1rem 0.5rem;
+}
+
+.reveal .symbolic tr th:nth-child(1),
+.reveal .symbolic tr td:nth-child(1) {
+    border-right: 1px solid var(--base01);
+}
+
+.reveal .symbolic th,
+.reveal .symbolic tr:last-child,
+.reveal .setting th,
+.reveal .vc-dimension th,
+.reveal .lr th,
+.reveal .lr td {
+    border-top: 1px solid var(--base01);
+    border-bottom: 1px solid var(--base01);
+}
+
+.reveal .setting tr:last-child,
+.reveal .vc-dimension tr:last-child {
+    border-bottom: 1px solid var(--base01);
+}
+
+.reveal .symbolic tr th:nth-child(-n + 1),
+.reveal .symbolic tr td:nth-child(-n + 1),
+.reveal .setting tr th:nth-child(-n + 2),
+.reveal .setting tr td:nth-child(-n + 2),
+.reveal .vc-dimension tr th:nth-child(-n + 1),
+.reveal .vc-dimension tr td:nth-child(-n + 1),
+.reveal .lr tr th:nth-child(-n + 1),
+.reveal .lr tr td:nth-child(-n + 1) {
+    border-right: 1px solid var(--base01);
+}
+
+.reveal sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+
+.reveal sub {
+    vertical-align: sub;
+    font-size: smaller;
 }
 
 .reveal blockquote {
-    width: 90% !important;
-    font-size: 80% !important;
-    font-style: normal !important;
-    margin-top: 1%;
+    margin: 1rem 2.5rem;
+    border: solid 1px var(--green);
+}
+
+.reveal blockquote > p {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    font-size: 1.6rem;
+    margin: 1rem 1rem;
 }
 
 .reveal .mermaid {
-    margin: 0% 4%;
-    font-family: EBGaramond12-Regular, fz-lz !important;
+    margin: 1.5rem 3rem;
+    font-family: EBGaramond12-Regular, fz-lz;
 }
 
 .reveal .red {
@@ -294,8 +320,16 @@
     color: #859900;
 }
 
+.reveal .orange {
+    color: #cb4b16;
+}
+
 .reveal .magenta {
     color: #d33682;
+}
+
+.reveal .violet {
+    color: #6c71c4;
 }
 
 /* 控制周围间隔的一些类 */
@@ -326,9 +360,4 @@
 
 .reveal .top_20 {
     margin-top: 20%;
-}
-
-.MathJax,
-.MathJax_Display {
-    color: var(--magenta) !important;
 }
