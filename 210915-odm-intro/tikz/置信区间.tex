@@ -1,0 +1,83 @@
+\documentclass[openany]{ctexart}
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{xcolor}
+\definecolor{Solarized-base03}{RGB}{0, 43, 54}
+\definecolor{Solarized-base02}{RGB}{7, 54, 66}
+\definecolor{Solarized-base01}{RGB}{88, 110, 117}
+\definecolor{Solarized-base00}{RGB}{101, 123, 131}
+\definecolor{Solarized-base0}{RGB}{131, 148, 150}
+\definecolor{Solarized-base1}{RGB}{147, 161, 161}
+\definecolor{Solarized-base2}{RGB}{238, 232, 213}
+\definecolor{Solarized-base3}{RGB}{253, 246, 227}
+\definecolor{Solarized-yellow}{RGB}{181, 137, 0}
+\definecolor{Solarized-orange}{RGB}{203, 75, 22}
+\definecolor{Solarized-red}{RGB}{220, 50, 47}
+\definecolor{Solarized-magenta}{RGB}{211, 54, 130}
+\definecolor{Solarized-violet}{RGB}{108, 113, 196}
+\definecolor{Solarized-blue}{RGB}{38, 139, 210}
+\definecolor{Solarized-cyan}{RGB}{42, 161, 152}
+\definecolor{Solarized-green}{RGB}{133, 153, 0}
+\color{Solarized-base01}
+\pagecolor{Solarized-base3}
+
+\usepackage{tikz}
+
+\setmainfont[]{EBGaramond08-Regular}
+\setCJKmainfont[BoldFont=FZHei-B01]{FZLongZhao-R-GB}
+\xeCJKsetup{CJKmath=true}
+\everymath{\color{Solarized-magenta}}
+
+ % define the plot style and the axis style
+\tikzset{elegant/.style={smooth,thick,samples=200,black}}
+\tikzset{eaxis/.style={->,>=stealth}}
+
+\begin{document}
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}
+
+\draw[eaxis] (0,0) -- (8.5,0) node[below] {};
+\draw[eaxis] (0,0) -- (0,5) node[below] {};
+
+\draw[elegant,Solarized-blue,domain=0.5:6.5] plot(\x,{0.08*(\x-0.2)^2+0.2});
+\draw[elegant,Solarized-yellow,domain=0.5:6.5] plot(\x,{0.08*(\x-6.8)^2+0.2});
+\draw[elegant,Solarized-red,domain=0.5:6.5] plot(\x,{0.3*(\x-3.5)^2+2});
+
+\path (6.5, 0.3) node[draw=none,right,Solarized-yellow] () {经验风险};
+
+\path (6.5, 3.4) node[draw=none,right,Solarized-blue] () {置信区间};
+
+\path (6.5, 4.6) node[draw=none,right,Solarized-red] () {泛化风险};
+
+\path (7.95, 0) node[draw=none,below,Solarized-base01] () {VC维};
+
+%\draw[thick] (3.5,0) -- (3.5, 2.5);
+%\draw[thick,dashed] (5.5,0) -- (5.5, 4.0);
+%\draw[thick,dashed] (1.5,0) -- (1.5, 4.0);
+%
+%\path (3.5,0) node[draw=none,below] () {$h^\star$};
+%\path (1.5,0) node[draw=none,below] () {$h_1$};
+%\path (5.5,0) node[draw=none,below] () {$h_t$};
+%
+%\draw[thick] (2,-1.5) ellipse (0.6 and 0.3);
+%\path (1.8,-1.5) node[draw=none,right] () {$\mathcal{H}_1$};
+%
+%\draw[thick] (2.4,-1.5) ellipse (1.4 and 0.5);
+%\path (3.0,-1.5) node[draw=none,right] () {$\mathcal{H}^\star$};
+%
+%\draw[thick] (2.8,-1.5) ellipse (2.2 and 0.7);
+%\path (4.2,-1.5) node[draw=none,right] () {$\mathcal{H}_t$};
+%
+%\draw[->,>=stealth,thick] (1.7,-1.5) -- (1.5,-0.5);
+%
+%\draw[->,>=stealth,thick] (2.8,-1.5) -- (3.3,-0.5);
+%
+%\draw[->,>=stealth,thick] (4.0,-1.5) -- (5.2,-0.5);
+
+
+\end{tikzpicture}
+\end{figure}
+
+
+\end{document}

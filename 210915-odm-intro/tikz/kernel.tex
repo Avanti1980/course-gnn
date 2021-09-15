@@ -1,0 +1,82 @@
+\documentclass[openany]{ctexart}
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{xcolor}
+\definecolor{Solarized-base03}{RGB}{0, 43, 54}
+\definecolor{Solarized-base02}{RGB}{7, 54, 66}
+\definecolor{Solarized-base01}{RGB}{88, 110, 117}
+\definecolor{Solarized-base00}{RGB}{101, 123, 131}
+\definecolor{Solarized-base0}{RGB}{131, 148, 150}
+\definecolor{Solarized-base1}{RGB}{147, 161, 161}
+\definecolor{Solarized-base2}{RGB}{238, 232, 213}
+\definecolor{Solarized-base3}{RGB}{253, 246, 227}
+\definecolor{Solarized-yellow}{RGB}{181, 137, 0}
+\definecolor{Solarized-orange}{RGB}{203, 75, 22}
+\definecolor{Solarized-red}{RGB}{220, 50, 47}
+\definecolor{Solarized-magenta}{RGB}{211, 54, 130}
+\definecolor{Solarized-violet}{RGB}{108, 113, 196}
+\definecolor{Solarized-blue}{RGB}{38, 139, 210}
+\definecolor{Solarized-cyan}{RGB}{42, 161, 152}
+\definecolor{Solarized-green}{RGB}{133, 153, 0}
+\color{Solarized-base01}
+\pagecolor{Solarized-base3}
+
+\usepackage{tikz}
+
+\setmainfont[]{EBGaramond08-Regular}
+\setCJKmainfont[BoldFont=FZHei-B01]{FZLongZhao-R-GB}
+\xeCJKsetup{CJKmath=true}
+\everymath{\color{Solarized-magenta}}
+
+ % define the plot style and the axis style
+\tikzset{elegant/.style={smooth,thick,samples=200,black}}
+\tikzset{eaxis/.style={->,>=stealth}}
+
+\begin{document}
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[thick]
+
+\draw[eaxis] (0,0) -- (5,0) node[below] {};
+\draw[eaxis] (0,0) -- (0,5) node[below] {};
+\path (5,0) node[draw=none,below] () {$x_1$};
+\path (0,5) node[draw=none,left] () {$x_2$};
+\path (-0.2,0) node[draw=none,below] () {$O$};
+
+\draw[dotted] (4,0) arc (0:90:4);
+
+\path (4,0) node[draw=none,below] () {$1$};
+\path (0,4) node[draw=none,left] () {$1$};
+
+\draw (4,0) -- (4,4) -- (0,4);
+
+\path (2,2.2) node[draw=none,below] () {$\diamond$};
+\path (2.7,3) node[draw=none,below] () {$\diamond$};
+\path (1.2,4.14) node[draw=none,below] () {$\circ$};
+\path (3.9,1.4) node[draw=none,below] () {$\circ$};
+
+\draw[eaxis] (10,0) -- (15,0) node[below] {};
+\draw[eaxis] (10,0) -- (10,5) node[below] {};
+\path (15,0) node[draw=none,below] () {$x_1^2$};
+\path (10,5) node[draw=none,left] () {$x_2^2$};
+\path (9.8,0) node[draw=none,below] () {$O$};
+
+\draw[dotted] (14,0) -- (10,4);
+
+\path (14,0) node[draw=none,below] () {$1$};
+\path (10,4) node[draw=none,left] () {$1$};
+
+\draw (14,0) -- (14,4) -- (10,4);
+
+\path (11,1) node[draw=none,below] () {$\diamond$};
+
+\path (13,3.2) node[draw=none,below] () {$\circ$};
+
+\draw[eaxis] (5.5,2.4) -- (9.1,2.4) node[below] {};
+\path (7.3,2.5) node[draw=none,above] () {$\phi: [x_1,x_2] \mapsto [x_1^2,x_2^2]$};
+
+\end{tikzpicture}
+\end{figure}
+
+
+\end{document}

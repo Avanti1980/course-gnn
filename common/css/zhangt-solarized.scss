@@ -1,0 +1,302 @@
+@mixin fontconfig($name, $style: normal, $ext: ttf) {
+  @font-face {
+    font-family: #{$name};
+    src: url("../fonts/#{$name}-#{$style}.#{$ext}");
+    font-style: $style;
+  }
+}
+
+@each $font in fzht, fzlz, fzsxs, EBG {
+  @include fontconfig($font);
+}
+
+@each $font in EBG {
+  @include fontconfig($font, italic);
+}
+
+@each $font in Operator {
+  @include fontconfig($font, normal, otf);
+  @include fontconfig($font, italic, otf);
+}
+
+:root {
+  --solarized-base03: #002b36; /* (  0,  43,  54) */
+  --solarized-base02: #073642; /* (  7,  54,  66) */
+  --solarized-base01: #586e75; /* ( 88, 110, 117) */
+  --solarized-base00: #657b83; /* (101, 123, 131) */
+  --solarized-base0: #839496; /* (131, 148, 150) */
+  --solarized-base1: #93a1a1; /* (147, 161, 161) */
+  --solarized-base2: #eee8d5; /* (238, 232, 213) */
+  --solarized-base3: #fdf6e3; /* (253, 246, 227) */
+  --solarized-yellow: #b58900; /* (181, 137,   0) */
+  --solarized-orange: #cb4b16; /* (203,  75,  22) */
+  --solarized-red: #dc322f; /* (220,  50,  47) */
+  --solarized-magenta: #d33682; /* (211,  54, 130) */
+  --solarized-violet: #6c71c4; /* (108, 113, 196) */
+  --solarized-blue: #268bd2; /* ( 38, 139, 210) */
+  --solarized-cyan: #2aa198; /* ( 42, 161, 152) */
+  --solarized-green: #859900; /* (133, 153,   0) */
+}
+
+@each $color in "base03", "base02", "base01", "base00", "base0", "base1",
+  "base2", "base3", "yellow", "orange", "red", "magenta", "violet", "blue",
+  "cyan", "green"
+{
+  .reveal .#{$color} {
+    color: var(--solarized-#{$color});
+  }
+}
+
+@for $i from -10 to 21 {
+  @each $direction in "left", "right", "top", "bottom" {
+    .reveal .#{$direction}#{$i} {
+      margin-#{$direction}: 0.5rem * $i;
+    }
+  }
+  .reveal .width#{$i + 10} {
+    width: 3% * ($i + 10);
+  }
+}
+
+.reveal-viewport {
+  background: var(--solarized-base3);
+  background-color: var(--solarized-base3);
+}
+
+.reveal {
+  font-family: EBG, fzlz, fzht;
+  font-weight: normal;
+  color: var(--solarized-base01);
+}
+
+.reveal ::selection {
+  color: #fff;
+  background: var(--solarized-magenta);
+  text-shadow: none;
+}
+
+.reveal ::-moz-selection {
+  color: #fff;
+  background: var(--solarized-magenta);
+  text-shadow: none;
+}
+
+.reveal .slides section,
+.reveal .slides section > section {
+  line-height: 1.3;
+  font-weight: inherit;
+  height: 100%;
+  display: flex !important; /* 改为flex布局 */
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  background-color: var(--base3);
+  margin: 0;
+  padding: 0;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6,
+.reveal p {
+  color: var(--solarized-base01);
+  font-family: EBG, fzlz, fzht;
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-shadow: none;
+  text-transform: none;
+  word-wrap: break-word;
+}
+
+.reveal h1 {
+  font-family: fzht;
+}
+
+.reveal h5 {
+  font-family: fzht;
+  text-align: left;
+}
+
+.reveal p {
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  list-style-type: none;
+}
+
+.reveal ol {
+  display: inline-block;
+  text-align: left;
+}
+
+.reveal ul > li,
+.reveal ol > li {
+  font-family: EBG, fzlz, fzht;
+  color: var(--solarized-yellow);
+}
+
+.reveal ul > li:before {
+  content: "\f260";
+  font-family: FontAwesome;
+  margin-left: -1rem;
+  margin-right: 1rem;
+  width: 1rem;
+}
+
+.reveal table {
+  font-family: EBG, fzlz, fzht;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: center;
+  color: var(--base01);
+}
+
+.reveal sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.reveal sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.reveal blockquote {
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+  border: solid 1px var(--solarized-green);
+}
+
+.reveal blockquote > p {
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+.reveal .mermaid {
+  font-family: EBG, fzlz, fzht;
+}
+
+.reveal .multi_column {
+  display: flex;
+  flex-direction: row;
+}
+
+.reveal .center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal .title {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.reveal hr {
+  border: none;
+  background-color: var(--solarized-base00);
+}
+
+@each $position in left, center, right {
+  .reveal .bottom_#{$position} {
+    text-align: $position;
+  }
+}
+
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+
+.reveal small * {
+  vertical-align: top;
+}
+
+.reveal img {
+  margin: 0;
+}
+
+.reveal .theorem {
+  padding: 1rem;
+  background-color: var(--solarized-base2);
+  border-radius: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: #2a76dd;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.reveal a:hover {
+  color: #6ca0e8;
+  text-shadow: none;
+  border: none;
+}
+
+.reveal .roll span:after {
+  color: #fff;
+  background: #1a53a1;
+}
+
+/*********************************************
+ * Frame helper
+ *********************************************/
+.reveal .r-frame {
+  border: 4px solid #222;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.reveal a .r-frame {
+  transition: all 0.15s linear;
+}
+
+.reveal a:hover .r-frame {
+  border-color: #2a76dd;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: var(--solarized-blue);
+}
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--solarized-blue);
+}
+
+/*********************************************
+ * PRINT BACKGROUND
+ *********************************************/
+@media print {
+  .backgrounds {
+    background-color: #fff;
+  }
+}
