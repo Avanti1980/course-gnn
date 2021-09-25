@@ -57,7 +57,7 @@
 }
 
 .reveal .title {
-  width: 60%;
+  width: 50%;
   margin-left: 2rem;
   margin-right: auto;
   padding-bottom: 1rem;
@@ -162,6 +162,14 @@
 .reveal table td {
   font-size: 1.4rem;
   padding: 0.5rem 1rem 0.1rem 1rem;
+}
+
+// 满边框
+.reveal .fullborder > table {
+  th,
+  td {
+    border: 1px solid var(--solarized-base01); // 表头下边框
+  }
 }
 
 // 三线表

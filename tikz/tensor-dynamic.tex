@@ -1,0 +1,70 @@
+\documentclass{ctexart}
+\usepackage{avanti}
+\everymath{\color{Solarized-magenta}}
+\pagestyle{empty} % 没有页眉和页脚
+
+\tikzset{font=\Large}
+\tikzset{every node/.style = {Solarized-base01}}
+\tikzset{base/.style = {smooth, thick, draw=Solarized-base01}}
+\tikzset{nc/.style = {circle, minimum height=0.8cm, base}}
+\tikzset{label/.style = {Solarized-base01, right}}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+    \pgfmathsetmacro{\r}{2}; % 五边形中心到顶点的距离
+    \pgfmathsetmacro{\inc}{0.8};
+
+    \path (0,0) coordinate (tensor);
+    \draw (tensor) node {张量};
+
+    % 第一个张量
+    \path (tensor) ++(2.5,0) coordinate (t1);
+    \draw (t1) node {$0$} ++(-\inc,0) node {$0$} ++(0,\inc) node {$0$} ++(\inc,0) node {$0$} ++(\inc,0) node {$1$} ++(0,-\inc) node {$1$} ++(0,-\inc) node {$0$} ++(-\inc,0) node {$1$} ++(-\inc,0) node {$1$};
+    \draw (t1) ++(0,2*\inc) node {$t=1$};
+
+    % 第二个张量
+    \path (t1) ++(2.8,0) coordinate (t2);
+    \draw (t2) node {$0$} ++(-\inc,0) node {$1$} ++(0,\inc) node {$0$} ++(\inc,0) node {$1$} ++(\inc,0) node {$1$} ++(0,-\inc) node {$0$} ++(0,-\inc) node {$0$} ++(-\inc,0) node {$0$} ++(-\inc,0) node {$1$};
+    \draw (t2) ++(0,2*\inc) node {$t=2$};
+
+    \path (t2) ++(2.5,0) coordinate (equ);
+    \draw (equ) node {$\Longleftrightarrow$};
+
+    \path (equ) ++(2.0,0) coordinate (dynamic);
+    \draw (dynamic) node {动态图};
+
+    \path (dynamic) ++(1.5,\inc) coordinate (gt1);
+    \path (dynamic) ++(1.5,-\inc) coordinate (gt2);
+
+    \path (dynamic) ++(4.0,\inc) coordinate (g1);
+    \path (dynamic) ++(4.0,-\inc) coordinate (g2);
+
+    \path (g1) ++(1,1) coordinate (a1);
+    \path (g1) ++(3,1) coordinate (b1);
+    \path (g1) ++(-0.4,-0.4) coordinate (c1);
+    \path (g2) ++(1,1) coordinate (a2);
+    \path (g2) ++(3,1) coordinate (b2);
+    \path (g2) ++(-0.4,-0.4) coordinate (c2);
+
+    \node[label] at (gt1) {$t=1$};
+    \node[label] at (gt2) {$t=2$};
+
+    \node[nc] (n1) at (a1) {$a$};
+    \node[nc] (n2) at (b1) {$b$};
+    \node[nc] (n3) at (c1) {$c$};
+    \node[nc] (n4) at (a2) {$a$};
+    \node[nc] (n5) at (b2) {$b$};
+    \node[nc] (n6) at (c2) {$c$};
+
+    \draw[base] (n1) -- (n3) -- (n2);
+    \draw[base] (n5) -- (n4) -- (n6);
+    \draw[base,dotted] (n1) -- (n4);
+    \draw[base,dotted] (n2) -- (n5);
+    \draw[base,dotted] (n3) -- (n6);
+
+\end{tikzpicture}
+
+
+\end{document}

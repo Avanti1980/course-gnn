@@ -1,0 +1,55 @@
+\documentclass{ctexart}
+\usepackage{avanti}
+\everymath{\color{Solarized-magenta}}
+\pagestyle{empty} % 没有页眉和页脚
+
+\tikzset{font=\Large}
+\tikzset{every node/.style = {Solarized-base01}}
+\tikzset{base/.style = {smooth, thick, draw=Solarized-base01}}
+\tikzset{nc/.style = {circle, minimum height=0.8cm, base}}
+\tikzset{label/.style = {Solarized-base01, right}}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+    \pgfmathsetmacro{\r}{1.2}; % 三角形中心到顶点的距离
+    \pgfmathsetmacro{\inc}{0.8};
+
+    \path (0,0) coordinate (tensor);
+    \draw (tensor) node {张量};
+
+    % 第一个张量
+    \path (tensor) ++(2.5,0) coordinate (t1);
+    \draw (t1) node {$0$} ++(-\inc,0) node {$0$} ++(0,\inc) node {$0$} ++(\inc,0) node {$0$} ++(\inc,0) node {$0$} ++(0,-\inc) node {$1$} ++(0,-\inc) node {$0$} ++(-\inc,0) node {$1$} ++(-\inc,0) node {$0$};
+    \draw (t1) ++(0,2*\inc) node {$t=1$};
+
+    % 第二个张量
+    \path (t1) ++(2.8,0) coordinate (t2);
+    \draw (t2) node {$0$} ++(-\inc,0) node {$1$} ++(0,\inc) node {$0$} ++(\inc,0) node {$1$} ++(\inc,0) node {$1$} ++(0,-\inc) node {$0$} ++(0,-\inc) node {$0$} ++(-\inc,0) node {$0$} ++(-\inc,0) node {$1$};
+    \draw (t2) ++(0,2*\inc) node {$t=2$};
+
+    \path (t2) ++(2.5,0) coordinate (equ);
+    \draw (equ) node {$\Longleftrightarrow$};
+
+    \path (equ) ++(2.0,0) coordinate (heterogeneous);
+    \draw (heterogeneous) node {异构图};
+
+    % 画图
+    \path (heterogeneous) ++(3.0,0) coordinate (g);
+
+    \path (g) ++(90:\r) coordinate (g1);
+    \path (g) ++(210:\r) coordinate (g2);
+    \path (g) ++(330:\r) coordinate (g3);
+
+    \node[nc] (a) at (g1) {$a$};
+    \node[nc] (b) at (g2) {$b$};
+    \node[nc] (c) at (g3) {$c$};
+
+    \draw[base] (c) -- (a) -- (b);
+    \draw[base,dashed] (c) -- (b);
+
+\end{tikzpicture}
+
+
+\end{document}
