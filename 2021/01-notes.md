@@ -1,4 +1,4 @@
-  ---
+---
 presentation:
   transition: "none"
   enableSpeakerNotes: true
@@ -9,7 +9,7 @@ presentation:
 @import "../common/css/zhangt-solarized.css"
 @import "css/GNN.css"
 
-<!-- slide data-notes="" -->
+<!-- slide data-notes="自我介绍<br><br>日期不好 间隔太久 第一节课讲些概况 不涉及太多具体的细节 后面的课再展开讲" -->
 <div class="header"><img class="hust"></div>
 
 <div class="bottom15"></div>
@@ -28,14 +28,14 @@ presentation:
 
 #### tengzhang@hust.edu.cn
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="请大家入群 发布课程的相关通知 也可以讨论问题 课程网站稍后也会在群里发布" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>课程群</h5></div></div>
 
 <img src="img/qr.png" height=387px width=387px class="center top10">
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="从GNN开始捋一下课程间的关系<br><br>互动问下大家是否学过ML等前导课程<br><br>如果没有吐槽下选课系统不完善 鼓励大家课后补些相关课程" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>前导知识</h5></div></div>
 
 <div class="top5 center" markdown=1>
@@ -61,7 +61,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="5-10周理论课 11-12周实践课 说下分别讲啥<br><br>再说下考核情况 我很nice 大家不用担心<br><br>我毕业没多久 经验不足 讲课不好 不会点名强迫大家来听课<br><br>请大家多给反馈 不断完善讲课技巧和授课内容 造福学弟学妹" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>课程安排</h5></div></div>
 
 <br>
@@ -85,7 +85,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="这门课不好讲 几个点挨个讲讲" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>难点</h5></div></div>
 
 - 多门课程的交叉，需大量前导课程的配合
@@ -111,7 +111,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="人工智能博大精深 如果把其比作金庸武学的话 机器学习作为其最主流的分支 就是九阴真经 而GNN作为其中最为人所熟知的深度学习的代表 就是九阴白骨爪<br><br>九阴白骨爪作为一门犀利的功夫，本无好坏之说，关键在于人，周芷若<br><br>我希望大家" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>期望</h5></div></div>
 
 ### 人工智能$\Longleftrightarrow$金庸武学
@@ -128,7 +128,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide data-notes="" -->
+<!-- slide data-notes="扯远了 下面我们言归正传 开始第一节课的内容 这节课我们大概会讲讲下面的内容" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>动机</h5></div></div>
 
 <div class="bottom5"></div>
@@ -189,7 +189,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide data-notes="" -->
+<!-- slide data-notes="首先是最简单的情况" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>成对数据 简单图</h5></div></div>
 
 成对数据$D = \set\{ (E_i, E_j) \}$是一系列实体对的集合
@@ -207,7 +207,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="在成对数据的基础上 关系是单向的就成了有向成对数据 我们用<>来表示" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>有向成对数据 有向图</h5></div></div>
 
 有向成对数据$D = \set\{ \langle E_i, E_j \rangle \}$
@@ -225,7 +225,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="在成对数据的基础上 如果每个实体对有对应的权重" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>加权成对数据 加权图</h5></div></div>
 
 加权成对数据$D = \set\{ (E_i, E_j): W_{ij} \}$
@@ -242,7 +242,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="在成对数据的基础上 每个实体对有其关系被激活的时间 可以得到时间图，举完例子后说下时间有什么用 追踪一些信息、病毒、新冠病毒的扩散" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>时间成对数据 时间图</h5></div></div>
 
 时间成对数据：每个实体对有其关系被激活的时间
@@ -261,7 +261,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide data-notes="" -->
+<!-- slide data-notes="前面提到的成对、有向成对、加权成对、时间成对数据均可通过邻接矩阵表示" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>邻接矩阵</h5></div></div>
 
 <div class="fullborder" markdown="1">
@@ -285,7 +285,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="将二维矩阵向高维扩展，就得到可以贮存更多信息的张量，张量英文叫tensor，说一下tensorflow <br><br> 若第三维是时间" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>张量数据 动态图</h5></div></div>
 
 张量 (tensor) 是二维矩阵的高维扩展，若三维张量第三维是时间，可将其视为矩阵随时间演化的过程
@@ -304,7 +304,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="若第三维的值表示边的类型" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>张量数据 异构图</h5></div></div>
 
 若三维张量第三维的值表示边的类型，可将其表示为异构图
@@ -342,7 +342,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="再回头看一下这张图 它列出了目前全部能无损转化成各类图的数据<br><br>还有些更复杂的数据，目前尚不能无损转化成图，<br><br>注意，无损转化固然重要，但转化后是否有好工具进行方便地处理也是需要考虑的，转化越保真，转化后的图越难处理，这里有个权衡，更多的超出本课程范围，就不展开了" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>图数据</h5></div></div>
 
 无损转化成图：
@@ -382,7 +382,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide data-notes="" -->
+<!-- slide data-notes="到这里我们介绍了将各种数据转化成图的方式 下面我们讲有了图数据后 可以从中学习到什么<br><br>首先我们作一下澄清图和网络两个概念" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>图数据学习</h5></div></div>
 
 图 vs. 网络：
@@ -483,7 +483,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="最后我们来看看整图层面的任务" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>整图层面的任务</h5></div></div>
 
 图分类
@@ -507,7 +507,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide data-notes="" -->
+<!-- slide data-notes="到这里我们就把图数据上的四类任务介绍完了 下面我们简要科普下机器学习 这是周志华老师西瓜书上的一个经典例子" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>机器学习</h5></div></div>
 
 <br>
@@ -531,7 +531,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="结合西瓜的例子展开来讲 预处理就是处理有属性缺失的样本 特征转换将非数值属性转化成数值属性<br><br>最后说一下深度学习的这个优势只是一个guess 并没有严格的理论保证" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>传统 vs. 现代</h5></div></div>
 
 传统机器学习流程
@@ -588,7 +588,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="神经网络在结构化数据上取得很好的效果 所以我们也希望把它用到图数据上 但是" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>神经网络</h5></div></div>
 
 神经网络在<span class="blue">结构化</span>数据上取得很好的效果
@@ -636,7 +636,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="最后我们讲一下这个领域的当前的研究热点 所有点挨个讲一遍" -->
 <div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>研究现状</h5></div></div>
 
 <br>
@@ -657,7 +657,7 @@ digraph g {
 
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 
-<!-- slide data-notes="" -->
+<!-- slide data-notes="这一讲我们回顾一下传统处理图数据的方法 顺便把一些基本概念再温习一遍" -->
 <div class="header"><img class="hust"></div>
 
 <div class="bottom15"></div>
@@ -674,268 +674,4 @@ digraph g {
 
 <br>
 
-#### tengzhang@hust.edu.cn
 
-<!-- slide vertical=true data-notes="" -->
-<div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>基本思路</h5></div></div>
-
-<br>
-
-机器学习的基本流程
-
-```dot
-digraph g {
-    graph [nodesep=0.35, ranksep=0.35]
-    rankdir=LR
-    node [shape=box color="#586e75" fontname="EBG,fzlz" fontcolor="#b58900" fontsize=16]
-    edge [arrowhead=vee color="#586e75" fontname="EBG,fzlz" fontcolor="#268bd2" fontsize=16 arrowsize=0.5]
-    bgcolor="transparent"
-
-    原始数据 -> 预处理 -> 特征提取 -> 特征转换 -> 模型学习 -> 预测
-
-    subgraph cluster_1 {
-        color="#586e75"
-        fontcolor="#dc322f"
-        fontname="EBG,fzlz"
-        style="dashed"
-        label="特征工程"
-        特征提取 特征转换
-    }
-}
-```
-
-机器学习的效果取决于<span class="blue">特征</span>的强弱
-
-- 原始数据中点、边的特征可以直接拿来用，这和传统机器学习一样
-- 图的结构也是一种信息，如何将其用起来？
-
-<br>
-
-通过<span class="blue">图上的统计量</span>来提取
-
-- 点层面：用每个点的局部结构
-- 图层面：用整个图的全局结构
-
-<div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
-
-<!-- slide vertical=true data-notes="" -->
-<div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>符号约定</h5></div></div>
-
-<br>
-
-图$\Gcal = (\Vcal, \Ecal)$，$\Vcal$是点集，$\Ecal$是边集
-
-<br>
-
-对于点$u, v \in \Vcal$
-
-- 若其存在连边 (关系)，则$(u,v) \in \Ecal$
-- 若边没有方向，则$(u,v) \in \Ecal \Longleftrightarrow (v,u) \in \Ecal$
-
-<br>
-
-邻接矩阵$\Av \in \Rbb^{|\Vcal| \times |\Vcal|}$
-
-- 若边没有权重，$[\Av]_{uv} = 1_{(u,v) \in \Ecal}$
-- 若边上有权重，$[\Av]_{uv}$就等于$(u,v)$的权重
-- 若边没有方向，则$\Av$是<span class="blue">对称</span>矩阵
-
-<div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
-
-<!-- slide vertical=true data-notes="" -->
-<div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>家族通婚图</h5></div></div>
-
-```dot {engine="neato"}
-digraph g {
-    size = 8;
-    graph [nodesep=0.2, ranksep=0.2]
-    node [shape=plaintext color="#586e75" fontname="EBG,fzlz" fontcolor="#b58900" fontsize=16]
-    edge [dir=none, color="#586e75" fontname="EBG,fzlz" fontcolor="#268bd2" fontsize=10]
-    bgcolor="transparent"
-
-    Pazzi -> Salviati
-
-    node [fontcolor="#268bd2"]
-
-    Salviati -> Medici
-
-    node [fontcolor="#b58900"]
-
-    Medici -> {Acciaiuoli,Barbadori,Tornabuoni,Albizzi,Ridolfi};
-
-    Albizzi -> {Ginori,Guadagni}
-
-    Tornabuoni -> {Guadagni,Ridolfi}
-
-    Ridolfi -> Strozzi
-
-    Barbadori -> Castellani
-
-    Guadagni -> {Lamberteschi,Bischeri}
-
-    Strozzi -> {Bischeri,Castellani,Peruzzi}
-
-    {Castellani,Bischeri} -> Peruzzi
-}
-```
-
-### 哪些统计量能体现出 Medici 家族的崛起？
-
-<div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
-
-<!-- slide data-notes="" -->
-<div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>度中心性</h5></div></div>
-
-<br>
-
-度 (degree)：与点相连的边的数目$d_u = \sum_{v \in \Vcal} [\Av]_{uv}$
-
-<br>
-
-度与边的关系$\sum_{u \in \Vcal} d_u = 2 |\Ecal|$
-
-<br>
-
-对于家族通婚图
-
-- Medici 的度数是 5，最大的家族
-- Guadagn 和 Strozzi 的度数是 4
-- 区分度不太明显，需要更强的特征
-
-<div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
-
-<!-- slide vertical=true data-notes="" -->
-<div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>特征向量中心性</h5></div></div>
-
-<br>
-
-基本想法：如果你的朋友都是大佬，那你肯定也是大佬
-
-<div class="bottom6"></div>
-
-设所有点特征向量中心性构成的向量为$\vv$
-
-<br>
-
-点$u$所有邻居的特征向量中心性之和为$[\Av \vv]_u = \sum_{v \in \Vcal} [\Av]_{uv}  [\vv]_v$
-
-<br>
-
-现要求每个点邻居的特征向量中心性之和与自己的成正比$\Av \vv = \lambda \vv$
-
-<br>
-
-显然满足要求的向量$\vv$是邻接矩阵$\Av$的特征向量，名字也是由此而来
-
-<br>
-
-根据 <span class="blue">Perron–Frobenius 定理</span>，**非负不可约实**矩阵$\Av$的最大特征值$\lambda_1$对应的特征向量$\vv_1$为正，就取$\vv_1$的元素为特征向量中心性
-
-<div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
-
-<!-- slide vertical=true data-notes="" -->
-<div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>特征向量中心性</h5></div></div>
-
-<br>
-
-另一个视角：由 <span class="blue">Power Method</span> (参见下一页) 知
-
-<p>
-    $$
-        \lim_{t \rightarrow \infty} \Av^t \onev \class{yellow}{\propto \vv_1}
-    $$
-</p>
-
-$[\Av^t]_{uv}$表示点$u$到点$v$的长度为$t$的路径数
-
-<br>
-
-特征向量中心性正比于<span class="blue">可被其他点通过**无限长的路径**访问的总次数</span>，即特征向量中心性越高，该点越属于各种长度的环
-
-<div class="bottom6"></div>
-
-对于家族通婚图，Medici 的特征向量中心值为 0.43，第二大的为 0.36
-
-<div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
-
-<!-- slide data-notes="" -->
-<div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>Power Method</h5></div></div>
-
-设$\Av$为实对称矩阵，即$\Av$可对角化且特征值$\lambda_1, \ldots, \lambda_n$均为实数，设$\lambda_1$是绝对值最大的特征值且重数为$1$，即$|\lambda_1| > \{ |\lambda_i| \}_{i \neq 1}$，$\lambda_1$对应的特征向量为$\vv_1$，初始取$\xv_0$为任意向量，并依
-
-<p>
-    $$
-        \xv_k = \frac{\Av \xv_{k-1}}{\|\Av \xv_{k-1}\|}
-    $$
-</p>
-
-迭代，则有$\lim_{k \rightarrow \infty} \xv_k = \vv_1$
-
-</br>
-
-证明：易知
-
-<p>
-    $$
-        \xv_k = \frac{\Av \xv_{k-1}}{\|\Av \xv_{k-1}\|} = \frac{\Av \frac{\Av \xv_{k-2}}{\|\Av \xv_{k-2}\|}}{\|\Av \frac{\Av \xv_{k-2}}{\|\Av \xv_{k-2}\|}\|} = \frac{\Av^2 \xv_{k-2}}{\|\Av^2 \xv_{k-2}\|} = \cdots = \frac{\Av^k \xv_0}{\|\Av^k \xv_0\|}
-    $$
-</p>
-
-设$\xv_0 = c_1 \vv_1 + \cdots + c_n \vv_n$，则
-
-<div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
-
-<!-- slide vertical=true data-notes="" -->
-<div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>Power Method</h5></div></div>
-
-<p>
-    $$
-    \begin{align*}
-        \Av^k \xv_0 & = \Av^{k-1} \Av (c_1 \vv_1 + \cdots + c_n \vv_n) = \Av^{k-1} (c_1 \lambda_1 \vv_1 + \cdots + c_n \lambda_n \vv_n) \\
-        & = \Av^{k-2} (c_1 \lambda_1^2 \vv_1 + \cdots + c_n \lambda_n^2 \vv_n) = c_1 \lambda_1^k \vv_1 + \cdots + c_n \lambda_n^k \vv_n
-    \end{align*}
-    $$
-</p>
-
-从而
-
-<p>
-    $$
-        \begin{align*}
-            \xv_k & = \frac{\Av^k \xv_0}{\|\Av^k \xv_0\|} = \frac{c_1 \lambda_1^k \vv_1 + \cdots + c_n \lambda_n^k \vv_n}{\|c_1 \lambda_1^k \vv_1 + \cdots + c_n \lambda_n^k \vv_n\|} \\
-            & = \frac{c_1}{|c_1|} \left( \frac{\lambda_1}{|\lambda_1|} \right)^k \frac{\vv_1 + \frac{c_2}{c_1} (\frac{\lambda_2}{\lambda_1})^k \vv_2 + \cdots + \frac{c_n}{c_1} (\frac{\lambda_n}{\lambda_1})^k \vv_n}{\| \vv_1 + \frac{c_2}{c_1} (\frac{\lambda_2}{\lambda_1})^k \vv_2 + \cdots + \frac{c_n}{c_1} (\frac{\lambda_n}{\lambda_1})^k \vv_n \|} \\
-            & = \sign(c_1)~(\sign(\lambda_1))^k~\frac{\vv_1 + \frac{c_2}{c_1} (\frac{\lambda_2}{\lambda_1})^k \vv_2 + \cdots + \frac{c_n}{c_1} (\frac{\lambda_n}{\lambda_1})^k \vv_n}{\| \vv_1 + \frac{c_2}{c_1} (\frac{\lambda_2}{\lambda_1})^k \vv_2 + \cdots + \frac{c_n}{c_1} (\frac{\lambda_n}{\lambda_1})^k \vv_n \|} \\
-            & \rightarrow \sign(c_1)~(\sign(\lambda_1))^k \vv_1, \qquad \lim_{k \rightarrow \infty} \left( \frac{\lambda_i}{\lambda_1} \right)^k = 0
-        \end{align*}
-    $$
-</p>
-
-<div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
-
-<!-- slide vertical=true data-notes="" -->
-<div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>Power Method</h5></div></div>
-
-已证 $\xv_k \rightarrow \sign(c_1)~(\sign(\lambda_1))^k \vv_1$，分两种情况：
-
-1. $\lambda_1 > 0$，则$\sign(\lambda_1) = 1$，$\xv_{k-1} \approx \sign(c_1) \vv_1$，$\xv_k \approx \sign(c_1) \vv_1$，于是
-
-<p>
-    $$
-        \small{\sign(c_1) \vv_1 \approx \xv_k = \frac{\Av \xv_{k-1}}{\|\Av \xv_{k-1}\|} \approx \frac{\Av \sign(c_1) \vv_1}{\|\Av \xv_{k-1}\|} = \frac{\sign(c_1) \lambda_1 \vv_1}{\|\Av \xv_{k-1}\|} \Longrightarrow \lambda_1 \approx \|\Av \xv_{k-1}\|}
-    $$
-</p>
-
-2. $\lambda_1 < 0$，$\xv_k$交替趋向$\pm \sign(c_1) \vv_1$，不妨设$\xv_{k-1} \approx \sign(c_1) \vv_1$，$\xv_k \approx -\sign(c_1) \vv_1$
-
-<p>
-    $$
-        \small{-\sign(c_1) \vv_1 \approx \xv_k = \frac{\Av \xv_{k-1}}{\|\Av \xv_{k-1}\|} \approx \frac{\Av \sign(c_1) \vv_1}{\|\Av \xv_{k-1}\|} = \frac{\sign(c_1) \lambda_1 \vv_1}{\|\Av \xv_{k-1}\|} \Longrightarrow \lambda_1 \approx -\|\Av \xv_{k-1}\|}
-    $$
-</p>
-
-注：
-
-- Power Method 的条件中$\Av$对称不是必需的，虽然非对称矩阵不一定能对角化，但通过转换成 Jordan 标准型的形式依然可以证明前面的结论
-- 对于有向图，邻接矩阵$\Av$非对称，但依然可以使用 Power Method
-
-<div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">绪论</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
