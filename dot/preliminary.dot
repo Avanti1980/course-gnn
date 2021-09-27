@@ -1,0 +1,14 @@
+digraph g {
+    graph [nodesep=0.6, ranksep=0.8]
+    rankdir=TB
+    node [shape=box color="#586e75" fontname="EBG,fzlz" fontcolor="#b58900" fontsize=16]
+    edge [arrowhead=vee arrowsize=0.5 color="#586e75" fontname="EBG,fzlz" fontcolor="#268bd2" fontsize=12]
+    bgcolor="transparent"
+
+    {线性代数,图论} -> 谱图理论
+
+    {微积分,线性代数,概率论,统计学} -> 机器学习 -> 深度学习
+
+    {机器学习,谱图理论,图数据} -> 图数据学习
+    {深度学习,图数据学习} -> 图神经网络
+}

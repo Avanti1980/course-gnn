@@ -1,0 +1,22 @@
+digraph g {
+    graph [nodesep=0.4, ranksep=0.8]
+    rankdir=TB
+    node [shape=box color="#586e75" fontname="EBG,fzlz" fontcolor="#b58900" fontsize=16]
+    edge [arrowhead=vee arrowsize=0.5 color="#586e75" fontname="EBG,fzlz" fontcolor="#268bd2" fontsize=12]
+    bgcolor="transparent"
+
+    concentrate=true
+
+    {rank = same; 成对; 加权成对; 有向成对; 时间成对; 张量; 群}
+
+    成对 -> 简单图 -> 成对
+    加权成对 -> 加权图 -> 加权成对
+    有向成对 -> 有向图 -> 有向成对
+    时间成对 -> 时间图 -> 时间成对
+
+    {成对,加权成对,有向成对,时间成对} -> 张量 [arrowtail=vee,dir=back]
+
+    张量 -> {动态图,异构图} -> 张量
+
+    群 -> 超图 -> 群
+}

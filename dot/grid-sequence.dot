@@ -1,0 +1,23 @@
+digraph g {
+    graph [nodesep=0.35, ranksep=0.35]
+    rankdir=TB
+    node [shape=circle color="#586e75" fontname="EBG,fzlz" fontcolor="#b58900" fontsize=2 label="" width=0.2 margin=0]
+    edge [arrowhead=none color="#586e75" fontname="EBG,fzlz" fontcolor="#268bd2" fontsize=2 arrowsize=0.5]
+    bgcolor="transparent"
+
+    11 -> 12 -> 13 -> 14
+    21 -> 22 -> 23 -> 24
+    31 -> 32 -> 33 -> 34
+    41 -> 42 -> 43 -> 44
+    {rank="same" 11 21 31 41}
+    11 -> 21 -> 31 -> 41
+    {rank="same" 12 22 32 42}
+    12 -> 22 -> 32 -> 42
+    {rank="same" 13 23 33 43}
+    13 -> 23 -> 33 -> 43
+    {rank="same" 14 24 34 44}
+    14 -> 24 -> 34 -> 44
+
+    {rank="same" 61 62 63 64 65 66}
+    61 -> 62 -> 63 -> 64 -> 65 -> 66
+}

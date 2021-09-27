@@ -1,0 +1,31 @@
+digraph g {
+    size = 8;
+    graph [nodesep=0.2, ranksep=0.2]
+    node [shape=plain color="#586e75" fontname="EBG,fzlz" fontcolor="#b58900" fontsize=16]
+    edge [dir=none, color="#586e75" fontname="EBG,fzlz" fontcolor="#268bd2" fontsize=10]
+    bgcolor="transparent"
+
+    Pazzi -> Salviati
+
+    node [fontcolor="#268bd2"]
+
+    Salviati -> Medici
+
+    node [fontcolor="#b58900"]
+
+    Medici -> {Acciaiuoli,Barbadori,Tornabuoni,Albizzi,Ridolfi};
+
+    Albizzi -> {Ginori,Guadagni}
+
+    Tornabuoni -> {Guadagni,Ridolfi}
+
+    Ridolfi -> Strozzi
+
+    Barbadori -> Castellani
+
+    Guadagni -> {Lamberteschi,Bischeri}
+
+    Strozzi -> {Bischeri,Castellani,Peruzzi}
+
+    {Castellani,Bischeri} -> Peruzzi
+}
