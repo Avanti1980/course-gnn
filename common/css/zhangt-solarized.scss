@@ -47,7 +47,7 @@
   }
 }
 
-@for $i from -10 to 21 {
+@for $i from -20 to 41 {
   @each $direction in "left", "right", "top", "bottom" {
     .reveal .#{$direction}#{$i} {
       margin-#{$direction}: 0.5rem * $i;
@@ -229,14 +229,6 @@
 
 .reveal img {
   margin: 0;
-}
-
-.reveal .theorem {
-  padding: 1rem;
-  background-color: var(--solarized-base2);
-  border-radius: 1rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
 }
 
 /*********************************************

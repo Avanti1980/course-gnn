@@ -138,6 +138,26 @@
   margin: 1rem 1rem;
 }
 
+.reveal .sparse {
+  p {
+    margin: 2rem 2.5rem 4rem 2.5rem;
+  }
+  ul {
+    margin: 0 0 0 -2.5rem;
+    li {
+      margin: 2rem 0;
+    }
+  }
+}
+
+.reveal .theorem {
+  background-color: var(--solarized-base2);
+  border-radius: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  padding: 1rem;
+}
+
 .reveal .mermaid {
   margin: 1.5rem 3rem;
 }
