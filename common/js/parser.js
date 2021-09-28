@@ -1,0 +1,34 @@
+module.exports = {
+  onWillParseMarkdown: function (markdown) {
+    return new Promise((resolve, reject) => {
+      markdown = markdown.replace(
+        /GNN-HEADER\s+([\w\W]*?)\n/gm,
+        (whole, header) =>
+          '<div class="header"><img class="hust"><div class="title"><hr class="hr_top"><h5>' +
+          header +
+          "</h5></div></div>\n"
+      );
+      markdown = markdown.replace(
+        /GNN-FOOTER\s+([\w\W]*?)\s+([\w\W]*?)\s+([\w\W]*?)\n/gm,
+        (whole, footer1, footer2, footer3) =>
+          '<div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">' +
+          footer1 +
+          '</h6><h6 class="bottom_center">' +
+          footer2 +
+          '</h6><h6 class="bottom_right">' +
+          footer3 +
+          "</h6></div></div>\n"
+      );
+      markdown = markdown.replace(
+        /\\begin{align\*}([\w\W]+?)\end{align\*}\n/g,
+        (whole, content) => '<p>$$\\begin{align\*}' + content + '\end{align\*}$$</p>\n'
+      );
+      return resolve(markdown);
+    });
+  },
+  onDidParseMarkdown: function (html) {
+    return new Promise((resolve, reject) => {
+      return resolve(html);
+    });
+  },
+};
