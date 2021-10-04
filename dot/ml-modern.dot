@@ -12,7 +12,7 @@ digraph g {
         fontcolor="#dc322f"
         fontname="EBG,fzlz"
         style="dashed"
-        label="端到端的神经网络"
+        label="端到端的深度神经网络"
         特征提取 特征转换 模型学习
     }
 }
