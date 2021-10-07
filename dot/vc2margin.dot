@@ -1,0 +1,11 @@
+digraph g {
+    graph [nodesep=0.35, ranksep=0.25]
+    rankdir=LR
+    node [shape=plaintext fontname="EBG,fzlz" fontcolor="#b58900" fontsize=18]
+    edge [arrowhead=vee color="#586e75" fontname="EBG,fzlz" fontcolor="#268bd2" fontsize=12 arrowsize=0.5]
+    bgcolor="transparent"
+
+    限制假设空间 -> VC维
+    VC维 -> 宽打散维 [label="加强"]
+    宽打散维 -> 最大间隔准则 -> 最小范数假设
+}

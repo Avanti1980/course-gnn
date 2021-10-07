@@ -5,7 +5,7 @@ digraph g {
     edge [arrowhead=vee color="#586e75" fontname="EBG,fzlz" fontcolor="#268bd2" fontsize=16 arrowsize=0.5]
     bgcolor="transparent"
 
-    原始数据 -> 预处理 -> 特征提取 -> 特征转换 -> 模型学习 -> 预测
+    " 原始数据 " -> "  特征提取  " -> "  特征处理  " -> 特征变换 -> 模型学习 -> 预测
 
     subgraph cluster_1 {
         color="#586e75"
@@ -13,6 +13,6 @@ digraph g {
         fontname="EBG,fzlz"
         style="dashed"
         label="特征工程"
-        特征提取 特征转换
+        "  特征提取  " "  特征处理  " 特征变换
     }
 }

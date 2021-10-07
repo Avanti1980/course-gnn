@@ -1,0 +1,41 @@
+digraph g {
+    graph [nodesep=0.3, ranksep=0.2]
+    bgcolor="transparent"
+    node [shape=ellipse color="#586e75" fontcolor="#b58900" fontsize=16 fontname="EBG,fzlz"]
+    edge [arrowhead=vee color="#586e75" fontcolor="#dc322f" fontsize=16 fontname="EBG,fzlz" arrowsize=0.6]
+
+    subgraph cluster_0 {
+        label=知识库
+        style=dashed
+        fontname="EBG,fzlz"
+        color="#586e75"
+        fontcolor="#d33682"
+
+        是否冷血 -> 是否有羽毛 [label="否"]
+        是否冷血 -> 是否有腿 [label="是"]
+
+        是否有羽毛 -> 是否会飞 [label="是"]
+
+        node [shape=box fontcolor="#268bd2"]
+
+        是否有羽毛 -> 猫 [label="否"]
+        是否会飞 -> 鸡 [label="否"]
+        是否会飞 -> NULL [label="是"]
+        是否有腿 -> 蛇 [label="否"]
+        是否有腿 -> 蜥蜴 [label="是"]
+    }
+    
+    subgraph cluster_1 {
+        label=推理
+        style=dashed
+        fontname="EBG,fzlz"
+        color="#586e75"
+        fontcolor="#d33682"
+
+        没羽毛 不冷血
+
+        node [shape=box fontcolor="#268bd2"]
+
+        {没羽毛,不冷血} -> ？？？
+    }
+}

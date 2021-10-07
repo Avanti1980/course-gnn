@@ -1,0 +1,35 @@
+\documentclass{ctexart}
+\usepackage{avanti}
+\everymath{\color{Solarized-magenta}}
+\pagestyle{empty} % 没有页眉和页脚
+
+ % define the plot style and the axis style
+\tikzset{base/.style={smooth,thick,Solarized-base01}}
+\tikzset{arrow/.style={->,>=stealth,base}}
+
+\begin{document}
+
+\begin{figure}[!ht]
+    \centering
+    \begin{tikzpicture}
+
+        \draw[arrow] (0,0) -- (8.5,0) node[below] {};
+        \draw[arrow] (0,0) -- (0,5) node[below] {};
+
+        \draw[base,Solarized-yellow,domain=0.5:6.5] plot(\x,{0.08*(\x-0.2)^2+0.2});
+        \draw[base,Solarized-blue,domain=0.5:6.5] plot(\x,{0.08*(\x-6.8)^2+0.2});
+        \draw[base,Solarized-red,domain=0.5:6.5] plot(\x,{0.3*(\x-3.5)^2+2});
+
+        \path (7.4, 0.3) node[Solarized-blue] () {经验风险};
+
+        \path (7.4, 3.4) node[Solarized-yellow] () {置信区间};
+
+        \path (7.4, 4.6) node[Solarized-red] () {泛化风险};
+
+        \path (7.95, -0.3) node[Solarized-base01] () {VC维};
+
+    \end{tikzpicture}
+\end{figure}
+
+
+\end{document}

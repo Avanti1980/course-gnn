@@ -20,8 +20,8 @@ module.exports = {
           "</h6></div></div>\n"
       );
       markdown = markdown.replace(
-        /\\begin{align\*}([\w\W]+?)\end{align\*}\n/g,
-        (whole, content) => '<p>$$\\begin{align\*}' + content + '\end{align\*}$$</p>\n'
+        /\$\$([\w\W]+?)\$\$\n/g,
+        (whole, content) => '<p>\n$$' + content + '$$\n</p>\n'
       );
       return resolve(markdown);
     });

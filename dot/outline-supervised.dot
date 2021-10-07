@@ -1,0 +1,31 @@
+digraph g {
+    graph [nodesep=0.2, ranksep=0.4]
+    rankdir=LR
+    node [shape=plaintext fontname="EBG,fzlz" fontcolor="#93a1a1" fontsize=16]
+    edge [arrowhead=vee fontname="EBG,fzlz" color="#93a1a1" fontcolor="#268bd2" fontsize=12 arrowsize=0.5]
+    bgcolor="transparent"
+
+    人工智能 -> {逻辑推理, 知识工程}
+
+    node [fontcolor="#dc322f"]
+
+    人工智能 -> 机器学习
+
+    node [fontcolor="#b58900"]
+    edge [color="#586e75" fontcolor="#93a1a1"]
+
+    机器学习 -> 监督信息 -> {监督学习, 半监督学习, 无监督学习}
+
+    监督学习 -> {"离散 分类", "连续 回归"}
+
+    无监督学习 -> {聚类, "降维 嵌入", 密度估计}
+
+    node [fontcolor="#93a1a1"]
+    edge [color="#93a1a1"]
+
+    A [label="……"]
+    B [label="……"]
+    C [label="……"]
+
+    机器学习 -> 模型方法 -> {A, B, C}
+}

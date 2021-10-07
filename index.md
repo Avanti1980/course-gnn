@@ -1,7 +1,12 @@
 @import "common/css/zhangt-solarized.css"
 @import "common/css/font-awesome-4.7.0/css/font-awesome.css"
+@import "2021/css/GNN.css"
 
 <style>
+    font-family: EBG, fzlz, fzht;
+    font-weight: normal;
+    background-color: var(--base3);
+    color: var(--solarized-base01);
     table th:first-of-type {
         width: 12em;
     }
@@ -11,10 +16,9 @@
     table th:nth-of-type(3) {
         width: 12em;
     }
-}
 </style>
 
-## 图神经网络导论
+## 图神经网络导论 2021
 
 #### 考核
 

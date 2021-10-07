@@ -210,7 +210,10 @@
   }
 }
 
-@include tableconfig(rand, 1); // rand表最优一行是win/tie/lose 需上边框
+@include tableconfig(
+  resolution,
+  1
+); // resolution表最优一行是win/tie/lose 需上边框
 
 // 设置第col列的对齐方式 默认左对齐
 @mixin tablecolumnalign($tablename, $col, $align: left) {
@@ -249,12 +252,26 @@
   }
 }
 
-.reveal .vc > table {
-  width: 69%;
-  margin-left: auto;
-  margin-right: auto;
+.reveal .watermelon > table {
+  width: 70%;
+  th:nth-child(4),
+  td:nth-child(4) {
+    border-right: 1px solid var(--solarized-base01);
+  }
+}
+
+.reveal .watermelon2 > table {
+  width: 84%;
   th:nth-child(1),
-  td:nth-child(1) {
+  th:nth-child(2),
+  th:nth-child(3),
+  td:nth-child(1),
+  td:nth-child(4),
+  td:nth-child(6) {
+    border-right: 1px dashed var(--solarized-base01);
+  }
+  th:nth-child(4),
+  td:nth-child(9) {
     border-right: 1px solid var(--solarized-base01);
   }
 }
