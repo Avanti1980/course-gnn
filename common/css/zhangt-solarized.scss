@@ -231,6 +231,14 @@
   margin: 0;
 }
 
+.reveal pre {
+  display: block;
+  position: relative;
+  text-align: left;
+  font-family: Operator;
+  word-wrap: break-word;
+}
+
 /*********************************************
  * LINKS
  *********************************************/
