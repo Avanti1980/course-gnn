@@ -132,6 +132,7 @@ module.exports = {
       xvt: "{\\tilde {\\xv}}",
       yvt: "{\\tilde {\\yv}}",
       Kvt: "{\\tilde {\\Kv}}",
+      xbar: "{\\bar {x}}",
       yvbar: "{\\bar {\\yv}}",
       Ffrak: "{\\mathfrak F}",
       sup: ["{{(#1)}}", 1],

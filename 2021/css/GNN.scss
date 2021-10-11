@@ -163,11 +163,10 @@
 }
 
 .reveal pre {
-  width: 80%;
-  margin: 1.0rem auto;
+  margin: 1rem auto;
   font-size: 1.2rem;
   line-height: 1.4rem;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  background-color: transparent;
 }
 
 .reveal table {
@@ -264,18 +263,39 @@
   }
 }
 
-.reveal .watermelon2 > table {
-  width: 84%;
+.reveal .chi2 > table {
   th:nth-child(1),
-  th:nth-child(2),
-  th:nth-child(3),
-  td:nth-child(1),
-  td:nth-child(3),
-  td:nth-child(5) {
-    border-right: 1px dashed var(--solarized-base01);
+  td:nth-child(1) {
+    border-right: 1px solid var(--solarized-base01);
+    font-weight: bold;
   }
-  th:nth-child(4),
-  td:nth-child(8) {
+  th:nth-child(3),
+  td:nth-child(3) {
+    border-right: 1px solid var(--solarized-base01);
+  }
+  tbody tr:nth-child(3) {
+    border-bottom: 1px solid var(--solarized-base01);
+  }
+}
+
+.reveal .tfidf > table {
+  tbody tr:nth-child(2),
+  tbody tr:nth-child(3) {
+    border-bottom: 1px dashed var(--solarized-base01);
+  }
+  tbody tr:nth-child(2) {
+    td:nth-child(1) {
+      border-left: 1px solid var(--solarized-base01);
+    }
+  }
+  tbody tr:nth-child(1),
+  tbody tr:nth-child(3),
+  tbody tr:nth-child(4) {
+    td:nth-child(1) {
+      border-right: 1px solid var(--solarized-base01);
+    }
+  }
+  th:nth-child(1) {
     border-right: 1px solid var(--solarized-base01);
   }
 }
