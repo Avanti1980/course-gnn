@@ -239,6 +239,15 @@
   word-wrap: break-word;
 }
 
+.reveal .invis {
+  p,
+  ul > li,
+  .MathJax_Display,
+  .MathJax {
+    color: var(--solarized-base1) !important;
+  }
+}
+
 /*********************************************
  * LINKS
  *********************************************/

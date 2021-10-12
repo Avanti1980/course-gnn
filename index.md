@@ -1,22 +1,4 @@
-@import "common/css/zhangt-solarized.css"
-@import "common/css/font-awesome-4.7.0/css/font-awesome.css"
-@import "2021/css/GNN.css"
-
-<style>
-    font-family: EBG, fzlz, fzht;
-    font-weight: normal;
-    background-color: var(--base3);
-    color: var(--solarized-base01);
-    table th:first-of-type {
-        width: 12em;
-    }
-    table th:nth-of-type(2) {
-        width: 12em;
-    }
-    table th:nth-of-type(3) {
-        width: 12em;
-    }
-</style>
+@import "index.css"
 
 ## 图神经网络导论 2021
 
@@ -26,16 +8,26 @@
 
 #### 课件
 
-在线浏览，Space 翻页，Esc 导航，建议用科学上网打开
+在线浏览，Space 翻页，Esc 导航，校外访问或许需用科学上网打开
 
-|        |         内容         | 备注 |
-| :----: | :------------------: | :--: |
-| 第壹讲 | [绪论](2021/01.html) |  -   |
-| 第贰讲 |          -           |  -   |
-| 第叁讲 |          -           |  -   |
-| 第肆讲 |          -           |  -   |
-| 第伍讲 |          -           |  -   |
-| 第陆讲 |          -           |  -   |
-| 第柒讲 |          -           |  -   |
-| 第捌讲 |          -           |  -   |
-| 第玖讲 |          -           |  -   |
+<br>
+
+<div class="threelines outline" markdown=1>
+
+|        |             讲义             | 内容                                                                                                                     |
+| :----: | :--------------------------: | :----------------------------------------------------------------------------------------------------------------------- |
+| 第壹讲 |     [绪论](2021/01.html)     | 1. 如何将数据表示成图<br>2. 图数据上有哪些学习任务<br>3. 为何用神经网络来学习图数据<br>4. 图神经网络有哪些值得研究的地方 |
+| 第贰讲 | [机器学习 上](2021/02a.html) | -                                                                                                                        |
+| 第叁讲 |              -               | -                                                                                                                        |
+| 第肆讲 |              -               | -                                                                                                                        |
+| 第伍讲 |              -               | -                                                                                                                        |
+| 第陆讲 |              -               | -                                                                                                                        |
+| 第柒讲 |              -               | -                                                                                                                        |
+| 第捌讲 |              -               | -                                                                                                                        |
+| 第玖讲 |              -               | -                                                                                                                        |
+
+</div>
+
+#### 代码
+
+aaaa
