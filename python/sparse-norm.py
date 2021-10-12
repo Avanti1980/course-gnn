@@ -36,11 +36,11 @@ levels_l2 = [2.2**x for x in [-7, -6, -5]]
 with plt.style.context('Solarize_Light2'):
 
     ax = fig.add_subplot(1, 2, 1)
-    ax.contour(xx, yy, Z_l1, levels=levels_l1,  cmap='gist_gray')
-    ax.contour(xx, yy, Z_ls, levels=levels_ls, cmap='coolwarm')
+    ax.contour(xx, yy, Z_l1, levels=levels_l1)
+    ax.contour(xx, yy, Z_ls, levels=levels_ls)
 
     ax = fig.add_subplot(1, 2, 2)
-    ax.contour(xx, yy, Z_l2, levels=levels_l2,  cmap='gist_gray')
-    ax.contour(xx, yy, Z_ls, levels=levels_ls, cmap='coolwarm')
+    ax.contour(xx, yy, Z_l2, levels=levels_l2)
+    ax.contour(xx, yy, Z_ls, levels=levels_ls)
 
 plt.show()

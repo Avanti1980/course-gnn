@@ -1,0 +1,180 @@
+:root {
+  --solarized-base03: #002b36; /* (  0,  43,  54) */
+  --solarized-base02: #073642; /* (  7,  54,  66) */
+  --solarized-base01: #586e75; /* ( 88, 110, 117) */
+  --solarized-base00: #657b83; /* (101, 123, 131) */
+  --solarized-base0: #839496; /* (131, 148, 150) */
+  --solarized-base1: #93a1a1; /* (147, 161, 161) */
+  --solarized-base2: #eee8d5; /* (238, 232, 213) */
+  --solarized-base3: #fdf6e3; /* (253, 246, 227) */
+  --solarized-yellow: #b58900; /* (181, 137,   0) */
+  --solarized-orange: #cb4b16; /* (203,  75,  22) */
+  --solarized-red: #dc322f; /* (220,  50,  47) */
+  --solarized-magenta: #d33682; /* (211,  54, 130) */
+  --solarized-violet: #6c71c4; /* (108, 113, 196) */
+  --solarized-blue: #268bd2; /* ( 38, 139, 210) */
+  --solarized-cyan: #2aa198; /* ( 42, 161, 152) */
+  --solarized-green: #859900; /* (133, 153,   0) */
+}
+
+@mixin fontconfig($name, $style: normal, $ext: ttf) {
+  @font-face {
+    font-family: #{$name};
+    src: url("../fonts/#{$name}-#{$style}.#{$ext}");
+    font-style: $style;
+  }
+}
+
+@each $font in fzht, fzlz, fzsxs, EBG {
+  @include fontconfig($font);
+}
+
+@each $font in EBG {
+  @include fontconfig($font, italic);
+}
+
+@each $font in Operator {
+  @include fontconfig($font, normal, otf);
+  @include fontconfig($font, italic, otf);
+}
+
+@each $color in "base03", "base02", "base01", "base00", "base0", "base1",
+  "base2", "base3", "yellow", "orange", "red", "magenta", "violet", "blue",
+  "cyan", "green"
+{
+  .reveal .#{$color} {
+    color: var(--solarized-#{$color});
+  }
+}
+
+@for $i from -20 to 41 {
+  @each $direction in "left", "right", "top", "bottom" {
+    .reveal .#{$direction}#{$i} {
+      margin-#{$direction}: 0.5rem * $i;
+    }
+  }
+  .reveal .width#{$i + 10} {
+    width: 3% * ($i + 10);
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: var(--solarized-base3);
+  color: var(--solarized-base01);
+  font-family: EBG, fzlz, fzht;
+  font-weight: normal;
+}
+
+h2,
+h4 {
+  font-family: EBG, fzht;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+p {
+  font-family: EBG, fzlz, fzht;
+  font-weight: normal;
+  font-size: 1.5rem;
+  background-color: var(--base3);
+  color: var(--solarized-base01);
+  margin-top: 0.5rem;
+  margin-bottom: 0rem;
+}
+
+ul {
+  display: inline-block;
+  text-align: left;
+  list-style-type: none;
+  margin-top: 0.5rem;
+}
+
+ul > li {
+  font-family: EBG, fzlz, fzht;
+  font-size: 1.3rem;
+  margin: 0.4rem 0;
+  margin-right: 2rem;
+  color: var(--solarized-yellow);
+}
+
+ul > li:before {
+  content: "\f260";
+  font-family: FontAwesome;
+  margin-left: -2rem;
+  margin-right: 0.5rem;
+  width: 1rem;
+}
+
+a {
+  color: var(--solarized-blue);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--solarized-violet);
+  text-shadow: none;
+  border: none;
+}
+
+table {
+  font-family: EBG, fzlz, fzht;
+  font-weight: normal;
+  font-size: 1.2rem;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 2rem auto;
+  th,
+  td {
+    padding: 0.5rem 1rem 0.1rem 1rem;
+  }
+  td:nth-last-child(1) {
+    padding-left: 2rem;
+  }
+  th:first-of-type {
+    width: 4rem;
+  }
+  th:nth-of-type(2) {
+    width: 8rem;
+  }
+  th:nth-of-type(3) {
+    width: 32rem;
+  }
+}
+
+.threelines > table {
+  th {
+    border-top: 2px solid var(--solarized-base01);
+    border-bottom: 1px solid var(--solarized-base01);
+  }
+  tbody tr:nth-last-child(1) {
+    border-bottom: 2px solid var(--solarized-base01);
+  }
+}
+
+.outline > table {
+  th:nth-last-child(1) {
+    text-align: center !important;
+  }
+  tbody tr:nth-child(4),
+  tbody tr:nth-child(10) {
+    border-bottom: 1px dashed var(--solarized-base01);
+  }
+  tbody tr:nth-child(n + 11) {
+    td:nth-last-child(1) {
+      text-align: center !important;
+    }
+  }
+}
