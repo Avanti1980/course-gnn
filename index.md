@@ -1,3 +1,4 @@
+@import "common/css/font-awesome-4.7.0/css/font-awesome.css"
 @import "common/css/index.css"
 
 ## 图神经网络导论 2021
@@ -30,7 +31,7 @@
 |   ^    |              ^               | 3. 特征提取，文本数据的 tf - idf 特征             |
 |   ^    |              ^               | 4. 特征处理：离散类别特征、缺失特征、标准化       |
 |   ^    |              ^               | 5. 特征选择：方差分析、卡方检验、互信息、稀疏范数 |
-|   ^    |              ^               | 6. 特征变换：PCA 降维、核方法、非线性复合         |
+|   ^    |              ^               | 6. 特征变换：PCA、随机投影、核方法、非线性复合    |
 | 第叁讲 |         机器学习 下          | -                                                 |
 | 第肆讲 |              -               | -                                                 |
 | 第伍讲 |              -               | -                                                 |
@@ -43,4 +44,4 @@
 
 #### 代码
 
-第贰讲：[文本特征提取](python/text-feat.ipynb)、[独热编码](python/one-hot-encoding.ipynb)、[缺失特征处理](python/missing-feat.ipynb)、[特征标准化](python/feat-scaler.ipynb)、[特征选择](python/feat-selection.ipynb)、[稀疏范数](python/sparse-norm.ipynb)、[PCA 降维](python/pca.ipynb)
+第贰讲：[文本特征提取](python/text-feat.ipynb)、[独热编码](python/one-hot-encoding.ipynb)、[缺失特征处理](python/missing-feat.ipynb)、[特征标准化](python/feat-scaler.ipynb)、[特征选择](python/feat-selection.ipynb)、[稀疏范数](python/sparse-norm.ipynb)、[PCA](python/pca.ipynb)、[随机投影](python/random-projection.ipynb)
