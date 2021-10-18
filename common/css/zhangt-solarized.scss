@@ -154,12 +154,91 @@
   table-layout: fixed;
   border-collapse: collapse;
   border-spacing: 0;
+  tr:hover {
+    background-color: var(--solarized-base2);
+  }
 }
 
 .reveal table th,
 .reveal table td {
   text-align: center;
   color: var(--base01);
+}
+
+@for $i from 0 to 10 {
+  @each $style in "solid", "dashed", "dotted" {
+    @each $direction in "left", "right" {
+      // 每列左右边框
+      .reveal .column-#{$i}-border-#{$direction}-#{$style} {
+        th:nth-child(#{$i}),
+        td:nth-child(#{$i}) {
+          border-#{$direction}: 1px #{$style} var(--solarized-base01);
+        }
+      }
+    }
+    @each $direction in "left", "right" {
+      // 表头每列左右边框 若无合并单元格 用前一种即可
+      .reveal .column-#{$i}-border-#{$direction}-#{$style}-head {
+        th:nth-child(#{$i}) {
+          border-#{$direction}: 1px #{$style} var(--solarized-base01);
+        }
+      }
+    }
+    @each $direction in "top", "bottom" {
+      // 每行上下边框
+      .reveal .row-#{$i}-border-#{$direction}-#{$style} {
+        tr:nth-child(#{$i}) {
+          border-#{$direction}: 1px #{$style} var(--solarized-base01);
+        }
+      }
+    }
+    @for $j from 0 to 10 {
+      @each $direction in "left", "right", "top", "bottom" {
+        // 每格四向边框
+        .reveal .row-#{$i}-column-#{$j}-border-#{$direction}-#{$style} {
+          tr:nth-child(#{$i}) {
+            td:nth-child(#{$j}) {
+              border-#{$direction}: 1px #{$style} var(--solarized-base01);
+            }
+          }
+        }
+        .reveal .row-#{$i}-column-#{$j}-border-#{$direction}-none {
+          tr:nth-child(#{$i}) {
+            td:nth-child(#{$j}) {
+              border-#{$direction}: 0 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  // 列加粗
+  .reveal .column-#{$i}-bold {
+    td:nth-child(#{$i}) {
+      font-weight: bold;
+    }
+  }
+}
+
+// 全边框
+.reveal .fullborder {
+  th,
+  td {
+    border: 1px solid var(--solarized-base01);
+  }
+}
+
+// 三线表
+.reveal .threelines {
+  th {
+    border-top: 2px solid var(--solarized-base01); // 表头上边框
+  }
+  tbody tr:nth-child(1) {
+    border-top: 1px solid var(--solarized-base01); // 第一行上边框
+  }
+  tbody tr:nth-last-child(1) {
+    border-bottom: 2px solid var(--solarized-base01); // 最后一行下边框
+  }
 }
 
 .reveal sup {
