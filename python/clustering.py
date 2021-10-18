@@ -18,12 +18,13 @@ k_means.fit(X)
 k_means_cluster_centers = k_means.cluster_centers_
 k_means_labels = pairwise_distances_argmin(X, k_means_cluster_centers)
 
-plt.figure(1)
-for k, col in enumerate(colors):
-    my_members = k_means_labels == k
-    cluster_center = k_means_cluster_centers[k]
-    plt.scatter(X[my_members, 0], X[my_members, 1], s=1, c=col, marker='.')
-    plt.scatter(cluster_center[0], cluster_center[1], c=col, marker='d')
+with plt.style.context('Solarize_Light2'):
+    plt.figure(1)
+    for k, col in enumerate(colors):
+        my_members = k_means_labels == k
+        cluster_center = k_means_cluster_centers[k]
+        plt.scatter(X[my_members, 0], X[my_members, 1], s=1, c=col, marker='.')
+        plt.scatter(cluster_center[0], cluster_center[1], c=col, marker='d')
 
 plt.savefig('clustering.svg', transparent=True)
 plt.show()

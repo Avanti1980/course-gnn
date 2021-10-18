@@ -47,7 +47,7 @@
   }
 }
 
-@for $i from -20 to 41 {
+@for $i from -40 to 41 {
   @each $direction in "left", "right", "top", "bottom" {
     .reveal .#{$direction}#{$i} {
       margin-#{$direction}: 0.5rem * $i;
@@ -154,9 +154,6 @@
   table-layout: fixed;
   border-collapse: collapse;
   border-spacing: 0;
-  tr:hover {
-    background-color: var(--solarized-base2);
-  }
 }
 
 .reveal table th,
@@ -165,47 +162,51 @@
   color: var(--base01);
 }
 
+.reveal .tr-hover {
+  tbody tr:hover {
+    background-color: var(--solarized-base2);
+  }
+}
+
 @for $i from 0 to 10 {
   @each $style in "solid", "dashed", "dotted" {
+    // 每列左右边框
     @each $direction in "left", "right" {
-      // 每列左右边框
-      .reveal .column-#{$i}-border-#{$direction}-#{$style} {
+      .reveal .column#{$i}-border-#{$direction}-#{$style} {
         th:nth-child(#{$i}),
         td:nth-child(#{$i}) {
           border-#{$direction}: 1px #{$style} var(--solarized-base01);
         }
       }
     }
-    @each $direction in "left", "right" {
-      // 表头每列左右边框 若无合并单元格 用前一种即可
-      .reveal .column-#{$i}-border-#{$direction}-#{$style}-head {
-        th:nth-child(#{$i}) {
-          border-#{$direction}: 1px #{$style} var(--solarized-base01);
-        }
-      }
-    }
+
+    // 每行上下边框
     @each $direction in "top", "bottom" {
-      // 每行上下边框
-      .reveal .row-#{$i}-border-#{$direction}-#{$style} {
+      .reveal .row#{$i}-border-#{$direction}-#{$style} {
         tr:nth-child(#{$i}) {
           border-#{$direction}: 1px #{$style} var(--solarized-base01);
         }
       }
     }
-    @for $j from 0 to 10 {
-      @each $direction in "left", "right", "top", "bottom" {
-        // 每格四向边框
-        .reveal .row-#{$i}-column-#{$j}-border-#{$direction}-#{$style} {
-          tr:nth-child(#{$i}) {
-            td:nth-child(#{$j}) {
-              border-#{$direction}: 1px #{$style} var(--solarized-base01);
-            }
+
+    @each $direction in "left", "right", "top", "bottom" {
+      @each $thick in "1", "2" {
+        // 表头每格边框
+        .reveal .column#{$i}-border#{$thick}-#{$direction}-#{$style}-head {
+          th:nth-child(#{$i}) {
+            border-#{$direction}: #{$thick}px #{$style} var(--solarized-base01);
           }
         }
-        .reveal .row-#{$i}-column-#{$j}-border-#{$direction}-none {
-          tr:nth-child(#{$i}) {
-            td:nth-child(#{$j}) {
-              border-#{$direction}: 0 !important;
+        // 表身每格边框
+        @for $j from 0 to 10 {
+          .reveal
+            .row#{$i}-column#{$j}-border#{$thick}-#{$direction}-#{$style} {
+            tr:nth-child(#{$i}) {
+              td:nth-child(#{$j}) {
+                border-#{$direction}: #{$thick}px
+                  #{$style}
+                  var(--solarized-base01);
+              }
             }
           }
         }
@@ -213,9 +214,15 @@
     }
   }
   // 列加粗
-  .reveal .column-#{$i}-bold {
+  .reveal .column#{$i}-bold {
     td:nth-child(#{$i}) {
       font-weight: bold;
+    }
+  }
+  // 首行深色
+  .reveal .head-highlight-#{$i} {
+    th:nth-child(n + #{$i}) {
+      background-color: var(--solarized-base2);
     }
   }
 }

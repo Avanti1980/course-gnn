@@ -169,28 +169,3 @@
     padding: 0.5rem 1rem 0.1rem 1rem;
   }
 }
-
-@mixin column-border($col: 1, $lr: right) {
-  th:nth-child(#{$col}),
-  td:nth-child(#{$col}) {
-    border-#{$lr}: 1px solid var(--solarized-base01);
-  }
-}
-
-.reveal .watermelon1 > table {
-  width: 80%;
-  margin-left: 4%;
-  th:nth-child(-n + 1) {
-    font-weight: normal;
-  }
-  th:nth-child(n + 2) {
-    border-top: 2px solid var(--solarized-base01);
-    border-bottom: 1px solid var(--solarized-base01);
-  }
-  @include column-border(5);
-  tr:nth-child(4) {
-    td:nth-child(n + 2) {
-      border-bottom: 2px solid var(--solarized-base01);
-    }
-  }
-}
