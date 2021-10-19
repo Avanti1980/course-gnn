@@ -1,0 +1,48 @@
+digraph g {
+
+    graph [nodesep=0.4 ranksep=0.7]
+    bgcolor=transparent
+    rankdir=LR
+
+    node [shape=circle color="#859900" fontcolor="#859900" fontsize=16 fontname="fzlz" label=""]
+    edge [color="#859900" fontcolor="#839496" fontsize=12 fontname="fzlz" arrowhead=vee arrowsize=0.5]
+
+    subgraph cluster_1 {
+        style="dashed"
+        label="输入层"
+        color="#839496"
+        fontname="fzlz"
+        fontcolor="#268bd2"
+
+        11,12,13
+    }
+
+    subgraph cluster_2 {
+        style="dashed"
+        label="隐藏层"
+        color="#839496"
+        fontname="fzlz"
+        fontcolor="#268bd2"
+
+        {11,12,13} -> 21
+
+        node [color="#586e75"]
+        edge [color="#586e75"]
+
+        {11,12,13} -> {22,23,24}
+        {21,22,23,24} -> {31,32,33} -> {41,42,43,44} -> {51,52,53} -> {61,62,63,64}
+    }
+
+    subgraph cluster_3 {
+        style="dashed"
+        label="输出层"
+        color="#839496"
+        fontname="fzlz"
+        fontcolor="#268bd2"
+        node [color="#586e75"]
+        edge [color="#586e75"]
+        {61,62,63,64} -> {71,72,73}
+
+    }
+
+}

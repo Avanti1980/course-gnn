@@ -1,0 +1,41 @@
+\documentclass{ctexart}
+\usepackage{avanti}
+
+\begin{document}
+\title{}
+\author{}
+\date{}
+\maketitle
+
+
+
+\begin{figure}[ht]
+    \centering
+
+    \begin{tikzpicture} [ % 先定义每类点的样式
+            thick, >=stealth, scale=1, font=\Large,
+            point/.style = {circle, inner sep=#1, outer sep=0pt, text=Solarized-magenta, draw=Solarized-base01},
+            myptr/.style={decoration={markings,mark=at position 1 with {\arrow[scale=1.5,>=stealth]{>}}},postaction={decorate},text=Solarized-magenta, draw=Solarized-base01}
+        ]
+
+        \node [point=4.0pt] (x1) at (0,10) {$x_1$};
+        \node [point=4.0pt] (x2) at (0,8.4) {$x_2$};
+        \node (a) at (0,6.8) {$\vdots$};
+        \node [point=4.0pt] (xd) at (0,5.2) {$x_d$};
+        \node [point=5.8pt] (b) at (0,3.6) {$b$};
+
+        \node [point=4.0pt] (sum) at (4.5,6.8) {$\wv^\top \xv + b$};
+
+        \node [point=5.8pt] (y) at (8,6.8) {$y$};
+
+        \draw [->,myptr] (x1) -- node [above] {$w_1$} (sum);
+        \draw [->,myptr] (x2) -- node [above] {$w_2$} (sum);
+        \draw [->,myptr] (xd) -- node [above] {$w_d$} (sum);
+        \draw [->,myptr] (b) -- (sum);
+        \draw [->,myptr] (sum) -- node [above] {$\sgn$} (y);
+
+    \end{tikzpicture}
+\end{figure}
+
+
+\end{document}
