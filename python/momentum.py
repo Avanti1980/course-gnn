@@ -1,146 +1,47 @@
-import collections
-
-import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-class LossSurface:
-    """A loss surface with L(x, y) = a * x ^2 + b * y ^2.
-
-    """
-
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
-
-        N = 1000
-        x_list = np.linspace(-2.5, 2.5, N)
-        y_list = np.linspace(-0.5, 0.5, N)
-        self.X, self.Y = np.meshgrid(x_list, y_list)
-        self.Z = self.a * (self.X ** 2) + self.b * (self.Y ** 2)
-
-    def plot(self):
-        fig, ax = plt.subplots()
-        cmap = cm.get_cmap('Greens_r')
-        cp = ax.contour(self.X, self.Y, self.Z, 50, cmap=cmap)
-        cbar = fig.colorbar(cp)
-        cbar.set_label('loss')
-
-        ax.set_xlim(-2.5, 2.5)
-        ax.set_ylim(-0.5, 0.5)
-
-        ax.set_xlabel('x')
-        ax.set_ylabel('y')
-
-        return fig, ax
-
-
-class Momentum:
-
-    def __init__(self, lr, iteration, beta, loss_surface):
-        self.lr = lr
-        self.iteration = iteration
-        self.beta = beta
-        self.a = loss_surface.a
-        self.b = loss_surface.b
-
-        self.w_1, self.w_2, self.v_1, self.v_2 = self.init_parameters()
-
-    def run(self):
-        w_1_curve = list()
-        w_2_curve = list()
-        v_1_curve = list()
-        v_2_curve = list()
-
-        w_1_curve.append(self.w_1)
-        w_2_curve.append(self.w_2)
-        v_1_curve.append(self.v_1)
-        v_2_curve.append(self.v_2)
-
-        for step in range(self.iteration):
-            self.gd_update()
-            loss = self.calculate_loss()
-
-            w_1_curve.append(self.w_1)
-            w_2_curve.append(self.w_2)
-            v_1_curve.append(self.v_1)
-            v_2_curve.append(self.v_2)
-
-            print('iteration: {}, w1: {}, w2: {}, v1: {}, v2:{}, loss: {}'.format(
-                  step+1, self.w_1, self.w_2, self.v_1, self.v_2, loss))
-
-        return w_1_curve, w_2_curve, v_1_curve, v_2_curve
-
-    def gd_update(self):
-        self.v_1 = self.beta * self.v_1 + 2 * self.a * self.w_1
-        self.w_1 -= self.lr * self.v_1
-
-        self.v_2 = self.beta * self.v_2 + 2 * self.b * self.w_2
-        self.w_2 -= self.lr * self.v_2
-
-    def calculate_loss(self):
-        loss = self.a * (self.w_1**2) + self.b * self.w_2**2
-
-        return loss
-
-    def save_plot(self, loss_surface_fig, loss_surface_ax, w_1_curve, w_2_curve):
-        loss_surface_ax.plot(w_1_curve, w_2_curve, color="black")
-
-        fig_name = 'sgd_beta_{}_lr_{}_iter_{}_with_contour.png'.format(self.beta, self.lr, self.iteration)
-        loss_surface_fig.savefig(fig_name)
-
-        print('{} saved.'.format(fig_name))
-
-    @staticmethod
-    def init_parameters():
-        w_1 = -2.4
-        w_2 = 0.2
-        v_1 = 0
-        v_2 = 0
-
-        return w_1, w_2, v_1, v_2
-
-
-def save_velocity_plot(name, v_curves):
-    fig, ax = plt.subplots()
-    ax.plot(v_curves['beta_0.0'], label='beta=0.0')
-    ax.plot(v_curves['beta_0.8'], label='beta=0.8')
-    ax.plot(v_curves['beta_0.9'], label='beta=0.9')
-    ax.legend()
-
-    ax.set_xlabel('iterations')
-    ax.set_ylabel('velocity')
-
-    fig_name = 'velocity_{}.png'.format(name)
-    fig.savefig(fig_name)
-
-    print('{} saved.'.format(fig_name))
-
-
-def main():
-    lr = 0.1
-    iteration = 50
-
-    v_1_curves = collections.defaultdict(list)
-    v_2_curves = collections.defaultdict(list)
-
-    for beta in [0.0, 0.8, 0.9]:
-        a = 1 / 16
-        b = 9
-        ls = LossSurface(a, b)
-        ls_fig, ls_ax = ls.plot()
-
-        demo = Momentum(lr=lr, iteration=iteration, beta=beta, loss_surface=ls)
-        w_1_curve, w_2_curve, v_1_curve, v_2_curve = demo.run()
-        demo.save_plot(ls_fig, ls_ax, w_1_curve, w_2_curve)
-
-        v_1_curves['beta_{}'.format(beta)] = v_1_curve
-        v_2_curves['beta_{}'.format(beta)] = v_2_curve
-
-    save_velocity_plot('v_1', v_1_curves)
-    save_velocity_plot('v_2', v_2_curves)
-
-
 if __name__ == '__main__':
-    main()
+
+    iteration = 30
+    a, b, lr = 0.1, 10, 0.09
+    gamma_list = [0.0, 0.4, 0.8]
+    T = len(gamma_list)
+
+    N = 1000
+    x_list = np.linspace(-2.5, 2.5, N)
+    y_list = np.linspace(-0.5, 0.5, N)
+    X, Y = np.meshgrid(x_list, y_list)
+    Z = a * (X ** 2) + b * (Y ** 2)  # 目标函数
+
+    with plt.style.context('Solarize_Light2'):
+
+        fig, ax = plt.subplots(nrows=1, ncols=T, figsize=(15, 5))
+        fig.suptitle('30 iterations', color='#586e75', fontproperties={'family': 'EB Garamond', 'size': 20})
+        for i in range(T):
+            gamma = gamma_list[i]
+            cp = ax[i].contour(X, Y, Z, 50)
+            ax[i].set_xlim(-2.5, 2.5)
+            ax[i].set_ylim(-.3, .3)
+            ax[i].set_xlabel(r'$\gamma=$%s' % gamma)
+
+            w_1, w_2, v_1, v_2 = -2.4, 0.25, 0, 0  # 初始值
+            w_1_curve, w_2_curve, v_1_curve, v_2_curve = [], [], [], []
+            w_1_curve.append(w_1)
+            w_2_curve.append(w_2)
+            v_1_curve.append(v_1)
+            v_2_curve.append(v_2)
+
+            for step in range(iteration):
+
+                w_1 = w_1 - lr * 2 * a * w_1 + gamma * v_1_curve[step]
+                w_1_curve.append(w_1)
+                v_1_curve.append(w_1 - w_1_curve[step])
+
+                w_2 = w_2 - lr * 2 * b * w_2 + gamma * v_2_curve[step]
+                w_2_curve.append(w_2)
+                v_2_curve.append(w_2 - w_2_curve[step])
+
+            ax[i].plot(w_1_curve, w_2_curve)
+
+        plt.savefig("momentum.svg", transparent=True)

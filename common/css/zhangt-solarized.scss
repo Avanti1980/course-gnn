@@ -116,8 +116,12 @@
   font-family: fzht;
 }
 
+.reveal h2 {
+  font-family: EBG, fzht;
+}
+
 .reveal h5 {
-  font-family: fzht;
+  font-family: EBG, fzht;
   text-align: left;
 }
 
@@ -154,12 +158,11 @@
   table-layout: fixed;
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-.reveal table th,
-.reveal table td {
-  text-align: center;
-  color: var(--base01);
+  th,
+  td {
+    text-align: center;
+    color: var(--base01);
+  }
 }
 
 .reveal .tr-hover {
