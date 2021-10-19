@@ -725,7 +725,7 @@ section 史前文明
 <li><span class="mathjax-exps">$B$</span>：<span class="mathjax-exps">$A$</span>和<span class="mathjax-exps">$C$</span>都是说谎者</li>
 <li><span class="mathjax-exps">$C$</span>：<span class="mathjax-exps">$A$</span>和<span class="mathjax-exps">$B$</span>中至少有一个说谎者</li>
 </ul>
-<div class="threelines resolution">
+<div class="threelines row7-border-top-solid column1-border-right-solid">
 <table>
 <thead>
 <tr>
@@ -1072,7 +1072,7 @@ document2 <span class="token operator">=</span> <span class="token string">"I ha
 cv <span class="token operator">=</span> CountVectorizer<span class="token punctuation">(</span>lowercase<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> token_pattern<span class="token operator">=</span><span class="token string">'\w+'</span><span class="token punctuation">,</span> binary<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 model <span class="token operator">=</span> cv<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span><span class="token punctuation">[</span>document1<span class="token punctuation">,</span> document2<span class="token punctuation">]</span><span class="token punctuation">)</span>
 pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>model<span class="token punctuation">.</span>toarray<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> columns<span class="token operator">=</span>cv<span class="token punctuation">.</span>get_feature_names_out<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><div class="threelines leftfirstcolumn top-4">
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><div class="threelines column1-border-right-solid column1-bold head-highlight-1 tr-hover top-4">
 <table>
 <thead>
 <tr>
@@ -1124,7 +1124,7 @@ document2 <span class="token operator">=</span> <span class="token string">"I ha
 cv <span class="token operator">=</span> CountVectorizer<span class="token punctuation">(</span>lowercase<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> token_pattern<span class="token operator">=</span><span class="token string">'\w+'</span><span class="token punctuation">)</span>
 model <span class="token operator">=</span> cv<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span><span class="token punctuation">[</span>document1<span class="token punctuation">,</span> document2<span class="token punctuation">]</span><span class="token punctuation">)</span>
 pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>model<span class="token punctuation">.</span>toarray<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> columns<span class="token operator">=</span>cv<span class="token punctuation">.</span>get_feature_names_out<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><div class="threelines leftfirstcolumn top-4">
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><div class="threelines column1-border-right-solid column1-bold head-highlight-1 tr-hover top-4">
 <table>
 <thead>
 <tr>
@@ -1195,7 +1195,7 @@ tv <span class="token operator">=</span> TfidfVectorizer<span class="token punct
                      norm<span class="token operator">=</span><span class="token string">'l1'</span><span class="token punctuation">,</span> smooth_idf<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span> <span class="token comment"># l1归一化 idf不平滑</span>
 model <span class="token operator">=</span> tv<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span><span class="token punctuation">[</span>document1<span class="token punctuation">,</span> document2<span class="token punctuation">]</span><span class="token punctuation">)</span>
 pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>model<span class="token punctuation">.</span>toarray<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> columns<span class="token operator">=</span>cv<span class="token punctuation">.</span>get_feature_names_out<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><div class="threelines tfidf top-4">
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><div class="threelines row3-border-top-dashed row3-border-bottom-dashed column1-border1-right-dashed-head row1-column1-border1-right-dashed row3-column1-border1-right-dashed row4-column1-border1-right-dashed head-highlight-1 tr-hover top-4">
 <table>
 <thead>
 <tr>
@@ -1266,7 +1266,7 @@ pd<span class="token punctuation">.</span>DataFrame<span class="token punctuatio
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">机器学习</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 </section></section><section><section data-notes="" lineno="358" class="slide " data-line="358" data-h="4" data-v="0">
 <div class="header"><img class="hust" src=""><div class="title"><hr class="hr_top"><h5>特征 离散类别 → 数值</h5></div></div>
-<div class="threelines watermelon">
+<div class="threelines column9-border-right-solid head-highlight-1 tr-hover">
 <table>
 <thead>
 <tr>
@@ -1368,7 +1368,7 @@ enc<span class="token punctuation">.</span>get_feature_names_out<span class="tok
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">机器学习</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 </section></section><section><section data-notes="" lineno="412" class="slide " data-line="412" data-h="5" data-v="0">
 <div class="header"><img class="hust" src=""><div class="title"><hr class="hr_top"><h5>特征缺失处理</h5></div></div>
-<div class="threelines watermelon">
+<div class="threelines column9-border-right-solid head-highlight-1 tr-hover">
 <table>
 <thead>
 <tr>
@@ -1659,7 +1659,7 @@ $$
 </section><section vertical="true" data-notes="" lineno="705" class="slide " data-line="705" data-h="8" data-v="1">
 <div class="header"><img class="hust" src=""><div class="title"><hr class="hr_top"><h5>特征选择 方差分析</h5></div></div>
 <p>对任意特征，根据类别标记一分为二计算<span class="mathjax-exps">$F$</span>值，判断差异是否显著</p>
-<div class="threelines watermelon">
+<div class="threelines column9-border-right-solid head-highlight-1 tr-hover">
 <table>
 <thead>
 <tr>
@@ -1764,7 +1764,7 @@ sk<span class="token punctuation">.</span>scores_
 <li>若随机变量<span class="mathjax-exps">$X$</span>和<span class="mathjax-exps">$Y$</span>独立，则<span class="mathjax-exps">$p(X,Y) = p(X) p(Y)$</span></li>
 <li><span class="mathjax-exps">$|p(X,Y) - p(X) p(Y)|$</span>可衡量<span class="mathjax-exps">$X$</span>和<span class="mathjax-exps">$Y$</span>的独立程度</li>
 </ul>
-<div class="threelines chi2">
+<div class="threelines row4-border-top-solid column1-border-right-solid column3-border-right-solid column1-bold">
 <table>
 <thead>
 <tr>

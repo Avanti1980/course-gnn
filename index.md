@@ -34,13 +34,13 @@
 |   ^    |              ^               | 4. 特征处理：离散类别特征、缺失特征、标准化             |
 |   ^    |              ^               | 5. 特征选择：方差分析、卡方检验、互信息、稀疏范数       |
 |   ^    |              ^               | 6. 特征变换：PCA、随机投影、核方法、非线性复合          |
-| 第叁讲 |         机器学习 下          | 1. 监督学习、半监督学习、无监督学习及其各自代表性任务   |
+| 第叁讲 | [机器学习 下](2021/02b.html) | 1. 监督学习、半监督学习、无监督学习及其各自代表性任务   |
 |   ^    |              ^               | 2. 泛化风险，经验风险，过拟合，VC 维，宽打散维          |
 |   ^    |              ^               | 3. 结构风险最小化，大间隔准则，正则化，替代损失         |
 |   ^    |              ^               | 4. 一阶优化算法：梯度下降，随机梯度下降，加速梯度下降   |
 |   ^    |              ^               | 5. 回归模型：线性回归，岭回归，LASSO，支持向量回归      |
 |   ^    |              ^               | 6. 分类模型：感知机，支持向量机，对数几率回归，神经网络 |
-| 第肆讲 |              -               | -                                                       |
+| 第肆讲 |           神经网络           | -                                                       |
 | 第伍讲 |              -               | -                                                       |
 | 第陆讲 |              -               | -                                                       |
 | 第柒讲 |              -               | -                                                       |
@@ -52,3 +52,4 @@
 #### 代码
 
 第贰讲：[文本特征提取](python/text-feat.ipynb)、[独热编码](python/one-hot-encoding.ipynb)、[缺失特征处理](python/missing-feat.ipynb)、[特征标准化](python/feat-scaler.ipynb)、[特征选择](python/feat-selection.ipynb)、[稀疏范数](python/sparse-norm.ipynb)、[PCA](python/pca.ipynb)、[随机投影](python/random-projection.ipynb)
+第叁讲：[二分类示例](python/binary-classif.ipynb)、[多分类示例](python/multi-classif.ipynb)、[k 均值聚类](python/clustering.ipynb)、[密度估计](python/density-estimation.ipynb)、[梯度下降](gradient-descent.ipynb)、[动量法](python/momentum.ipynb)
