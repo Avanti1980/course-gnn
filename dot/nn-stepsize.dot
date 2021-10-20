@@ -1,0 +1,15 @@
+digraph g {
+    graph [nodesep=0.1, ranksep=0.5]
+    rankdir=LR
+    node [shape=plaintext fontname="EBG,fzlz" fontcolor="#b58900" fontsize=16]
+    edge [arrowhead=vee color="#586e75" fontname="EBG,fzlz" fontcolor="#93a1a1" fontsize=12 arrowsize=0.5]
+    bgcolor="transparent"
+
+    步长调整 -> {步长衰减,步长预热,周期性步长,自适应步长}
+
+    步长衰减 -> {分段常数衰减,逆时衰减,"(自然)指数衰减",余弦衰减}
+
+    周期性步长 -> {循环步长,带热重启的SGD}
+
+    自适应步长 -> {AdaGrad,RMSprop,AdaDelta}
+}

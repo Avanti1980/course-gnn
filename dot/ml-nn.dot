@@ -1,0 +1,31 @@
+digraph g {
+    graph [nodesep=0.35, ranksep=0.35]
+    rankdir = LR
+    node [shape=box color="#586e75" fontname="EBG,fzlz" fontcolor="#b58900" fontsize=16]
+    edge [arrowhead=vee color="#586e75" fontname="EBG,fzlz" fontcolor="#268bd2" fontsize=16 arrowsize=0.5]
+    bgcolor = transparent
+
+    " 原始数据 "
+
+    subgraph cluster_1 {
+        color="#586e75"
+        fontcolor="#268bd2"
+        fontname="EBG,fzlz"
+        style="dashed"
+        label="神经网络"
+
+        subgraph cluster_2 {
+            color="#586e75"
+            fontcolor="#268bd2"
+            fontname="EBG,fzlz"
+            style="dashed"
+            label="特征变换"
+            底层特征 -> 中层特征 -> 高层特征
+        }
+
+        高层特征 -> 模型学习
+    }
+
+    " 原始数据 " -> 底层特征
+    模型学习 -> 预测
+}
