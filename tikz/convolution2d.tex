@@ -1,0 +1,116 @@
+\documentclass{ctexart}
+\usepackage{avanti}
+\everymath{\color{Solarized-magenta}}
+\pagestyle{empty} % 没有页眉和页脚
+
+\tikzset{font=\normalsize}
+
+ % define the plot style and the axis style
+\tikzset{base/.style={smooth,thick,draw=Solarized-base01}}
+\tikzset{arrow/.style={->,>=stealth,base}}
+\tikzset{curve/.style={base,Solarized-blue}}
+\tikzset{nc/.style={circle, base}}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+    \draw [fill=Solarized-base2] (0,2) -- (3,2) -- (3,5) -- (0,5) -- (0,2);
+
+    \node [left] at (1.05,4.15) {\footnotesize $\color{Solarized-yellow}{\times -1}$};
+    \node [left] at (2.05,4.15) {\footnotesize $\color{Solarized-yellow}{\times 0}$};
+    \node [left] at (3.05,4.15) {\footnotesize $\color{Solarized-yellow}{\times 0}$};
+
+    \node [left] at (1.05,3.15) {\footnotesize $\color{Solarized-yellow}{\times 0}$};
+    \node [left] at (2.05,3.15) {\footnotesize $\color{Solarized-yellow}{\times 0}$};
+    \node [left] at (3.05,3.15) {\footnotesize $\color{Solarized-yellow}{\times 0}$};
+
+    \node [left] at (1.05,2.15) {\footnotesize $\color{Solarized-yellow}{\times 0}$};
+    \node [left] at (2.05,2.15) {\footnotesize $\color{Solarized-yellow}{\times 0}$};
+    \node [left] at (3.05,2.15) {\footnotesize $\color{Solarized-yellow}{\times 1}$};
+
+    \draw [fill=Solarized-base2] (10,3) -- (11,3) -- (11,4) -- (10,4) -- (10,3);
+
+    \foreach \i in {0,...,5}
+        {
+            \draw [base] (\i,0) -- (\i,5);
+            \draw [base] (0,\i) -- (5,\i);
+        }
+
+    \node at (0.5,0.5) {$1$};
+    \node at (1.5,0.5) {$2$};
+    \node at (2.5,0.5) {$1$};
+    \node at (3.5,0.5) {$1$};
+    \node at (4.5,0.5) {$1$};
+
+    \node at (0.5,1.5) {$0$};
+    \node at (1.5,1.5) {$-1$};
+    \node at (2.5,1.5) {$1$};
+    \node at (3.5,1.5) {$2$};
+    \node at (4.5,1.5) {$1$};
+
+    \node at (0.5,2.5) {$2$};
+    \node at (1.5,2.5) {$1$};
+    \node at (2.5,2.5) {$1$};
+    \node at (3.5,2.5) {$-1$};
+    \node at (4.5,2.5) {$0$};
+
+    \node at (0.5,3.5) {$-1$};
+    \node at (1.5,3.5) {$0$};
+    \node at (2.5,3.5) {$-3$};
+    \node at (3.5,3.5) {$0$};
+    \node at (4.5,3.5) {$1$};
+
+    \node at (0.5,4.5) {$1$};
+    \node at (1.5,4.5) {$1$};
+    \node at (2.5,4.5) {$1$};
+    \node at (3.5,4.5) {$1$};
+    \node at (4.5,4.5) {$1$};
+
+    \node at (5.5,2.5) {$\otimes$};
+
+    \foreach \i in {6,...,9}
+        {
+            \draw [base] (\i,1) -- (\i,4);
+            \draw [base] (6,\i-5) -- (9,\i-5);
+        }
+
+    \node at (6.5,1.5) {$0$};
+    \node at (7.5,1.5) {$0$};
+    \node at (8.5,1.5) {$1$};
+
+    \node at (6.5,2.5) {$0$};
+    \node at (7.5,2.5) {$0$};
+    \node at (8.5,2.5) {$0$};
+
+    \node at (6.5,3.5) {$-1$};
+    \node at (7.5,3.5) {$0$};
+    \node at (8.5,3.5) {$0$};
+
+    \node at (9.5,2.5) {$=$};
+
+    \foreach \i in {10,...,13}
+        {
+            \draw [base] (\i,1) -- (\i,4);
+            \draw [base] (10,\i-9) -- (13,\i-9);
+        }
+
+    \node at (10.5,1.5) {$-1$};
+    \node at (11.5,1.5) {$0$};
+    \node at (12.5,1.5) {$0$};
+
+    \node at (10.5,2.5) {$2$};
+    \node at (11.5,2.5) {$2$};
+    \node at (12.5,2.5) {$4$};
+
+    \node at (10.5,3.5) {$0$};
+    \node at (11.5,3.5) {$-2$};
+    \node at (12.5,3.5) {$-1$};
+
+\end{tikzpicture}
+
+
+
+
+\end{document}
+

@@ -53,8 +53,14 @@
       margin-#{$direction}: 0.5rem * $i;
     }
   }
-  .reveal .width#{$i + 10} {
-    width: 3% * ($i + 10);
+}
+
+@for $i from 0 to 100 {
+  .reveal .width#{$i} {
+    width: 1% * $i;
+  }
+  .reveal .height#{$i} {
+    width: 1% * $i;
   }
 }
 

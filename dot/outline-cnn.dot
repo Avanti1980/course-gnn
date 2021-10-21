@@ -1,0 +1,32 @@
+digraph g {
+    graph [nodesep=0.2, ranksep=0.4]
+    rankdir=LR
+    node [shape=plaintext fontname="EBG,fzlz" fontcolor="#93a1a1" fontsize=16]
+    edge [arrowhead=vee fontname="EBG,fzlz" color="#93a1a1" fontcolor="#268bd2" fontsize=12 arrowsize=0.5]
+    bgcolor="transparent"
+
+    人工智能 -> {逻辑推理, 知识工程, 机器学习}
+
+    node [fontcolor="#93a1a1"]
+
+    A [label="……"]
+    B [label="……"]
+
+    机器学习 -> 监督信息 -> {A, B}
+
+    机器学习 -> 模型方法 -> {线性回归, 感知机, 支持向量机, 对数几率回归}
+
+    node [fontcolor="#b58900"]
+
+    模型方法 -> 神经网络
+
+    edge [color="#586e75" fontcolor="#268bd2"]
+
+    神经网络 -> 卷积神经网络 [label="图像"]
+
+    node [fontcolor="#93a1a1"]
+    edge [color="#93a1a1" fontcolor="#93a1a1"]
+
+    神经网络 -> 循环神经网络 [label="序列"]
+    神经网络 -> 图神经网络 [label="图"]
+}
