@@ -1,0 +1,80 @@
+digraph g {
+    graph [nodesep=0.4, ranksep=0.4]
+    rankdir=TB
+    node [shape=circle color="#586e75" fontname="EBG,fzlz" fontcolor="#93a1a1" fontsize=16 label=""]
+    edge [arrowhead=vee color="#586e75" fontname="EBG,fzlz" fontcolor="#268bd2" fontsize=12 arrowsize=0.5]
+    bgcolor="transparent"
+
+    subgraph cluster_1 {
+        color="#586e75"
+        fontcolor="#268bd2"
+        fontname="EBG,fzlz"
+        style="dashed"
+        label="标准网络"
+
+        {11, 12, 13, 14, 15} -> {21, 22, 23, 24, 25} -> {31, 32, 33, 34, 35} -> 41
+    }
+
+    subgraph cluster_2 {
+        color="#586e75"
+        fontcolor="#268bd2"
+        fontname="EBG,fzlz"
+        style="dashed"
+        label="随机丢弃后的网络"
+
+        {51, 52} 
+
+        node [style=dashed]
+
+        53
+
+        node [style=solid]
+        54
+
+        node [style=dashed]
+
+        55
+
+        node [style=solid]
+        61
+
+        node [style=dashed]
+        62
+        63
+
+        node [style=solid]
+        64
+
+        node [style=dashed]
+        65
+
+        node [style=solid]
+        71
+
+        node [style=dashed]
+        72
+
+        node [style=solid]
+        73
+
+        node [style=dashed]
+        74
+
+        node [style=solid]
+        75
+
+        81
+
+        {51, 52, 54} -> {61, 64} -> {71, 73, 75} -> 81
+
+        {51, 52, 54} -> {62, 63, 65} [style=invisible arrowhead=none]
+
+        {53, 55} -> {61, 62, 63, 64, 65} [style=invisible arrowhead=none]
+
+        {61, 64} -> {72, 74} [style=invisible arrowhead=none]
+
+        {62, 63, 65} -> {71, 72, 73, 74, 75} [style=invisible arrowhead=none]
+
+        {72, 74} -> 81 [style=invisible arrowhead=none]
+    }
+}

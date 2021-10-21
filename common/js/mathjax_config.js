@@ -184,6 +184,8 @@ module.exports = {
       dec: "{\\mathrm {Dec}}",
       sym: "{\\mathrm {sym}}",
       modd: "{\\mathrm {mod} ~ }",
+      hp: "{\\mathrm {hp}}",
+      gen: "{\\mathrm {gen}}",
       rot: "{\\mathbf {rot180}}",
       up: "{\\mathbf {up}}",
       argmin: "{\\mathop{\\mathrm{argmin}}}",
