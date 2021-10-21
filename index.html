@@ -324,9 +324,29 @@ pre[data-line] {
 <td style="text-align:left">6. &#x5206;&#x7C7B;&#x6A21;&#x578B;&#xFF1A;&#x611F;&#x77E5;&#x673A;&#xFF0C;&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;&#xFF0C;&#x5BF9;&#x6570;&#x51E0;&#x7387;&#x56DE;&#x5F52;&#xFF0C;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</td>
 </tr>
 <tr>
-<td style="text-align:center">&#x7B2C;&#x8086;&#x8BB2;</td>
-<td style="text-align:center"><a href="2021/04.html">&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</a></td>
-<td style="text-align:left">-</td>
+<td style="text-align:center" rowspan="5">&#x7B2C;&#x8086;&#x8BB2;</td>
+<td style="text-align:center" rowspan="5"><a href="2021/04.html">&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</a></td>
+<td style="text-align:left">1. &#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x53D1;&#x5C55;&#x53F2;&#xFF0C;&#x795E;&#x7ECF;&#x5143;&#x548C;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x548C;&#x5F62;&#x5F0F;&#x5316;</td>
+</tr>
+<tr>
+
+
+<td style="text-align:left">2. &#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#xFF1A;Sigmoid &#x578B;&#x3001;ReLU &#x65CF;&#x3001;Swish &#x51FD;&#x6570;&#x3001;Maxout &#x5355;&#x5143;</td>
+</tr>
+<tr>
+
+
+<td style="text-align:left">3. &#x53CD;&#x5411;&#x4F20;&#x64AD; (BP) &#x7B97;&#x6CD5;&#x7684;&#x63A8;&#x5BFC;&#xFF0C;&#x68AF;&#x5EA6;&#x6D88;&#x5931;&#xFF0C;&#x6B8B;&#x5DEE;&#x7F51;&#x7EDC;</td>
+</tr>
+<tr>
+
+
+<td style="text-align:left">4. &#x4F18;&#x5316;&#x7B97;&#x6CD5;&#xFF1A;&#x6B65;&#x957F;&#x8870;&#x51CF;&#x3001;&#x6B65;&#x957F;&#x9884;&#x70ED;&#x3001;&#x5468;&#x671F;&#x6027;&#x6B65;&#x957F;&#x3001;&#x81EA;&#x9002;&#x5E94;&#x6B65;&#x957F;</td>
+</tr>
+<tr>
+
+
+<td style="text-align:left">5. &#x8BAD;&#x7EC3;&#x6280;&#x5DE7;&#xFF1A;&#x521D;&#x59CB;&#x5316;&#x3001;&#x5F52;&#x4E00;&#x5316;&#x3001;&#x8D85;&#x53C2;&#x6570;&#x9009;&#x62E9;&#x3001;dropout&#x3001;mixup</td>
 </tr>
 <tr>
 <td style="text-align:center">&#x7B2C;&#x4F0D;&#x8BB2;</td>
@@ -359,7 +379,8 @@ pre[data-line] {
 <h4 class="mume-header" id="%E4%BB%A3%E7%A0%81">&#x4EE3;&#x7801;</h4>
 
 <p>&#x7B2C;&#x8D30;&#x8BB2;&#xFF1A;<a href="python/text-feat.ipynb">&#x6587;&#x672C;&#x7279;&#x5F81;&#x63D0;&#x53D6;</a>&#x3001;<a href="python/one-hot-encoding.ipynb">&#x72EC;&#x70ED;&#x7F16;&#x7801;</a>&#x3001;<a href="python/missing-feat.ipynb">&#x7F3A;&#x5931;&#x7279;&#x5F81;&#x5904;&#x7406;</a>&#x3001;<a href="python/feat-scaler.ipynb">&#x7279;&#x5F81;&#x6807;&#x51C6;&#x5316;</a>&#x3001;<a href="python/feat-selection.ipynb">&#x7279;&#x5F81;&#x9009;&#x62E9;</a>&#x3001;<a href="python/sparse-norm.ipynb">&#x7A00;&#x758F;&#x8303;&#x6570;</a>&#x3001;<a href="python/pca.ipynb">PCA</a>&#x3001;<a href="python/random-projection.ipynb">&#x968F;&#x673A;&#x6295;&#x5F71;</a><br>
-&#x7B2C;&#x53C1;&#x8BB2;&#xFF1A;<a href="python/binary-classif.ipynb">&#x4E8C;&#x5206;&#x7C7B;&#x793A;&#x4F8B;</a>&#x3001;<a href="python/multi-classif.ipynb">&#x591A;&#x5206;&#x7C7B;&#x793A;&#x4F8B;</a>&#x3001;<a href="python/clustering.ipynb">k &#x5747;&#x503C;&#x805A;&#x7C7B;</a>&#x3001;<a href="python/density-estimation.ipynb">&#x5BC6;&#x5EA6;&#x4F30;&#x8BA1;</a>&#x3001;<a href="gradient-descent.ipynb">&#x68AF;&#x5EA6;&#x4E0B;&#x964D;</a>&#x3001;<a href="python/momentum.ipynb">&#x52A8;&#x91CF;&#x6CD5;</a></p>
+&#x7B2C;&#x53C1;&#x8BB2;&#xFF1A;<a href="python/binary-classif.ipynb">&#x4E8C;&#x5206;&#x7C7B;&#x793A;&#x4F8B;</a>&#x3001;<a href="python/multi-classif.ipynb">&#x591A;&#x5206;&#x7C7B;&#x793A;&#x4F8B;</a>&#x3001;<a href="python/clustering.ipynb">k &#x5747;&#x503C;&#x805A;&#x7C7B;</a>&#x3001;<a href="python/density-estimation.ipynb">&#x5BC6;&#x5EA6;&#x4F30;&#x8BA1;</a>&#x3001;<a href="gradient-descent.ipynb">&#x68AF;&#x5EA6;&#x4E0B;&#x964D;</a>&#x3001;<a href="python/momentum.ipynb">&#x52A8;&#x91CF;&#x6CD5;</a><br>
+&#x7B2C;&#x8086;&#x8BB2;&#xFF1A;<a href="python/dnn-wdbc.ipynb">&#x7528; tensorflow &#x5B9E;&#x73B0;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5B66;&#x4E60;&#x4E73;&#x817A;&#x764C;&#x6570;&#x636E;</a>&#xFF0C;&#x6570;&#x636E;&#x96C6;&#x6765;&#x81EA;<a href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)"> UCI &#x6570;&#x636E;&#x96C6;&#x7F51;&#x7AD9;</a></p>
 
       </div>
       <div class="md-sidebar-toc"><ul>
