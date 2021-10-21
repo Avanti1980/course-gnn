@@ -1515,8 +1515,8 @@ $$
 
 $$
 \begin{align*}
-    \Wv^\top &amp; ~ \leftarrow ~ \Wv^\top - \eta \left( \frac{\lambda}{m} \sum_{i \in [m]} \class{yellow}{\frac{\partial \Lcal (\yv_i, \hat{\yv}_i)}{\partial \Wv}} + \Wv^\top \right) \\
-    \bv^\top &amp; ~ \leftarrow ~ \bv^\top - \eta \cdot \frac{\lambda}{m} \sum_{i \in [m]} \class{yellow}{\frac{\partial \Lcal (\yv_i, \hat{\yv}_i)}{\partial \bv}}
+    \Wv &amp; ~ \leftarrow ~ \Wv - \eta \left( \frac{\lambda}{m} \sum_{i \in [m]} \class{yellow}{\frac{\partial \Lcal (\yv_i, \hat{\yv}_i)}{\partial \Wv}} + \Wv \right) \\
+    \bv &amp; ~ \leftarrow ~ \bv - \eta \cdot \frac{\lambda}{m} \sum_{i \in [m]} \class{yellow}{\frac{\partial \Lcal (\yv_i, \hat{\yv}_i)}{\partial \bv}}
 \end{align*}
 $$
 </p>
@@ -1685,7 +1685,7 @@ $$
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">神经网络</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 </section><section vertical="true" data-notes="" lineno="759" class="slide " data-line="759" data-h="7" data-v="2">
 <div class="header"><img class="hust" src=""><div class="title"><hr class="hr_top"><h5>求解梯度</h5></div></div>
-<p>第<span class="mathjax-exps">$l$</span>层：</p>
+<p>第<span class="mathjax-exps">$l$</span>层：<span class="mathjax-exps">$\zv_l = \Wv_l ~ \av_{l-1} + \bv_l$</span></p>
 <div>
     <p>
 
@@ -2191,7 +2191,7 @@ $$
 <p>对于深层网络，在基于梯度下降的训练过程中，除了梯度消失，也会出现梯度爆炸，此时可进行梯度截断</p>
 <ul>
 <li>按值截断：<span class="mathjax-exps">$\gv_t = \max \{ \min \{ \gv_t, b \}, a \}$</span></li>
-<li>按模截断：<span class="mathjax-exps">$\gv_t = b ~ \gv_t / \| \gv_t \|$</span></li>
+<li>按范数截断：<span class="mathjax-exps">$\gv_t = b ~ \gv_t / \| \gv_t \|$</span></li>
 </ul>
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">神经网络</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 </section></section><section><section data-notes="" lineno="1242" class="slide " data-line="1242" data-h="13" data-v="0">
