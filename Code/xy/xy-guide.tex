@@ -1,0 +1,400 @@
+\documentclass[openany]{ctexart}
+\usepackage{amsmath,amsthm,amssymb,amscd}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{subfig} 
+\usepackage{algorithm,algorithmic}
+\usepackage[bookmarksnumbered,bookmarksopen,colorlinks=true,citecolor=green,anchorcolor=blue,linkcolor=blue,CJKbookmarks=true]{hyperref}
+\usepackage{tikz}
+\usepackage{bm}
+\usepackage{listings} 
+%\usepackage[cache=false]{minted}
+\usepackage{xcolor,framed}
+\pagecolor[rgb]{0.9, 0.99, 0.9}
+\usepackage{adjustbox}
+\usepackage[all]{xy}
+\usepackage{enumitem}
+\setitemize{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
+\setenumerate{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
+
+%\setlength{\parskip}{0.3em}
+
+\usepackage{fontspec} 
+\setCJKmainfont[BoldFont=FZHei-B01,ItalicFont=FZHei-B01]{方正苏新诗柳楷简体-yolan}
+
+\theoremstyle{definition}
+\newtheorem{thm}{定理}
+\newtheorem{prop}{命题}
+\newtheorem{lem}{引理}
+\newtheorem{cor}{推论}
+\newtheorem{defn}{定义}
+\newtheorem{exam}{例}
+\newtheorem*{exc}{习题}
+\newtheorem*{ans}{解答}
+\newtheorem*{rmk}{注}
+%\newtheorem{Proof}{\bf{证明}}
+\renewcommand{\proofname}{证明}
+\renewcommand{\qedsymbol}{M.X.}
+
+%\theoremsymbol{M.X.}
+
+\def \i {\mathbf{i}}
+\def \j {\mathbf{j}}
+\def \k {\mathbf{k}}
+
+\def \zerov {\bm{0}}
+\def \av {\bm{a}}
+\def \bv {\bm{b}}
+\def \cv {\bm{c}}
+\def \dv {\bm{d}}
+\def \ev {\bm{e}}
+\def \fv {\bm{f}}
+\def \gv {\bm{g}}
+\def \hv {\bm{h}}
+\def \pv {\bm{p}}
+\def \qv {\bm{q}}
+\def \uv {\bm{u}}
+\def \vv {\bm{v}}
+\def \wv {\bm{w}}
+\def \xv {\bm{x}}
+\def \yv {\bm{y}}
+\def \zv {\bm{z}}
+
+\def \Av {\bm{A}}
+\def \Bv {\bm{B}}
+\def \Cv {\bm{C}}
+\def \Dv {\bm{D}}
+\def \Ev {\bm{E}}
+\def \Fv {\bm{F}}
+\def \Gv {\bm{G}}
+\def \Hv {\bm{H}}
+\def \Iv {\bm{I}}
+\def \Jv {\bm{J}}
+\def \Kv {\bm{K}}
+\def \Mv {\bm{M}}
+\def \Pv {\bm{P}}
+\def \Qv {\bm{Q}}
+\def \Sv {\bm{S}}
+\def \Uv {\bm{U}}
+\def \Vv {\bm{V}}
+\def \Wv {\bm{W}}
+
+\def \alphav {\bm{\alpha}}
+\def \lambdav {\bm{\lambda}}
+\def \epsilonv {\bm{\epsilon}}
+\def \xiv {\bm{\xi}}
+\def \muv {\bm{\mu}}
+\def \nuv {\bm{\nu}}
+\def \phiv {\bm{\phi}}
+\def \Phiv {\bm{\Phi}}
+\def \Lambdav {\bm{\Lambda}}
+
+\def \Bcal {\mathcal{B}}
+\def \Ccal {\mathcal{C}}
+\def \Fcal {\mathcal{F}}
+
+\def \Abb {\mathbb{A}}
+\def \Dbb {\mathbb{D}}
+\def \Ebb {\mathbb{E}}
+\def \Pbb {\mathbb{P}}
+\def \Qbb {\mathbb{Q}}
+\def \Rbb {\mathbb{R}}
+\def \Sbb {\mathbb{S}}
+\def \Zbb {\mathbb{Z}}
+
+\def \st {\mathrm{s.t.}}
+\def \sign {\mathrm{sign}}
+\def \diff {\mathrm{d}}
+\def \mod {\mathrm{mod}}
+\def \aut {\mathrm{Aut}}
+\def \per {\mathrm{Per}}
+
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+
+\allowdisplaybreaks[4]
+
+\begin{document}
+\title{\textbf{XY-pic使用手册}}
+\author{圆眼睛的阿凡提哥哥}
+\date{\today}
+\maketitle
+
+\begin{exam}
+\begin{lstlisting}
+\xymatrix{
+U \ar@/_/[ddr]_y \ar@/^/[drr]^x \ar@{.>}[dr]|-{(x,y)} \\
+& X \times_Z Y \ar[d]^q \ar[r]_p & X \ar[d]_f \\
+& Y \ar[r]^g & Z \\
+}
+\end{lstlisting}
+
+\begin{align*}
+\xymatrix{
+U \ar@/_/[ddr]_y \ar@/^/[drr]^x \ar@{.>}[dr]|-{(x,y)} \\
+& X \times_Z Y \ar[d]^q \ar[r]_p & X \ar[d]_f \\
+& Y \ar[r]^g & Z \\
+}
+\end{align*}
+\end{exam}
+
+
+\begin{exam}
+\begin{lstlisting}
+\xymatrix{
+A &*+[F]{\sum_{i=n}^m {i^2}} \\
+& {\bullet} & D \ar[ul]
+}
+\end{lstlisting}
+
+\begin{align*}
+\xymatrix{
+A & *+[F]{\sum_{i=n}^m {i^2}} \\
+& {\bullet} & D \ar[ul]
+}
+\end{align*}
+\end{exam}
+
+箭头的模板是``$\backslash ar @style [direction] label$''，其中$@style$是对箭头样式的描述，可以省略，默认就如(\ref{eq: direction})式中所示；$direction$是$l$、$r$、$u$、$d$组成的字符串，控制箭头指向的方向：
+\begin{align} \label{eq: direction}
+\begin{split}
+\xymatrix{
+\backslash ar[ull] & \backslash ar[ul] & \backslash ar[u] & \backslash ar[ur] & \backslash ar[urr] \\
+\backslash ar[ll] & & A \ar[ull] \ar[ul] \ar[u] \ar[ur] \ar[urr] \ar[ll] \ar[rr] \ar[dll] \ar[dl] \ar[d] \ar[dr] \ar[drr] & & \backslash ar[rr] \\
+\backslash ar[dll] & \backslash ar[dl] & \backslash ar[d] & \backslash ar[dr] & \backslash ar[drr]
+} 
+\end{split}
+\end{align}
+$@style$的模板是$@variant\{tail~shaft~head\}$，其中
+\begin{itemize}
+\item $head$和$tail$分别是箭头和箭尾，可取的值完全一样，默认就是(\ref{eq: direction})式中的箭头：
+\begin{align*}
+\xymatrix{
+@\{>\} & @\{>>\} & @\{>|\} & @\{>>|\} & @\{)\} \\
+@\{/\} & & A \ar@{>}[ull] \ar@{>>}[ul] \ar@{>|}[u] \ar@{>>|}[ur] \ar@{)}[urr] \ar@{/}[ll] \ar@{//}[rr] \ar@{x}[dll] \ar@{+}[dl] \ar@{|}[d] \ar@{||}[dr] \ar@{o}[drr] & & @\{//\} \\
+@\{x\} & @\{+\} & @\{|\} & @\{||\} & @\{o\} 
+}
+\end{align*}
+
+\item $shaft$是箭身，默认就是(\ref{eq: direction})式中的单直线，此外还可以取$=$、$:$、$\~{}$、$\~{}\~{}$、$.$、$--$：
+\begin{align*}
+\xymatrix{
+@\{=>\} & & @\{:>\} \\
+@\{\~{}>\} & A \ar@{=>}[ul] \ar@{:>}[ur] \ar@{~>}[l] \ar@{~~>}[r] \ar@{.>}[dl] \ar@{-->}[dr] & @\{\~{}\~{}>\} \\
+@\{.>\} & & @{}\{-->\}
+} 
+\end{align*}
+
+\item $variant$可以省略，默认如(\ref{eq: direction})式中所示，此外可取值$\^{}$、$\_{}$、$2$、$3$：
+\begin{align*}
+\xymatrix{
+@\^{}\{<->\} & A \ar @^{<->} [l] \ar @_{<->} [dl] \ar @{<->} [d] \ar @2{<->} [dr] \ar @3{<->} [r] & @3\{<->\} \\
+@\_{}\{<->\} & @\{<->\} & @2{}\{<->\}
+} 
+\end{align*}
+其中$@2\{-\}$与$@\{=\}$效果相同、$@2\{.\}$与$@\{:\}$效果相同：
+\begin{align*}
+\xymatrix{
+@\{=>\} & A \ar@{=>}[l] \ar @2{->}[r] & @2\{->\} \\
+@\{:>\} & A \ar@{:>}[l] \ar @2{.>}[r] & @2\{.>\} \\
+} 
+\end{align*}
+$variant$默认是作用在整个$\{tail~shaft~head\}$上，也可以将其写到花括号里面：$variant\{tail\}$、$variant\{shaft\}$、$variant\{head\}$，只作用于局部：
+\begin{align*}
+\xymatrix{
+A \ar@{^{(}3._{|}}[r] & @\{\^{}\{(\}3.\_\{|\}\}
+}
+\end{align*}
+
+\item $label$是箭头上的标记，可以省略，$\^{}$表示是箭头上方标记，$\_{}$表示是箭头下方标记，$|$表示是含在箭身里的标记：
+\begin{align*}
+\xymatrix{
+A \ar@{>}[r]^u_d|m & @\{>\}[r]\^{}u\_{}d|m
+}
+\end{align*}
+其中标记的默认位置是在箭头两边元素的中点连线的中点，如果两边元素的宽度差别较大，就会出现上式这种情况，此时需要调整标记的位置：
+\begin{itemize}
+\item 通过$</>$将标记设置在箭头的起始/结束位置：
+\begin{align*}
+\xymatrix{
+A \ar@{>}[r]^<{u}_>{d} & @\{>\}[r]\^{}<\{u\}\_{}>\{d\}
+}
+\end{align*}
+
+\item 通过$<</>>$将标记设置在离起始/结束位置差一点的位置：
+\begin{align*}
+\xymatrix{
+A \ar@{>}[r]^<<{u}_>>{d} & @\{>\}[r]\^{}<<\{u\}\_{}>>\{d\}
+}
+\end{align*}
+
+\item 通过百分比来设置标记的位置，起始和结束位置默认是箭头两边元素的中点：
+\begin{align*}
+\xymatrix{
+A \ar@{>}[r]^(0){u}_(1){d}|(.15)m & @\{>\}[r]\^{}(0)\{u\}\_{}(1)\{d\}|(.15)m
+}
+\end{align*}
+也可以在百分比前加上$<$或$>$将起始/结束位置改为箭头的起始/结束位置：
+\begin{align*}
+\xymatrix{
+A \ar@{>}[r]^<(.15){u}_>(.8){d}|<>(.4)m & @\{>\}[r]\^{}<(.15)\{u\}\_{}>(.8)\{d\}|<>(.4)m
+}
+\end{align*}
+
+\item 通过$|\backslash hole$可以让箭头在中间断掉，此外通过$|!\{[s];[t]\}\backslash hole$可以设置在与其他箭头交叉的地方断开，其中$s$和$t$分别是其他箭头的起始/结束元素相对于当前元素的方向：
+\begin{align*}
+\xymatrix{
+A \ar[dr]|\hole \\
+& \backslash ar[dr] | \backslash hole
+} \qquad
+\xymatrix{
+A \ar[drr]|!{[d];[r]}\hole & \backslash ar [ur] \\
+A \ar[ur] & & \backslash ar[drr]|!\{[d];[r]\} \backslash hole
+}
+\end{align*}
+也可以通过$\backslash ar@\{\}[dr] |=$设置箭头为空达到只画标记的目的：
+\begin{align*}
+\xymatrix{
+A \ar@{->}[r] \ar@{->}[d] \ar@{}[dr]|= & B \ar@{->}[d] \\ B \ar@{->}[r] & C
+}
+\end{align*}
+
+\end{itemize}
+
+\end{itemize}
+
+标记和元素也可以修饰，模板是$*modifiers\{text\}$，其中$modifiers$用来改变目标的形状和大小，最常用的几个如下：
+\begin{align*}
+\xymatrix@1{
+\text{*+<5pt>[o][F]\{a\}} & \text{*+<5pt>[F]\{a\}} & \text{*+<5pt>[F.]\{a\}} \\
+*+<5pt>[o][F]{a} & *+<5pt>[F]{a} & *+<5pt>[F.]{a} \\ 
+\text{*+<5pt>[F-{}-]\{abcde\}} & \text{*+<5pt>[F-,]\{abcde\}} & \text{*+<5pt>[F-:<3pt>]\{abcde\}} \\
+*+<5pt>[F--]{abcde} & *+<5pt>[F-,]{abcde} & *+<5pt>[F-:<3pt>]{abcde} \\
+}
+\end{align*}
+
+dddddddd
+\begin{align*}
+\xymatrix@1{
+A \ar @{<*\composite{{+}*{()}}>} [rrr] ^*+\txt{High\\label} & & & B
+}
+\end{align*}
+
+\begin{align*}
+\xymatrix@1{
+A \ar @{<*\frm{=}>} [rrr] ^*+\txt{High\\label} & & & B
+}
+\end{align*}
+
+每个箭头上还可以加标记：
+
+\begin{align*}
+\xy *=<3cm,1cm>\txt{Box}*\frm{-}
+!U!R(.5) *\frm{..}*{\bullet} \endxy
+\end{align*}
+
+\begin{align*}
+\xy
+(0,0) *++={A} *\frm{o} ;
+(10,7) *++={B} *\frm{o} **\frm{.}
+\endxy
+\end{align*}
+
+\begin{align*}
+\xymatrix@!0{
+& \lambda\omega \ar@{-}[rr]\ar@{-}'[d][dd]
+& & \lambda C \ar@{-}[dd]
+\\
+\lambda2 \ar@{-}[ur]\ar@{-}[rr]\ar@{-}[dd]
+& & \lambda P2 \ar@{-}[ur]\ar@{-}[dd]
+\\
+& \lambda\underline\omega \ar@{-}'[r][rr]
+& & \lambda P\underline\omega
+\\
+\lambda{\to} \ar@{-}[rr]\ar@{-}[ur]
+& & \lambda P \ar@{-}[ur]
+}, \qquad \xymatrix{
+& \lambda\omega \ar@{-}[rr]\ar@{-}'[d][dd]
+& & \lambda C \ar@{-}[dd]
+\\
+\lambda2 \ar@{-}[ur]\ar@{-}[rr]\ar@{-}[dd]
+& & \lambda P2 \ar@{-}[ur]\ar@{-}[dd]
+\\
+& \lambda\underline\omega \ar@{-}'[r][rr]
+& & \lambda P\underline\omega
+\\
+\lambda{\to} \ar@{-}[rr]\ar@{-}[ur]
+& & \lambda P \ar@{-}[ur]
+}
+\end{align*}
+
+\begin{align*}
+\xymatrix{
+    {\circ} \ar `r[d]^a
+    `[rr]^b
+    `/4pt[rr]^c
+    `[rrr]^d
+    `[drrr]^e
+    [drrr]^f
+    & {\circ} & {\circ} & {\circ} \\
+    {\circ} & {\circ} & {\circ} & {\circ} }
+\end{align*}
+
+\begin{exam}[箭头类型]
+模板是：$\backslash ar ~ @style ~ [direction]$ 
+\begin{align*}
+\xymatrix{
+    @\{ - \} \ar @{->} [d] &
+    @\{ => \} \ar @{=>} [d] & 
+    @\{ .> \} \ar @{.>} [d] &
+    @\{ :> \} \ar @{:>} [d] &
+    @\{ \sim > \}  \ar @{~>} [d] &
+    @\{ --> \} \ar @{-->} [d] & 
+    @\{ --> \} \ar @{~~>} [d] & \\
+    A & A & A & A & A & A & A \\
+} 
+\end{align*}
+\end{exam}
+
+\begin{exam}[箭头类型]
+模板是：$\backslash ar ~ @style ~ [direction]$ 
+\begin{align*}
+\xymatrix{
+    @\{ - \} \ar @3{->>} [d] &
+    @\{ => \} \ar @{=>|} [d] & 
+    @\{ .> \} \ar @{.>} [d] &
+    @\{ :> \} \ar @{:>} [d] &
+    @\{ \sim > \}  \ar @2{~>} [d] &
+    @\{ --> \} \ar @{.||} [d] & \\
+    A & A & A & A & A & A \\
+} 
+\end{align*}
+\end{exam}
+
+\begin{exam}
+\begin{align*}
+\xymatrix{
+\txt{@\{ / \^ / \}} \ar@/^/[d] & 
+\text{@\{ / \_ / \}} \ar@/_/[d] &
+\text{@\{ / \_1pc / \}} \ar@/_1pc/[d] &
+\text{@\{ / \_2pc / \}} \ar@/_2pc/[d] &
+\text{@\{ / \_3pc / \}} \ar@/_3pc/[d] &
+\\
+A & A & A & A & A \\
+} 
+\end{align*}
+\end{exam}
+
+\begin{exam} 
+\begin{align*}
+\xymatrix@1{
+\text{x} \ar@(ul,dl)|{id} \ar@/^/[rr]|f & & f(x) \ar@/^/[ll]|{f^{-1}}
+}
+\end{align*}
+\end{exam}
+
+    
+
+\end{document}

@@ -1,0 +1,18 @@
+\tikzstyle{every state}=             [draw=blue!50,very thick,fill=blue!20]%
+\node (A) at (70.356bp,75.838bp) [state, initial] {A};
+  \node (B) at (164.36bp,66.113bp) [state] {B};
+  \node (D) at (99.323bp,25.629bp) [state] {D};
+  \node (C) at (203.15bp,127.63bp) [state] {C};
+  \node (E) at (27.0bp,18.0bp) [state] {E};
+  \node (F) at (132.11bp,114.27bp) [state,accepting] {F};
+  \draw [->] (A) to[bend left] node[auto] {2} (B);
+  \draw [->] (A) to[bend left] node[auto] {7} (D);
+  \draw [->] (B) to[bend left] node[auto] {1} (A);
+  \draw [->] (B) to[loop above] node[auto] {3} (B);
+  \draw [->] (B) to[bend left] node[auto] {4} (C);
+  \draw [->] (D) to[bend left] node[auto] {2} (E);
+  \draw [->] (C) to[bend left] node[auto] {5} (F);
+  \draw [->] (F) to[bend left] node[auto] {8} (B);
+  \draw [->] (F) to[bend left] node[auto] {7} (D);
+  \draw [->] (E) to[bend left] node[auto] {1,6} (A);
+%
