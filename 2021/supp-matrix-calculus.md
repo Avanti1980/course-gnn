@@ -36,11 +36,11 @@ GNN-HEADER 机器学习中的矩阵求导
 
 $$
 \begin{align*}
-    \wv ~ \leftarrow ~ \wv - \eta ~ \class{blue}{\frac{\partial F}{\partial \wv}}, ~ \Wv ~ \leftarrow ~ \Wv - \eta ~ \class{blue}{\frac{\partial F}{\partial \Wv}}
+    \wv ~ \leftarrow ~ \wv - \eta ~ \class{blue}{\frac{\partial F(\wv)}{\partial \wv}}, \quad \Wv ~ \leftarrow ~ \Wv - \eta ~ \class{blue}{\frac{\partial F(\Wv)}{\partial \Wv}}
 \end{align*}
 $$
 
-如何求$\partial F / \partial \wv$和$\partial F / \partial \Wv$？
+如何求$\partial F(\wv) / \partial \wv$和$\partial F(\Wv) / \partial \Wv$？
 
 <div class="bottom4"></div>
 
@@ -62,10 +62,10 @@ GNN-HEADER 9 种求导情形
 
 <div class="fullborder column1-bold column2-bold column3-bold">
 
-| <span class="blue">$\partial$标量 / $\partial$标量</span> |             $\partial$标量 / $\partial$向量              |             $\partial$标量 / $\partial$矩阵              |
-| :-------------------------------------------------------: | :------------------------------------------------------: | :------------------------------------------------------: |
-|              $\partial$向量 / $\partial$标量              |             $\partial$向量 / $\partial$向量              | <span class="red">$\partial$向量 / $\partial$矩阵</span> |
-|              $\partial$矩阵 / $\partial$标量              | <span class="red">$\partial$矩阵 / $\partial$向量</span> | <span class="red">$\partial$矩阵 / $\partial$矩阵</span> |
+|  <span class="blue">$\partial$标量 / $\partial$标量</span>  | <span class="yellow">$\partial$标量 / $\partial$向量</span> | <span class="yellow">$\partial$标量 / $\partial$矩阵</span> |
+| :---------------------------------------------------------: | :---------------------------------------------------------: | :---------------------------------------------------------: |
+| <span class="yellow">$\partial$向量 / $\partial$标量</span> | <span class="yellow">$\partial$向量 / $\partial$向量</span> |  <span class="red">$\partial$向量 / $\partial$矩阵</span>   |
+| <span class="yellow">$\partial$矩阵 / $\partial$标量</span> |  <span class="red">$\partial$矩阵 / $\partial$向量</span>   |  <span class="red">$\partial$矩阵 / $\partial$矩阵</span>   |
 
 </div>
 
@@ -87,11 +87,11 @@ GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 GNN-HEADER 矩阵求导的分子布局
 
-设$\xv \in \Rbb^l$，$\Xv \in \Rbb^{m \times n}$，<span class="blue">标量对矩阵的求导结果与分母转置尺寸相同</span>
+<span class="blue">标量对向量、矩阵的求导结果与分母转置尺寸相同</span>
 
 $$
 \begin{align*}
-    \frac{\partial u}{\partial \xv} \triangleq \begin{bmatrix} \frac{\partial u}{\partial x_1} & \ldots & \frac{\partial u}{\partial x_l} \end{bmatrix}, ~ \frac{\partial u}{\partial \Xv} \triangleq \begin{bmatrix}
+    \frac{\partial u}{\partial \xv} \triangleq \begin{bmatrix} \frac{\partial u}{\partial x_1} & \ldots & \frac{\partial u}{\partial x_l} \end{bmatrix}, \quad \frac{\partial u}{\partial \Xv} \triangleq \begin{bmatrix}
         \frac{\partial u}{\partial x_{11}} & \ldots & \frac{\partial u}{\partial x_{m1}} \\
         \vdots                                                      & \ddots & \vdots                             \\
         \frac{\partial u}{\partial x_{1n}} & \ldots & \frac{\partial u}{\partial x_{mn}}
@@ -101,7 +101,7 @@ $$
 
 <div class="bottom4"></div>
 
-设$\uv \in \Rbb^l$，$\Uv \in \Rbb^{m \times n}$，<span class="blue">矩阵对标量的求导结果与分子尺寸相同</span>
+<span class="blue">向量、矩阵对标量的求导结果与分子尺寸相同</span>
 
 $$
 \begin{align*}
@@ -122,7 +122,7 @@ GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 GNN-HEADER 矩阵求导的分子布局
 
-设$\uv \in \Rbb^l$，$\xv \in \Rbb^m$，向量对向量求导的定义为 Jacobian 矩阵：
+向量对向量求导的定义为雅可比矩阵 (行看分子、列看分母)
 
 $$
 \begin{align*}
@@ -135,13 +135,12 @@ $$
 \end{align*}
 $$
 
-即<span class="blue">行数与分子尺寸相同</span>、<span class="blue">列数与分母尺寸相同</span>。
-
-<div class="bottom4"></div>
+<div class="bottom2"></div>
 
 - 分子布局的好处是链式法则跟单变量求导中的顺序一样
-- 分子布局的坏处是计算梯度时要多做一个转置，因为我们更习惯梯度是列向量
+- 分子布局的坏处是计算$\wv$的梯度$\partial F(\wv) / \partial \wv$时要多做一个转置
 - 分母布局的结果均是分子布局的转置，好处是算梯度时不用做转置，坏处是链式法则的顺序要完全反过来
+- 两者结合为混合布局，算梯度时不用做转置，但链式法则的顺序无固定规律，得根据矩阵尺寸仔细推敲，新手建议先学分子布局，熟练老鸟直接混合布局
 
 GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
@@ -184,7 +183,7 @@ GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 GNN-HEADER 基本结果
 
-单变量求导中<span class="blue">乘法</span>的求导法则为$\frac{\partial uv}{\partial x} = \frac{\partial u}{\partial x} v + u \frac{\partial v}{\partial x}$，类似的这里有
+单变量求导中<span class="blue">乘法</span>的求导法则为$\frac{\partial (uv)}{\partial x} = \frac{\partial u}{\partial x} v + u \frac{\partial v}{\partial x}$，类似的这里有
 
 $$
 \begin{align*}
@@ -219,17 +218,511 @@ $$
 \end{align*}
 $$
 
-其中$\Ev_{ij}$是$(i,j)$处为$1$其余为$0$的矩阵
+其中
 
-单变量求导中的<span class="blue">链式法则</span>为
-
-$$
-\begin{align*}
-    \frac{\partial g(u)}{\partial x} = \frac{\partial g(u)}{\partial u} \frac{\partial u}{\partial x}
-\end{align*}
-$$
-
-- 只涉及向量：设$\xv \in \Rbb^n$，$\uv = \uv(\xv) \in \Rbb^m$，$\gv: \Rbb^m \mapsto \Rbb^l$，则
+- $\ev_i$是第$i$个元素为$1$其余为$0$的向量
+- $\Ev_{ij}$是$(i,j)$处为$1$其余为$0$的矩阵
 
 GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
+<!-- slide data-notes="这里可以假设l=1，借此说一下分母布局会导致链式法则顺序反过来" -->
+
+GNN-HEADER 链式法则
+
+单变量求导中的<span class="blue">链式法则</span>为$\frac{\partial g(u)}{\partial x} = \frac{\partial g(u)}{\partial u} \frac{\partial u}{\partial x}$
+
+情形一，只涉及向量：设$\xv \in \Rbb^n$，$\uv = \uv(\xv) \in \Rbb^m$，$\gv: \Rbb^m \mapsto \Rbb^l$，则
+
+$$
+\begin{align*}
+    \underbrace{\class{blue}{\frac{\partial \gv(\uv)}{\partial \xv}}}_{l \times n} = \underbrace{\class{blue}{\frac{\partial \gv(\uv)}{\partial \uv}}}_{l \times m} \underbrace{\class{blue}{\frac{\partial \uv}{\partial \xv}}}_{m \times n}
+\end{align*}
+$$
+
+这是因为
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \gv(\uv)}{\partial \xv} \right]_{ij} & = \frac{\partial [\gv(\uv)]_i}{\partial x_j} = \sum_{k \in [m]} \frac{\partial [\gv(\uv)]_i}{\partial u_k} \frac{\partial u_k}{\partial x_j} = \frac{\partial [\gv(\uv)]_i}{\partial \uv} \frac{\partial \uv}{\partial x_j} \\
+    & = \left[ \frac{\partial \gv(\uv)}{\partial \uv} \right]_{i,:} \left[ \frac{\partial \uv}{\partial \xv} \right]_{:,j} = \left[ \frac{\partial \gv(\uv)}{\partial \uv} \frac{\partial \uv}{\partial \xv} \right]_{i,j}
+\end{align*}
+$$
+
+注意若$n = m = l = 1$，就退化成了单变量的链式法则
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 链式法则
+
+单变量求导中的<span class="blue">链式法则</span>为$\frac{\partial g(u)}{\partial x} = \frac{\partial g(u)}{\partial u} \frac{\partial u}{\partial x}$
+
+情形二，自变量是矩阵：设$u = u(\Xv)$，$g: \Rbb \mapsto \Rbb$，则
+
+$$
+\begin{align*}
+    \left[ \frac{\partial g(u)}{\partial \Xv} \right]_{ij} = \frac{\partial g(u)}{\partial u} \frac{\partial u}{\partial x_{ji}} = \frac{\partial g(u)}{\partial u} \left[ \frac{\partial u}{\partial \Xv} \right]_{ij} ~ \Longrightarrow ~ \class{blue}{\frac{\partial g(u)}{\partial \Xv} = \frac{\partial g(u)}{\partial u} \frac{\partial u}{\partial \Xv}}
+\end{align*}
+$$
+
+情形三，中间变量是矩阵：设$\Uv = \Uv(x) \in \Rbb^{m \times n}$，$g: \Rbb^{m \times n} \mapsto \Rbb$，则
+
+$$
+\begin{align*}
+    \class{blue}{\frac{\partial g(\Uv)}{\partial x}} & = \sum_p \sum_q \frac{\partial g(\Uv)}{\partial u_{pq}} \frac{\partial u_{pq}}{\partial x} = \sum_q \sum_p \left[ \frac{\partial g(\Uv)}{\partial \Uv} \right]_{qp} \left[ \frac{\partial \Uv}{\partial x} \right]_{pq} \\
+    & = \class{blue}{\tr \left( \frac{\partial g(\Uv)}{\partial \Uv} \frac{\partial \Uv}{\partial x} \right)}
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide data-notes="" -->
+
+GNN-HEADER 大纲
+
+<div class="sparse">
+
+<span class="blue">向量对标量求导</span>
+
+标量对向量求导
+
+向量对向量求导
+
+矩阵对标量求导
+
+标量对矩阵求导
+
+</div>
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 向量对标量求导
+
+矩阵和向量的乘积是向量，若$\Av$与$\xv$无关，易知有
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \Av \uv}{\partial x} \right]_{i} & = \frac{\partial [\Av \uv]_i}{\partial x} = \frac{\partial \sum_k a_{ik} u_k}{\partial x} = \sum_k a_{ik} \frac{\partial u_k}{\partial x} = \left[ \Av \frac{\partial \uv}{\partial x} \right]_i \\
+    & \Longrightarrow \class{blue}{\frac{\partial \Av \uv}{\partial x} = \Av \frac{\partial \uv}{\partial x}}
+\end{align*}
+$$
+
+于是
+
+$$
+\begin{align*}
+    \frac{\partial \uv^\top \Av}{\partial x} = \left( \frac{\partial \Av^\top \uv}{\partial x} \right)^\top = \left( \Av^\top \frac{\partial \uv}{\partial x} \right)^\top = \left( \frac{\partial \uv}{\partial x} \right)^\top \Av = \frac{\partial \uv^\top}{\partial x} \Av
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="向量的外积也是向量" -->
+
+GNN-HEADER 向量对标量求导
+
+向量的外积也是向量
+
+记$\uv = [u_1(x); u_2(x); u_3(x)]$，$\vv = [v_1(x); v_2(x); v_3(x)]$，则
+
+$$
+\begin{align*}
+    \uv \times \vv = \begin{bmatrix}
+        u_2 v_3 - u_3 v_2 \\ u_3 v_1 - u_1 v_3 \\ u_1 v_2 - u_2 v_1
+    \end{bmatrix}
+\end{align*}
+$$
+
+于是
+
+$$
+\begin{align*}
+    \class{blue}{\frac{\partial (\uv \times \vv)}{\partial x}} & = \begin{bmatrix}
+        \frac{\partial u_2}{\partial x} v_3 - \frac{\partial u_3}{\partial x} v_2 + u_2 \frac{\partial v_3}{\partial x} - u_3 \frac{\partial v_2}{\partial x} \\
+        \frac{\partial u_3}{\partial x} v_1 - \frac{\partial u_1}{\partial x} v_3 + u_3 \frac{\partial v_1}{\partial x} - u_1 \frac{\partial v_3}{\partial x} \\
+        \frac{\partial u_1}{\partial x} v_2 - \frac{\partial u_2}{\partial x} v_1 + u_1 \frac{\partial v_2}{\partial x} - u_2 \frac{\partial v_1}{\partial x} \\
+    \end{bmatrix} \\
+    & = \class{blue}{\frac{\partial \uv}{\partial x} \times \vv + \uv \times \frac{\partial \vv}{\partial x}}
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide data-notes="" -->
+
+GNN-HEADER 大纲
+
+<div class="sparse">
+
+向量对标量求导
+
+<span class="blue">标量对向量求导</span>
+
+向量对向量求导
+
+矩阵对标量求导
+
+标量对矩阵求导
+
+</div>
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 标量对向量求导
+
+二次型是标量，设$\Av$与$\xv$无关，易知有
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \uv^\top \Av \vv}{\partial \xv} \right]_i & = \frac{\partial \sum_{j,k} u_j a_{jk} v_k}{\partial x_i} = \sum_{j,k} u_j a_{jk} \frac{\partial v_k}{\partial x_i} + \sum_{j,k} \frac{\partial u_j}{\partial x_i} a_{jk} v_k         \\
+    & = \uv^\top \Av \frac{\partial \vv}{\partial x_i} + \vv^\top \Av^\top \frac{\partial \uv}{\partial x_i} = \left[ \uv^\top \Av \frac{\partial \vv}{\partial \xv} \right]_i + \left[ \vv^\top \Av^\top \frac{\partial \uv}{\partial \xv} \right]_i \\
+    & \Longrightarrow \class{blue}{\frac{\partial \uv^\top \Av \vv}{\partial \xv} = \uv^\top \Av \frac{\partial \vv}{\partial \xv} + \vv^\top \Av^\top \frac{\partial \uv}{\partial \xv}} \\
+    & \overset{\Av = \Iv}{\Longrightarrow} \frac{\partial \uv^\top \vv}{\partial \xv} = \uv^\top \frac{\partial \vv}{\partial \xv} + \vv^\top \frac{\partial \uv}{\partial \xv}
+\end{align*}
+$$
+
+进一步若$\uv = \av$与$\xv$无关，则
+
+$$
+\begin{align*}
+    \frac{\partial \av^\top \vv}{\partial \xv} = \av^\top \frac{\partial \vv}{\partial \xv}, ~ \frac{\partial \av^\top \xv}{\partial \xv} = \av^\top \frac{\partial \xv}{\partial \xv} = \av^\top, ~ \frac{\partial \bv^\top \Av \xv}{\partial \xv} = \bv^\top \Av
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 标量对向量求导
+
+$$
+\begin{align*}
+    \frac{\partial \uv^\top \Av \vv}{\partial \xv} & = \uv^\top \Av \frac{\partial \vv}{\partial \xv} + \vv^\top \Av^\top \frac{\partial \uv}{\partial \xv} \\
+    & \overset{\uv = \vv = \xv}{~~ \Longrightarrow ~~} \frac{\partial \xv^\top \Av \xv}{\partial \xv} = \xv^\top \Av \frac{\partial \xv}{\partial \xv} + \xv^\top \Av^\top \frac{\partial \xv}{\partial \xv} = \xv^\top (\Av + \Av^\top) \\
+    & \overset{\Av = \bv \av^\top}{~~ \Longrightarrow ~~} \frac{\partial \xv^\top \bv \av^\top \xv}{\partial \xv} = \frac{\partial \av^\top \xv \xv^\top \bv}{\partial \xv} = \xv^\top (\av \bv^\top + \bv \av^\top) \\
+    & \overset{\Av = \Iv}{~~ \Longrightarrow ~~} \frac{\partial \xv^\top \xv}{\partial \xv} = \frac{\partial \|\xv\|_2^2}{\partial \xv} = 2 \xv^\top \\
+\end{align*}
+$$
+
+更一般的有
+
+$$
+\begin{align*}
+    \frac{\partial (\Av \xv + \bv)^\top \Cv (\Dv \xv + \ev)}{\partial \xv} & = \frac{\partial (\xv^\top \Av^\top \Cv \Dv \xv + \bv^\top \Cv \Dv \xv + \xv^\top \Av^\top \Cv \ev + \bv^\top \ev)}{\partial \xv} \\
+    & = \xv^\top (\Av^\top \Cv \Dv + \Dv^\top \Cv^\top \Av) + \bv^\top \Cv \Dv + \ev^\top \Cv^\top \Av                                  \\
+    & = (\Dv \xv + \ev)^\top \Cv^\top \Av + (\Av \xv + \bv)^\top \Cv \Dv
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 标量对向量求导
+
+范数也是标量，若$\av$与$\xv$无关，则
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \| \xv - \av \|_2}{\partial \xv} \right]_i & = \frac{\partial \| \xv - \av \|_2}{\partial x_i} = \frac{\partial \sqrt{\sum_j (x_j - a_j)^2}}{\partial x_i} \\
+    & = \frac{1}{2} \frac{2 (x_i - a_i)}{\sqrt{\sum_j (x_j - a_j)^2}} = \frac{x_i - a_i}{\| \xv - \av \|_2} \\
+    & \Longrightarrow \class{blue}{\frac{\partial \| \xv - \av \|_2}{\partial \xv} = \frac{(\xv - \av)^\top}{\| \xv - \av \|_2}}
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide data-notes="" -->
+
+GNN-HEADER 大纲
+
+<div class="sparse">
+
+向量对标量求导
+
+标量对向量求导
+
+<span class="blue">向量对向量求导</span>
+
+矩阵对标量求导
+
+标量对矩阵求导
+
+</div>
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 向量对向量求导
+
+若$\Av$与$\xv$无关，前面已得向量对标量的求导结果$\frac{\partial \Av \uv}{\partial x} = \Av \frac{\partial \uv}{\partial x}$，于是
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \Av \uv}{\partial \xv} \right]_{:,j} = \frac{\partial \Av \uv}{\partial x_j} = \Av \frac{\partial \uv}{\partial x_j} = \left[ \Av \frac{\partial \uv}{\partial \xv} \right]_{:,j} & \Longrightarrow \class{blue}{\frac{\partial \Av \uv}{\partial \xv} = \Av \frac{\partial \uv}{\partial \xv}} \\
+    & \overset{\uv = \xv}{\Longrightarrow} \frac{\partial \Av \xv}{\partial \xv} = \Av \frac{\partial \xv}{\partial \xv} = \Av
+\end{align*}
+$$
+
+若$v = v(\xv)$，则
+
+$$
+\begin{align*}
+    \left[ \frac{\partial v \uv}{\partial \xv} \right]_{ij} & = \frac{\partial v u_i}{\partial x_j} = v \frac{\partial u_i}{\partial x_j} + u_i \frac{\partial v}{\partial x_j} = v \left[ \frac{\partial \uv}{\partial \xv} \right]_{ij} + \left[ \uv \frac{\partial v}{\partial \xv} \right]_{ij} \\
+    & \Longrightarrow \class{blue}{\frac{\partial v \uv}{\partial \xv} = v \frac{\partial \uv}{\partial \xv} + \uv \frac{\partial v}{\partial \xv}}
+\end{align*}
+$$
+
+注意第一项是标量乘以雅可比矩阵，第二项是列向量乘以行向量
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 向量对向量求导
+
+若$\av$与$\xv$无关，结合
+
+$$
+\begin{align*}
+    \class{blue}{\frac{\partial \| \xv - \av \|_2}{\partial \xv^\top} = \frac{\xv - \av}{\| \xv - \av \|_2}}
+\end{align*}
+$$
+
+可得
+
+$$
+\begin{align*}
+    & \left[ \frac{\partial}{\partial \xv} \frac{\xv - \av}{\| \xv - \av \|_2} \right]_{ij} = \frac{\partial}{\partial x_j} \frac{x_i - a_i}{\| \xv - \av \|_2} \\
+    & \qquad = \frac{\delta_{ij} \|\xv - \av\|_2}{\| \xv - \av \|_2^2} - \frac{x_i - a_i}{\| \xv - \av \|_2^2} \frac{\partial \| \xv - \av \|_2}{\partial x_j} \\
+    & \qquad = \frac{\delta_{ij}}{\| \xv - \av \|_2} - \frac{x_i - a_i}{\| \xv - \av \|_2^2} \frac{x_j - a_j}{\| \xv - \av \|_2} \\
+    & \qquad \Longrightarrow \class{blue}{\frac{\partial^2 \| \xv - \av \|_2}{\partial \xv \partial \xv^\top} = \frac{\partial}{\partial \xv} \frac{\xv - \av}{\| \xv - \av \|_2} = \frac{\Iv}{\| \xv - \av \|_2} - \frac{(\xv - \av)(\xv - \av)^\top}{\| \xv - \av \|_2^3}}
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide data-notes="" -->
+
+GNN-HEADER 大纲
+
+<div class="sparse">
+
+向量对标量求导
+
+标量对向量求导
+
+向量对向量求导
+
+<span class="blue">矩阵对标量求导</span>
+
+标量对矩阵求导
+
+</div>
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 矩阵对标量求导
+
+若$u = u(x)$，$\Vv = \Vv(x)$，则
+
+$$
+\begin{align*}
+    \left[ \frac{\partial u \Vv}{\partial x} \right]_{ij} & = \frac{\partial u v_{ij}}{\partial x} = \frac{\partial u}{\partial x} v_{ij} + u \frac{\partial v_{ij}}{\partial x} = \frac{\partial u}{\partial x} \left[ \Vv \right]_{ij} + u \left[ \frac{\partial \Vv}{\partial x} \right]_{ij} \\
+    & \Longrightarrow \class{blue}{\frac{\partial u \Vv}{\partial x} = \frac{\partial u}{\partial x} \Vv + u \frac{\partial \Vv}{\partial x}}
+\end{align*}
+$$
+
+若乘积求导法则中的$\Uv$或$\Vv$可继续分解，则
+
+$$
+\begin{align*}
+    \frac{\partial (\Uv \Vv)}{\partial x} & = \frac{\partial \Uv}{\partial x} \Vv + \Uv \frac{\partial \Vv}{\partial x} \\
+    & \Downarrow \\
+    \class{blue}{\frac{\partial (\Uv \Vv \Wv)}{\partial x}} & = \frac{\partial \Uv}{\partial x} \Vv \Wv + \Uv \frac{\partial \Vv \Wv}{\partial x} = \frac{\partial \Uv}{\partial x} \Vv \Wv + \Uv \left( \frac{\partial \Vv}{\partial x} \Wv + \Vv \frac{\partial \Wv}{\partial x} \right) \\
+    & = \class{blue}{\frac{\partial \Uv}{\partial x} \Vv \Wv + \Uv \frac{\partial \Vv}{\partial x} \Wv + \Uv \Vv \frac{\partial \Wv}{\partial x}}
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 矩阵对标量求导
+
+$$
+\begin{align}
+    \class{blue}{\frac{\partial (\Uv \Vv \Wv)}{\partial x} = \frac{\partial \Uv}{\partial x} \Vv \Wv + \Uv \frac{\partial \Vv}{\partial x} \Wv + \Uv \Vv \frac{\partial \Wv}{\partial x}}
+\end{align}
+$$
+
+由此可知若$\Av$、$\Bv$与$x$无关，则
+
+$$
+\begin{align*}
+    \frac{\partial \Av \Uv \Bv}{\partial x} = \Av \frac{\partial \Uv}{\partial x} \Bv
+\end{align*}
+$$
+
+当$\Uv$为方阵、$n$为正整数时有
+
+$$
+\begin{align}
+    \class{blue}{\frac{\partial \Uv^n}{\partial x}} & = \Uv^{n-1} \frac{\partial \Uv}{\partial x} + \Uv^{n-2} \frac{\partial \Uv}{\partial x} \Uv + \cdots + \Uv \frac{\partial \Uv}{\partial x} \Uv^{n-2} + \frac{\partial \Uv}{\partial x} \Uv^{n-1} \\
+    & = \class{blue}{\sum_{i \in [n]} \Uv^{i-1} \frac{\partial \Uv}{\partial x} \Uv^{n-i}}
+\end{align}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide data-notes="" -->
+
+GNN-HEADER 矩阵对标量求导
+
+令乘积求导法则中的$\Vv = \Uv^{-1}$可得
+
+$$
+\begin{align} \label{eq: inverse}
+    \zerov = \frac{\partial \Iv}{\partial x} & = \frac{\partial \Uv \Uv^{-1}}{\partial x} = \Uv \frac{\partial \Uv^{-1}}{\partial x} + \frac{\partial \Uv}{\partial x} \Uv^{-1} \\
+    & \Longrightarrow \class{blue}{\frac{\partial \Uv^{-1}}{\partial x} = - \Uv^{-1} \frac{\partial \Uv}{\partial x} \Uv^{-1}}
+\end{align}
+$$
+
+结合链式法则情形三可知
+
+$$
+\begin{align*}
+    \class{blue}{\frac{\partial [\Xv^{-1}]_{kl}}{\partial x_{ij}}} & = \tr \left( \frac{\partial [\Xv^{-1}]_{kl}}{\partial \Xv^{-1}} \frac{\partial \Xv^{-1}}{\partial x_{ij}} \right) = - \tr \left( \Ev_{lk} \Xv^{-1} \frac{\partial \Xv}{\partial x_{ij}} \Xv^{-1} \right) \\
+    & = - \tr ( \Xv^{-1} \Ev_{lk} \Xv^{-1} \Ev_{ij} ) = - [\Xv^{-1} \Ev_{lk} \Xv^{-1}]_{ji} \\
+    & = - \sum_p \sum_q [\Xv^{-1}]_{jp} [\Ev_{lk}]_{pq} [\Xv^{-1}]_{qi} = \class{blue}{- [\Xv^{-1}]_{jl} [\Xv^{-1}]_{ki}}
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 矩阵对标量求导
+
+$$
+\begin{align*}
+    \class{blue}{\frac{\partial \Uv^{-1}}{\partial x} = - \Uv^{-1} \frac{\partial \Uv}{\partial x} \Uv^{-1}}
+\end{align*}
+$$
+
+结合$\class{blue}{\frac{\partial (\Uv \Vv \Wv)}{\partial x} = \frac{\partial \Uv}{\partial x} \Vv \Wv + \Uv \frac{\partial \Vv}{\partial x} \Wv + \Uv \Vv \frac{\partial \Wv}{\partial x}}$可得海森矩阵
+
+$$
+\begin{align*}
+    & \class{blue}{\frac{\partial^2 \Uv^{-1}}{\partial x \partial y}} = \frac{\partial}{\partial y} \left( - \Uv^{-1} \frac{\partial \Uv}{\partial x} \Uv^{-1} \right) \\
+    & \qquad = - \frac{\partial \Uv^{-1}}{\partial y} \frac{\partial \Uv}{\partial x} \Uv^{-1} - \Uv^{-1} \frac{\partial^2 \Uv}{\partial x \partial y} \Uv^{-1} - \Uv^{-1} \frac{\partial \Uv}{\partial x} \frac{\partial \Uv^{-1}}{\partial y} \\
+    & \qquad = \Uv^{-1} \frac{\partial \Uv}{\partial y} \Uv^{-1} \frac{\partial \Uv}{\partial x} \Uv^{-1} - \Uv^{-1} \frac{\partial^2 \Uv}{\partial x \partial y} \Uv^{-1} + \Uv^{-1} \frac{\partial \Uv}{\partial x} \Uv^{-1} \frac{\partial \Uv}{\partial y} \Uv^{-1}                                                                          \\
+    & \qquad = \class{blue}{\Uv^{-1} \left( \frac{\partial \Uv}{\partial y} \Uv^{-1} \frac{\partial \Uv}{\partial x} - \frac{\partial^2 \Uv}{\partial x \partial y} + \frac{\partial \Uv}{\partial x} \Uv^{-1} \frac{\partial \Uv}{\partial y} \right) \Uv^{-1}}
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide data-notes="" -->
+
+GNN-HEADER 矩阵对标量求导
+
+矩阵除了常规的乘积外，还有哈达玛积和克罗内克积
+
+<br>
+
+设$\Uv, \Vv \in \Rbb^{m \times n}$，则
+
+$$
+\begin{align*}
+    & \class{blue}{\frac{\partial (\Uv \circ \Vv)}{\partial x}} = \begin{bmatrix}
+        \frac{\partial u_{11} v_{11}}{\partial x} & \cdots & \frac{\partial u_{1n} v_{1n}}{\partial x} \\
+        \vdots                                    & \ddots & \vdots                                    \\
+        \frac{\partial u_{m1} v_{m1}}{\partial x} & \cdots & \frac{\partial u_{mn} v_{mn}}{\partial x} \\
+    \end{bmatrix}                                                                   \\
+    & \qquad = \begin{bmatrix}
+        \frac{\partial u_{11}}{\partial x} v_{11} & \cdots & \frac{\partial u_{1n}}{\partial x} v_{1n} \\
+        \vdots                                    & \ddots & \vdots                                    \\
+        \frac{\partial u_{m1}}{\partial x} v_{m1} & \cdots & \frac{\partial u_{mn}}{\partial x} v_{mn} \\
+    \end{bmatrix} + \begin{bmatrix}
+        u_{11} \frac{\partial v_{11}}{\partial x} & \cdots & u_{1n} \frac{\partial v_{1n}}{\partial x} \\
+        \vdots                                    & \ddots & \vdots                                    \\
+        u_{m1} \frac{\partial v_{m1}}{\partial x} & \cdots & u_{mn} \frac{\partial v_{mn}}{\partial x} \\
+    \end{bmatrix}                                      \\
+    & \qquad = \class{blue}{\frac{\partial \Uv}{\partial x} \circ \Vv + \Uv \circ \frac{\partial \Vv}{\partial x}}
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 矩阵对标量求导
+
+$$
+\begin{align*}
+    & \class{blue}{\frac{\partial (\Uv \otimes \Vv)}{\partial x}} = \begin{bmatrix}
+        \frac{\partial u_{11} \Vv}{\partial x} & \cdots & \frac{\partial u_{1n} \Vv}{\partial x} \\
+        \vdots                                 & \ddots & \vdots                                 \\
+        \frac{\partial u_{m1} \Vv}{\partial x} & \cdots & \frac{\partial u_{mn} \Vv}{\partial x} \\
+    \end{bmatrix}                                                                       \\
+    & \qquad = \begin{bmatrix}
+        \frac{\partial u_{11}}{\partial x} \Vv + u_{11} \frac{\partial \Vv}{\partial x} & \cdots & \frac{\partial u_{1n}}{\partial x} \Vv + u_{1n} \frac{\partial \Vv}{\partial x} \\
+        \vdots                                                                          & \ddots & \vdots                                                                          \\
+        \frac{\partial u_{m1}}{\partial x} \Vv + u_{m1} \frac{\partial \Vv}{\partial x} & \cdots & \frac{\partial u_{mn}}{\partial x} \Vv + u_{mn} \frac{\partial \Vv}{\partial x} \\
+    \end{bmatrix}                                                                       \\
+    & \qquad = \begin{bmatrix}
+        \frac{\partial u_{11}}{\partial x} \Vv & \cdots & \frac{\partial u_{1n}}{\partial x} \Vv \\
+        \vdots                                 & \ddots & \vdots                                 \\
+        \frac{\partial u_{m1}}{\partial x} \Vv & \cdots & \frac{\partial u_{mn}}{\partial x} \Vv \\
+    \end{bmatrix} + \begin{bmatrix}
+        u_{11} \frac{\partial \Vv}{\partial x} & \cdots & u_{1n} \frac{\partial \Vv}{\partial x} \\
+        \vdots                                 & \ddots & \vdots                                 \\
+        u_{m1} \frac{\partial \Vv}{\partial x} & \cdots & u_{mn} \frac{\partial \Vv}{\partial x} \\
+    \end{bmatrix}                                          \\
+    & \qquad = \class{blue}{\frac{\partial \Uv}{\partial x} \otimes \Vv + \Uv \otimes \frac{\partial \Vv}{\partial x}}
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 矩阵对标量求导
+
+设$g(x) = a_0 + a_1 x + a_2 x^2 + \cdots$，若$\Av$为与$x$无关的方阵，记
+
+$$
+\begin{align*}
+    g (x \Av)  & = a_0 \Iv + a_1 x \Av + a_2 x^2 \Av^2 + a_3 x^3 \Av^3 + \cdots \\
+    g' (x \Av) & = a_1 \Iv + 2 a_2 x \Av + 3 a_3 x^2 \Av^2 + \cdots
+\end{align*}
+$$
+
+易知有
+
+$$
+\begin{align*}
+    \class{blue}{\frac{\partial g(x \Av)}{\partial x}} & = a_1 \Av + 2 a_2 x \Av^2 + 3 a_3 x^2 \Av^3 + \cdots                             \\
+    & = \Av (a_1 \Iv + 2 a_2 x \Av + 3 a_3 x^2 \Av^2 + \cdots) = \class{blue}{\Av g' (x \Av)} \\
+    & = (a_1 \Iv + 2 a_2 x \Av + 3 a_3 x^2 \Av^2 + \cdots) \Av = \class{blue}{g' (x \Av) \Av}
+\end{align*}
+$$
+
+对于$e^x$、$\ln x$、$\sin x$、$\cos x$，上式依然适用，例如
+
+$$
+\begin{align*}
+    \frac{\partial e^{x \Av}}{\partial x} = \Av e^{x \Av} = e^{x \Av} \Av
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
