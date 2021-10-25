@@ -21,17 +21,17 @@
                 {
                     \pgfmathtruncatemacro{\ip}{\i+1};
                     \pgfmathtruncatemacro{\jm}{\j-1};
-                    \draw[fill=Solarized-base2, thick] (\i,\j) -- (\ip,\j) -- (\ip,\jm) -- (\i,\jm) -- (\i,\j);
+                    \draw [base,fill=Solarized-base2] (\i,\j) -- (\ip,\j) -- (\ip,\jm) -- (\i,\jm) -- (\i,\j);
                 }
         }
 
-    \draw[fill=Solarized-base2, thick] (10,3) -- (11,3) -- (11,4) -- (10,4) -- (10,3);
+    \draw [base,fill=Solarized-base2] (10,3) -- (11,3) -- (11,4) -- (10,4) -- (10,3);
 
     \foreach \i in {-1,...,6}
         {
             \pgfmathtruncatemacro{\im}{\i-1};
-            \draw (\im,-1) -- (\im,6);
-            \draw (-2,\i) -- (5,\i);
+            \draw [base] (\im,-1) -- (\im,6);
+            \draw [base] (-2,\i) -- (5,\i);
         }
 
 
@@ -39,22 +39,19 @@
 
     \foreach \i in {6,...,9}
         {
-            \draw (\i,1) -- (\i,4);
-            \draw (6,\i-5) -- (9,\i-5);
+            \draw [base] (\i,1) -- (\i,4);
+            \draw [base] (6,\i-5) -- (9,\i-5);
         }
 
     \node at (9.5,2.5) {$=$};
 
     \foreach \i in {10,...,13}
         {
-            \draw (\i,1) -- (\i,4);
-            \draw (10,\i-9) -- (13,\i-9);
+            \draw [base] (\i,1) -- (\i,4);
+            \draw [base] (10,\i-9) -- (13,\i-9);
         }
 
 \end{tikzpicture}
-
-
-
 
 \end{document}
 

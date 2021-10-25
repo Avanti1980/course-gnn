@@ -1,0 +1,43 @@
+digraph g {
+    graph [nodesep=0.2, ranksep=0.5]
+    rankdir=LR
+    node [shape=plaintext color="#586e75" fontname="EBG,fzlz" fontcolor="#b58900" fontsize=16]
+    edge [arrowhead=vee color="#586e75" fontname="EBG,fzlz" fontcolor="#268bd2" fontsize=12 arrowsize=0.5]
+    bgcolor="transparent"
+
+    输入
+
+    subgraph cluster_1 {
+        color="#586e75"
+        fontcolor="#268bd2"
+        fontname="EBG,fzlz"
+        style="dashed"
+        label="连续 1～100 个"
+
+        subgraph cluster_11 {
+            color="#586e75"
+            fontcolor="#268bd2"
+            fontname="EBG,fzlz"
+            style="dashed"
+            label="2～5 个"
+
+            卷积 -> ReLU
+        }
+
+        ReLU -> 池化
+    }
+
+    输入 -> 卷积
+
+    subgraph cluster_2 {
+        color="#586e75"
+        fontcolor="#268bd2"
+        fontname="EBG,fzlz"
+        style="dashed"
+        label="1～2 个"
+
+        全连接
+    }
+
+    池化 -> 全连接 -> "Softmax 激活"
+}
