@@ -149,9 +149,7 @@ GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 GNN-HEADER 基本结果
 
-单变量求导中<span class="blue">常量的导数为零</span>：$\partial a / \partial x = 0$
-
-类似的这里有
+单变量求导中<span class="blue">常量的导数为零</span>：$\partial a / \partial x = 0$，类似的这里有
 
 $$
 \begin{align*}
@@ -159,15 +157,24 @@ $$
 \end{align*}
 $$
 
-<div class="bottom4"></div>
+<div class="bottom2"></div>
 
-单变量求导中<span class="blue">常数标量乘</span>的求导法则为$\partial (a u) / \partial x = a \cdot \partial u / \partial x$
-
-类似的这里有
+单变量求导中<span class="blue">常数标量乘</span>的求导法则为$\frac{\partial (a u)}{\partial x} = a \frac{\partial u}{\partial x}$，类似的这里有
 
 $$
 \begin{align*}
     \frac{\partial a \uv}{\partial x} = a \frac{\partial \uv}{\partial x}, ~ \frac{\partial a u}{\partial \xv} = a \frac{\partial u}{\partial \xv}, ~ \frac{\partial a \uv}{\partial \xv} = a \frac{\partial \uv}{\partial \xv}, ~ \frac{\partial a \Uv}{\partial x} = a \frac{\partial \Uv}{\partial x}, ~ \frac{\partial a u}{\partial \Xv} = a \frac{\partial u}{\partial \Xv}
+\end{align*}
+$$
+
+<div class="bottom2"></div>
+
+单变量微积分中<span class="blue">加法</span>的求导法则为$\frac{\partial (u+v)}{\partial x} = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial x}$，类似的这里有
+
+$$
+\begin{align*}
+     & \frac{\partial (\uv + \vv)}{\partial x} = \frac{\partial \uv}{\partial x} + \frac{\partial \vv}{\partial x}, ~ \frac{\partial (u+v)}{\partial \xv} = \frac{\partial u}{\partial \xv} + \frac{\partial v}{\partial \xv}, ~ \frac{\partial (\uv + \vv)}{\partial \xv} = \frac{\partial \uv}{\partial \xv} + \frac{\partial \vv}{\partial \xv} \\
+     & \frac{\partial (\Uv + \Vv)}{\partial x} = \frac{\partial \Uv}{\partial x} + \frac{\partial \Vv}{\partial x}, ~ \frac{\partial (u + v)}{\partial \Xv} = \frac{\partial u}{\partial \Xv} + \frac{\partial v}{\partial \Xv}
 \end{align*}
 $$
 
@@ -177,26 +184,52 @@ GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 GNN-HEADER 基本结果
 
-单变量微积分中<span class="blue">乘法</span>的求导法则为$\frac{\partial uv}{\partial x} = \frac{\partial u}{\partial x} v + u \frac{\partial v}{\partial x}$
-
-类似的这里有
+单变量求导中<span class="blue">乘法</span>的求导法则为$\frac{\partial uv}{\partial x} = \frac{\partial u}{\partial x} v + u \frac{\partial v}{\partial x}$，类似的这里有
 
 $$
 \begin{align*}
-     & \frac{\partial \uv \vv}{\partial x} = \frac{\partial \uv}{\partial x} \vv + \uv \frac{\partial \vv}{\partial x}, \quad \frac{\partial uv}{\partial \xv} = \frac{\partial u}{\partial \xv} v + u \frac{\partial v}{\partial \xv} \\
-     & \frac{\partial \Uv \Vv}{\partial x} = \frac{\partial \Uv}{\partial x} \Vv + \Uv \frac{\partial \Vv}{\partial x}, \quad \frac{\partial uv}{\partial \Xv} = \frac{\partial u}{\partial \Xv} v + u \frac{\partial v}{\partial \Xv}
+     & \frac{\partial \uv \vv}{\partial x} = \frac{\partial \uv}{\partial x} \vv + \uv \frac{\partial \vv}{\partial x}, ~ \frac{\partial uv}{\partial \xv} = \frac{\partial u}{\partial \xv} v + u \frac{\partial v}{\partial \xv} \\
+     & \frac{\partial \Uv \Vv}{\partial x} = \frac{\partial \Uv}{\partial x} \Vv + \Uv \frac{\partial \Vv}{\partial x}, ~ \frac{\partial uv}{\partial \Xv} = \frac{\partial u}{\partial \Xv} v + u \frac{\partial v}{\partial \Xv}
 \end{align*}
 $$
 
-其中第二行是因为
+其中第一行可看作第二行的特例，第二行是因为
 
 $$
 \begin{align*}
-    \left[ \frac{\partial \Uv \Vv}{\partial x} \right]_{ij} & = \frac{\partial \sum_k u_{ik} v_{kj}}{\partial x} = \sum_k \frac{\partial u_{ik}}{\partial x} v_{kj} + \sum_k u_{ik} \frac{\partial v_{kj}}{\partial x} = \left[ \frac{\partial \Uv}{\partial x} \Vv \right]_{ij} + \left[ \Uv \frac{\partial \Vv}{\partial x} \right]_{ij} \\
-    \left[ \frac{\partial uv}{\partial \Xv} \right]_{ij}    & = \frac{\partial uv}{\partial x_{ji}} = \frac{\partial u}{\partial x_{ji}} v + u \frac{\partial v}{\partial x_{ji}} = \left[ \frac{\partial u}{\partial \Xv} \right]_{ij} v + u \left[ \frac{\partial v}{\partial \Xv} \right]_{ij}
+    \left[ \frac{\partial \Uv \Vv}{\partial x} \right]_{ij} & = \sum_k \frac{\partial u_{ik}}{\partial x} v_{kj} + \sum_k u_{ik} \frac{\partial v_{kj}}{\partial x} = \left[ \frac{\partial \Uv}{\partial x} \Vv \right]_{ij} + \left[ \Uv \frac{\partial \Vv}{\partial x} \right]_{ij} \\
+    \left[ \frac{\partial uv}{\partial \Xv} \right]_{ij}    & = \frac{\partial (uv)}{\partial x_{ji}} = \frac{\partial u}{\partial x_{ji}} v + u \frac{\partial v}{\partial x_{ji}} = \left[ \frac{\partial u}{\partial \Xv} \right]_{ij} v + u \left[ \frac{\partial v}{\partial \Xv} \right]_{ij}
 \end{align*}
 $$
 
-第一行可看作第二行的特例。$\partial \uv \vv / \partial \xv$有两种可能，一是$\uv \vv$为标量，即两者的内积，这里暂且不表，后文再讲；二是$\uv \vv$为矩阵，这属于我们不考虑的$\partial 矩阵 / \partial 向量$情形。
+- 若$\uv \vv$为标量，则$\partial (\uv \vv) / \partial \xv$属于$\partial$标量 / $\partial$向量的情形，后面再讲
+- 若$\uv \vv$为矩阵，则$\partial (\uv \vv) / \partial \xv$就是我们不考虑的$\partial$矩阵 / $\partial$向量的情形
 
 GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 基本结果
+
+单变量求导中有$\partial x / \partial x = 1$，类似的这里有
+
+$$
+\begin{align*}
+    \frac{\partial x_i}{\partial \xv} = \ev_i^\top, ~ \frac{\partial \xv}{\partial x_i} = \ev_i, ~ \frac{\partial \xv}{\partial \xv} = \Iv, ~ \frac{\partial x_{ij}}{\partial \Xv} = \Ev_{ji}, ~ \frac{\partial \Xv}{\partial x_{ij}} = \Ev_{ij}
+\end{align*}
+$$
+
+其中$\Ev_{ij}$是$(i,j)$处为$1$其余为$0$的矩阵
+
+单变量求导中的<span class="blue">链式法则</span>为
+
+$$
+\begin{align*}
+    \frac{\partial g(u)}{\partial x} = \frac{\partial g(u)}{\partial u} \frac{\partial u}{\partial x}
+\end{align*}
+$$
+
+- 只涉及向量：设$\xv \in \Rbb^n$，$\uv = \uv(\xv) \in \Rbb^m$，$\gv: \Rbb^m \mapsto \Rbb^l$，则
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
