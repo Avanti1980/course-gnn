@@ -52,7 +52,7 @@ $$
 \end{align*}
 $$
 
-如何求$\partial \ln |\Sigmav| / \partial \Sigmav$和$\partial \xv^\top \Sigmav^{-1} \xv / \partial \Sigmav$？
+如何求$\partial \muv^\top \Sigmav^{-1} \muv / \partial \muv$、$\partial \ln |\Sigmav| / \partial \Sigmav$、$\partial \muv^\top \Sigmav^{-1} \muv / \partial \Sigmav$？
 
 GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
@@ -62,24 +62,24 @@ GNN-HEADER 9 种求导情形
 
 <div class="fullborder column1-bold column2-bold column3-bold">
 
-|  <span class="blue">$\partial$标量 / $\partial$标量</span>  | <span class="yellow">$\partial$标量 / $\partial$向量</span> | <span class="yellow">$\partial$标量 / $\partial$矩阵</span> |
-| :---------------------------------------------------------: | :---------------------------------------------------------: | :---------------------------------------------------------: |
-| <span class="yellow">$\partial$向量 / $\partial$标量</span> | <span class="yellow">$\partial$向量 / $\partial$向量</span> |  <span class="red">$\partial$向量 / $\partial$矩阵</span>   |
-| <span class="yellow">$\partial$矩阵 / $\partial$标量</span> |  <span class="red">$\partial$矩阵 / $\partial$向量</span>   |  <span class="red">$\partial$矩阵 / $\partial$矩阵</span>   |
+|  <span class="blue">$\partial$标量 /$\partial$标量</span>  | <span class="yellow">$\partial$标量 /$\partial$向量</span> | <span class="yellow">$\partial$标量 /$\partial$矩阵</span> |
+| :--------------------------------------------------------: | :--------------------------------------------------------: | :--------------------------------------------------------: |
+| <span class="yellow">$\partial$向量 /$\partial$标量</span> | <span class="yellow">$\partial$向量 /$\partial$向量</span> |  <span class="red">$\partial$向量 /$\partial$矩阵</span>   |
+| <span class="yellow">$\partial$矩阵 /$\partial$标量</span> |  <span class="red">$\partial$矩阵 /$\partial$向量</span>   |  <span class="red">$\partial$矩阵 /$\partial$矩阵</span>   |
 
 </div>
 
-<span class="blue">$\partial$标量 / $\partial$标量</span>就是我们熟悉的单变量求导
+<span class="blue">$\partial$标量 /$\partial$标量</span>就是我们熟悉的单变量求导
 
-<span class="red">$\partial$向量 / $\partial$矩阵、$\partial$矩阵 / $\partial$向量、$\partial$矩阵 / $\partial$矩阵</span>会涉及高阶张量
+<span class="red">$\partial$向量 /$\partial$矩阵、$\partial$矩阵 /$\partial$向量、$\partial$矩阵 /$\partial$矩阵</span>会涉及高阶张量
 
 我们考虑剩下的 5 种情形
 
-- $\partial$标量 / $\partial$向量
-- $\partial$标量 / $\partial$矩阵
-- $\partial$向量 / $\partial$标量
-- $\partial$矩阵 / $\partial$标量
-- $\partial$向量 / $\partial$向量
+- $\partial$标量 /$\partial$向量
+- $\partial$标量 /$\partial$矩阵
+- $\partial$向量 /$\partial$标量
+- $\partial$矩阵 /$\partial$标量
+- $\partial$向量 /$\partial$向量
 
 GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
@@ -122,7 +122,7 @@ GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 GNN-HEADER 矩阵求导的分子布局
 
-向量对向量求导的定义为雅可比矩阵 (行看分子、列看分母)
+向量对向量求导的定义为<span class="blue">雅可比矩阵</span> (行看分子、列看分母)
 
 $$
 \begin{align*}
@@ -131,16 +131,18 @@ $$
         \frac{\partial u_2}{\partial x_1} & \frac{\partial u_2}{\partial x_2} & \ldots & \frac{\partial u_2}{\partial x_m} \\
         \vdots                            & \vdots                            & \ddots & \vdots                            \\
         \frac{\partial u_l}{\partial x_1} & \frac{\partial u_l}{\partial x_2} & \ldots & \frac{\partial u_l}{\partial x_m}
-    \end{bmatrix}  \in \Rbb^{l \times m}
+    \end{bmatrix}
+    = \begin{bmatrix} \frac{\partial u_1}{\partial \xv} \\ \frac{\partial u_2}{\partial \xv} \\ \vdots \\ \frac{\partial u_l}{\partial \xv} \end{bmatrix}
+    = \begin{bmatrix} \frac{\partial \uv}{\partial x_1} & \frac{\partial \uv}{\partial x_2} & \cdots & \frac{\partial \uv}{\partial x_m} \end{bmatrix}
 \end{align*}
 $$
 
 <div class="bottom2"></div>
 
-- 分子布局的好处是链式法则跟单变量求导中的顺序一样
-- 分子布局的坏处是计算$\wv$的梯度$\partial F(\wv) / \partial \wv$时要多做一个转置
+- 分子布局的好处是<span class="blue">链式法则跟单变量求导中的顺序一样</span>
+- 分子布局的坏处是计算$\wv$的梯度$\partial F(\wv) / \partial \wv$时要<span class="blue">多做一个转置</span>
 - 分母布局的结果均是分子布局的转置，好处是算梯度时不用做转置，坏处是链式法则的顺序要完全反过来
-- 两者结合为混合布局，算梯度时不用做转置，但链式法则的顺序无固定规律，得根据矩阵尺寸仔细推敲，新手建议先学分子布局，熟练老鸟直接混合布局
+- 两者结合为混合布局，算梯度时不做转置，但链式法则的顺序无固定规律，需根据矩阵尺寸仔细推敲，新手建议先学分子布局，熟练老鸟可直接混合布局
 
 GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
@@ -179,7 +181,7 @@ $$
 
 GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="乘法求导就不是太显然的了" -->
 
 GNN-HEADER 基本结果
 
@@ -187,8 +189,8 @@ GNN-HEADER 基本结果
 
 $$
 \begin{align*}
-     & \frac{\partial \uv \vv}{\partial x} = \frac{\partial \uv}{\partial x} \vv + \uv \frac{\partial \vv}{\partial x}, ~ \frac{\partial uv}{\partial \xv} = \frac{\partial u}{\partial \xv} v + u \frac{\partial v}{\partial \xv} \\
-     & \frac{\partial \Uv \Vv}{\partial x} = \frac{\partial \Uv}{\partial x} \Vv + \Uv \frac{\partial \Vv}{\partial x}, ~ \frac{\partial uv}{\partial \Xv} = \frac{\partial u}{\partial \Xv} v + u \frac{\partial v}{\partial \Xv}
+     & \frac{\partial (\uv \vv)}{\partial x} = \frac{\partial \uv}{\partial x} \vv + \uv \frac{\partial \vv}{\partial x}, ~ \frac{\partial (uv)}{\partial \xv} = \frac{\partial u}{\partial \xv} v + u \frac{\partial v}{\partial \xv} \\
+     & \frac{\partial (\Uv \Vv)}{\partial x} = \frac{\partial \Uv}{\partial x} \Vv + \Uv \frac{\partial \Vv}{\partial x}, ~ \frac{\partial (uv)}{\partial \Xv} = \frac{\partial u}{\partial \Xv} v + u \frac{\partial v}{\partial \Xv}
 \end{align*}
 $$
 
@@ -196,13 +198,12 @@ $$
 
 $$
 \begin{align*}
-    \left[ \frac{\partial \Uv \Vv}{\partial x} \right]_{ij} & = \sum_k \frac{\partial u_{ik}}{\partial x} v_{kj} + \sum_k u_{ik} \frac{\partial v_{kj}}{\partial x} = \left[ \frac{\partial \Uv}{\partial x} \Vv \right]_{ij} + \left[ \Uv \frac{\partial \Vv}{\partial x} \right]_{ij} \\
-    \left[ \frac{\partial uv}{\partial \Xv} \right]_{ij}    & = \frac{\partial (uv)}{\partial x_{ji}} = \frac{\partial u}{\partial x_{ji}} v + u \frac{\partial v}{\partial x_{ji}} = \left[ \frac{\partial u}{\partial \Xv} \right]_{ij} v + u \left[ \frac{\partial v}{\partial \Xv} \right]_{ij}
+    \left[ \frac{\partial (\Uv \Vv)}{\partial x} \right]_{ij} & = \sum_k \frac{\partial u_{ik}}{\partial x} v_{kj} + \sum_k u_{ik} \frac{\partial v_{kj}}{\partial x} = \left[ \frac{\partial \Uv}{\partial x} \Vv \right]_{ij} + \left[ \Uv \frac{\partial \Vv}{\partial x} \right]_{ij} \\
+    \left[ \frac{\partial (uv)}{\partial \Xv} \right]_{ij}    & = \frac{\partial (uv)}{\partial x_{ji}} = \frac{\partial u}{\partial x_{ji}} v + u \frac{\partial v}{\partial x_{ji}} = \left[ \frac{\partial u}{\partial \Xv} \right]_{ij} v + u \left[ \frac{\partial v}{\partial \Xv} \right]_{ij}
 \end{align*}
 $$
 
-- 若$\uv \vv$为标量，则$\partial (\uv \vv) / \partial \xv$属于$\partial$标量 / $\partial$向量的情形，后面再讲
-- 若$\uv \vv$为矩阵，则$\partial (\uv \vv) / \partial \xv$就是我们不考虑的$\partial$矩阵 / $\partial$向量的情形
+$\partial (\uv^\top \vv) / \partial \xv$属于<span class="yellow">$\partial$标量 /$\partial$向量</span>的情形，后面再讲
 
 GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
