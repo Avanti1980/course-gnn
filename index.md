@@ -53,6 +53,10 @@
 
 </div>
 
+#### 参考资料
+
+[矩阵求导](2021/supp-matrix-calculus.html)
+
 #### 代码
 
 - 第贰讲：[文本特征提取](python/text-feat.ipynb)、[独热编码](python/one-hot-encoding.ipynb)、[缺失特征处理](python/missing-feat.ipynb)、[特征标准化](python/feat-scaler.ipynb)、[特征选择](python/feat-selection.ipynb)、[稀疏范数](python/sparse-norm.ipynb)、[PCA](python/pca.ipynb)、[随机投影](python/random-projection.ipynb)

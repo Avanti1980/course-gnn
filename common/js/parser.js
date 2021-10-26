@@ -23,6 +23,10 @@ module.exports = {
         /\$\$([\w\W]+?)\$\$\n/g,
         (whole, content) => '<p>\n$$' + content + '$$\n</p>\n'
       );
+      markdown = markdown.replace(
+        /我的批注/g,
+        (whole, content) => '<span class="yellow">:fa-weixin:</span>'
+      );
       return resolve(markdown);
     });
   },
