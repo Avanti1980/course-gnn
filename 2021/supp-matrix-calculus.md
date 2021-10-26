@@ -223,6 +223,16 @@ $$
 - $\ev_i$是第$i$个元素为$1$其余为$0$的向量
 - $\Ev_{ij}$是$(i,j)$处为$1$其余为$0$的矩阵
 
+<div class="bottom4"></div>
+
+对神经网络第$l$层$\zv_l = \Wv_l ~ \av_{l-1} + \bv_l$，易知有
+
+$$
+\begin{align*}
+    \frac{\partial \zv_l}{\partial \bv_l} = \frac{\partial \bv_l}{\partial \bv_l} = \Iv
+\end{align*}
+$$
+
 GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="这里可以假设l=1，借此说一下分母布局会导致链式法则顺序反过来" -->
@@ -457,7 +467,7 @@ GNN-HEADER 大纲
 
 GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
-<!-- slide vertical=true data-notes="" -->
+<!-- slide vertical=true data-notes="注意第一项是标量乘以雅可比矩阵，第二项是列向量乘以行向量" -->
 
 GNN-HEADER 向量对向量求导
 
@@ -470,6 +480,10 @@ $$
 \end{align*}
 $$
 
+对神经网络第$l$层$\zv_l = \Wv_l ~ \av_{l-1} + \bv_l$，易知有$\frac{\partial \zv_l}{\partial \av_{l-1}} = \frac{\partial (\Wv_l ~ \av_{l-1})}{\partial \av_{l-1}} = \Wv_l$
+
+<div class="bottom2"></div>
+
 若$v = v(\xv)$，则
 
 $$
@@ -478,8 +492,6 @@ $$
     & \Longrightarrow \class{blue}{\frac{\partial v \uv}{\partial \xv} = v \frac{\partial \uv}{\partial \xv} + \uv \frac{\partial v}{\partial \xv}}
 \end{align*}
 $$
-
-注意第一项是标量乘以雅可比矩阵，第二项是列向量乘以行向量
 
 GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
@@ -722,6 +734,510 @@ $$
 $$
 \begin{align*}
     \frac{\partial e^{x \Av}}{\partial x} = \Av e^{x \Av} = e^{x \Av} \Av
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide data-notes="" -->
+
+GNN-HEADER 大纲
+
+<div class="sparse">
+
+向量对标量求导
+
+标量对向量求导
+
+向量对向量求导
+
+矩阵对标量求导
+
+<span class="blue">标量对矩阵求导</span>
+
+</div>
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 迹对矩阵求导
+
+矩阵常见的标量函数有<span class="blue">迹</span>和<span class="blue">行列式</span>，二次型可以归为迹来处理
+
+若$a$与$\Xv$无关，$\Uv = \Uv(\Xv)$，$\Vv = \Vv(\Xv)$，则以下结论是显然的：
+
+$$
+\begin{align*}
+    \frac{\partial \tr(\Xv)}{\partial \Xv} = \Iv, ~ \frac{\partial \tr(\Uv+\Vv)}{\partial \Xv} = \frac{\partial \tr(\Uv)}{\partial \Xv} + \frac{\partial \tr(\Vv)}{\partial \Xv}, ~ \frac{\partial \tr(a \Uv)}{\partial \Xv} = a \frac{\partial \tr(\Uv)}{\partial \Xv}
+\end{align*}
+$$
+
+对于乘积有
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \tr(\Uv \Vv)}{\partial \Xv} \right]_{ij} & = \class{blue}{\frac{\partial \tr(\Uv \Vv)}{\partial x_{ji}}} = \sum_p \sum_q \left( \frac{\partial u_{pq}}{\partial x_{ji}} v_{qp} + u_{pq} \frac{\partial v_{qp}}{\partial x_{ji}} \right) \\
+    & = \class{blue}{\tr \left( \frac{\partial \Uv}{\partial x_{ji}} \Vv \right) + \tr \left( \Uv \frac{\partial \Vv}{\partial x_{ji}} \right)} = \tr \left( \frac{\partial \Uv \Vv}{\partial x_{ji}} \right)
+\end{align*}
+$$
+
+由此可知<span class="blue">迹和求导的顺序可以交换</span>
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 迹对矩阵求导
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \tr(\Uv \Vv)}{\partial \Xv} \right]_{ij} = \frac{\partial \tr(\Uv \Vv)}{\partial x_{ji}} = \tr \left( \frac{\partial \Uv \Vv}{\partial x_{ji}} \right)
+\end{align*}
+$$
+
+取$\Uv = \Bv \Av$与$\Xv$无关，$\Vv = \Xv$，则
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \tr(\Bv \Av \Xv)}{\partial \Xv} \right]_{ij} & = \tr \left( \Bv \Av \frac{\partial \Xv}{\partial x_{ji}} \right) = \tr ( \Bv \Av \Ev_{ji} ) = [\Bv \Av]_{ij} \\
+    & \Longrightarrow \frac{\partial \tr(\Bv \Av \Xv)}{\partial \Xv} = \frac{\partial \tr(\Av \Xv \Bv)}{\partial \Xv} = \frac{\partial \tr(\Xv \Bv \Av)}{\partial \Xv} = \Bv \Av
+\end{align*}
+$$
+
+取$\Uv = \Bv \Av$与$\Xv$无关，$\Vv = \Xv^\top$，则
+
+$$
+\begin{align*}
+    \frac{\partial \tr(\Av \Xv^\top \Bv)}{\partial \Xv} = \frac{\partial \tr(\Xv^\top \Bv \Av)}{\partial \Xv} = \frac{\partial \tr(\Bv \Av \Xv^\top)}{\partial \Xv} = \frac{\partial \tr(\Xv \Av^\top \Bv^\top)}{\partial \Xv} = \Av^\top \Bv^\top
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide data-notes="" -->
+
+GNN-HEADER 迹对矩阵求导
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \tr(\Uv \Vv)}{\partial \Xv} \right]_{ij} = \frac{\partial \tr(\Uv \Vv)}{\partial x_{ji}} = \tr \left( \frac{\partial \Uv \Vv}{\partial x_{ji}} \right)
+\end{align*}
+$$
+
+取$\Uv = \Av$与$\Xv$无关，$\Vv = \Xv \Xv^\top$，则
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \tr(\Av \Xv \Xv^\top)}{\partial \Xv} \right]_{ij} & = \tr \left( \Av \frac{\partial \Xv \Xv^\top}{\partial x_{ji}} \right) = \tr \left( \Av \frac{\partial \Xv}{\partial x_{ji}} \Xv^\top \right) + \tr \left( \Av \Xv \frac{\partial \Xv^\top}{\partial x_{ji}} \right) \\
+    & = \tr(\Av \Ev_{ji} \Xv^\top) + \tr(\Av \Xv \Ev_{ij}) \\
+    & = [\Xv^\top \Av]_{ij} + [\Av \Xv]_{ji}
+\end{align*}
+$$
+
+从而
+
+$$
+\begin{align*}
+    \frac{\partial \tr(\Av \Xv \Xv^\top)}{\partial \Xv} & = \frac{\partial \tr(\Xv^\top \Av \Xv)}{\partial \Xv} = \frac{\partial \tr(\Xv \Xv^\top \Av)}{\partial \Xv} \\
+    & = \Xv^\top \Av + \Xv^\top \Av^\top = \Xv^\top (\Av + \Av^\top)
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 迹对矩阵求导
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \tr(\Uv \Vv)}{\partial \Xv} \right]_{ij} = \frac{\partial \tr(\Uv \Vv)}{\partial x_{ji}} = \tr \left( \frac{\partial \Uv \Vv}{\partial x_{ji}} \right)
+\end{align*}
+$$
+
+取$\Uv = \Av$与$\Xv$无关，$\Vv = \Xv^\top \Xv$，则
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \tr(\Av \Xv^\top \Xv)}{\partial \Xv} \right]_{ij} & = \tr \left( \Av \frac{\partial \Xv^\top \Xv}{\partial x_{ji}} \right) = \tr \left( \Av \frac{\partial \Xv^\top}{\partial x_{ji}} \Xv \right) + \tr \left( \Av \Xv^\top \frac{\partial \Xv}{\partial x_{ji}} \right) \\
+    & = \tr(\Av \Ev_{ij} \Xv) + \tr(\Av \Xv^\top \Ev_{ji}) \\
+    & = [\Xv \Av]_{ji} + [\Av \Xv^\top]_{ij}
+\end{align*}
+$$
+
+从而
+
+$$
+\begin{align*}
+    \frac{\partial \tr(\Av \Xv^\top \Xv)}{\partial \Xv} = \frac{\partial \tr(\Xv \Av \Xv^\top)}{\partial \Xv} = \frac{\partial \tr(\Xv^\top \Xv \Av)}{\partial \Xv} = (\Av + \Av^\top) \Xv^\top
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="本页最后一个式子解决了极大似然里的问题" -->
+
+GNN-HEADER 迹对矩阵求导
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \tr(\Uv \Vv)}{\partial \Xv} \right]_{ij} = \frac{\partial \tr(\Uv \Vv)}{\partial x_{ji}} = \tr \left( \frac{\partial \Uv \Vv}{\partial x_{ji}} \right)
+\end{align*}
+$$
+
+取$\Uv = \Bv \Av$与$\Xv$无关，$\Vv = \Xv^{-1}$，结合
+
+$$
+\begin{align*}
+    \frac{\partial \Uv^{-1}}{\partial x} = - \Uv^{-1} \frac{\partial \Uv}{\partial x} \Uv^{-1}
+\end{align*}
+$$
+
+可得
+
+$$
+\begin{align*}
+    & \left[ \frac{\partial \tr(\Bv \Av \Xv^{-1})}{\partial \Xv} \right]_{ij} = \tr \left( \Bv \Av \frac{\partial \Xv^{-1}}{\partial x_{ji}} \right) = \tr \left( - \Bv \Av \Xv^{-1} \frac{\partial \Xv}{\partial x_{ji}} \Xv^{-1} \right) \\
+    & \quad = - \tr \left( \Xv^{-1} \Bv \Av \Xv^{-1} \Ev_{ji} \right) = - [\Xv^{-1} \Bv \Av \Xv^{-1}]_{ij} \\
+    & \quad \Longrightarrow \frac{\partial \tr(\Bv \Av \Xv^{-1})}{\partial \Xv} = \frac{\partial \tr(\Av \Xv^{-1} \Bv)}{\partial \Xv} = \frac{\partial \tr(\Xv^{-1} \Bv \Av)}{\partial \Xv} = - \Xv^{-1} \Bv \Av \Xv^{-1}
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide data-notes="" -->
+
+GNN-HEADER 迹对矩阵求导
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \tr(\Uv \Vv)}{\partial \Xv} \right]_{ij} = \frac{\partial \tr(\Uv \Vv)}{\partial x_{ji}} = \tr \left( \frac{\partial \Uv \Vv}{\partial x_{ji}} \right)
+\end{align*}
+$$
+
+取$\Uv = \Iv$，$\Vv = (\Xv + \Av)^{-1}$，结合$\frac{\partial \Uv^{-1}}{\partial x} = - \Uv^{-1} \frac{\partial \Uv}{\partial x} \Uv^{-1}$可得
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \tr(\Xv + \Av)^{-1}}{\partial \Xv} \right]_{ij} & = \tr \left( \frac{\partial (\Xv + \Av)^{-1}}{\partial x_{ji}} \right) \\
+    & = - \tr \left( (\Xv + \Av)^{-1} \frac{\partial (\Xv + \Av)}{\partial x_{ji}} (\Xv + \Av)^{-1} \right) \\
+    & = - \tr \left( (\Xv + \Av)^{-1} (\Xv + \Av)^{-1} \Ev_{ji}  \right) \\
+    & = - [(\Xv + \Av)^{-1} (\Xv + \Av)^{-1}]_{ij} \\
+    & \Longrightarrow \frac{\partial \tr(\Xv + \Av)^{-1}}{\partial \Xv} = - (\Xv + \Av)^{-1} (\Xv + \Av)^{-1}
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 迹对矩阵求导
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \tr(\Uv \Vv)}{\partial \Xv} \right]_{ij} = \frac{\partial \tr(\Uv \Vv)}{\partial x_{ji}} = \tr \left( \frac{\partial \Uv \Vv}{\partial x_{ji}} \right)
+\end{align*}
+$$
+
+取$\Uv = \Av \Xv \Bv$，$\Vv = \Xv^\top \Cv$，其中$\Av$、$\Bv$、$\Cv$与$\Xv$无关，则
+
+$$
+\begin{align*}
+    & \left[ \frac{\partial \tr(\Av \Xv \Bv \Xv^\top \Cv)}{\partial \Xv} \right]_{ij} = \tr \left( \frac{\partial \Av \Xv \Bv}{\partial x_{ji}} \Xv^\top \Cv \right) + \tr \left( \Av \Xv \Bv \frac{\partial \Xv^\top \Cv}{\partial x_{ji}} \right) \\
+    & \qquad = \tr \left( \Av \Ev_{ji} \Bv \Xv^\top \Cv \right) + \tr \left( \Av \Xv \Bv \Ev_{ij} \Cv \right) = [\Bv \Xv^\top \Cv \Av]_{ij} + [\Cv \Av \Xv \Bv]_{ji} \\
+    & \qquad \Longrightarrow \frac{\partial \tr(\Av \Xv \Bv \Xv^\top \Cv)}{\partial \Xv} = \Bv \Xv^\top \Cv \Av + \Bv^\top \Xv^\top \Av^\top \Cv^\top
+\end{align*}
+$$
+
+令$\Xv \leftarrow \Xv^\top$，于是只需对结果取转置即有
+
+$$
+\begin{align*}
+    \frac{\partial \tr(\Av \Xv^\top \Bv \Xv \Cv)}{\partial \Xv} = \Cv \Av \Xv^\top \Bv + \Av^\top \Cv^\top \Xv^\top \Bv^\top
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 迹对矩阵求导
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \tr(\Uv \Vv)}{\partial \Xv} \right]_{ij} = \frac{\partial \tr(\Uv \Vv)}{\partial x_{ji}} = \tr \left( \frac{\partial \Uv \Vv}{\partial x_{ji}} \right)
+\end{align*}
+$$
+
+取$\Uv = \Av \Xv \Bv$，$\Vv = \Xv^\top \Cv$，其中$\Av$、$\Bv$、$\Cv$与$\Xv$无关，则
+
+$$
+\begin{align*}
+    & \left[ \frac{\partial \tr(\Av \Xv \Bv \Xv^\top \Cv)}{\partial \Xv} \right]_{ij} = \tr \left( \frac{\partial \Av \Xv \Bv}{\partial x_{ji}} \Xv^\top \Cv \right) + \tr \left( \Av \Xv \Bv \frac{\partial \Xv^\top \Cv}{\partial x_{ji}} \right) \\
+    & \qquad = \tr \left( \Av \Ev_{ji} \Bv \Xv^\top \Cv \right) + \tr \left( \Av \Xv \Bv \Ev_{ij} \Cv \right) = [\Bv \Xv^\top \Cv \Av]_{ij} + [\Cv \Av \Xv \Bv]_{ji} \\
+    & \qquad \Longrightarrow \frac{\partial \tr(\Av \Xv \Bv \Xv^\top \Cv)}{\partial \Xv} = \Bv \Xv^\top \Cv \Av + \Bv^\top \Xv^\top \Av^\top \Cv^\top
+\end{align*}
+$$
+
+令$\Xv \leftarrow \Xv^\top$，于是只需对结果取转置即有
+
+$$
+\begin{align*}
+    \frac{\partial \tr(\Av \Xv^\top \Bv \Xv \Cv)}{\partial \Xv} = \Cv \Av \Xv^\top \Bv + \Av^\top \Cv^\top \Xv^\top \Bv^\top
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide data-notes="" -->
+
+GNN-HEADER 迹对矩阵求导
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \tr(\Uv \Vv)}{\partial \Xv} \right]_{ij} = \frac{\partial \tr(\Uv \Vv)}{\partial x_{ji}} = \tr \left( \frac{\partial \Uv \Vv}{\partial x_{ji}} \right)
+\end{align*}
+$$
+
+取$\Uv = \Bv \Av$与$\Xv$无关，$\Vv = \Xv^n$，其中$n$是正整数，于是
+
+$$
+\begin{align*}
+    & \left[ \frac{\partial \tr(\Bv \Av \Xv^n)}{\partial \Xv} \right]_{ij} = \tr \left( \Bv \Av \frac{\partial \Xv^n}{\partial x_{ji}} \right) = \tr \left( \Bv \Av \sum_{k \in [n]} \Xv^{k-1} \frac{\partial \Xv}{\partial x_{ji}} \Xv^{n-k} \right) \\
+    & ~ = \sum_{k \in [n]} \tr \left( \Bv \Av \Xv^{k-1} \frac{\partial \Xv}{\partial x_{ji}} \Xv^{n-k} \right) \\
+    & ~ = \sum_{k \in [n]} \tr ( \Xv^{n-k} \Bv \Av \Xv^{k-1} \Ev_{ji} ) = \sum_{k \in [n]} [\Xv^{n-k} \Bv \Av \Xv^{k-1}]_{ij} \\
+    & ~ \Longrightarrow \frac{\partial \tr(\Bv \Av \Xv^n)}{\partial \Xv} = \frac{\partial \tr(\Av \Xv^n \Bv)}{\partial \Xv} = \frac{\partial \tr(\Xv^n \Bv \Av)}{\partial \Xv} = \sum_{k \in [n]} \Xv^{n-k} \Bv \Av \Xv^{k-1}
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 迹对矩阵求导
+
+$$
+\begin{align*}
+    \frac{\partial \tr(\Bv \Av \Xv^n)}{\partial \Xv} = \frac{\partial \tr(\Av \Xv^n \Bv)}{\partial \Xv} = \frac{\partial \tr(\Xv^n \Bv \Av)}{\partial \Xv} = \sum_{k \in [n]} \Xv^{n-k} \Bv \Av \Xv^{k-1}
+\end{align*}
+$$
+
+进一步若$\Av = \Bv = \Iv$，则
+
+$$
+\begin{align*}
+    \frac{\partial \tr(\Xv^n)}{\partial \Xv} = \sum_{k \in [n]} \Xv^{n-k} \Xv^{k-1} = \sum_{k \in [n]} \Xv^{n-1} = n \Xv^{n-1}
+\end{align*}
+$$
+
+不难发现形式上和单变量求导公式是一样的，类似的记
+
+$$
+\begin{align*}
+    e^{\Xv}  & = \Iv + \Xv + \frac{\Xv^2}{2!} + \frac{\Xv^3}{3!} + \cdots              \\
+    \sin \Xv & = \Xv - \frac{\Xv^3}{3!} + \frac{\Xv^5}{5!} - \cdots, \quad \cos \Xv = \Iv - \frac{\Xv^2}{2!} + \frac{\Xv^4}{4!} - \frac{\Xv^6}{6!} + \cdots
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 迹对矩阵求导
+
+$$
+\begin{align*}
+    \frac{\partial \tr(e^{\Xv})}{\partial \Xv} & = \frac{\partial }{\partial \Xv} \tr \left( \Iv + \Xv + \frac{\Xv^2}{2!} + \frac{\Xv^3}{3!} + \cdots \right) \\
+    & = \frac{\partial \tr (\Iv)}{\partial \Xv} + \frac{\partial \tr (\Xv)}{\partial \Xv} + \frac{1}{2!} \frac{\partial \tr (\Xv^2)}{\partial \Xv} + \frac{1}{3!} \frac{\partial \tr (\Xv^3)}{\partial \Xv} + \cdots \\
+    & = \Iv + \Xv + \frac{\Xv^2}{2!} + \cdots = e^{\Xv} \\
+    \frac{\partial \tr(\sin \Xv)}{\partial \Xv} & = \frac{\partial }{\partial \Xv} \tr \left( \Xv - \frac{\Xv^3}{3!} + \frac{\Xv^5}{5!} - \cdots \right) \\
+    & = \Iv - \frac{\Xv^2}{2!} + \frac{\Xv^4}{4!} - \cdots = \cos \Xv \\
+    \frac{\partial \tr(\cos \Xv)}{\partial \Xv} & = \frac{\partial }{\partial \Xv} \tr \left( \Iv - \frac{\Xv^2}{2!} + \frac{\Xv^4}{4!} - \frac{\Xv^6}{6!} + \cdots \right) \\
+    & = - \Xv + \frac{\Xv^3}{3!} - \frac{\Xv^5}{5!} + \cdots = - \sin \Xv
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 迹对矩阵求导
+
+$$
+\begin{align*}
+    \left[ \frac{\partial \tr(\Uv \Vv)}{\partial \Xv} \right]_{ij} = \frac{\partial \tr(\Uv \Vv)}{\partial x_{ji}} = \tr \left( \frac{\partial \Uv \Vv}{\partial x_{ji}} \right)
+\end{align*}
+$$
+
+取$\Uv = \Iv$，$\Vv = \Av \otimes \Xv$，则
+
+$$
+\begin{align*}
+    & \left[ \frac{\partial \tr(\Av \otimes \Xv)}{\partial \Xv} \right]_{ij} = \tr \left( \frac{\partial \Av \otimes \Xv}{\partial x_{ji}} \right) = \tr \left( \Av \otimes \frac{\partial \Xv}{\partial x_{ji}} \right) \\
+    & ~ = \tr ( \Av \otimes \Ev_{ji} ) = \tr(\Av) \delta_{ij} \Longrightarrow \frac{\partial \tr(\Av \otimes \Xv)}{\partial \Xv} = \tr(\Av) \Iv
+\end{align*}
+$$
+
+取$\Uv = \Iv$，$\Vv = \Xv \otimes \Xv$，则
+
+$$
+\begin{align*}
+    & \left[ \frac{\partial \tr(\Xv \otimes \Xv)}{\partial \Xv} \right]_{ij} = \tr \left( \frac{\partial \Xv \otimes \Xv}{\partial x_{ji}} \right) = \tr \left( \frac{\partial \Xv}{\partial x_{ji}} \otimes \Xv + \Xv \otimes \frac{\partial \Xv}{\partial x_{ji}} \right) \\
+    & ~ = \tr ( \Ev_{ji} \otimes \Xv ) + \tr ( \Xv \otimes \Ev_{ji} ) = 2 \tr(\Xv) \delta_{ij} \Longrightarrow \frac{\partial \tr(\Xv \otimes \Xv)}{\partial \Xv} = 2 \tr(\Xv) \Iv
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide data-notes="" -->
+
+GNN-HEADER 行列式对矩阵求导
+
+设$\Xv \in \Rbb^{m \times n}, \Av \in \Rbb^{l \times m}, \Bv \in \Rbb^{n \times l}, \Yv = \Av \Xv \Bv \in \Rbb^{l \times l}$，$\Av$、$\Bv$与$\Xv$无关
+
+$$
+\begin{align*}
+    \left[ \frac{\partial |\Av \Xv \Bv|}{\partial \Xv} \right]_{ij} = \frac{\partial |\Yv|}{\partial x_{ji}} = \sum_p \sum_q \frac{\partial |\Yv|}{\partial y_{pq}}\frac{\partial y_{pq}}{\partial x_{ji}} = \tr \left( \frac{\partial |\Yv|}{\partial \Yv} \frac{\partial \Yv}{\partial x_{ji}} \right)
+\end{align*}
+$$
+
+记$y_{ji}$有微小增量$\epsilon$后的矩阵为$\Yv(y_{ji} + \epsilon)$，根据第$j$行拉普拉斯展开
+
+$$
+\begin{align*}
+    |\Yv(y_{ji} + \epsilon)| - |\Yv| = \epsilon ~ C_{ji}
+\end{align*}
+$$
+
+其中$C_{ji}$是关于$y_{ji}$的<span class="blue">代数余子式</span>，于是
+
+$$
+\begin{align*}
+    \left[ \frac{\partial |\Yv|}{\partial \Yv} \right]_{ij} & = \frac{\partial |\Yv|}{\partial y_{ji}} = \lim_{\epsilon \rightarrow 0} \frac{|\Yv(y_{ji} + \epsilon)| - |\Yv|}{\epsilon} = C_{ji} ~ \Longrightarrow ~ \frac{\partial |\Yv|}{\partial \Yv} = \Yv^*
+\end{align*}
+$$
+
+其中$\Yv^*$是$\Yv$的<span class="blue">伴随矩阵</span> (adjugate matrix)
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 行列式对矩阵求导
+
+设$\Xv \in \Rbb^{m \times n}, \Av \in \Rbb^{l \times m}, \Bv \in \Rbb^{n \times l}, \Yv = \Av \Xv \Bv \in \Rbb^{l \times l}$，$\Av$、$\Bv$与$\Xv$无关
+
+$$
+\begin{align*}
+    \left[ \frac{\partial |\Av \Xv \Bv|}{\partial \Xv} \right]_{ij} = \frac{\partial |\Yv|}{\partial x_{ji}} = \sum_p \sum_q \frac{\partial |\Yv|}{\partial y_{pq}}\frac{\partial y_{pq}}{\partial x_{ji}} = \tr \left( \Yv^* \frac{\partial \Yv}{\partial x_{ji}} \right)
+\end{align*}
+$$
+
+又第二项
+
+$$
+\begin{align*}
+    \frac{\partial \Yv}{\partial x_{ji}} = \frac{\partial \Av \Xv \Bv}{\partial x_{ji}} = \Av \frac{\partial \Xv}{\partial x_{ji}} \Bv = \Av \Ev_{ji} \Bv
+\end{align*}
+$$
+
+代入可得
+
+$$
+\begin{align*}
+    \left[ \frac{\partial |\Av \Xv \Bv|}{\partial \Xv} \right]_{ij} & = \tr (\Yv^* \Av \Ev_{ji} \Bv) = [\Bv \Yv^* \Av]_{ij} \\
+    & \Longrightarrow \class{blue}{\frac{\partial |\Av \Xv \Bv|}{\partial \Xv} = \Bv (\Av \Xv \Bv)^* \Av}
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 行列式对矩阵求导
+
+设$\Xv \in \Rbb^{m \times n}, \Av \in \Rbb^{l \times m}, \Bv \in \Rbb^{n \times l}, \Yv = \Av \Xv \Bv \in \Rbb^{l \times l}$，$\Av$、$\Bv$与$\Xv$无关
+
+$$
+\begin{align*}
+    \class{blue}{\frac{\partial |\Av \Xv \Bv|}{\partial \Xv} = \Bv (\Av \Xv \Bv)^* \Av}
+\end{align*}
+$$
+
+若$\Xv, \Av, \Bv$均为可逆方阵，则$\Yv = \Av \Xv \Bv$亦为可逆方阵，于是
+
+$$
+\begin{align} \label{eq: determinant}
+    \frac{\partial |\Av \Xv \Bv|}{\partial \Xv} = \Bv (\Av \Xv \Bv)^* \Av = \Bv |\Av \Xv \Bv| (\Av \Xv \Bv)^{-1} \Av = |\Av \Xv \Bv| \Xv^{-1}
+\end{align}
+$$
+
+进一步若$\Av = \Bv = \Iv$，则$\frac{\partial |\Xv|}{\partial \Xv} = \Xv^* = |\Xv| \Xv^{-1}$，由此可得
+
+$$
+\begin{align*}
+    \frac{\partial |\Xv^n|}{\partial \Xv} = \frac{\partial |\Xv|^n}{\partial \Xv} = n |\Xv|^{n-1} \Xv^* = n |\Xv|^n \Xv^{-1} = n |\Xv^n| \Xv^{-1}
+\end{align*}
+$$
+
+若$a$与$\Xv$无关，则$\frac{\partial \ln |a \Xv|}{\partial \Xv} = \frac{\partial \ln a^m |\Xv|}{\partial \Xv} = \frac{\partial \ln |\Xv|}{\partial \Xv} = \frac{1}{|\Xv|} \frac{\partial |\Xv|}{\partial \Xv} = \frac{\Xv^*}{|\Xv|} = \Xv^{-1}$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 行列式对矩阵求导
+
+设$\Xv \in \Rbb^{m \times n}, \Av \in \Rbb^{m \times m}, \Yv = \Xv^\top \Av \Xv \in \Rbb^{n \times n}$可逆，$\Av$与$\Xv$无关，易知
+
+$$
+\begin{align*}
+    & \left[ \frac{\partial |\Xv^\top \Av \Xv|}{\partial \Xv} \right]_{ij} = \tr \left( \frac{\partial |\Xv^\top \Av \Xv|}{\partial \Yv} \frac{\partial \Yv}{\partial x_{ji}} \right) = \tr \left( \Yv^* \frac{\partial \Xv^\top \Av \Xv}{\partial x_{ji}} \right) \\
+    & = \tr \left( \Yv^* \frac{\partial \Xv^\top}{\partial x_{ji}} \Av \Xv \right) + \tr \left( \Yv^* \Xv^\top \Av \frac{\partial \Xv}{\partial x_{ji}} \right) \\
+    & = \tr ( \Yv^* \Ev_{ij} \Av \Xv ) + \tr ( \Yv^* \Xv^\top \Av \Ev_{ji} ) = [\Av \Xv \Yv^*]_{ji} + [\Yv^* \Xv^\top \Av]_{ij}
+\end{align*}
+$$
+
+于是
+
+$$
+\begin{align*}
+    \frac{\partial |\Xv^\top \Av \Xv|}{\partial \Xv} & = (\Av \Xv \Yv^*)^\top + \Yv^* \Xv^\top \Av \\
+    & = (\Av \Xv |\Xv^\top \Av \Xv| (\Xv^\top \Av \Xv)^{-1})^\top + |\Xv^\top \Av \Xv| (\Xv^\top \Av \Xv)^{-1} \Xv^\top \Av \\
+    & = |\Xv^\top \Av \Xv| (\Xv^\top \Av^\top \Xv)^{-1} \Xv^\top \Av^\top + |\Xv^\top \Av \Xv| (\Xv^\top \Av \Xv)^{-1} \Xv^\top \Av \\
+    & = |\Xv^\top \Av \Xv| ((\Xv^\top \Av^\top \Xv)^{-1} \Xv^\top \Av^\top + (\Xv^\top \Av \Xv)^{-1} \Xv^\top \Av)
+\end{align*}
+$$
+
+GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+
+<!-- slide vertical=true data-notes="" -->
+
+GNN-HEADER 行列式对矩阵求导
+
+如果$\Av$对称，则
+
+$$
+\begin{align*}
+    \frac{\partial |\Xv^\top \Av \Xv|}{\partial \Xv} = 2 |\Xv^\top \Av \Xv| (\Xv^\top \Av \Xv)^{-1} \Xv^\top \Av
+\end{align*}
+$$
+
+若$\Xv$、$\Av$是方阵，则其均可逆，于是
+
+$$
+\begin{align*}
+    \frac{\partial |\Xv^\top \Av \Xv|}{\partial \Xv} = 2 |\Xv^\top| |\Av| |\Xv| \Xv^{-1} \Av^{-1} \Xv^{-\top} \Xv^\top \Av = 2 |\Xv|^2 |\Av| \Xv^{-1}
+\end{align*}
+$$
+
+若$\Av = \Iv$，则
+
+$$
+\begin{align*}
+    \frac{\partial |\Xv^\top \Xv|}{\partial \Xv} & = 2 |\Xv^\top \Xv| (\Xv^\top \Xv)^{-1} \Xv^\top = 2 |\Xv^\top \Xv| \Xv^\dagger \\
+    \frac{\partial \ln |\Xv^\top \Xv|}{\partial \Xv} & = \frac{1}{|\Xv^\top \Xv|} \frac{\partial |\Xv^\top \Xv|}{\partial \Xv} = 2 \Xv^\dagger
 \end{align*}
 $$
 
