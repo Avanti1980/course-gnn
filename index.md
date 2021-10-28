@@ -40,12 +40,14 @@
 |   ^    |              ^              | 4. 一阶优化算法：梯度下降，随机梯度下降，加速梯度下降     |
 |   ^    |              ^              | 5. 回归模型：线性回归，岭回归，LASSO，支持向量回归        |
 |   ^    |              ^              | 6. 分类模型：感知机，支持向量机，对数几率回归，神经网络   |
-| 第肆讲 |  [神经网络](2021/04.html)   | 1. 神经网络发展史，神经元和神经网络的基本概念和形式化     |
+| 第肆讲 | [神经网络 上](2021/04.html) | 1. 神经网络发展史，神经元和神经网络的基本概念和形式化     |
 |   ^    |              ^              | 2. 激活函数：Sigmoid 型、ReLU 族、Swish 函数、Maxout 单元 |
 |   ^    |              ^              | 3. 反向传播 (BP) 算法的推导，梯度消失，残差网络           |
 |   ^    |              ^              | 4. 优化算法：步长衰减、步长预热、周期性步长、自适应步长   |
 |   ^    |              ^              | 5. 训练技巧：初始化、归一化、超参数选择、dropout、mixup   |
-| 第伍讲 |              -              | -                                                         |
+| 第伍讲 | [神经网络 下](2021/05.html) | 1. 卷积神经网络：局部连接，权值共享，降低模型复杂度       |
+|   ^    |              ^              | 2. 窄、宽、等宽卷积，长度、步长、补零，微步、空洞卷积     |
+|   ^    |              ^              | 3. 经典网络结构：LeNet-5、AlexNet、Inception、GoogLeNet   |
 | 第陆讲 |              -              | -                                                         |
 | 第柒讲 |              -              | -                                                         |
 | 第捌讲 |              -              | -                                                         |
@@ -61,4 +63,5 @@
 
 - 第贰讲：[文本特征提取](python/text-feat.ipynb)、[独热编码](python/one-hot-encoding.ipynb)、[缺失特征处理](python/missing-feat.ipynb)、[特征标准化](python/feat-scaler.ipynb)、[特征选择](python/feat-selection.ipynb)、[稀疏范数](python/sparse-norm.ipynb)、[PCA](python/pca.ipynb)、[随机投影](python/random-projection.ipynb)
 - 第叁讲：[二分类示例](python/binary-classif.ipynb)、[多分类示例](python/multi-classif.ipynb)、[k 均值聚类](python/clustering.ipynb)、[密度估计](python/density-estimation.ipynb)、[梯度下降](gradient-descent.ipynb)、[动量法](python/momentum.ipynb)
-- 第肆讲：[用 tensorflow 实现神经网络学习乳腺癌数据](python/dnn-wdbc.ipynb)，数据集来自[ UCI 数据集网站](<https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)>)
+- 第肆讲：[用 tensorflow 实现全连接网络学习乳腺癌数据](python/dnn-wdbc.ipynb)，数据集来自[ UCI 数据集网站](<https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)>)
+- 第伍讲：[用 tensorflow 实现卷积神经网络学习 mnist 手写数据集](python/cnn4mnist.ipynb)

@@ -1,0 +1,93 @@
+\documentclass{ctexart}
+\usepackage{avanti}
+\everymath{\color{Solarized-magenta}}
+\pagestyle{empty} % 没有页眉和页脚
+
+\tikzset{font=\normalsize}
+
+ % define the plot style and the axis style
+\tikzset{base/.style={smooth,thick,draw=Solarized-base01}}
+\tikzset{arrow/.style={->,>=stealth,base}}
+\tikzset{curve/.style={base,Solarized-blue}}
+\tikzset{nc/.style={circle, base}}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+    \node [inner sep=0pt] (tj) at (-5,0) {\includegraphics[width=.15\textwidth]{../common/img/tj.jpg}};
+    \node [Solarized-base01] at (-5,2.05) {输入图像};
+    \node [Solarized-base01] at (-5,1.55) {32×32};
+
+    \node [Solarized-base01] at (-2,1.8) {6@28×28};
+    \node [Solarized-base01] at (-2,2.3) {C1卷积层};
+    \foreach \i in {0,...,5}
+        {
+            \pgfmathtruncatemacro{\j}{Mod(\i,2)};
+            \ifthenelse{\j=0}
+            {
+                \draw [base,dotted,fill=Solarized-base2,opacity=0.5] (-3+0.25*\i,-0.5-0.25*\i) -- ++(2,0) -- ++(0,2) -- ++(-2,0) -- cycle;
+            }
+            {
+                \draw [base,dotted,fill=Solarized-cyan,opacity=0.5] (-3+0.25*\i,-0.5-0.25*\i) -- ++(2,0) -- ++(0,2) -- ++(-2,0) -- cycle;
+            }
+        }
+
+    \node [Solarized-base01] at (2.4,-2.1) {6@14×14};
+    \node [Solarized-base01] at (2.4,-1.6) {S2汇聚层};
+    \foreach \i in {0,...,5}
+        {
+            \pgfmathtruncatemacro{\j}{Mod(\i,2)};
+            \ifthenelse{\j=0}
+            {
+                \draw [base,dotted,fill=Solarized-base2,opacity=0.5] (0.7+0.25*\i,0-0.25*\i) -- ++(1,0) -- ++(0,1) -- ++(-1,0) -- cycle;
+            }
+            {
+                \draw [base,dotted,fill=Solarized-cyan,opacity=0.5] (0.7+0.25*\i,0-0.25*\i) -- ++(1,0) -- ++(0,1) -- ++(-1,0) -- cycle;
+            }
+        }
+
+    \node [Solarized-base01] at (3.5,1.5) {16@10×10};
+    \node [Solarized-base01] at (3.5,2.0) {C3卷积层};
+    \foreach \i in {0,...,15}
+        {
+            \pgfmathtruncatemacro{\j}{Mod(\i,2)};
+            \ifthenelse{\j=0}
+            {
+                \draw [base,dotted,fill=Solarized-base2,opacity=0.5] (3.2+0.15*\i,0.5-0.15*\i) -- ++(0.7,0) -- ++(0,0.7) -- ++(-0.7,0) -- cycle;
+            }
+            {
+                \draw [base,dotted,fill=Solarized-cyan,opacity=0.5] (3.2+0.15*\i,0.5-0.15*\i) -- ++(0.7,0) -- ++(0,0.7) -- ++(-0.7,0) -- cycle;
+            }
+        }
+
+    \node [Solarized-base01] at (7.4,-1.8) {16@5×5};
+    \node [Solarized-base01] at (7.4,-1.3) {S4汇聚层};
+    \foreach \i in {0,...,15}
+        {
+            \pgfmathtruncatemacro{\j}{Mod(\i,2)};
+            \ifthenelse{\j=0}
+            {
+                \draw [base,dotted,fill=Solarized-base2,opacity=0.5] (5.8+0.1*\i,0.5-0.1*\i) -- ++(0.35,0) -- ++(0,0.35) -- ++(-0.35,0) -- cycle;
+            }
+            {
+                \draw [base,dotted,fill=Solarized-cyan,opacity=0.5] (5.8+0.1*\i,0.5-0.1*\i) -- ++(0.35,0) -- ++(0,0.35) -- ++(-0.35,0) -- cycle;
+            }
+        }
+
+    \node [Solarized-base01] at (7.5,1.0) {C5卷积层};
+    \draw [base,fill=Solarized-cyan,opacity=0.5] (7.3,0.7) -- ++(0.3,0) -- ++(1.6,-1.6) -- ++(-0.3,0) -- cycle;
+
+    \node [Solarized-base01] at (10.3,-1.1) {F6全连接层};
+    \draw [base,fill=Solarized-cyan,opacity=0.5] (8.8,0.5) -- ++(0.3,0) -- ++(1.3,-1.3) -- ++(-0.3,0) -- cycle;
+
+    \node [Solarized-base01] at (10.5,0.6) {输出层};
+    \draw [base,fill=Solarized-cyan,opacity=0.5] (10.3,0.3) -- ++(0.3,0) -- ++(1.0,-1.0) -- ++(-0.3,0) -- cycle;
+
+\end{tikzpicture}
+
+
+
+
+\end{document}
+
