@@ -172,10 +172,11 @@ table {
   tbody tr:nth-child(10),
   tbody tr:nth-child(16),
   tbody tr:nth-child(21),
-  tbody tr:nth-child(24) {
+  tbody tr:nth-child(25),
+  tbody tr:nth-child(29) {
     border-bottom: 1px dashed var(--solarized-base01);
   }
-  tbody tr:nth-child(n + 26) {
+  tbody tr:nth-child(n + 30) {
     td:nth-last-child(1) {
       text-align: center !important;
     }

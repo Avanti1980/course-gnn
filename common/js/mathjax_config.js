@@ -204,8 +204,8 @@ module.exports = {
         "text-align": "left !important",
       },
       ".MathJax": {
-        "margin-left": "0.4rem !important",
-        "margin-right": "0.4rem !important",
+        "margin-left": "0.2rem !important",
+        "margin-right": "0rem !important",
         border: "0px solid #ccc !important",
         color: "#d33682",
       },
