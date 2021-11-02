@@ -65,7 +65,24 @@
 
 #### 代码
 
-- 第贰讲：[文本特征提取](python/text-feat.ipynb)、[独热编码](python/one-hot-encoding.ipynb)、[缺失特征处理](python/missing-feat.ipynb)、[特征标准化](python/feat-scaler.ipynb)、[特征选择](python/feat-selection.ipynb)、[稀疏范数](python/sparse-norm.ipynb)、[PCA](python/pca.ipynb)、[随机投影](python/random-projection.ipynb)
-- 第叁讲：[二分类示例](python/binary-classif.ipynb)、[多分类示例](python/multi-classif.ipynb)、[k 均值聚类](python/clustering.ipynb)、[密度估计](python/density-estimation.ipynb)、[梯度下降](python/gradient-descent.ipynb)、[动量法](python/momentum.ipynb)
-- 第肆讲：[用 tensorflow 实现全连接网络学习乳腺癌数据](python/dnn-wdbc.ipynb)，数据集来自[ UCI 数据集网站](<https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)>)
-- 第伍讲：[用 tensorflow 实现卷积神经网络识别 mnist 手写数字](python/cnn4mnist.ipynb)
+第贰讲：[文本特征提取](python/text-feat.ipynb)、[独热编码](python/one-hot-encoding.ipynb)、[缺失特征处理](python/missing-feat.ipynb)、[特征标准化](python/feat-scaler.ipynb)、[特征选择](python/feat-selection.ipynb)、[稀疏范数](python/sparse-norm.ipynb)、[PCA](python/pca.ipynb)、[随机投影](python/random-projection.ipynb)
+
+<br>
+
+第叁讲：[二分类示例](python/binary-classif.ipynb)、[多分类示例](python/multi-classif.ipynb)、[k 均值聚类](python/clustering.ipynb)、[密度估计](python/density-estimation.ipynb)、[梯度下降](python/gradient-descent.ipynb)、[动量法](python/momentum.ipynb)
+
+<br>
+
+第肆讲：[用 tensorflow 实现全连接网络学习乳腺癌数据](python/dnn-wdbc.py)，数据集来自[ UCI 数据集网站](<https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)>)
+
+<br>
+
+第伍讲：
+
+- [用 tensorflow 实现 LeNet-5 识别 mnist 手写数字](python/lenet5-mnist.py)
+- [用预训练的 Resnet50 预测图片类别](python/resnet50.py)
+- [提取预训练的 VGG16 最后一个卷积层的特征](python/vgg16.py)
+- [提取预训练的 VGG19 任意一层的特征](python/vgg19.py)
+- [在自己的数据上微调预训练好的 Inception V3](python/vgg19.py)
+
+第陆讲：[用 tensorflow 实现简单循环网络做 IMDB 情感分析](python/rnn4imdb.py)
