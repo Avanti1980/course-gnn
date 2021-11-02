@@ -73,7 +73,7 @@
 
 <br>
 
-第肆讲：[用 tensorflow 实现全连接网络学习乳腺癌数据](python/dnn-wdbc.py)，数据集来自[ UCI 数据集网站](<https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)>)
+第肆讲：[用 tensorflow 实现全连接网络学习乳腺癌数据](python/dnn-wdbc.py)
 
 <br>
 
