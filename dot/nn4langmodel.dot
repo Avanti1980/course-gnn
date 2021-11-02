@@ -1,0 +1,27 @@
+digraph g {
+    graph [nodesep=0.15 ranksep=0.4]
+    bgcolor=transparent
+    node [shape=circle color="#586e75" fontcolor="#586e75" fontsize=22 fontname="EBG,fzlz" label="" height=0.1]
+    edge [color="#586e75" fontcolor="#586e75" fontsize=18 fontname="EBG,fzlz" arrowhead=vee arrowsize=0.8]
+
+    rankdir=TB;
+    node [shape=record];
+    x1 [label="⬤⬤ • • • ⬤"];
+    x2 [label="⬤⬤ • • • ⬤"];
+    x3 [label="⬤⬤ • • • ⬤"];
+    x4 [label="⬤⬤ • • • ⬤"];
+
+    y1 [label="&nbsp; &nbsp; ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ &nbsp; • • • &nbsp; ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ &nbsp; &nbsp;"];
+
+    z1 [label="&nbsp; &nbsp; ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ &nbsp; • • • &nbsp; ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ &nbsp; &nbsp;"];
+
+    {x1,x2,x3,x4} -> y1
+
+    y1 -> z1 [label="&nbsp;activation"]
+
+    node [shape=plain]
+
+    output [label="output"]
+
+    z1 -> output [label="&nbsp;softmax"]
+}
