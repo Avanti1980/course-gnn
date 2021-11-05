@@ -1,27 +1,52 @@
 digraph g {
-    graph [nodesep=0.15 ranksep=0.4]
+    compound=true;
+    graph [nodesep=0.1 ranksep=0.6]
     bgcolor=transparent
-    node [shape=circle color="#586e75" fontcolor="#586e75" fontsize=22 fontname="EBG,fzlz" label="" height=0.1]
-    edge [color="#586e75" fontcolor="#586e75" fontsize=18 fontname="EBG,fzlz" arrowhead=vee arrowsize=0.8]
+    node [margin=0 shape=point height=0.27 color="#586e75" fontsize=20 label=""]
+    edge [color="#586e75" fontcolor="#586e75" fontsize=14 fontname="EBG,fzlz" arrowhead=vee arrowsize=0.6]
 
-    rankdir=TB;
-    node [shape=record];
-    x1 [label="⬤⬤ • • • ⬤"];
-    x2 [label="⬤⬤ • • • ⬤"];
-    x3 [label="⬤⬤ • • • ⬤"];
-    x4 [label="⬤⬤ • • • ⬤"];
+    subgraph clusterW1 {
+        color="#586e75"
+        rank=same {w11, w12, w13, w14, w15}
+    }
 
-    y1 [label="&nbsp; &nbsp; ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ &nbsp; • • • &nbsp; ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ &nbsp; &nbsp;"];
+    subgraph clusterW2 {
+        color="#586e75"
+        rank=same {w21, w22, w23, w24, w25}
+    }
 
-    z1 [label="&nbsp; &nbsp; ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ &nbsp; • • • &nbsp; ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ &nbsp; &nbsp;"];
+    subgraph clusterW3 {
+        color="#586e75"
+        rank=same {w31, w32, w33, w34, w35}
+    }
 
-    {x1,x2,x3,x4} -> y1
+    subgraph clusterW4 {
+        color="#586e75"
+        rank=same {w41, w42, w43, w44, w45}
+    }
 
-    y1 -> z1 [label="&nbsp;activation"]
+    subgraph clusterZ {
+        color="#586e75"
+        rank=same {z1, z2, z3, z4, z5, z6, z7}
+    }
 
-    node [shape=plain]
+    subgraph clusterA {
+        color="#586e75"
+        rank=same {a1, a2, a3, a4, a5, a6, a7}
+    }
 
-    output [label="output"]
+    w13 -> z3 [ltail=clusterW1, lhead=clusterZ]
+    w23 -> z4 [ltail=clusterW2, lhead=clusterZ]
+    w33 -> z4 [ltail=clusterW3, lhead=clusterZ]
+    w43 -> z5 [ltail=clusterW4, lhead=clusterZ]
 
-    z1 -> output [label="&nbsp;softmax"]
+    z4 -> a4 [label=" 激活 ", ltail=clusterZ, lhead=clusterA]
+
+    subgraph clusterP {
+        node [margin=0 shape=plain fontname="EBG,fzlz" fontcolor="#586e75" fontsize=16]
+        color="#586e75"
+        o [label="4个词的联合概率"]
+    }
+
+    a4 -> o [label=" softmax", ltail=clusterA, lhead=clusterP]
 }
