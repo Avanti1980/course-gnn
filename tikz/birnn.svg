@@ -6,7 +6,7 @@
    version="1.2"
    id="svg576"
    sodipodi:docname="birnn.svg"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -22,11 +22,11 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="pt"
      showgrid="false"
-     inkscape:zoom="0.82670455"
-     inkscape:cx="278.81787"
-     inkscape:cy="433.04467"
+     inkscape:zoom="0.68087121"
+     inkscape:cx="278.31989"
+     inkscape:cy="431.79972"
      inkscape:window-width="3840"
-     inkscape:window-height="2106"
+     inkscape:window-height="2346"
      inkscape:window-x="0"
      inkscape:window-y="54"
      inkscape:window-maximized="1"
@@ -190,7 +190,7 @@
     </g>
   </defs>
   <g
-     id="g1201"
+     id="g2016"
      transform="translate(-97.001385,-71.996025)">
     <path
        style="fill:#eee6d4;fill-opacity:1;fill-rule:nonzero;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
@@ -951,7 +951,7 @@
        id="use409"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <use
        xlink:href="#glyph4-1"
        x="347.50699"
@@ -959,7 +959,7 @@
        id="use411"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <use
        xlink:href="#glyph4-1"
        x="350.267"
@@ -967,7 +967,7 @@
        id="use413"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <use
        xlink:href="#glyph4-1"
        x="344.74701"
@@ -975,7 +975,7 @@
        id="use417"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <use
        xlink:href="#glyph4-1"
        x="347.50699"
@@ -983,7 +983,7 @@
        id="use419"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <use
        xlink:href="#glyph4-1"
        x="350.267"
@@ -991,7 +991,7 @@
        id="use421"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <use
        xlink:href="#glyph4-1"
        x="344.74701"
@@ -999,7 +999,7 @@
        id="use425"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <use
        xlink:href="#glyph4-1"
        x="347.50699"
@@ -1007,7 +1007,7 @@
        id="use427"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <use
        xlink:href="#glyph4-1"
        x="350.267"
@@ -1015,7 +1015,7 @@
        id="use429"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <use
        xlink:href="#glyph4-1"
        x="344.74701"
@@ -1023,7 +1023,7 @@
        id="use433"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <use
        xlink:href="#glyph4-1"
        x="347.50699"
@@ -1031,7 +1031,7 @@
        id="use435"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <use
        xlink:href="#glyph4-1"
        x="350.267"
@@ -1039,7 +1039,7 @@
        id="use437"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <use
        xlink:href="#glyph4-1"
        x="344.74701"
@@ -1047,7 +1047,7 @@
        id="use441"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <use
        xlink:href="#glyph4-1"
        x="347.50699"
@@ -1055,7 +1055,7 @@
        id="use443"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <use
        xlink:href="#glyph4-1"
        x="350.267"
@@ -1063,7 +1063,7 @@
        id="use445"
        width="100%"
        height="100%"
-       style="fill:#002835;fill-opacity:1" />
+       style="fill:#576e73;fill-opacity:1" />
     <path
        style="fill:#eee6d4;fill-opacity:1;fill-rule:nonzero;stroke:#576e73;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1"
        d="m 388.57422,265.15625 h 34.01562 v -22.67969 h -34.01562 z m 0,0"
