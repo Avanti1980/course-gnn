@@ -21,9 +21,11 @@
     \node [box] (a) at (0,1.5) {$\av$};
     \node [box2] (i) at (0,0) {$\xv$};
 
-    \draw [arrow] (i) -- (a);
+    \draw [arrow] (i) -- (a) node [midway, draw=none, left=2pt] {$\Wv$};
     \draw [arrow] (a) -- (o);
-    \path [arrow] (a) edge[out=45,in=315,looseness=8] (a);
+    \path [arrow] (a) edge[out=45,in=315,looseness=7] (a);
+
+    \draw node at (1.5,1.5) {$\Uv$};
 
     \foreach \i in {3,5,...,13}
         {
@@ -34,7 +36,7 @@
                 \node [box,draw=none] (a\index) at (\i,1.5) {...};
                 \node [box,draw=none] (x\index) at (\i,0) {...};
                 \pgfmathtruncatemacro{\im}{\index-1};
-                \draw [arrow] (a\im) -- (a\index);
+                \draw [arrow] (a\im) -- (a\index) node [midway, draw=none, above=2pt] {$\Uv$};
             }
             {
                 \ifthenelse{\i=13}
@@ -48,12 +50,12 @@
                     \node [box] (a\index) at (\i,1.5) {$\av_\index$};
                     \node [box2] (x\index) at (\i,0) {$\xv_\index$};
                 }
-                \draw [arrow] (x\index) -- (a\index);
+                \draw [arrow] (x\index) -- (a\index) node [midway, draw=none, left=2pt] {$\Wv$};
                 \draw [arrow] (a\index) -- (y\index);
                 \ifthenelse{\NOT 3 = \i}
                 {
                     \pgfmathtruncatemacro{\im}{\index-1};
-                    \draw [arrow] (a\im) -- (a\index);
+                    \draw [arrow] (a\im) -- (a\index) node [midway, draw=none, above=2pt] {$\Uv$};
                 }{;}
             }
         }

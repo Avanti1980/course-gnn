@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/Arch Linux) (preloaded format=xelatex 2021.7.13)  8 NOV 2021 01:57
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/Arch Linux) (preloaded format=xelatex 2021.5.27)  8 NOV 2021 20:34
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/avanti/Slides/Courses/GNN/tikz/gnn
-(/home/avanti/Slides/Courses/GNN/tikz/gnn.tex
+**/home/avanti/Slides/Courses/GNN/tikz/rnn-simple
+(/home/avanti/Slides/Courses/GNN/tikz/rnn-simple.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18> (/usr/share/texmf-dist/tex/latex/ctex/ctexart.cls (/usr/share/texmf-dist/tex/latex/ctex/config/ctexbackend.cfg
 File: ctexbackend.cfg 2021/03/14 v2.5.6 Backend configuration file (CTEX)
@@ -921,8 +921,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip79
 )
 \c@theorem=\count357
-) (./gnn.aux)
-\openout1 = `gnn.aux'.
+) (./rnn-simple.aux)
+\openout1 = `rnn-simple.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
@@ -1018,28 +1018,43 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 16.
 LaTeX Info: Redefining \pageref on input line 16.
 LaTeX Info: Redefining \nameref on input line 16.
- (./gnn.out) (./gnn.out)
+ (./rnn-simple.out) (./rnn-simple.out)
 \@outlinefile=\write5
-\openout5 = `gnn.out'.
+\openout5 = `rnn-simple.out'.
 
+LaTeX Font Info:    Trying to load font information for U+msa on input line 20.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Missing character: There is no ; ("3B) in font nullfont!
+Missing character: There is no ; ("3B) in font nullfont!
+Missing character: There is no ; ("3B) in font nullfont!
+Missing character: There is no ; ("3B) in font nullfont!
+Missing character: There is no ; ("3B) in font nullfont!
+Missing character: There is no ; ("3B) in font nullfont!
+Missing character: There is no ; ("3B) in font nullfont!
+Missing character: There is no ; ("3B) in font nullfont!
+Missing character: There is no ; ("3B) in font nullfont!
+Missing character: There is no ; ("3B) in font nullfont!
+Missing character: There is no ; ("3B) in font nullfont!
+Missing character: There is no ; ("3B) in font nullfont!
+ [1
 
-Overfull \hbox (33.41837pt too wide) in paragraph at lines 73--74
-[][] 
- []
-
-[1
-
-] (./gnn.aux)
-Package rerunfilecheck Info: File `gnn.out' has not changed.
+] (./rnn-simple.aux)
+Package rerunfilecheck Info: File `rnn-simple.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 41746 strings out of 476919
- 1003876 string characters out of 5827674
- 1486679 words of memory out of 5000000
- 60997 multiletter control sequences out of 15000+600000
- 405471 words of font info for 66 fonts, out of 8000000 for 9000
+ 41825 strings out of 476919
+ 1005015 string characters out of 5827674
+ 1495779 words of memory out of 5000000
+ 61044 multiletter control sequences out of 15000+600000
+ 412920 words of font info for 98 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 102i,5n,104p,795b,634s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 102i,5n,104p,802b,729s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on gnn.pdf (1 page).
+Output written on rnn-simple.pdf (1 page).

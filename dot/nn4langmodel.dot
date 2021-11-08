@@ -48,5 +48,5 @@ digraph g {
         o [label="4个词的联合概率"]
     }
 
-    a4 -> o [label=" softmax", ltail=clusterA, lhead=clusterP]
+    a4 -> o [label=" logistic", ltail=clusterA, lhead=clusterP]
 }
