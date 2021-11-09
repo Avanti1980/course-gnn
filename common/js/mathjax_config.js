@@ -146,7 +146,7 @@ module.exports = {
       st: "{\\mathrm {s.t.}}",
       VC: "{\\mathrm {VC}}",
       Pr: "{\\mathrm {Pr}}",
-      tanh: "{\\mathrm {Tanh}}",
+      tanh: "{\\mathrm {tanh}}",
       relu: "{\\mathrm {ReLU}}",
       lrelu: "{\\mathrm {LeakyReLU}}",
       prelu: "{\\mathrm {PReLU}}",

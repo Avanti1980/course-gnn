@@ -52,10 +52,8 @@
 | 第陆讲 | [循环神经网络](2021/06.html) | 1. 针对序列型数据，带有环路，网络具有短期记忆能力         |
 |   ^    |              ^               | 2. 三种模式：序列到类，同步的序列到序列，编码器-解码器    |
 |   ^    |              ^               | 3. 长程依赖问题：LSTM 网络，GRU 网络，深层循环网络        |
-|   ^    |              ^               | 4. 注意力机制：软注意力，键值对注意力，多头注意力         |
-| 第柒讲 |          图机器学习          | -                                                         |
-| 第捌讲 |              -               | -                                                         |
-| 第玖讲 |              -               | -                                                         |
+|   ^    |              ^               | 4. 注意力机制：键值对注意力，多头注意力，自注意力         |
+| 第柒讲 |          图神经网络          | -                                                         |
 
 </div>
 
@@ -65,11 +63,18 @@
 
 #### 代码
 
-第贰讲：[文本特征提取](python/text-feat.ipynb)、[独热编码](python/one-hot-encoding.ipynb)、[缺失特征处理](python/missing-feat.ipynb)、[特征标准化](python/feat-scaler.ipynb)、[特征选择](python/feat-selection.ipynb)、[稀疏范数](python/sparse-norm.ipynb)、[PCA](python/pca.ipynb)、[随机投影](python/random-projection.ipynb)
+第贰讲：
+
+- [文本特征提取](python/text-feat.ipynb)、[独热编码](python/one-hot-encoding.ipynb)、[缺失特征处理](python/missing-feat.ipynb)、[特征标准化](python/feat-scaler.ipynb)、[特征选择](python/feat-selection.ipynb)
+- [稀疏范数](python/sparse-norm.ipynb)、[PCA](python/pca.ipynb)、[随机投影](python/random-projection.ipynb)
 
 <br>
 
-第叁讲：[二分类示例](python/binary-classif.ipynb)、[多分类示例](python/multi-classif.ipynb)、[k 均值聚类](python/clustering.ipynb)、[密度估计](python/density-estimation.ipynb)、[梯度下降](python/gradient-descent.ipynb)、[动量法](python/momentum.ipynb)
+第叁讲：
+
+- [二分类示例](python/binary-classif.ipynb)、[多分类示例](python/multi-classif.ipynb)
+- [k 均值聚类](python/clustering.ipynb)、[密度估计](python/density-estimation.ipynb)
+- [梯度下降](python/gradient-descent.ipynb)、[动量法](python/momentum.ipynb)
 
 <br>
 
