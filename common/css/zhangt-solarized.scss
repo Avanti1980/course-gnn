@@ -47,11 +47,14 @@
   }
 }
 
-@for $i from -40 to 41 {
-  @each $direction in "left", "right", "top", "bottom" {
+@each $direction in "left", "right", "top", "bottom" {
+  @for $i from -40 to 41 {
     .reveal .#{$direction}#{$i} {
       margin-#{$direction}: 0.5rem * $i;
     }
+  }
+  .reveal .#{$direction}a {
+    margin-#{$direction}: auto;
   }
 }
 
@@ -61,6 +64,9 @@
   }
   .reveal .height#{$i} {
     width: 1% * $i;
+  }
+  .reveal .top-#{$i}per {
+    margin-top: -$i * 1%;
   }
 }
 
