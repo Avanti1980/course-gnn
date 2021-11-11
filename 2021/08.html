@@ -355,8 +355,8 @@ $$
 
 <ul>
 <li><span class="mathjax-exps">$\update (\cdot)$</span>：用来更新当前点隐藏状态的可微函数</li>
-<li><span class="mathjax-exps">$\aggregate (\cdot)$</span>：用来聚合邻居信息的可微函数，其输入是一个集合 (平移等价性)</li>
-<li><span class="mathjax-exps">$\mv_{\Ncal(u)}^\sup{k}$</span>：点<span class="mathjax-exps">$u$</span>的所有邻居的信息聚合结果</li>
+<li><span class="mathjax-exps">$\aggregate (\cdot)$</span>：用来汇聚邻居信息的可微函数，其输入是一个集合 (平移等价性)</li>
+<li><span class="mathjax-exps">$\mv_{\Ncal(u)}^\sup{k}$</span>：点<span class="mathjax-exps">$u$</span>的所有邻居的信息汇聚结果</li>
 <li>如果点本身没有特征，可以用点层面的统计量作为特征</li>
 <li>GNN 一层可视为一轮消息传递，<span class="mathjax-exps">$K$</span>层即编码了所有<span class="mathjax-exps">$K$</span>阶邻居的信息</li>
 </ul>
@@ -527,7 +527,7 @@ $$
 </p><div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">图神经网络</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 </section><section><section data-notes="" lineno="192" class="slide " data-line="192" data-h="5" data-v="0">
 <div class="header"><img class="hust" src=""><div class="title"><hr class="hr_top"><h5>归一化</h5></div></div>
-<p>GNN 基本形式采用直接加和聚合邻居的信息</p>
+<p>GNN 基本形式采用直接加和汇聚邻居的信息</p>
 <br>
 <p>问题：对度数敏感，若<span class="mathjax-exps">$d_u \gg d_v$</span>，则<span class="mathjax-exps">$\| \sum_{w \in \Ncal(u)} \hv_w \| \gg \| \sum_{w \in \Ncal(v)} \hv_w \|$</span>，<span class="mathjax-exps">$u$</span>的信息可以“淹没”其它点的信息</p>
 <br>
@@ -623,7 +623,7 @@ $$
 $$
 </p>
 
-<p>进行信息聚合的 GNN 有<span class="mathjax-exps">$\ev^\top (\partial \hv_v^\sup{k} / \partial \hv_u^\sup{0}) \ev \propto p_K (u | v)$</span></p>
+<p>进行信息汇聚的 GNN 有<span class="mathjax-exps">$\ev^\top (\partial \hv_v^\sup{k} / \partial \hv_u^\sup{0}) \ev \propto p_K (u | v)$</span></p>
 <br>
 <p>当<span class="mathjax-exps">$K$</span>过大时，<span class="mathjax-exps">$p_K (u | v)$</span>即为随机游走的平稳分布，这意味着每个点的局部邻居信息已经完全丢失</p>
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">图神经网络</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
@@ -661,7 +661,7 @@ $$
 <div class="header"><img class="hust" src=""><div class="title"><hr class="hr_top"><h5>门机制</h5></div></div>
 <p>对于点<span class="mathjax-exps">$u$</span>：</p>
 <ul>
-<li>每轮聚合得到的邻居信息<span class="mathjax-exps">$\mv_{\Ncal(u)}^\sup{k}$</span>构成一个序列，可以看作 RNN 的输入<span class="mathjax-exps">$\xv^\sup{k}$</span></li>
+<li>每轮汇聚得到的邻居信息<span class="mathjax-exps">$\mv_{\Ncal(u)}^\sup{k}$</span>构成一个序列，可以看作 RNN 的输入<span class="mathjax-exps">$\xv^\sup{k}$</span></li>
 <li>每轮更新得到的嵌入表示<span class="mathjax-exps">$\hv_u^\sup{k}$</span>构成一个序列，可以看作 RNN 的隐藏状态</li>
 </ul>
 <p>
@@ -679,7 +679,7 @@ $$
 <p>权值共享</p>
 <ul>
 <li>在每个点上训练一个 RNN，不同点之间权值共享</li>
-<li>通常丹师们还会将 GNN 的聚合层也进行权值共享</li>
+<li>通常丹师们还会将 GNN 的汇聚层也进行权值共享</li>
 </ul>
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">图神经网络</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 </section><section vertical="true" data-notes="" lineno="410" class="slide " data-line="410" data-h="6" data-v="3">
@@ -704,7 +704,7 @@ $$
 </ul>
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">图神经网络</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 </section></section><section><section data-notes="" lineno="438" class="slide " data-line="438" data-h="7" data-v="0">
-<div class="header"><img class="hust" src=""><div class="title"><hr class="hr_top"><h5>多重关系图</h5></div></div>
+<div class="header"><img class="hust" src=""><div class="title"><hr class="hr_top"><h5>异构图</h5></div></div>
 <p>关系图卷积网络 (<strong>r</strong>elational <strong>g</strong>raph <strong>c</strong>onvolutional <strong>n</strong>etwork, RGCN)</p>
 <p>
 
@@ -734,8 +734,8 @@ $$
 </ul>
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">图神经网络</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 </section><section vertical="true" data-notes="" lineno="477" class="slide " data-line="477" data-h="7" data-v="1">
-<div class="header"><img class="hust" src=""><div class="title"><hr class="hr_top"><h5>多重关系图</h5></div></div>
-<p>RGCN 假设边的的特征是离散的，因此聚合可以采用直接求和的形式</p>
+<div class="header"><img class="hust" src=""><div class="title"><hr class="hr_top"><h5>加权图</h5></div></div>
+<p>RGCN 假设边的的特征是离散的，因此汇聚可以采用直接求和的形式</p>
 <br>
 <p>对于更一般形式的边的特征，可以和邻居的嵌入表示进行拼接</p>
 <p>
@@ -764,7 +764,7 @@ $$
 </p>
 
 <br>
-<p>事实上之前介绍的任意对邻居的聚合函数都可用过来</p>
+<p>事实上之前介绍的任意对邻居的汇聚函数都可用过来</p>
 <p>套用 LSTM 和注意力机制，初始化<span class="mathjax-exps">$\qv_0$</span>、<span class="mathjax-exps">$\ov_0$</span>为全零向量，对<span class="mathjax-exps">$t \in [T]$</span>有</p>
 <p>
 
@@ -806,7 +806,7 @@ $$
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">图神经网络</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 </section></section><section data-notes="" lineno="575" class="slide " data-line="575" data-h="9" data-v="0">
 <div class="header"><img class="hust" src=""><div class="title"><hr class="hr_top"><h5>一般形式的消息传递</h5></div></div>
-<p>之前介绍的聚合-更新基本模式可以进一步一般化</p>
+<p>之前介绍的汇聚-更新基本模式可以进一步一般化</p>
 <br>
 <p>引入边和图的嵌入表示</p>
 <p>
@@ -866,7 +866,7 @@ $$
 
 <p>其中<span class="mathjax-exps">$\wv_1, \ldots, \wv_C$</span>是待学习的参数</p>
 <br>
-<p>回归，训练数据为<span class="mathjax-exps">$(\Gcal_1, y_1), \ldots, (\Gcal_m, y_m)$</span>，类别标记<span class="mathjax-exps">$y_i \in \Rbb$</span>，损失采用平方损失函数</p>
+<p>回归，训练数据为<span class="mathjax-exps">$(\Gcal_1, y_1), \ldots, (\Gcal_m, y_m)$</span>，损失采用平方损失函数</p>
 <p>
 
 $$
@@ -1084,13 +1084,13 @@ $$
 <div class="footer"><hr class="hr_bottom"><div class="multi_column"><h6 class="bottom_left">图神经网络导论</h6><h6 class="bottom_center">图神经网络</h6><h6 class="bottom_right">tengzhang@hust.edu.cn</h6></div></div>
 </section><section vertical="true" data-notes="" lineno="894" class="slide " data-line="894" data-h="13" data-v="3">
 <div class="header"><img class="hust" src=""><div class="title"><hr class="hr_top"><h5>多重关系预测</h5></div></div>
-<p>可以通过对逻辑关系的表示考察编码器的能力</p>
+<p>可以通过对逻辑关系的表示考察解码器的能力</p>
 <ul>
 <li>对称性：<span class="mathjax-exps">$(u, \tau, v) \in \Ecal \leftrightarrow (v, \tau, u) \in \Ecal$</span></li>
 <li>反对称性：<span class="mathjax-exps">$(u, \tau, v) \in \Ecal \leftrightarrow (v, \tau, u) \not \in \Ecal$</span></li>
 </ul>
 <br>
-<p>DistMult 编码器仅具有对称性，TransE 仅具有反对称性：</p>
+<p>DistMult 解码器仅具有对称性，TransE 仅具有反对称性：</p>
 <p>
 
 $$
