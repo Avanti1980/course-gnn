@@ -1,0 +1,79 @@
+digraph g {
+    graph [nodesep=0.2, ranksep=0.4]
+    rankdir=LR
+    node [shape=plaintext color="#586e75" fontname="EBG,fzlz" fontcolor="#b58900" fontsize=18]
+    edge [arrowhead=vee color="#586e75" fontname="EBG,fzlz" fontcolor="#268bd2" fontsize=14 arrowsize=0.5]
+    bgcolor="transparent"
+
+    subgraph cluster_1 {
+        color="#586e75"
+        fontcolor="#586e75"
+        style="dashed"
+        fontname="EBG,fzlz"
+        label="增强品质"
+
+        灵材
+
+        node [fontcolor="#268bd2"]
+
+        空间属性 时间属性 图属性
+    }
+
+    subgraph cluster_2 {
+        color="#586e75"
+        fontcolor="#586e75"
+        style="dashed"
+        fontname="EBG,fzlz"
+        label="设计灵阵"
+
+        丹方
+
+        node [fontcolor="#268bd2"]
+
+        卷积类 循环类 图类
+    }
+
+    subgraph cluster_3 {
+        color="#586e75"
+        fontcolor="#586e75"
+        style="dashed"
+        fontname="EBG,fzlz"
+        label="精通用法"
+
+        丹炉
+
+        node [fontcolor="#268bd2"]
+
+        半自动炼制 TensorFlow PyTorch
+    }
+
+    subgraph cluster_4 {
+        color="#586e75"
+        fontcolor="#586e75"
+        style="dashed"
+        fontname="EBG,fzlz"
+        label="氪金"
+
+        真火
+
+        node [fontcolor="#268bd2"]
+
+        炼制速度 "售 核弹厂" "租 阿里云"
+    }
+
+    subgraph cluster_5 {
+        color="#586e75"
+        fontcolor="#586e75"
+        style="dashed"
+        fontname="EBG,fzlz"
+        label="控制调节"
+
+        炼制
+
+        node [fontcolor="#268bd2"]
+
+        批量大小 随机丢弃 提早停止
+    }
+
+    灵材 -> 丹方 -> 丹炉 -> 真火 -> 炼制
+}
