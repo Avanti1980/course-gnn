@@ -5,9 +5,9 @@ digraph g {
     edge [arrowhead=vee color="#586e75" fontname="EBG,fzlz" fontcolor="#268bd2" fontsize=16 arrowsize=0.5]
     bgcolor="#fdf6e3"
 
-    图神经网络 -> {聚合, 更新}
+    图神经网络 -> {汇聚, 更新}
 
-    聚合 -> {归一化,集合聚集,邻居注意力}
+    汇聚 -> {归一化,集合汇聚,邻居注意力}
 
     更新 -> {跳连,门机制,全层拼接}
 }

@@ -30,7 +30,7 @@ presentation:
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 机器学习中的矩阵求导
+HEADER 机器学习中的矩阵求导
 
 监督学习中用梯度下降法求解 **正则化项 + 损失函数** 形式的问题
 
@@ -54,11 +54,11 @@ $$
 
 如何求$\partial \muv^\top \Sigmav^{-1} \muv / \partial \muv$、$\partial \ln |\Sigmav| / \partial \Sigmav$、$\partial \muv^\top \Sigmav^{-1} \muv / \partial \Sigmav$？
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="" -->
 
-GNN-HEADER 9 种求导情形
+HEADER 9 种求导情形
 
 <div class="fullborder column1-bold column2-bold column3-bold">
 
@@ -81,11 +81,11 @@ GNN-HEADER 9 种求导情形
 - $\partial$矩阵 /$\partial$标量
 - $\partial$向量 /$\partial$向量
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 矩阵求导的分子布局
+HEADER 矩阵求导的分子布局
 
 <span class="blue">标量对向量、矩阵的求导结果与分母转置尺寸相同</span>
 
@@ -116,11 +116,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 矩阵求导的分子布局
+HEADER 矩阵求导的分子布局
 
 向量对向量求导的定义为<span class="blue">雅可比矩阵</span> (行看分子、列看分母)
 
@@ -144,11 +144,11 @@ $$
 - 分母布局的结果均是分子布局的转置，好处是算梯度时不用做转置，坏处是链式法则的顺序要完全反过来
 - 两者结合为混合布局，算梯度时不做转置，但链式法则的顺序无固定规律，需根据矩阵尺寸仔细推敲，新手建议先学分子布局，熟练老鸟可直接混合布局
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="" -->
 
-GNN-HEADER 基本结果
+HEADER 基本结果
 
 单变量求导中<span class="blue">常量的导数为零</span>：$\partial a / \partial x = 0$，类似的这里有
 
@@ -179,11 +179,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="乘法求导就不是太显然的了" -->
 
-GNN-HEADER 基本结果
+HEADER 基本结果
 
 单变量求导中<span class="blue">乘法</span>的求导法则为$\frac{\partial (uv)}{\partial x} = \frac{\partial u}{\partial x} v + u \frac{\partial v}{\partial x}$，类似的这里有
 
@@ -205,11 +205,11 @@ $$
 
 我的批注 $\partial (\uv^\top \vv) / \partial \xv$属于<span class="yellow">$\partial$标量 /$\partial$向量</span>的情形，后面再讲
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 基本结果
+HEADER 基本结果
 
 单变量求导中有$\partial x / \partial x = 1$，类似的这里有
 
@@ -234,11 +234,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="这里可以假设l=1，借此说一下分母布局会导致链式法则顺序反过来" -->
 
-GNN-HEADER 链式法则
+HEADER 链式法则
 
 单变量求导中的<span class="blue">链式法则</span>为$\frac{\partial g(u)}{\partial x} = \frac{\partial g(u)}{\partial u} \frac{\partial u}{\partial x}$
 
@@ -261,11 +261,11 @@ $$
 
 我的批注 若$n = m = l = 1$，就退化成了单变量的链式法则
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 链式法则
+HEADER 链式法则
 
 单变量求导中的<span class="blue">链式法则</span>为$\frac{\partial g(u)}{\partial x} = \frac{\partial g(u)}{\partial u} \frac{\partial u}{\partial x}$
 
@@ -290,11 +290,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="" -->
 
-GNN-HEADER 大纲
+HEADER 大纲
 
 <div class="sparse">
 
@@ -310,11 +310,11 @@ GNN-HEADER 大纲
 
 </div>
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 向量对标量求导
+HEADER 向量对标量求导
 
 矩阵和向量的乘积是向量，若$\Av$与$\xv$无关，易知有
 
@@ -333,11 +333,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="向量的外积也是向量" -->
 
-GNN-HEADER 向量对标量求导
+HEADER 向量对标量求导
 
 向量的外积也是向量
 
@@ -363,11 +363,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="" -->
 
-GNN-HEADER 大纲
+HEADER 大纲
 
 <div class="sparse">
 
@@ -383,11 +383,11 @@ GNN-HEADER 大纲
 
 </div>
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="最常见的标量对向量求导就是二次型对向量求导，极大似然估计概率分布中对均值\mu的求导就属于此" -->
 
-GNN-HEADER 标量对向量求导
+HEADER 标量对向量求导
 
 二次型是标量，设$\Av$与$\xv$无关，易知有
 
@@ -408,11 +408,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="\uv = \vv = \xv加上A对称，就是极大似然估计概率分布中对均值\mu的求导就属于此 <br><br> \Av = \Iv可得l2正则项的导数，l2正则前面习惯加上1/2就是因为可以和2抵消掉" -->
 
-GNN-HEADER 标量对向量求导
+HEADER 标量对向量求导
 
 $$
 \begin{align*}
@@ -433,11 +433,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="这个例子可以看出，l2正则项一般用平方的形式，因为一次方求导后的形式不方便后续优化" -->
 
-GNN-HEADER 标量对向量求导
+HEADER 标量对向量求导
 
 范数也是标量，若$\av$与$\xv$无关，则
 
@@ -451,11 +451,11 @@ $$
 
 我的批注 从这个例子可以看出为何$\ell_2$正则项一般用平方的形式
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="" -->
 
-GNN-HEADER 大纲
+HEADER 大纲
 
 <div class="sparse">
 
@@ -471,11 +471,11 @@ GNN-HEADER 大纲
 
 </div>
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="注意第一项是标量乘以雅可比矩阵，第二项是列向量乘以行向量" -->
 
-GNN-HEADER 向量对向量求导
+HEADER 向量对向量求导
 
 若$\Av$与$\xv$无关，前面已得向量对标量的求导结果$\frac{\partial \Av \uv}{\partial x} = \Av \frac{\partial \uv}{\partial x}$，于是
 
@@ -499,11 +499,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 向量对向量求导
+HEADER 向量对向量求导
 
 若$\av$与$\xv$无关，结合
 
@@ -524,11 +524,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="" -->
 
-GNN-HEADER 大纲
+HEADER 大纲
 
 <div class="sparse">
 
@@ -544,11 +544,11 @@ GNN-HEADER 大纲
 
 </div>
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 矩阵对标量求导
+HEADER 矩阵对标量求导
 
 若$u = u(x)$，$\Vv = \Vv(x)$，则
 
@@ -570,11 +570,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 矩阵对标量求导
+HEADER 矩阵对标量求导
 
 $$
 \begin{align}
@@ -599,11 +599,11 @@ $$
 \end{align}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="" -->
 
-GNN-HEADER 矩阵对标量求导
+HEADER 矩阵对标量求导
 
 令乘积求导法则中的$\Vv = \Uv^{-1}$可得
 
@@ -626,11 +626,11 @@ $$
 
 我的批注 遍历$\Xv^{-1}$的下标$kl$即可得到$\Xv^{-1}$对$\Xv$每个元素$x_{ij}$的导数
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 矩阵对标量求导
+HEADER 矩阵对标量求导
 
 $$
 \begin{align*}
@@ -649,11 +649,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="" -->
 
-GNN-HEADER 矩阵对标量求导
+HEADER 矩阵对标量求导
 
 矩阵除了常规的乘积外，还有哈达玛积和克罗内克积
 
@@ -681,11 +681,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 矩阵对标量求导
+HEADER 矩阵对标量求导
 
 $$
 \begin{align*}
@@ -712,11 +712,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 矩阵对标量求导
+HEADER 矩阵对标量求导
 
 设$g(x) = a_0 + a_1 x + a_2 x^2 + \cdots$，若$\Av$为与$x$无关的方阵，记
 
@@ -745,11 +745,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="" -->
 
-GNN-HEADER 大纲
+HEADER 大纲
 
 <div class="sparse">
 
@@ -765,11 +765,11 @@ GNN-HEADER 大纲
 
 </div>
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 迹对矩阵求导
+HEADER 迹对矩阵求导
 
 矩阵常见的标量函数有<span class="blue">迹</span>和<span class="blue">行列式</span>，二次型可以归为迹来处理
 
@@ -794,11 +794,11 @@ $$
 
 我的批注 由此可知<span class="blue">迹和求导的顺序可以交换</span>
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 迹对矩阵求导
+HEADER 迹对矩阵求导
 
 $$
 \begin{align*}
@@ -823,11 +823,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="" -->
 
-GNN-HEADER 迹对矩阵求导
+HEADER 迹对矩阵求导
 
 $$
 \begin{align*}
@@ -853,11 +853,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="本页最后一个式子解决了极大似然里的问题" -->
 
-GNN-HEADER 迹对矩阵求导
+HEADER 迹对矩阵求导
 
 $$
 \begin{align*}
@@ -883,11 +883,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="" -->
 
-GNN-HEADER 迹对矩阵求导
+HEADER 迹对矩阵求导
 
 $$
 \begin{align*}
@@ -907,11 +907,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 迹对矩阵求导
+HEADER 迹对矩阵求导
 
 $$
 \begin{align*}
@@ -937,11 +937,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 迹对矩阵求导
+HEADER 迹对矩阵求导
 
 $$
 \begin{align*}
@@ -967,11 +967,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="" -->
 
-GNN-HEADER 迹对矩阵求导
+HEADER 迹对矩阵求导
 
 $$
 \begin{align*}
@@ -990,11 +990,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 迹对矩阵求导
+HEADER 迹对矩阵求导
 
 $$
 \begin{align*}
@@ -1019,11 +1019,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 迹对矩阵求导
+HEADER 迹对矩阵求导
 
 $$
 \begin{align*}
@@ -1037,11 +1037,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 迹对矩阵求导
+HEADER 迹对矩阵求导
 
 $$
 \begin{align*}
@@ -1061,11 +1061,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide data-notes="" -->
 
-GNN-HEADER 行列式对矩阵求导
+HEADER 行列式对矩阵求导
 
 设$\Xv \in \Rbb^{m \times n}, \Av \in \Rbb^{l \times m}, \Bv \in \Rbb^{n \times l}, \Yv = \Av \Xv \Bv \in \Rbb^{l \times l}$，$\Av$、$\Bv$与$\Xv$无关
 
@@ -1093,11 +1093,11 @@ $$
 
 其中$\Yv^*$是$\Yv$的<span class="blue">伴随矩阵</span> (adjugate matrix)
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 行列式对矩阵求导
+HEADER 行列式对矩阵求导
 
 设$\Xv \in \Rbb^{m \times n}, \Av \in \Rbb^{l \times m}, \Bv \in \Rbb^{n \times l}, \Yv = \Av \Xv \Bv \in \Rbb^{l \times l}$，$\Av$、$\Bv$与$\Xv$无关
 
@@ -1124,11 +1124,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="最后一个例子解决了极大似然里的ln sigma对sigma求导的问题" -->
 
-GNN-HEADER 行列式对矩阵求导
+HEADER 行列式对矩阵求导
 
 设$\Xv \in \Rbb^{m \times n}, \Av \in \Rbb^{l \times m}, \Bv \in \Rbb^{n \times l}, \Yv = \Av \Xv \Bv \in \Rbb^{l \times l}$，$\Av$、$\Bv$与$\Xv$无关
 
@@ -1156,11 +1156,11 @@ $$
 
 若$a$与$\Xv$无关，则$\frac{\partial \ln |a \Xv|}{\partial \Xv} = \frac{\partial \ln a^m |\Xv|}{\partial \Xv} = \frac{\partial \ln |\Xv|}{\partial \Xv} = \frac{1}{|\Xv|} \frac{\partial |\Xv|}{\partial \Xv} = \frac{\Xv^*}{|\Xv|} = \Xv^{-1}$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 行列式对矩阵求导
+HEADER 行列式对矩阵求导
 
 设$\Xv \in \Rbb^{m \times n}, \Av \in \Rbb^{m \times m}, \Yv = \Xv^\top \Av \Xv \in \Rbb^{n \times n}$可逆，$\Av$与$\Xv$无关，易知
 
@@ -1183,11 +1183,11 @@ $$
 \end{align*}
 $$
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
 
 <!-- slide vertical=true data-notes="" -->
 
-GNN-HEADER 行列式对矩阵求导
+HEADER 行列式对矩阵求导
 
 如果$\Av$对称，则
 
@@ -1215,4 +1215,4 @@ $$
 
 其中$\Xv^\dagger$是$\Xv$的<span class="blue">伪逆</span> (pseudoinverse)
 
-GNN-FOOTER 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
+FOOTER3 图神经网络导论 矩阵求导 tengzhang@hust.edu.cn
