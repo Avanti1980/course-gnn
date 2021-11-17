@@ -188,8 +188,6 @@ module.exports = {
       gen: "{\\mathrm {gen}}",
       rot: "{\\mathbf {rot180}}",
       up: "{\\mathbf {up}}",
-      cen: "{\\mathrm {cen}}",
-      con: "{\\mathrm {con}}",
       argmin: "{\\mathop{\\mathrm{argmin}}}",
       argmax: "{\\mathop{\\mathrm{argmax}}}",
     },
