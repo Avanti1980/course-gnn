@@ -6,8 +6,8 @@ presentation:
 ---
 
 @import "../common/css/font-awesome-4.7.0/css/font-awesome.css"
-@import "../common/css/zhangt-solarized.css"
-@import "css/GNN.css"
+@import "../common/css/style-color.css"
+@import "../common/css/margin.css"
 
 <!-- slide data-notes="" -->
 <div class="header"><img class="hust"></div>
@@ -158,8 +158,6 @@ $$
 \end{align*}
 $$
 
-<div class="bottom2"></div>
-
 单变量求导中<span class="blue">常数标量乘</span>的求导法则为$\frac{\partial (a u)}{\partial x} = a \frac{\partial u}{\partial x}$，类似的这里有
 
 $$
@@ -167,8 +165,6 @@ $$
     \frac{\partial a \uv}{\partial x} = a \frac{\partial \uv}{\partial x}, ~ \frac{\partial a u}{\partial \xv} = a \frac{\partial u}{\partial \xv}, ~ \frac{\partial a \uv}{\partial \xv} = a \frac{\partial \uv}{\partial \xv}, ~ \frac{\partial a \Uv}{\partial x} = a \frac{\partial \Uv}{\partial x}, ~ \frac{\partial a u}{\partial \Xv} = a \frac{\partial u}{\partial \Xv}
 \end{align*}
 $$
-
-<div class="bottom2"></div>
 
 单变量微积分中<span class="blue">加法</span>的求导法则为$\frac{\partial (u+v)}{\partial x} = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial x}$，类似的这里有
 
